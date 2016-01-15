@@ -1,0 +1,170 @@
+\documentclass[12pt,letterpaper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}
+\decimalpoint
+\let\cleardoublepage\clearpage
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{esint}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{anysize}
+\usepackage{anyfontsize}
+\usepackage{pdfpages}
+\usepackage{makeidx}
+\makeindex 
+\usepackage[x11names,table]{xcolor}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{bm}
+\usepackage[left=2cm,top=2cm,right=2cm,bottom=2cm]{geometry}
+\setlength{\parindent}{0cm}
+\tcbset{colback=green!5!white, colframe=gray!10!black, coltitle=green!20!black, 
+fonttitle=\bfseries, colbacktitle=white, coltext=gray!30!black}
+\addto\captionsspanish{
+  \renewcommand{\figurename}{{\bf Figura}}% 
+}
+\usepackage{epigraph}
+\usepackage{xcolor}
+
+% Colores
+\definecolor{verdep}{RGB}{50,55,55}
+\definecolor{ccap}{RGB}{10,10,10}
+\definecolor{csec}{RGB}{20,20,20}
+\definecolor{csubsec}{RGB}{30,30,30}
+
+% Nuevos comandos
+
+\usepackage{titlesec}%--
+\newcommand{\hsp}{\hspace{5pt}}
+%\titleformat{\chapter}[hang]{\huge\bfseries\color{ccap}}
+%{\color{verdep}{\vrule height 2.5cm width 1mm}\hsp{\fontsize{100}{5}\selectfont\thechapter}\hsp%
+%{\vrule height 2.5cm width 1mm}\hsp{\fontsize{30}{5}\selectfont}}{5pt}{\huge\bfseries}
+
+% \titleformat{\chapter}[hang]{\huge\bfseries\color{ccap}}
+% {\color{verdep}\hsp{\fontsize{30}{5}\selectfont Capítulo \thechapter.\\}\hsp%
+% \hsp{\fontsize{30}{5}\selectfont}}{5pt}{\huge\bfseries}
+
+% \titleformat{\section}[hang]{\normalfont\color{csec}}%
+% {\filright\large\enspace\thesection\enspace}%
+% {8pt}{\Large\bfseries\filright}%
+
+% \titleformat{\subsection}[hang]{\normalfont\color{csec}}%
+% {\filright\large\enspace\thesubsection\enspace}%
+% {8pt}{\large\bfseries\filright}%
+
+% Code
+
+\lstnewenvironment{matlab}{\lstset{frame=none,
+  backgroundcolor=\color{backcode},
+  language=Matlab,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,
+  extendedchars=true,
+  inputencoding=utf8,
+  literate=%
+  {°}{{\,\,$^\circ$\,\,}}1
+  {á}{{\'a}}1
+  {é}{{\'e}}1
+  {í}{{\'i}}1
+  {ó}{{\'o}}1
+  {ú}{{\'u}}1
+  {Á}{{\'A}}1
+  {É}{{\'E}}1
+  {Í}{{\'I}}1
+  {Ó}{{\'O}}1
+  {Ú}{{\'U}}1
+}}{}
+
+
+
+\author{Pedro Jorge De Los Santos Lara}
+
+% ======================================================================================================
+\begin{document}
+%\maketitle
+\includepdf{src/portada}
+\tableofcontents
+
+
+\makeatletter
+\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\def\@makechapterhead#1{%
+  \reset@font
+  \parindent \z@ 
+  \vspace*{15\p@}%
+  \hbox{%
+    \vbox{\hsize=2cm
+      \begin{tabular}{c}
+        \scshape \strut \@chapapp{} \\
+        \fbox{%
+          \vrule depth 10em width 0pt%
+          \vrule height 0pt depth 0pt width 2ex%
+          {\Huge  \bfseries \strut  \thechapter}%
+          \vrule height 0pt depth 0pt width 2ex%
+          }
+      \end{tabular}%
+      }%
+    \vbox{%
+      \advance\hsize by -2cm
+      \hrule\par
+      \vskip 6pt%
+      \hspace{1em}%
+      \LARGE \bfseries #1
+      }%
+    }%
+  \vskip 100\p@
+}
+\def\@makeschapterhead#1{%
+  \reset@font
+  \parindent \z@ 
+  \vspace*{10\p@}%
+ \hbox{%
+    \vbox{\hsize=3cm
+      \begin{tabular}{c}
+        \scshape \strut \vphantom{\@chapapp{}} \hphantom{\@chapapp{}} \\
+        \fbox{%
+          \vrule depth 5em width 0pt%
+          \vrule height 0pt depth 0pt width 1ex%
+          {\LARGE \bfseries \strut \hphantom{\thechapter}}%
+          \vrule height 10pt depth 0pt width 1ex%
+          }
+      \end{tabular}%
+      }%
+    \vbox{%
+      \advance\hsize by -2cm    
+      \hrule\par
+      \vskip 8pt%
+      \hspace{1em}%
+      \LARGE \bfseries #1
+      }%
+    }%
+  \vskip 100\p@
+}
+
+
+\input{src/ch1.tex}
+\input{src/ch2.tex}
+%\newpage
+% \input{src/bib.tex}
+\bibliographystyle{plain}
+\bibliography{bibs}
+
+\end{document}
+
+% chrome://settings/resetProfileSettings
