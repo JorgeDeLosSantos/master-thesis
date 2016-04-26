@@ -708,3 +708,57 @@ El método implícito requiere conocer las derivadas temporales en el paso n+1, 
 
 La simulación de estampados se caracteriza por las diversas no linealidades presentes, debidas al material, y a los contactos entre los diversos cuerpos analizados. Sin embargo, usando la integración explícita estas no linealidades pueden ser tratadas sin mayores problemas. Por ello, en la mayoría de las simulaciones de estampados suelen ser conveniente el uso de algoritmos de integración explícita.
 
+\section{Teoría de contactos}
+
+\subsection{Algoritmo de contacto superficie-superficie}
+
+El algoritmo de restricción que fue implementado está basado en el algoritmo desarrollado por 
+Taylor y Flanagan [Revisar]. Este implica un enfoque simétrico de dos pasos con un parámetro 
+de partición, $\beta$, que se establece entre la unidad positiva y negativa, donde $\beta=1$ 
+y $\beta=-1$ corresponden a tratamiento de una forma con la superficie \textit{maestra} 
+acumulando masa y fuerzas de la superficie \textit{esclava} (para $\beta = 1$) y viceversa 
+(para $\beta = -1$).\\
+
+En este enfoque de restricción las aceleraciones, velocidades y desplazamientos se actualizan 
+primero a una configuración de prueba sin tener en cuenta las interacciones. Después de la 
+actualización, una fuerza de penetración es calculada para el nodo esclavo como una función 
+de la distancia de penetración $\Delta L$:
+
+$$
+mathbf{\f_p} = \frac{m_s \Delta L}{\Delta t^2}\mathbf{n},
+$$
+
+Donde $\mathbf{n}$ es el vector normal a la superficie maestra.\\
+
+Se desea que la respuesta de la componente normal del vector de aceleración del nodo esclavo, 
+$\mathbf{a_s}$, de un nodo esclavo residiendo en un segmento maestro $k$ sea consistente con 
+el movimiento del segmento maestro en su porción de contacto $(s_c,t_c)$, por ejemplo:
+
+$$
+a_s = \phi_1 (s_c,t_c) a_{nk}^1 + \phi_2 (s_c,t_c) a_{nk}^2 + \phi_3 (s_c,t_c) a_{nk}^3 + \phi_4 (s_c,t_c) a_{nk}^4
+$$
+
+Para cada nodo esclavo en contacto y penetrando a través de la superficie maestra en 
+su configuración de prueba, su masa nodal y fuerza de penetración dadas por la ecuación 
+[REVISAR (Poner aquí referencia)] es acumulada a una masa y vector de fuerza global de 
+la superficie maestra.
+
+$$
+\left(
+m_k + \sum_s m_{ks}
+\right)
+\mathbf{a_{nk}}
+=
+\sum_s \mathbf{f_{ks}}
+$$
+
+donde:
+
+$$
+m_{ks} = \phi_k m_s
+$$
+
+$$
+\mathbf{f_{ks}} = \phi{k} \mathbf{f_s}
+$$
+
