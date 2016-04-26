@@ -725,7 +725,7 @@ actualización, una fuerza de penetración es calculada para el nodo esclavo com
 de la distancia de penetración $\Delta L$:
 
 $$
-mathbf{\f_p} = \frac{m_s \Delta L}{\Delta t^2}\mathbf{n},
+\mathbf{\f_p} = \frac{m_s \Delta L}{\Delta t^2}\mathbf{n},
 $$
 
 Donde $\mathbf{n}$ es el vector normal a la superficie maestra.\\
@@ -761,4 +761,26 @@ $$
 $$
 \mathbf{f_{ks}} = \phi{k} \mathbf{f_s}
 $$
+
+Después de resolver la ecuación [REVISAR] para el vector de aceleración, $\mathbf{a_{nk}}$, podemos 
+obtener la corrección de aceleración para el nodo esclavo como:
+
+$$
+\mathbf{a_{ns}} = \mathbf{a_s} - \frac{f_p}{m_s}
+$$
+
+El proceso anterior es repetido después de invertir las definiciones de \textit{maestro-esclavo}. 
+En el paso final la corrección final promediada al vector de aceleración es encontrada:
+
+$$
+\mathbf{a_n^{final}} = \frac{1}{2} (1-\beta) \mathbf{a_n^{1st pass}} + 
+\frac{1}{2} (1-\beta) \mathbf{a_n^{2nd pass}} 
+$$
+
+Y se usa para calcular la aceleración final en el tiempo $n+1$
+
+$$
+\mathbf{a^{n+1}} = \mathbf{a^{trial} + a_n^{final}}
+$$
+
 
