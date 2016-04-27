@@ -780,7 +780,108 @@ $$
 Y se usa para calcular la aceleración final en el tiempo $n+1$
 
 $$
-\mathbf{a^{n+1}} = \mathbf{a^{trial} + a_n^{final}}
+\mathbf{a}^{n+1} = \mathbf{a}^{prueba} + \mathbf{a}_n^{final}
 $$
+
+La fricción resiste la velocidad tangencial relativa del nodo esclavo con respecto a 
+la superficie maestra. Esta velocidad relativa se expresa como:
+
+$$
+\mathbf{v_r} = \mathbf{v_s} - 
+\left(
+\phi_1 \mathbf{v}_k^1 + \phi_2 \mathbf{v}_k^2 + \phi_3 \mathbf{v}_k^3 + \phi_4 \mathbf{v}_k^4
+\right)
+$$
+
+la componente normal de la velocidad al segmento maestro:
+
+$$
+\mathbf{v_t} = \mathbf{v_r} - (\mathbf{n} \cdot \mathbf{v_r}) \mathbf{n}
+$$
+
+Una fuerza tangencial de prueba es calculada que cancelará la velocidad tangencial:
+
+$$
+\mathbf{f^{\ast}} = \frac{m_s v_t}{\Delta t}
+$$
+
+Donde $v_t$ es la magnitud del vector de velocidad tangencial.
+
+$$
+v_t = \sqrt{\mathbf{v}_t \cdot \mathbf{v}_t}
+$$
+
+La magnitud de la fuerza tangencial es limitada por la magnitud del producto de la constante de fricción 
+de Coulomb con la fuerza normal definido como:
+
+$$
+f_n = m_s \mathbf{a}_{ns} \cdot \mathbf{n}
+$$
+
+La fuerza limitada es, por lo tanto:
+
+$$
+F_y = m |\mathbf{f}_n|
+$$
+
+y 
+
+$$
+\mathbf{f}^{n+1} = \mathbf{f^{\ast}} \,\,\, if \,\,\, |\mathbf{f^{\ast}}| = F_y
+$$
+
+$$
+\mathbf{f}^{n+1} = \frac{F_y \mathbf{f^{\ast}}}{|\mathbf{f^{\ast}}|} \,\,\, if \,\,\, |\mathbf{f^{\ast}}| > F_y
+$$
+
+Por lo tanto, usando las ecuaciones anteriores la modificiación a la componente de  aceleración tangencial 
+del nodo esclavo está dado por:
+
+$$
+\mathbf{a_t} = min\left( \mu \mathbf{a_{nt}} \cdot \mathbf{n} , \frac{|\mathbf{v_s}|}{\Delta t} \right)
+$$
+
+el cual debe actuar en la dirección del vector tangencial definido como:
+
+$$
+\mathbf{n_t} = \frac{\mathbf{v_t}}{v_t}
+$$
+
+Las correcciones a las componentes de aceleración del nodo esclavo y maestro son: 
+
+$$
+a_{ts} = a_{t} \mathbf{n_t}
+$$
+
+$$
+\mathbf{a_{tk}} = - \phi_k \frac{a_s m_s}{m_k} \mathbf{n_t}
+$$
+
+El proceso anterior se repite después de invertir la definición de esclavo y maestro. En el 
+paso final la corrección final promediada al vector de aceleración está dada por:
+
+
+$$
+\mathbf{a}_t^{final} = \frac{1}{2} \left( 1-\beta \right) \mathbf{a}_t^{1st pass}  + 
+\frac{1}{2} \left( 1 + \beta \right) \mathbf{a}_t^{2nd pass} 
+$$
+
+y es usado para calcular la aceleración final en el tiempo $n+1$: 
+
+$$
+\mathbf{a}^{n+1} = \mathbf{a}^{prueba}  +  \mathbf{a}_n^{final} + \mathbf{a}_t^{final}
+$$
+
+Una desventaja significativa del método de restricción respecto al método de penalización 
+aparece si un nodo de interfaz está sujeto a una restricción adicional como puntos de 
+soldadura, ecuaciones de restricción y cuerpos rígidos. Los cuerpos rígidos pueden 
+ser usados con estos algoritmos de contacto si sus movimientos están prescritos como 
+en el caso de los procesos de estampado. Para la mayoría de los casos que involucran 
+cuerpos rígidos, las ecuaciones anteriores no son directamente aplicables ya que las 
+masas nodales locales de los nodos de cuerpos rígidos son usualmente insignificantes. 
+Someter los dos lados de una superficie \textit{shell} 
+
+
+
 
 
