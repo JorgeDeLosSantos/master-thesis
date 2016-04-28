@@ -88,7 +88,7 @@ Donde $z$ representa la dirección perpendicular al plano de la placa mostrada e
 y los componentes de esfuerzo no varían a través del espesor de la placa.
 
 \begin{center}
-\includegraphics[scale=0.35]{src/plane_stress.png}
+\includegraphics[scale=0.35]{src/ch2/plane_stress.png}
 \captionof{figure}{Esfuerzo plano}
 \label{fig:fg1}
 \end{center}
@@ -243,7 +243,7 @@ Con,
 \end{equation}
 
 \begin{center}
-\includegraphics[scale=0.55]{src/plane_strain.png}
+\includegraphics[scale=0.55]{src/ch2/plane_strain.png}
 \captionof{figure}{Deformación plana}
 \label{fig:fg2}
 \end{center}
@@ -412,7 +412,7 @@ aplicados. Entonces, las ecuaciones de equilibrio externo pueden establecerse co
 \end{eqnarray}
 
 \begin{center}
-\includegraphics[scale]{src/equillibrium_force.png}
+\includegraphics[scale]{src/ch2/equillibrium_force.png}
 \captionof{figure}{Fuerzas de equilibrio externo}
 \label{fig:externalforces}
 \end{center}
@@ -447,7 +447,7 @@ momentos en el sólido, derivan en las siguientes relaciones:
 \end{equation}
 
 \begin{center}
-\includegraphics[scale]{src/internal_force.png}
+\includegraphics[scale]{src/ch2/internal_force.png}
 \captionof{figure}{Fuerzas de equilibrio interno}
 \label{fig:internalforces}
 \end{center}
@@ -710,14 +710,89 @@ La simulación de estampados se caracteriza por las diversas no linealidades pre
 
 \section{Teoría de contactos}
 
+\subsection{Introducción}
+
+Considere el movimiento dependiente del tiempo de dos cuerpos ocupando las regiones $B^1$ y $B^2$ 
+en su configuración deformada en el tiempo cero. Asuma que la intersección
+
+$$
+B^1 \cap B^2 = \emptyset
+$$
+
+es satisfecha. Sean $\partial B^1$ y $\partial B^1$ quienes denotan las fronteras de $B^1$ y $B^2$ 
+respectivamente. En un tiempo posterior, estos cuerpos ocupan las regiones $b^1$ y $b^2$ delimitadas 
+por $\partial b^1$ y $\partial b^2$ como se muestra en la figura \ref{fig:refanddef}. Debido a que la 
+configuración deformada no puede penetrar:
+
+$$
+\left( b^1 - \partial b^1 \right) \cap b^2 = \emptyset
+$$
+
+Mientras $\left( \partial b^1 \cap \partial b^2 \right) = \emptyset$, las ecuaciones de movimiento 
+permanecen desacopladas. En las anteriores y siguientes ecuaciones, el superíndice derecho $\alpha$ 
+$(=1,2)$ denota el cuerpo al cual la cantidad hace referencia.
+
+\begin{center}
+\includegraphics[scale=0.6]{src/ch2/ref_and_def.png}
+\captionof{figure}{Configuración de referencia y deformada}
+\label{fig:refanddef}
+\end{center}
+
+Antes de dar una descripción detallada de la teoría de contactos, algunos cuestiones adicionales 
+referentes a la terminología deben ser agregadas. Las superficies $\partial b^1$ y $\partial b^2$ 
+de los cuerpos discretizados $b^1$ y $b^2$ vienen a ser las superficies \textit{maestra} 
+y \textit{esclava}, respectivamente. La selección de las superficies maestra y esclava es 
+arbitraria cuando el tratamiento simétrico de penalización es utilizado. De lo contrario, 
+la superficie de malla más \textit{burda} debe ser elegida como maestra a menos que 
+exista una gran diferencia en las densidades de masa, en cuyo caso se recomienda definir 
+como superficie maestra al del material con mayor densidad de masa. Los puntos nodales 
+que definen $\partial b^1$ son llamados nodos maestros y los nodos que definen $\partial b^2$ 
+son llamados nodos esclavos. Cuando $\left( \partial b^1 \cap \partial b^2 \right) \neq \emptyset$, 
+las restricciones son impuestas para prevenir la penetración. Los superíndices derechos se 
+utilizan cuando una variable se refiere tanto a la superficie maestra $\partial b^1$ o 
+a la sueperficie esclava $\partial b^2$, consecuentemente estos superíndices se descartan 
+en el desarrollo siguiente.
+
+\subsection{\textit{Slave search}}
+
+Esta búsqueda encuentra para cada nodo esclavo su punto más cercano en la superficie maestra. 
+Las líneas dibujadas de un nodo esclavo a sus puntos más cercanos serán perpendiculares a la 
+superficie maestra, a menos que el punto se encuentre en la intersección de dos segmentos 
+maestros, donde un segmento está definido a ser un elemento de superficie de 3 o 4 nodos.\\
+
+Considere un nodo esclavo, $n_s$, deslizándose en una superficie maestra suave a tramos y 
+asuma que una búsqueda de la superficie maestra ha encontrado el nodo maestro, $m_s$, 
+situado cerca de $n_s$. La figura \ref{fig:slave_search} representa una porción 
+de una superficie maestra con nodos referenciados como $m_s$ y $n_s$. Si $m_s$ 
+y $n_s$ no coinciden, para $n_s$ por lo general se puede demostrar que se encuentra 
+en un segmento $s_1$  mediante el siguiente test:
+
+\begin{equation}
+(\mathbf{c_i} x \mathbf{s}) \cdot (\mathbf{c_i} x \mathbf{c_{i+1}}) > 0
+\end{equation}
+
+\begin{equation}
+(\mathbf{c_i} x \mathbf{s}) \cdot (\mathbf{s} x \mathbf{c_{i+1}}) > 0
+\end{equation}
+
+donde el vector $\mathbf{c_i}$ y $\mathbf{c_{i+1}}$
+
+\begin{center}
+\includegraphics[scale=0.6]{src/ch2/slave_search.png}
+\captionof{figure}{Slave search}
+\label{fig:slave_search}
+\end{center}
+
+
+
+
 \subsection{Algoritmo de contacto superficie-superficie}
 
-El algoritmo de restricción que fue implementado está basado en el algoritmo desarrollado por 
-Taylor y Flanagan [Revisar]. Este implica un enfoque simétrico de dos pasos con un parámetro 
+Este implica un enfoque simétrico de dos pasos con un parámetro 
 de partición, $\beta$, que se establece entre la unidad positiva y negativa, donde $\beta=1$ 
 y $\beta=-1$ corresponden a tratamiento de una forma con la superficie \textit{maestra} 
 acumulando masa y fuerzas de la superficie \textit{esclava} (para $\beta = 1$) y viceversa 
-(para $\beta = -1$).\\
+(para $\beta = -1$). ~\cite{lsdyna-manual} \\ 
 
 En este enfoque de restricción las aceleraciones, velocidades y desplazamientos se actualizan 
 primero a una configuración de prueba sin tener en cuenta las interacciones. Después de la 
@@ -838,7 +913,7 @@ Por lo tanto, usando las ecuaciones anteriores la modificiación a la componente
 del nodo esclavo está dado por:
 
 $$
-\mathbf{a_t} = min\left( \mu \mathbf{a_{nt}} \cdot \mathbf{n} , \frac{|\mathbf{v_s}|}{\Delta t} \right)
+\mathbf{a_t} = \min\left( \mu \mathbf{a_{nt}} \cdot \mathbf{n} , \frac{|\mathbf{v_s}|}{\Delta t} \right)
 $$
 
 el cual debe actuar en la dirección del vector tangencial definido como:
@@ -879,9 +954,14 @@ ser usados con estos algoritmos de contacto si sus movimientos están prescritos
 en el caso de los procesos de estampado. Para la mayoría de los casos que involucran 
 cuerpos rígidos, las ecuaciones anteriores no son directamente aplicables ya que las 
 masas nodales locales de los nodos de cuerpos rígidos son usualmente insignificantes. 
-Someter los dos lados de una superficie \textit{shell} 
+Someter los dos lados de una superficie \textit{shell} a este algoritmo de contacto 
+también dará lugar a resultados erróneos, ya que un nodo de interfaz no puede 
+ser restringido a moverse simultáneamente en dos superficies mutuamente independientes.
 
-
-
+La mayor ventaja del algoritmo de restricción es que los nodos de interfaz permanecen 
+muy cerca de las superficies con las cuales están en contacto. Además, las vibraciones 
+elásticas que pueden ocurrir en las formulaciones de penalización son insignificantes 
+con la técnica de restricción, evitando además la necesidad de encontrar una constante 
+adecuada de penalización.
 
 
