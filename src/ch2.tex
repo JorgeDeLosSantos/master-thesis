@@ -1,4 +1,77 @@
+% Lo que debería contener este capítulo
+% 
+% Procesos de estampado
+% Propiedades de materiales (Elasticidad / Plasticidad)
+% Modelos constitutivos
+% Método del elemento finito
+% Teoría de contactos
+% 
+
 \chapter{Marco teórico}
+
+\section{Procesos de estampado}
+
+Se define con el término \textit{estampado} aquel conjunto de operaciones con las cuales, 
+sin producir virutas, sometemos una chapa plana a una o más transformaciones, con el fin 
+de obtener una pieza poseyendo forma geométrica propia, sea ésta plana o hueca. En otros 
+términos, la chapa es sometida a una elaboración plástica. La realización práctica de estas 
+operaciones se logra mediante dispositivos especiales llamados matrices o estampas y 
+aplicados, según sus fines, sobre máquinas denominadas corrientemente prensas. Las 
+piezas de forma geométrica complicada e irregular, pero que tienen la característica de estar 
+constituidas de un material de espesor casi uniforme, pueden obtenerse mediante una sucesión 
+de estampados. Las operaciones del estampado de la chapa normalmente se subdividen en: 
+~\cite{rossi1979}
+
+\begin{itemize}
+\item Cortar
+\item Doblar y curvar
+\item Embutir
+\end{itemize}
+
+Estas operaciones se realizan con matrices montadas en máquinas dotadas de movimiento 
+rectilíneo alternativo.
+
+\subsubsection{Ciclos de estampado}
+
+Para obtener una pieza acabada de chapa, a veces basta con recurrir a una sola de estas 
+operaciones y, de un modo particular, a la primera.\\
+
+Pero no siempre es posible alcanzar este objetivo con una sola fase de trabajo, 
+normalmente y según la necesidad se requiere implementar el proceso en 
+dos o más fases.\\
+
+El ciclo de estampado, que consiste en una sucesión ordenada de operaciones tecnológicas 
+que transforman parte de una chapa plana en una pieza de forma definida, depende de 
+diversos factores:
+
+\begin{enumerate}
+\item De la forma de la pieza a obtener
+\item De sus dimensiones
+\item De la calidad del material que constituye la chapa que se va a trabajar
+\end{enumerate}
+
+\subsubsection{Doblado}
+
+Para las operaciones de doblar en general, es necesario tener en cuenta los siguientes factores: 
+el radio de curvatura y la elasticidad del material. A ser posible, deben evitarse los cantos 
+vivos; para este propósito se aconseja fijar los radios de curvatura interiores, iguales o 
+mayores que el espesor de la chapa a doblar, con el fin de no estirar excesivamente la fibra 
+exterior y para garantizar un doblado sin rotura. Estos radios de curvatura se consideran 
+normalmente: 
+
+\begin{itemize}
+\item De 1 a 2 veces el espesor, para materiales dulces.
+\item De 3 a 4 veces el espesor, para materiales más duros.
+\end{itemize}
+
+Una vez se concluye la operación de doblado, normalmente la pieza tiende a volver 
+a su forma primitiva en una proporción que depende de las características del 
+material, este fenómeno se conoce como recuperación elástica o \textit{springback}. 
+Por lo cual es común que los herramentales se desarrollen para un ángulo de doblado 
+más acentuado que el requerido, para que después de la recuperación elástica 
+se obtenga la forma deseada.
+
+
 
 \section{Mecánica de sólidos}
 
@@ -962,5 +1035,7 @@ muy cerca de las superficies con las cuales están en contacto. Además, las vib
 elásticas que pueden ocurrir en las formulaciones de penalización son insignificantes 
 con la técnica de restricción, evitando además la necesidad de encontrar una constante 
 adecuada de penalización.
+
+
 
 
