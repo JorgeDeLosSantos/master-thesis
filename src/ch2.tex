@@ -6,70 +6,106 @@
 % Método del elemento finito
 % Teoría de contactos
 % 
-
 \chapter{Marco teórico}
 
-\section{Procesos de estampado}
+\section{Procesos de formado}
 
-Se define con el término \textit{estampado} aquel conjunto de operaciones con las cuales, 
-sin producir virutas, sometemos una chapa plana a una o más transformaciones, con el fin 
-de obtener una pieza poseyendo forma geométrica propia, sea ésta plana o hueca. En otros 
-términos, la chapa es sometida a una elaboración plástica. La realización práctica de estas 
-operaciones se logra mediante dispositivos especiales llamados matrices o estampas y 
-aplicados, según sus fines, sobre máquinas denominadas corrientemente prensas. Las 
-piezas de forma geométrica complicada e irregular, pero que tienen la característica de estar 
-constituidas de un material de espesor casi uniforme, pueden obtenerse mediante una sucesión 
-de estampados. Las operaciones del estampado de la chapa normalmente se subdividen en: 
-~\cite{rossi1979}
+El formado de metales incluye varios procesos de manufactura en los cuales se usa la deformación 
+plástica para cambiar la forma de las piezas metálicas. La deformación es el resultado del uso de 
+una herramienta que generalmente es un troquel para formar metales, mediante el cual se aplican 
+esfuerzos que exceden la resistencia a la fluencia, induciendo una deformación plástica 
+~\cite{groover2007}\\.
 
-\begin{itemize}
-\item Cortar
-\item Doblar y curvar
-\item Embutir
-\end{itemize}
+Normalmente, se aplica un esfuerzo de compresión para deformar plásticamente el metal, no obstante, 
+algunos procesos de formado estiran, cortan o doblan el metal. Para que un metal sea adecuado 
+como materia prima en un proceso de formado, este debe poseer ciertas propiedades mecánicas, 
+tales como una baja resistencia a la fluencia y alta ductilidad, para facilitar la deformación 
+plástica. Además, debe tenerse en cuenta el factor de la temperatura, mismo que determina 
+la clasificación de trabajo en frío y caliente (referente a la temperatura de cristalización). 
+También la velocidad de formación y el fenómeno de fricción entre la pieza metálica y el herramental 
+son factores adicionales que afectan el desempeño del formado de metales.\\
 
-Estas operaciones se realizan con matrices montadas en máquinas dotadas de movimiento 
-rectilíneo alternativo.
+\subsection{Tipos de formado}
 
-\subsubsection{Ciclos de estampado}
+Los procesos de formado se pueden clasificar en dos categoría generales, a saber: procesos de 
+deformación volumétrica y procesos de trabajo de láminas metálicas.~\cite{groover2007}\\
 
-Para obtener una pieza acabada de chapa, a veces basta con recurrir a una sola de estas 
-operaciones y, de un modo particular, a la primera.\\
+Los \textbf{procesos de deformación volumétrica} se caracterizan por deformaciones significativas 
+que derivan en grandes cambios de forma, y la relación entre el área superficial y el volumen 
+de trabajo es relativamente pequeña. Algunos tipos de formado que entran dentro de esta 
+clasificación son: rolado, forjado, extrusión y estirado.\\
 
-Pero no siempre es posible alcanzar este objetivo con una sola fase de trabajo, 
-normalmente y según la necesidad se requiere implementar el proceso en 
-dos o más fases.\\
+Los \textbf{procesos de trabajo de láminas metálicas} son operaciones de formado o preformado 
+de láminas, tiras y rollo de metal. La razón entre el área superficial y el volumen del material 
+inicial es alta, por lo que esta relación es un medio útil para distinguir la deformación 
+de los procesos descritos anteriormente. Estas operaciones se ejecutan siempre en frío y 
+se utiliza un herramental compuesto en la mayoría de los casos de un conjunto de formadores, 
+conocidos comúnmente como punzones y matrices en el ámbito industrial. Se pueden 
+distinguir de manera general tres tipos de operaciones que entran en esta clasificación: 
+doblado, estirado y corte.\\
 
-El ciclo de estampado, que consiste en una sucesión ordenada de operaciones tecnológicas 
-que transforman parte de una chapa plana en una pieza de forma definida, depende de 
-diversos factores:
+En este caso centraremos el interés en esta última clasificación, puesto que el proceso 
+de formado del tubo se realiza utilizando una combinación de corte-doblado.
+
+\subsection{Herramentales (troqueles)}
+
+Los herramentales utilizados en los procesos de formado (comúnmente llamados troqueles) son 
+construidos teniendo en cuenta algunos aspectos elementales, a saber ~\cite{marin2009}:
 
 \begin{enumerate}
-\item De la forma de la pieza a obtener
-\item De sus dimensiones
-\item De la calidad del material que constituye la chapa que se va a trabajar
+\item Trabajo a realizar 
+\item Características de la prensa
+\item Material a troquelar
+\item Número de piezas a producir
 \end{enumerate}
 
-\subsubsection{Doblado}
+\subsubsection{Tipos de troqueles}
 
-Para las operaciones de doblar en general, es necesario tener en cuenta los siguientes factores: 
-el radio de curvatura y la elasticidad del material. A ser posible, deben evitarse los cantos 
-vivos; para este propósito se aconseja fijar los radios de curvatura interiores, iguales o 
-mayores que el espesor de la chapa a doblar, con el fin de no estirar excesivamente la fibra 
-exterior y para garantizar un doblado sin rotura. Estos radios de curvatura se consideran 
-normalmente: 
+A medida que aumentan los requerimientos del trabajo, la capacidad de las prensas, las exigencias 
+de los materiales y la necesidad de producir más y mejor, también se conciben los diseños de 
+troqueles con mayor complejidad y desarrollo. En ese sentido, los troqueles se pueden clasificar 
+en simples, compuestos y progresivos.\\
 
-\begin{itemize}
-\item De 1 a 2 veces el espesor, para materiales dulces.
-\item De 3 a 4 veces el espesor, para materiales más duros.
-\end{itemize}
+\textbf{Simples}: estos troqueles permiten realizar solamente una operación por cada golpe o 
+ciclo de la prensa, lo cual implica una bajo volumen de producción y productividad, y 
+siendo normalmente necesario el uso de más de un herramental para terminar el producto.\\
 
-Una vez se concluye la operación de doblado, normalmente la pieza tiende a volver 
-a su forma primitiva en una proporción que depende de las características del 
-material, este fenómeno se conoce como recuperación elástica o \textit{springback}. 
-Por lo cual es común que los herramentales se desarrollen para un ángulo de doblado 
-más acentuado que el requerido, para que después de la recuperación elástica 
-se obtenga la forma deseada.
+\textbf{Compuestos}: permiten aprovechar la fuerza ejercida por la prensa realizando dos 
+o más operaciones en cada golpe, agilizando el proceso y elevando en cierto punto 
+la productividad.\\
+
+\textbf{Progresivos}: son troqueles complejos y de gran desarrollo. Constan de una 
+cantidad considerable de etapas, en cada uno de ellos se modifica la lámina con una secuencia 
+establecida durante el diseño y acorde a los requerimientos del producto, de tal manera 
+que al final se obtiene una o varias piezas terminadas. Naturalmente son altamente productivos, 
+aunque su mantenimiento y operación es más compleja que en los casos anteriores.
+
+\subsubsection{Componentes de un troquel}
+
+Los componentes de un troquel varían dependiendo del tipo, pero típicamente hay elementos 
+que se encuentran en casi todos los troqueles y que cumplen con funciones específicas 
+en el proceso de formado.\\
+
+\textbf{Base superior}. Contiene en su interior todas las placas y elementos que sostienen 
+los punzones del troquel, está anclada a la prensa. Algunos elementos alojados en 
+la parte superior son: placa porta-punzones, punzones, sufrideras, postes, pisadores, resortes, 
+entre otros elementos adicionales.\\
+
+\textbf{Base inferior}. Es el elemento sobre el cual van montados todos los componentes 
+que hacen la parte de la matriz, y a su vez, está fuertemente sujeta en la bancada 
+de la prensa durante la fase de trabajo. Algunos de los elementos contenidos en 
+la base inferior son: placa  porta-matrices, guías, sufrideras, topes de avance, entre 
+otros.\\
+
+\textbf{Sufrideras}. La función básica de las placas superior e inferior de choque o sufrideras 
+consiste en absorber sobre su superficie los sucesivos golpes de los elementos en el troquel. 
+Estos impactos se producen cada vez que los punzones transforman la lámina con la matriz. Cuando 
+el punzón impacta contra el material, la resistencia que opone este es transmitida a la 
+superficie de las sufrideras sobre las que se apoyan las placas porta matriz y porta punzones. 
+Estas placas están construidas en materiales ya templados y que conservan su tenacidad y cohesión, 
+uno muy empleado es el acero SAE/AISI 1045.\\
+
+\textbf{Porta punzones}. 
 
 
 
