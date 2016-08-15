@@ -1,0 +1,115 @@
+\chapter{Metodología}
+
+\begin{center}
+\includegraphics[scale=0.75]{src/ch3/diagrama_metodologia.png}
+\captionof{figure}{Metodología del proyecto}
+\label{fig:diagrama_metodologia}
+\end{center}
+
+\section{Consideraciones generales}
+
+Para realizar el análisis por elemento finito se han tomado sólo los elementos formadores que 
+tienen influencia directa o contacto sobre el formado del tubo, quitando todos los elementos 
+del troquel adicionales. Además, los formadores se han considerado como elementos rígidos, 
+para simplificar y agilizar el análisis numérico, al permanecer sus características geométricas 
+invariables, siendo solamente el blank un sólido deformable.
+
+\section{Geometrías y partes}
+
+En ANSYS/LS-DYNA el concepto de parte es fundamental e incluye dentro de este a todos aquellos 
+elementos que comparten el tipo de material, tipo de elemento y sección. Así, es preferible que 
+cada componente o pieza se defina como una parte, aun cuando las propiedades elasto-plásticas 
+sean iguales. Por ello, para cada una de los componentes del troquel se definió un material 
+distinto (aunque con las mismas propiedades).
+
+\begin{center}
+\includegraphics[scale=0.55]{src/ch3/troquel}
+\captionof{figure}{Vista completa del troquel}
+\label{fig:all_tool}
+\end{center}
+
+\section{Modelo constitutivo}
+
+Se utilizó un modelo de tipo \textit{Piecewise Linear Plasticity}, el cual es un modelo multilineal 
+que permite utilizar una curva esfuerzo-deformación y la dependencia de la tasa de deformación 
+como datos de entrada para definir el comportamiento plástico del material. Para cuantificar 
+la tasa de deformación este modelo utiliza la relación de Cowper-Symonds.\\
+
+\begin{equation}
+\[{{\sigma }_{y}}\left( \varepsilon _{eff}^{P},\dot{\varepsilon }_{eff}^{P} \right)={{\sigma }_{y}}\left( \varepsilon _{eff}^{P} \right)\left[ 1+{{\left( \frac{\dot{\varepsilon }_{eff}^{P}}{C} \right)}^{\frac{1}{P}}} \right]\]
+\end{equation}
+
+En los componentes del troquel se utilizó un modelo rígido, para el cual sólo es necesario 
+especificar las propiedades elásticas. Los componentes rígidos, normalmente, permiten la 
+aplicación de condiciones de desplazamiento utilizando el identificador (ID) de la parte, además 
+se pueden asignar propiedades de inercia o velocidades iniciales. En este caso, no se 
+especificaron propiedades adicionales, lo cual implica que ANSYS/LS-DYNA calcule automáticamente 
+las propiedades inerciales basadas en el modelo de elemento finito.
+
+\section{Mallado}
+
+Para el mallado de la pieza de trabajo se utilizó el elemento \texttt{SOLID164} 
+(ver figura \ref{fig:solid164}, el cual es un sólido de 8 nodos, que puede ser utilizado con el modelo 
+constitutivo descrito en la sección anterior. Este elemento utiliza, por defecto, integración reducida 
+(un punto de integración), el cual tiene la ventaja de reducir el tiempo de cómputo y adiciona 
+robustez para el caso de grandes deformaciones. ~\cite{lsdyna-ansys-manual}
+
+\begin{center}
+\includegraphics[scale=0.65]{src/ch3/solid164.png}
+\captionof{figure}{Elemento SOLID164}
+\label{fig:solid164}
+\end{center}
+
+En los componentes del troquel se mallaron solamente las áreas que están en contacto directo con el 
+blank durante el proceso de formado, con la finalidad de reducir el número de elementos del modelo. 
+Se utilizaron elementos \texttt{SHELL163} para realizar el mallado. Los parámetros requeridos para 
+este elemento se indican en la tabla \ref{t1}
+
+\begin{center}
+\includegraphics[scale=0.65]{src/ch3/shell163.png}
+\captionof{figure}{Elemento SHELL163}
+\label{fig:shell163}
+\end{center}
+
+% Tabla de propiedades para elemento SHELL163
+
+\begin{table}[h]
+\centering
+\caption{Parámetros utilizados para el elemento SHELL163}
+\label{}
+\begin{tabular}{p{6cm} p{6cm}} \hline
+Parámetros & Valores \\
+\hline
+General shell formulation & Belytschko-Tsay \\
+Membrane element formulation & Belytschko-Tsay Membrane \\
+Triangular shell formulation & $C^0$ triangular shell \\
+\hline
+\end{tabular}
+\label{t1}
+\end{table}
+
+
+
+\begin{center}
+\includegraphics[scale=0.6]{src/ch3/mesh_assembly_01.png}
+\captionof{figure}{Mallado del ensamble, primer paso}
+\label{fig:mesh_assembly01}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=0.6]{src/ch3/mesh_assembly_02.png}
+\captionof{figure}{Mallado del ensamble, segundo paso}
+\label{fig:mesh_assembly02}
+\end{center}
+
+\section{Condiciones de frontera}
+
+\begin{center}
+\includegraphics[scale=0.6]{src/ch3/smooth_displacement.png}
+\captionof{figure}{Vector de tiempo desplazamiento}
+\label{fig:smooth_displacement}
+\end{center}
+
+
+
+

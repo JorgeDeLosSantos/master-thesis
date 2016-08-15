@@ -530,95 +530,94 @@ consiguiente sustitución de $\alpha = \sigma_2/\sigma_1$,
 \end{equation}
 
 
-\subsection{Ecuaciones de equilibrio}
+% \subsection{Ecuaciones de equilibrio}
 
-\subsubsection{Equilibrio externo}
+% \subsubsection{Equilibrio externo}
 
-Si un sólido está en equilibrio bajo ciertas condiciones de carga, las fuerzas reactivas y momentos desarrollados en 
-los puntos de soporte deben balancear las fuerzas y momentos externos aplicados. Haciendo referencia a la figura 
-\ref{fig:externalforces}, sean $\phi_x, \phi_y, \phi_z$ las fuerzas de cuerpo, $\Phi_x, \Phi_y, \Phi_z$ las 
-fuerzas de superficie, $P_x, P_y, P_z$ las fuerzas concentradas externas, y $Q_x, Q_y, Q_z$ los momentos externos 
-aplicados. Entonces, las ecuaciones de equilibrio externo pueden establecerse como:
+% Si un sólido está en equilibrio bajo ciertas condiciones de carga, las fuerzas reactivas y momentos desarrollados en 
+% los puntos de soporte deben balancear las fuerzas y momentos externos aplicados. Haciendo referencia a la figura 
+% \ref{fig:externalforces}, sean $\phi_x, \phi_y, \phi_z$ las fuerzas de cuerpo, $\Phi_x, \Phi_y, \Phi_z$ las 
+% fuerzas de superficie, $P_x, P_y, P_z$ las fuerzas concentradas externas, y $Q_x, Q_y, Q_z$ los momentos externos 
+% aplicados. Entonces, las ecuaciones de equilibrio externo pueden establecerse como:
 
-\begin{eqnarray}
-\int_S \Phi_x ds + \int_V \phi_x dV + \sum P_x = 0 \nonumber \\
-\int_S \Phi_y ds + \int_V \phi_y dV + \sum P_y = 0 \\
-\int_S \Phi_z ds + \int_V \phi_z dV + \sum P_z = 0 \nonumber
-\end{eqnarray}
+% \begin{eqnarray}
+% \int_S \Phi_x ds + \int_V \phi_x dV + \sum P_x = 0 \nonumber \\
+% \int_S \Phi_y ds + \int_V \phi_y dV + \sum P_y = 0 \\
+% \int_S \Phi_z ds + \int_V \phi_z dV + \sum P_z = 0 \nonumber
+% \end{eqnarray}
 
-\begin{center}
-\includegraphics[scale]{src/ch2/equillibrium_force.png}
-\captionof{figure}{Fuerzas de equilibrio externo}
-\label{fig:externalforces}
-\end{center}
+% \begin{center}
+% \includegraphics[scale]{src/ch2/equillibrium_force.png}
+% \captionof{figure}{Fuerzas de equilibrio externo}
+% \label{fig:externalforces}
+% \end{center}
 
-Para el equilibrio de momentos:
+% Para el equilibrio de momentos:
 
-\begin{eqnarray}
-\int_S (\Phi_zy - \Phi_{y}z) ds + \int_V (\phi_zy - \phi_{y}z) dV + \sum Q_x = 0 \nonumber \\
-\int_S (\Phi_x z - \Phi_z x) ds + \int_V (\phi_x z - \phi_z x) dV + \sum Q_y = 0 \\
-\int_S (\Phi_{y}x - \Phi_x y) ds + \int_V (\phi_{y}x - \phi_x y) dV + \sum Q_z = 0 \nonumber
-\end{eqnarray}
+% \begin{eqnarray}
+% \int_S (\Phi_zy - \Phi_{y}z) ds + \int_V (\phi_zy - \phi_{y}z) dV + \sum Q_x = 0 \nonumber \\
+% \int_S (\Phi_x z - \Phi_z x) ds + \int_V (\phi_x z - \phi_z x) dV + \sum Q_y = 0 \\
+% \int_S (\Phi_{y}x - \Phi_x y) ds + \int_V (\phi_{y}x - \phi_x y) dV + \sum Q_z = 0 \nonumber
+% \end{eqnarray}
 
-Donde $S$ es la superficie y $V$ el volumen del cuerpo sólido.
+% Donde $S$ es la superficie y $V$ el volumen del cuerpo sólido.
 
 
-\subsubsection{Equilibrio interno}
+% \subsubsection{Equilibrio interno}
 
-Debido a las aplicación de cargas, se desarrollan esfuerzos dentro del sólido. Si consideramos 
-un elemento de material dentro del sólido, este debería estar en equilibrio debido a esos 
-esfuerzos internos desarrollados.\\
+% Debido a las aplicación de cargas, se desarrollan esfuerzos dentro del sólido. Si consideramos 
+% un elemento de material dentro del sólido, este debería estar en equilibrio debido a esos 
+% esfuerzos internos desarrollados.\\
 
-Teoricamente, el estado de esfuerzos en cualquier punto de un cuerpo cargado está completamente definido 
-en términos de nueve componentes de esfuerzo: $\sigma_{xx}, \sigma_{yy}, \sigma_{zz}, \sigma_{xy}, \sigma_{yx}, 
-\sigma_{yz}, \sigma_{zy}, \sigma_{zx}, \sigma_{xz} $, donde los primeros tres son las componentes normales y los restantes 
-son esfuerzos cortantes. Las ecuaciones de equilibrio interno relativas a los nueve componentes de esfuerzo pueden ser 
-obtenidas considerando el equilibrio de momentos y fuerzas actuando en el volumen elemental mostrado en 
-la figura \ref{fig:internalforces}. El equilibrio de momentos alrededor de los ejes $x,y,z$, asumiendo que no existen 
-momentos en el sólido, derivan en las siguientes relaciones:
+% Teoricamente, el estado de esfuerzos en cualquier punto de un cuerpo cargado está completamente definido 
+% en términos de nueve componentes de esfuerzo: $\sigma_{xx}, \sigma_{yy}, \sigma_{zz}, \sigma_{xy}, \sigma_{yx}, 
+% \sigma_{yz}, \sigma_{zy}, \sigma_{zx}, \sigma_{xz} $, donde los primeros tres son las componentes normales y los restantes 
+% son esfuerzos cortantes. Las ecuaciones de equilibrio interno relativas a los nueve componentes de esfuerzo pueden ser 
+% obtenidas considerando el equilibrio de momentos y fuerzas actuando en el volumen elemental mostrado en 
+% la figura \ref{fig:internalforces}. El equilibrio de momentos alrededor de los ejes $x,y,z$, asumiendo que no existen 
+% momentos en el sólido, derivan en las siguientes relaciones:
 
-\begin{equation}
-\sigma_{yx} = \sigma_{xy}, \,\,\,\, \sigma_{zy} = \sigma_{yz}, \,\,\,\, \sigma_{xz} = \sigma_{zx}
-\end{equation}
+% \begin{equation}
+% \sigma_{yx} = \sigma_{xy}, \,\,\,\, \sigma_{zy} = \sigma_{yz}, \,\,\,\, \sigma_{xz} = \sigma_{zx}
+% \end{equation}
 
-\begin{center}
-\includegraphics[scale]{src/ch2/internal_force.png}
-\captionof{figure}{Fuerzas de equilibrio interno}
-\label{fig:internalforces}
-\end{center}
+% \begin{center}
+% \includegraphics[scale]{src/ch2/internal_force.png}
+% \captionof{figure}{Fuerzas de equilibrio interno}
+% \label{fig:internalforces}
+% \end{center}
 
-Estas ecuaciones muestran que el estado de esfuerzos en cualquier punto puede ser completamente definido por 
-los seis componentes $\sigma_{xx}, \sigma_{yy}, \sigma_{zz}, \sigma_{xy}, \sigma_{yz}, \sigma_{zx} $. 
-El equilibrio de fuerzas en las direcciones $x,y,z$ proporcionan las siguientes ecuaciones diferenciales de 
-equilibrio:
+% Estas ecuaciones muestran que el estado de esfuerzos en cualquier punto puede ser completamente definido por 
+% los seis componentes $\sigma_{xx}, \sigma_{yy}, \sigma_{zz}, \sigma_{xy}, \sigma_{yz}, \sigma_{zx} $. 
+% El equilibrio de fuerzas en las direcciones $x,y,z$ proporcionan las siguientes ecuaciones diferenciales de 
+% equilibrio:
 
-\begin{eqnarray}
-\frac{\partial \sigma_{xx}}{\partial x} + \frac{\partial \sigma_{xy}}{\partial y} + 
-\frac{\partial \sigma_{zx}}{\partial z} + \phi_{x} = 0 \nonumber \\
-\frac{\partial \sigma_{xy}}{\partial x} + \frac{\partial \sigma_{yy}}{\partial y} + 
-\frac{\partial \sigma_{yz}}{\partial z} + \phi_{y} = 0 \\
-\frac{\partial \sigma_{zx}}{\partial x} + \frac{\partial \sigma_{yz}}{\partial y} + 
-\frac{\partial \sigma_{zz}}{\partial z} + \phi_{z} = 0 \nonumber
-\end{eqnarray}
+% \begin{eqnarray}
+% \frac{\partial \sigma_{xx}}{\partial x} + \frac{\partial \sigma_{xy}}{\partial y} + 
+% \frac{\partial \sigma_{zx}}{\partial z} + \phi_{x} = 0 \nonumber \\
+% \frac{\partial \sigma_{xy}}{\partial x} + \frac{\partial \sigma_{yy}}{\partial y} + 
+% \frac{\partial \sigma_{yz}}{\partial z} + \phi_{y} = 0 \\
+% \frac{\partial \sigma_{zx}}{\partial x} + \frac{\partial \sigma_{yz}}{\partial y} + 
+% \frac{\partial \sigma_{zz}}{\partial z} + \phi_{z} = 0 \nonumber
+% \end{eqnarray}
 
-donde $\phi_x, \phi_y$ y $\phi_z$, son las fuerzas de cuerpo por unidad de volumen actuando a lo largo 
-de las direcciones $x,y$ y $z$, respectivamente.\\
+% donde $\phi_x, \phi_y$ y $\phi_z$, son las fuerzas de cuerpo por unidad de volumen actuando a lo largo 
+% de las direcciones $x,y$ y $z$, respectivamente.\\
 
-Para un problema bidimensional, existen solamente tres componentes de esfuerzo independientes, 
-$(\sigma_{xx},\sigma_{yy},\sigma_{xy})$ y las ecuaciones de equilibrio se reducen a:
+% Para un problema bidimensional, existen solamente tres componentes de esfuerzo independientes, 
+% $(\sigma_{xx},\sigma_{yy},\sigma_{xy})$ y las ecuaciones de equilibrio se reducen a:
 
-\begin{eqnarray}
-\frac{\partial \sigma_{xx}}{\partial x} + \frac{\partial \sigma_{xy}}{\partial y} + \phi_x = 0 \nonumber \\
-\frac{\partial \sigma_{xy}}{\partial x} + \frac{\partial \sigma_{yy}}{\partial y} + \phi_y = 0 
-\end{eqnarray}
+% \begin{eqnarray}
+% \frac{\partial \sigma_{xx}}{\partial x} + \frac{\partial \sigma_{xy}}{\partial y} + \phi_x = 0 \nonumber \\
+% \frac{\partial \sigma_{xy}}{\partial x} + \frac{\partial \sigma_{yy}}{\partial y} + \phi_y = 0 
+% \end{eqnarray}
 
-En problemas unidimensionales, sólo estará presente un componente de esfuerzo: $\sigma_{xx}$. Entonces, 
-las ecuaciones de equilibrio se reducen a:
+% En problemas unidimensionales, sólo estará presente un componente de esfuerzo: $\sigma_{xx}$. Entonces, 
+% las ecuaciones de equilibrio se reducen a:
 
-\begin{equation}
-\frac{\partial \sigma_{xx}}{\partial x} + \phi_x = 0
-\end{equation}
-
+% \begin{equation}
+% \frac{\partial \sigma_{xx}}{\partial x} + \phi_x = 0
+% \end{equation}
 
 \section{El método de los elementos finitos}
 
@@ -817,7 +816,6 @@ las ecuación de movimiento puede ser escrita como:
 \end{equation}
 
 
-
 \subsection{Solución implícita vs explícita}
 
 De manera más general, el sistema de ecuaciones que describe un modelo de elemento finito en un determinado tiempo, se puede escribir como:
@@ -917,8 +915,6 @@ donde el vector $\mathbf{c_i}$ y $\mathbf{c_{i+1}}$
 \captionof{figure}{Slave search}
 \label{fig:slave_search}
 \end{center}
-
-
 
 
 \subsection{Algoritmo de contacto superficie-superficie}

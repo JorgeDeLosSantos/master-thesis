@@ -32,10 +32,16 @@ fonttitle=\bfseries, colbacktitle=white, coltext=gray!30!black}
 \usepackage{xcolor}
 
 % Colores
-\definecolor{verdep}{RGB}{50,55,55}
-\definecolor{ccap}{RGB}{10,10,10}
-\definecolor{csec}{RGB}{20,20,20}
-\definecolor{csubsec}{RGB}{30,30,30}
+\definecolor{verdep}{rgb}{0.5,0.5,0.9}
+\definecolor{ccap}{rgb}{0.2,0.2,0.2}
+\definecolor{csec}{rgb}{0.4,0.4,0.4}
+\definecolor{csubsec}{rgb}{0.6,0.6,0.6}
+\definecolor{cenun}{rgb}{0.2,0.2,0.3}
+\definecolor{csol}{rgb}{0.2,0.8,0.1}
+\definecolor{backcode}{rgb}{0.95,0.95,0.99}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
 
 % Nuevos comandos
 
@@ -59,9 +65,10 @@ fonttitle=\bfseries, colbacktitle=white, coltext=gray!30!black}
 
 % Code
 
-\lstnewenvironment{matlab}{\lstset{frame=none,
+\lstnewenvironment{apdl}{\lstset{frame=single,
+  frameround=tttt,
   backgroundcolor=\color{backcode},
-  language=Matlab,
+  language={},
   aboveskip=3mm,
   belowskip=3mm,
   showstringspaces=false,
