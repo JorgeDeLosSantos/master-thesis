@@ -133,8 +133,6 @@ negativa de estos.
 \label{fig:componentes_troquel}
 \end{center}
 
-
-
 \section{Mecánica de sólidos}
 
 \subsection{Relaciones constitutivas}
@@ -628,204 +626,54 @@ En el método de elementos finitos se considera un cuerpo continuo o sólido, co
 En general, el método de los elementos finitos, consiste en formular un sistema de ecuaciones (ecuaciones de equilibrio) para el sistema continuo que ha sido discretizado, donde las incógnitas suelen ser los valores nodales de las variables de campo. Luego, se resuelve este sistema de ecuaciones, con las consideraciones correspondientes a las condiciones de frontera o valores iniciales que simplifiquen el modelo original. La siguiente ecuación muestra, en notación matricial, el sistema de ecuaciones resuelto en una formulación de elemento finito.
 
 \begin{equation}
-\bm{\left[K\right] \vec{u} = \vec{P}}
+K\,\bm{u} = \bm{P}
 \end{equation}
 
-Donde $\bm{[K]}$ es la matriz global de rigidez, $\bm{\vec{u}}$ es el vector de desplazamientos nodales y $\bm{\vec{P}}$ el vector de fuerzas nodales en el sistema.\\
+Donde $K$ es la matriz global de rigidez, $\bm{u}$ es el vector de desplazamientos nodales y $\bm{P}$ el 
+vector de fuerzas nodales en el sistema.\\
 
-Para problemas lineales, el vector $\bm{\vec{u}}$ puede ser resuelto de manera sencilla, mediante procedimientos básicos del álgebra lineal. Sin embargo, para problemas no lineales, la solución tiene que ser obtenida mediante una secuencia de pasos, en el cual cada uno de estos implica la modificación de la matriz de rigidez $\bm{[K]}$ y/o el vector global de carga $\bm{\vec{P}}$.
-
-\subsection{Análisis dinámico}
+Para problemas lineales, el vector $\bm{u}$ puede ser resuelto de manera sencilla, mediante 
+procedimientos básicos del álgebra lineal. Sin embargo, para problemas no lineales, la solución 
+tiene que ser obtenida mediante una secuencia de pasos, en el cual cada uno de estos implica la 
+modificación de la matriz de rigidez $K$ y/o el vector global de carga $\bm{P}$.\\
 
 En problemas de análisis dinámico, desplazamientos, velocidades, deformaciones, esfuerzos y cargas 
-son dependientes del tiempo. El procedimiento de solución por elemento finito implica las siguientes 
-consideraciones o pasos.\\
-
-Primeramente, como en el caso estático, se debe idealizar el sólido en módelo de elementos finitos. 
-Luego, se asume que los desplazamientos del elemento $e$ se pueden definir como:
-
-\begin{equation}\label{eq:dynec1}
-\vec{U}(x,y,z,t) = 
-\left\{ \begin{matrix}
-u(x,y,z,t) \\ v(x,y,z,t) \\ w(x,y,z,t) \\
-\end{matrix} \right\} = 
-[N(x,y,z)] \vec{Q}^{(e)}(t)
-\end{equation}
-
-Donde $\vec{U}$ es el vector de desplazamientos, $[N]$ es la matriz de funciones de forma, y $\vec{Q}_{(e)}$ 
-es el vector de desplazamientos nodales que se considera como una función del tiempo.\\
-
-Derivando las matrices de rigidez y masa características, además del vector de cargas, de la ecuación \ref{eq:dynec1} 
-se pueden expresar las deformaciones como:
+son dependientes del tiempo. Por ello deben incluirse algunos otros términos, por lo que la ecuación 
+a resolver viene dada por la expresión siguiente:
 
 \begin{equation}
-\vec{\varepsilon} = [B] \vec{Q}_^{(e)}
+M\ddot{\bm{u}} + C\dot{\bm{u}} ̇+ K\bm{u} = \bf{P}
 \end{equation}
 
-y los esfuerzos como,
+Donde $C\,\dot{u}$ representa las fuerzas viscosas, mismas que deben incluirse cuando el 
+sistema esté amortiguado artificialmente.
 
-\begin{equation}
-\vec{\sigma} = [D] \vec{\varepsilon} = [D][B] \vec{Q}^{(e)}
-\end{equation}
+% Primeramente, como en el caso estático, se debe idealizar el sólido en módelo de elementos finitos. 
+% Luego, se asume que los desplazamientos del elemento $e$ se pueden definir como:
 
-Derivando la ecuación \ref{eq:dynec1} con respecto al tiempo, el campo de velocidades puede ser obtenido: 
+% \begin{equation}\label{eq:dynec1}
+% \vec{U}(x,y,z,t) = 
+% \left\{ \begin{matrix}
+% u(x,y,z,t) \\ v(x,y,z,t) \\ w(x,y,z,t) \\
+% \end{matrix} \right\} = 
+% [N(x,y,z)] \vec{Q}^{(e)}(t)
+% \end{equation}
 
-\begin{equation}
-\dot{\vec{U}}(x,y,z,t) = [N(x,y,z)]\dot{\vec{Q}}^{(e)} (t)
-\end{equation}
+% Donde $\vec{U}$ es el vector de desplazamientos, $[N]$ es la matriz de funciones de forma, y $\vec{Q}_{(e)}$ 
+% es el vector de desplazamientos nodales que se considera como una función del tiempo.\\
 
-donde $\dot{\vec{Q}}^{(e)}$ es el vector de velocidades nodales. Para derivar las ecuaciones de movimiento de 
-una estructura, podemos usar las ecuaciones de Lagrange (\ref{eq:dynec1}) o el principio de Hamilton. Las 
-ecuaciones de Lagrange están dadas por:
+% \begin{equation}
+% [M] \ddot{\vec{Q}} + [K] \vec{Q} = \vec{P}
+% \end{equation}
 
-\begin{equation}
-\frac{d}{dt} \left\{ \frac{\partial L}{\partial \dot{Q}} \right\}- 
-\left\{ \frac{\partial L}{\partial Q} \right\} + 
-\left\{ \frac{\partial R}{\partial \dot{Q}} \right\} = \{0\}
-\end{equation}
-
-donde,
-
-\begin{equation}
-L = T - \pi_p
-\end{equation}
-
-es llamada función Lagrangiana, T es la energía cinética, $\pi_p$ es la energía potencial, $R$ es 
-la función de disipación, $Q$ es el desplazamiento nodal, y $\dot{Q}$ es la velocidad nodal.
-La energía cinética y la energía potencial de un elemento $(e)$ puede ser expresada como:
-
-\begin{equation}
-T^{(e)}	= \frac{1}{2} \iiint_{V^{(e)}} \rho \dot{\vec{U}}^T \dot{\vec{U}} dV
-\end{equation}
-
-y,
-
-\begin{equation}
-\pi_p^{(e)} = \frac{1}{2} 
-\iiint_{V^e} \vec{\varepsilon}^T \vec{\sigma} dV  - 
-\iint_{S_1^e} \vec{U}^T \vec{\Phi} dS_1  - 
-\iiint_{V^e} \vec{U}^T \vec{\Phi} dV
-\end{equation}
-
-donde $V^{(e)}$ es el volumen, $\rho$ es la densidad, $\dot{\vec{U}}$ es el vector de las velocidades del elemento $(e)$. 
-Asumiendo la existencia de fuerzas disipativas proporcionales a las velocidades relativas, la función de disipación del 
-elemento $(e)$ puede ser expresado como:
-
-\begin{equation}
-R^{(e)} = \frac{1}{2} \iiint_{V^{(e)}} \mu \dot{\vec{U}}^T \dot{\vec{U}} dV
-\end{equation}
-
-Donde $\mu$ es el coeficiente de amortiguamiento. Las expresiones para $T$, $\pi_p$ y $R$ pueden 
-ser reescritas como:
-
-\begin{equation}
-T = \sum\limits_{e=1}^{E} T^{(e)} = \frac{1}{2} \dot{\vec{Q}}^T
-\left[
-\sum\limits_{e=1}^{E} \iiint\limits_{V^{(e)}} \rho [N]^T [N] dV
-\right]
-\dot{\vec{Q}}
-\end{equation}
-
-\begin{equation}
-\pi_p = \sum\limits_{e=1}^{E} \pi_p^{(e)} = \frac{1}{2} \dot{\vec{Q}}^T
-\left[
-\sum\limits_{e=1}^{E} \iiint\limits_{V^{(e)}} [B]^T [D] [B] dV
-\right] \vec{Q} - 
-\vec{Q}^T 
-\left(
-\sum\limits_{e=1}^{E} \iint\limits_{S_1^{(e)}} [N]^T \vec{\Phi}(t) dS_1   + 
-\iiint\limits_{V^{(e)}} [N]^T \vec{\Phi}(t) dV 
-\right) -
-\vec{Q}^T \vec{P}_c (t)
-\end{equation}
-
-
-\begin{equation}
-R = \sum\limits_{e=1}^{E} R^{(e)} = \frac{1}{2} \dot{\vec{Q}}^T
-\left[
-\sum\limits_{e=1}^{E} \iiint\limits_{V^{(e)}} \mu [N]^T [N] dV 
-\right]
-\dot{\vec{Q}}
-\end{equation}
-
-Donde $\vec{Q}$ es el vector global de desplazamientos, $\dot{\vec{Q}}$ es el vector global de velocidades, 
-y $\vec{P}_c$ es el vector de fuerzas concentradas nodales en la estructura del sólido. Las matrices que 
-implican las integrales se pueden definir como:
-
-\begin{equation}
-[M^{(e)}] = \iiint\limits_{V^{(e)}} \rho [N]^T [N] dV
-\end{equation}
-
-\begin{equation}
-[K^{(e)}] = \iiint\limits_{V^{(e)}} [B]^T [D] [B] dV
-\end{equation}
-
-\begin{equation}
-[C^{(e)}] = \iiint\limits_{V^{(e)}} \mu [N]^T [N] dV
-\end{equation}
-
-\begin{equation}
-[P_s^{(e)}] = \iint\limits_{S_1^{(e)}} [N]^T \vec{\Phi} dS_1
-\end{equation}
-
-\begin{equation}
-[P_b^{(e)}] = \iint\limits_{V^{(e)}} [N]^T \vec{\Phi} dV
-\end{equation}
-
-Una vez se tienen las matrices características individuales, se deben  ensamblar las matrices globales y 
-obtener las ecuaciones totales de movimiento.
-
-\begin{equation}
-T = \frac{1}{2} \dot{\vec{Q}}^T [M] \dot{\vec{Q}}
-\end{equation}
-
-\begin{equation}
-\pi_p = \frac{1}{2} \dot{\vec{Q}}^T [K] \vec{Q} - \vec{Q}^T \vec{P}
-\end{equation}
-
-\begin{equation}
-R = \frac{1}{2} \dot{\vec{Q}}^T [C] \dot{\vec{Q}}
-\end{equation}
-
-donde, 
-
-$$
-[M] = \sum\limits_{e=1}^{E} [M^{(e)}]
-$$
-$$[K] = \sum\limits_{e=1}^{E} [K^{(e)}]$$
-$$[C] = \sum\limits_{e=1}^{E} [C^{(e)}]$$
-$$
-\vec{P}(t) = \sum\limits_{e=1}^{E} 
-\left(
-P_s^{(e)}(t) + P_b^{(e)}(t) 
-\right)
-+ P_c (t)
-$$
-
-Obtenemos la ecuación de movimiento del sólido:
-
-\begin{equation}
-[M] \ddot{\vec{Q}}(t) + [C] \dot{\vec{Q}}(t) + [K] \vec{Q} (t) = \vec{P} (t)
-\end{equation}
-
-Donde \ddot{\vec{Q}} es el vector de las aceleraciones nodales en el sistema global. Si se ignora 
-las ecuación de movimiento puede ser escrita como:
-
-\begin{equation}
-[M] \ddot{\vec{Q}} + [K] \vec{Q} = \vec{P}
-\end{equation}
+% Donde \ddot{\vec{Q}} es el vector de las aceleraciones nodales en el sistema global. Si se ignora 
+% las ecuación de movimiento puede ser escrita como:
 
 
 \subsection{Solución implícita vs explícita}
 
-De manera más general, el sistema de ecuaciones que describe un modelo de elemento finito en un determinado tiempo, se puede escribir como:
-
-\begin{equation}
-M\ddot{u} + C\dot{u} ̇+ f_{int} = f_{ext}
-\end{equation}
-
-Donde $C\dot{u}$ representa las fuerzas viscosas, mismas que deben incluirse cuando el sistema esté amortiguado artificialmente.\\ 
 Existen, de manera general, dos tipos de métodos para resolver ecuaciones diferenciales  en problemas dependientes del tiempo: integración implícita e integración explícita. El método implícito de integración en el tiempo puede ser expresado como:
+~\cite{nielsen1997}
 
 \begin{equation}
 u_{n+1}=f(\dot{u}_{n+1},\ddot{u}_{n+1},u_n,\dot{u}_n,…)
@@ -841,258 +689,262 @@ El método implícito requiere conocer las derivadas temporales en el paso n+1, 
 
 La simulación de estampados se caracteriza por las diversas no linealidades presentes, debidas al material, y a los contactos entre los diversos cuerpos analizados. Sin embargo, usando la integración explícita estas no linealidades pueden ser tratadas sin mayores problemas. Por ello, en la mayoría de las simulaciones de estampados suelen ser conveniente el uso de algoritmos de integración explícita.
 
-\section{Teoría de contactos}
-
-\subsection{Introducción}
-
-Considere el movimiento dependiente del tiempo de dos cuerpos ocupando las regiones $B^1$ y $B^2$ 
-en su configuración deformada en el tiempo cero. Asuma que la intersección
-
-$$
-B^1 \cap B^2 = \emptyset
-$$
-
-es satisfecha. Sean $\partial B^1$ y $\partial B^1$ quienes denotan las fronteras de $B^1$ y $B^2$ 
-respectivamente. En un tiempo posterior, estos cuerpos ocupan las regiones $b^1$ y $b^2$ delimitadas 
-por $\partial b^1$ y $\partial b^2$ como se muestra en la figura \ref{fig:refanddef}. Debido a que la 
-configuración deformada no puede penetrar:
-
-$$
-\left( b^1 - \partial b^1 \right) \cap b^2 = \emptyset
-$$
-
-Mientras $\left( \partial b^1 \cap \partial b^2 \right) = \emptyset$, las ecuaciones de movimiento 
-permanecen desacopladas. En las anteriores y siguientes ecuaciones, el superíndice derecho $\alpha$ 
-$(=1,2)$ denota el cuerpo al cual la cantidad hace referencia.
-
-\begin{center}
-\includegraphics[scale=0.6]{src/ch2/ref_and_def.png}
-\captionof{figure}{Configuración de referencia y deformada}
-\label{fig:refanddef}
-\end{center}
-
-Antes de dar una descripción detallada de la teoría de contactos, algunos cuestiones adicionales 
-referentes a la terminología deben ser agregadas. Las superficies $\partial b^1$ y $\partial b^2$ 
-de los cuerpos discretizados $b^1$ y $b^2$ vienen a ser las superficies \textit{maestra} 
-y \textit{esclava}, respectivamente. La selección de las superficies maestra y esclava es 
-arbitraria cuando el tratamiento simétrico de penalización es utilizado. De lo contrario, 
-la superficie de malla más \textit{burda} debe ser elegida como maestra a menos que 
-exista una gran diferencia en las densidades de masa, en cuyo caso se recomienda definir 
-como superficie maestra al del material con mayor densidad de masa. Los puntos nodales 
-que definen $\partial b^1$ son llamados nodos maestros y los nodos que definen $\partial b^2$ 
-son llamados nodos esclavos. Cuando $\left( \partial b^1 \cap \partial b^2 \right) \neq \emptyset$, 
-las restricciones son impuestas para prevenir la penetración. Los superíndices derechos se 
-utilizan cuando una variable se refiere tanto a la superficie maestra $\partial b^1$ o 
-a la sueperficie esclava $\partial b^2$, consecuentemente estos superíndices se descartan 
-en el desarrollo siguiente.
-
-\subsection{\textit{Slave search}}
-
-Esta búsqueda encuentra para cada nodo esclavo su punto más cercano en la superficie maestra. 
-Las líneas dibujadas de un nodo esclavo a sus puntos más cercanos serán perpendiculares a la 
-superficie maestra, a menos que el punto se encuentre en la intersección de dos segmentos 
-maestros, donde un segmento está definido a ser un elemento de superficie de 3 o 4 nodos.\\
-
-Considere un nodo esclavo, $n_s$, deslizándose en una superficie maestra suave a tramos y 
-asuma que una búsqueda de la superficie maestra ha encontrado el nodo maestro, $m_s$, 
-situado cerca de $n_s$. La figura \ref{fig:slave_search} representa una porción 
-de una superficie maestra con nodos referenciados como $m_s$ y $n_s$. Si $m_s$ 
-y $n_s$ no coinciden, para $n_s$ por lo general se puede demostrar que se encuentra 
-en un segmento $s_1$  mediante el siguiente test:
-
-\begin{equation}
-(\mathbf{c_i} x \mathbf{s}) \cdot (\mathbf{c_i} x \mathbf{c_{i+1}}) > 0
-\end{equation}
-
-\begin{equation}
-(\mathbf{c_i} x \mathbf{s}) \cdot (\mathbf{s} x \mathbf{c_{i+1}}) > 0
-\end{equation}
-
-donde el vector $\mathbf{c_i}$ y $\mathbf{c_{i+1}}$
-
-\begin{center}
-\includegraphics[scale=0.6]{src/ch2/slave_search.png}
-\captionof{figure}{Slave search}
-\label{fig:slave_search}
-\end{center}
+\subsection{Contactos}
 
 
-\subsection{Algoritmo de contacto superficie-superficie}
 
-Este implica un enfoque simétrico de dos pasos con un parámetro 
-de partición, $\beta$, que se establece entre la unidad positiva y negativa, donde $\beta=1$ 
-y $\beta=-1$ corresponden a tratamiento de una forma con la superficie \textit{maestra} 
-acumulando masa y fuerzas de la superficie \textit{esclava} (para $\beta = 1$) y viceversa 
-(para $\beta = -1$). ~\cite{lsdyna-manual} \\ 
+% \section{Teoría de contactos}
 
-En este enfoque de restricción las aceleraciones, velocidades y desplazamientos se actualizan 
-primero a una configuración de prueba sin tener en cuenta las interacciones. Después de la 
-actualización, una fuerza de penetración es calculada para el nodo esclavo como una función 
-de la distancia de penetración $\Delta L$:
+% \subsection{Introducción}
 
-$$
-\mathbf{\f_p} = \frac{m_s \Delta L}{\Delta t^2}\mathbf{n},
-$$
+% Considere el movimiento dependiente del tiempo de dos cuerpos ocupando las regiones $B^1$ y $B^2$ 
+% en su configuración deformada en el tiempo cero. Asuma que la intersección
 
-Donde $\mathbf{n}$ es el vector normal a la superficie maestra.\\
+% $$
+% B^1 \cap B^2 = \emptyset
+% $$
 
-Se desea que la respuesta de la componente normal del vector de aceleración del nodo esclavo, 
-$\mathbf{a_s}$, de un nodo esclavo residiendo en un segmento maestro $k$ sea consistente con 
-el movimiento del segmento maestro en su porción de contacto $(s_c,t_c)$, por ejemplo:
+% es satisfecha. Sean $\partial B^1$ y $\partial B^1$ quienes denotan las fronteras de $B^1$ y $B^2$ 
+% respectivamente. En un tiempo posterior, estos cuerpos ocupan las regiones $b^1$ y $b^2$ delimitadas 
+% por $\partial b^1$ y $\partial b^2$ como se muestra en la figura \ref{fig:refanddef}. Debido a que la 
+% configuración deformada no puede penetrar:
 
-$$
-a_s = \phi_1 (s_c,t_c) a_{nk}^1 + \phi_2 (s_c,t_c) a_{nk}^2 + \phi_3 (s_c,t_c) a_{nk}^3 + \phi_4 (s_c,t_c) a_{nk}^4
-$$
+% $$
+% \left( b^1 - \partial b^1 \right) \cap b^2 = \emptyset
+% $$
 
-Para cada nodo esclavo en contacto y penetrando a través de la superficie maestra en 
-su configuración de prueba, su masa nodal y fuerza de penetración dadas por la ecuación 
-[REVISAR (Poner aquí referencia)] es acumulada a una masa y vector de fuerza global de 
-la superficie maestra.
+% Mientras $\left( \partial b^1 \cap \partial b^2 \right) = \emptyset$, las ecuaciones de movimiento 
+% permanecen desacopladas. En las anteriores y siguientes ecuaciones, el superíndice derecho $\alpha$ 
+% $(=1,2)$ denota el cuerpo al cual la cantidad hace referencia.
 
-$$
-\left(
-m_k + \sum_s m_{ks}
-\right)
-\mathbf{a_{nk}}
-=
-\sum_s \mathbf{f_{ks}}
-$$
+% \begin{center}
+% \includegraphics[scale=0.6]{src/ch2/ref_and_def.png}
+% \captionof{figure}{Configuración de referencia y deformada}
+% \label{fig:refanddef}
+% \end{center}
 
-donde:
+% Antes de dar una descripción detallada de la teoría de contactos, algunos cuestiones adicionales 
+% referentes a la terminología deben ser agregadas. Las superficies $\partial b^1$ y $\partial b^2$ 
+% de los cuerpos discretizados $b^1$ y $b^2$ vienen a ser las superficies \textit{maestra} 
+% y \textit{esclava}, respectivamente. La selección de las superficies maestra y esclava es 
+% arbitraria cuando el tratamiento simétrico de penalización es utilizado. De lo contrario, 
+% la superficie de malla más \textit{burda} debe ser elegida como maestra a menos que 
+% exista una gran diferencia en las densidades de masa, en cuyo caso se recomienda definir 
+% como superficie maestra al del material con mayor densidad de masa. Los puntos nodales 
+% que definen $\partial b^1$ son llamados nodos maestros y los nodos que definen $\partial b^2$ 
+% son llamados nodos esclavos. Cuando $\left( \partial b^1 \cap \partial b^2 \right) \neq \emptyset$, 
+% las restricciones son impuestas para prevenir la penetración. Los superíndices derechos se 
+% utilizan cuando una variable se refiere tanto a la superficie maestra $\partial b^1$ o 
+% a la sueperficie esclava $\partial b^2$, consecuentemente estos superíndices se descartan 
+% en el desarrollo siguiente.
 
-$$
-m_{ks} = \phi_k m_s
-$$
+% \subsection{\textit{Slave search}}
 
-$$
-\mathbf{f_{ks}} = \phi{k} \mathbf{f_s}
-$$
+% Esta búsqueda encuentra para cada nodo esclavo su punto más cercano en la superficie maestra. 
+% Las líneas dibujadas de un nodo esclavo a sus puntos más cercanos serán perpendiculares a la 
+% superficie maestra, a menos que el punto se encuentre en la intersección de dos segmentos 
+% maestros, donde un segmento está definido a ser un elemento de superficie de 3 o 4 nodos.\\
 
-Después de resolver la ecuación [REVISAR] para el vector de aceleración, $\mathbf{a_{nk}}$, podemos 
-obtener la corrección de aceleración para el nodo esclavo como:
+% Considere un nodo esclavo, $n_s$, deslizándose en una superficie maestra suave a tramos y 
+% asuma que una búsqueda de la superficie maestra ha encontrado el nodo maestro, $m_s$, 
+% situado cerca de $n_s$. La figura \ref{fig:slave_search} representa una porción 
+% de una superficie maestra con nodos referenciados como $m_s$ y $n_s$. Si $m_s$ 
+% y $n_s$ no coinciden, para $n_s$ por lo general se puede demostrar que se encuentra 
+% en un segmento $s_1$  mediante el siguiente test:
 
-$$
-\mathbf{a_{ns}} = \mathbf{a_s} - \frac{f_p}{m_s}
-$$
+% \begin{equation}
+% (\mathbf{c_i} x \mathbf{s}) \cdot (\mathbf{c_i} x \mathbf{c_{i+1}}) > 0
+% \end{equation}
 
-El proceso anterior es repetido después de invertir las definiciones de \textit{maestro-esclavo}. 
-En el paso final la corrección final promediada al vector de aceleración es encontrada:
+% \begin{equation}
+% (\mathbf{c_i} x \mathbf{s}) \cdot (\mathbf{s} x \mathbf{c_{i+1}}) > 0
+% \end{equation}
 
-$$
-\mathbf{a_n^{final}} = \frac{1}{2} (1-\beta) \mathbf{a_n^{1st pass}} + 
-\frac{1}{2} (1-\beta) \mathbf{a_n^{2nd pass}} 
-$$
+% donde el vector $\mathbf{c_i}$ y $\mathbf{c_{i+1}}$
 
-Y se usa para calcular la aceleración final en el tiempo $n+1$
+% \begin{center}
+% \includegraphics[scale=0.6]{src/ch2/slave_search.png}
+% \captionof{figure}{Slave search}
+% \label{fig:slave_search}
+% \end{center}
 
-$$
-\mathbf{a}^{n+1} = \mathbf{a}^{prueba} + \mathbf{a}_n^{final}
-$$
 
-La fricción resiste la velocidad tangencial relativa del nodo esclavo con respecto a 
-la superficie maestra. Esta velocidad relativa se expresa como:
+% \subsection{Algoritmo de contacto superficie-superficie}
 
-$$
-\mathbf{v_r} = \mathbf{v_s} - 
-\left(
-\phi_1 \mathbf{v}_k^1 + \phi_2 \mathbf{v}_k^2 + \phi_3 \mathbf{v}_k^3 + \phi_4 \mathbf{v}_k^4
-\right)
-$$
+% Este implica un enfoque simétrico de dos pasos con un parámetro 
+% de partición, $\beta$, que se establece entre la unidad positiva y negativa, donde $\beta=1$ 
+% y $\beta=-1$ corresponden a tratamiento de una forma con la superficie \textit{maestra} 
+% acumulando masa y fuerzas de la superficie \textit{esclava} (para $\beta = 1$) y viceversa 
+% (para $\beta = -1$). ~\cite{lsdyna-manual} \\ 
 
-la componente normal de la velocidad al segmento maestro:
+% En este enfoque de restricción las aceleraciones, velocidades y desplazamientos se actualizan 
+% primero a una configuración de prueba sin tener en cuenta las interacciones. Después de la 
+% actualización, una fuerza de penetración es calculada para el nodo esclavo como una función 
+% de la distancia de penetración $\Delta L$:
 
-$$
-\mathbf{v_t} = \mathbf{v_r} - (\mathbf{n} \cdot \mathbf{v_r}) \mathbf{n}
-$$
+% $$
+% \mathbf{\f_p} = \frac{m_s \Delta L}{\Delta t^2}\mathbf{n},
+% $$
 
-Una fuerza tangencial de prueba es calculada que cancelará la velocidad tangencial:
+% Donde $\mathbf{n}$ es el vector normal a la superficie maestra.\\
 
-$$
-\mathbf{f^{\ast}} = \frac{m_s v_t}{\Delta t}
-$$
+% Se desea que la respuesta de la componente normal del vector de aceleración del nodo esclavo, 
+% $\mathbf{a_s}$, de un nodo esclavo residiendo en un segmento maestro $k$ sea consistente con 
+% el movimiento del segmento maestro en su porción de contacto $(s_c,t_c)$, por ejemplo:
 
-Donde $v_t$ es la magnitud del vector de velocidad tangencial.
+% $$
+% a_s = \phi_1 (s_c,t_c) a_{nk}^1 + \phi_2 (s_c,t_c) a_{nk}^2 + \phi_3 (s_c,t_c) a_{nk}^3 + \phi_4 (s_c,t_c) a_{nk}^4
+% $$
 
-$$
-v_t = \sqrt{\mathbf{v}_t \cdot \mathbf{v}_t}
-$$
+% Para cada nodo esclavo en contacto y penetrando a través de la superficie maestra en 
+% su configuración de prueba, su masa nodal y fuerza de penetración dadas por la ecuación 
+% [REVISAR (Poner aquí referencia)] es acumulada a una masa y vector de fuerza global de 
+% la superficie maestra.
 
-La magnitud de la fuerza tangencial es limitada por la magnitud del producto de la constante de fricción 
-de Coulomb con la fuerza normal definido como:
+% $$
+% \left(
+% m_k + \sum_s m_{ks}
+% \right)
+% \mathbf{a_{nk}}
+% =
+% \sum_s \mathbf{f_{ks}}
+% $$
 
-$$
-f_n = m_s \mathbf{a}_{ns} \cdot \mathbf{n}
-$$
+% donde:
 
-La fuerza limitada es, por lo tanto:
+% $$
+% m_{ks} = \phi_k m_s
+% $$
 
-$$
-F_y = m |\mathbf{f}_n|
-$$
+% $$
+% \mathbf{f_{ks}} = \phi{k} \mathbf{f_s}
+% $$
 
-y 
+% Después de resolver la ecuación [REVISAR] para el vector de aceleración, $\mathbf{a_{nk}}$, podemos 
+% obtener la corrección de aceleración para el nodo esclavo como:
 
-$$
-\mathbf{f}^{n+1} = \mathbf{f^{\ast}} \,\,\, if \,\,\, |\mathbf{f^{\ast}}| = F_y
-$$
+% $$
+% \mathbf{a_{ns}} = \mathbf{a_s} - \frac{f_p}{m_s}
+% $$
 
-$$
-\mathbf{f}^{n+1} = \frac{F_y \mathbf{f^{\ast}}}{|\mathbf{f^{\ast}}|} \,\,\, if \,\,\, |\mathbf{f^{\ast}}| > F_y
-$$
+% El proceso anterior es repetido después de invertir las definiciones de \textit{maestro-esclavo}. 
+% En el paso final la corrección final promediada al vector de aceleración es encontrada:
 
-Por lo tanto, usando las ecuaciones anteriores la modificiación a la componente de  aceleración tangencial 
-del nodo esclavo está dado por:
+% $$
+% \mathbf{a_n^{final}} = \frac{1}{2} (1-\beta) \mathbf{a_n^{1st pass}} + 
+% \frac{1}{2} (1-\beta) \mathbf{a_n^{2nd pass}} 
+% $$
 
-$$
-\mathbf{a_t} = \min\left( \mu \mathbf{a_{nt}} \cdot \mathbf{n} , \frac{|\mathbf{v_s}|}{\Delta t} \right)
-$$
+% Y se usa para calcular la aceleración final en el tiempo $n+1$
 
-el cual debe actuar en la dirección del vector tangencial definido como:
+% $$
+% \mathbf{a}^{n+1} = \mathbf{a}^{prueba} + \mathbf{a}_n^{final}
+% $$
 
-$$
-\mathbf{n_t} = \frac{\mathbf{v_t}}{v_t}
-$$
+% La fricción resiste la velocidad tangencial relativa del nodo esclavo con respecto a 
+% la superficie maestra. Esta velocidad relativa se expresa como:
 
-Las correcciones a las componentes de aceleración del nodo esclavo y maestro son: 
+% $$
+% \mathbf{v_r} = \mathbf{v_s} - 
+% \left(
+% \phi_1 \mathbf{v}_k^1 + \phi_2 \mathbf{v}_k^2 + \phi_3 \mathbf{v}_k^3 + \phi_4 \mathbf{v}_k^4
+% \right)
+% $$
 
-$$
-a_{ts} = a_{t} \mathbf{n_t}
-$$
+% la componente normal de la velocidad al segmento maestro:
 
-$$
-\mathbf{a_{tk}} = - \phi_k \frac{a_s m_s}{m_k} \mathbf{n_t}
-$$
+% $$
+% \mathbf{v_t} = \mathbf{v_r} - (\mathbf{n} \cdot \mathbf{v_r}) \mathbf{n}
+% $$
 
-El proceso anterior se repite después de invertir la definición de esclavo y maestro. En el 
-paso final la corrección final promediada al vector de aceleración está dada por:
+% Una fuerza tangencial de prueba es calculada que cancelará la velocidad tangencial:
 
-$$
-\mathbf{a}_t^{final} = \frac{1}{2} \left( 1-\beta \right) \mathbf{a}_t^{1st pass}  + 
-\frac{1}{2} \left( 1 + \beta \right) \mathbf{a}_t^{2nd pass} 
-$$
+% $$
+% \mathbf{f^{\ast}} = \frac{m_s v_t}{\Delta t}
+% $$
 
-y es usado para calcular la aceleración final en el tiempo $n+1$: 
+% Donde $v_t$ es la magnitud del vector de velocidad tangencial.
 
-$$
-\mathbf{a}^{n+1} = \mathbf{a}^{prueba}  +  \mathbf{a}_n^{final} + \mathbf{a}_t^{final}
-$$
+% $$
+% v_t = \sqrt{\mathbf{v}_t \cdot \mathbf{v}_t}
+% $$
 
-Una desventaja significativa del método de restricción respecto al método de penalización 
-aparece si un nodo de interfaz está sujeto a una restricción adicional como puntos de 
-soldadura, ecuaciones de restricción y cuerpos rígidos. Los cuerpos rígidos pueden 
-ser usados con estos algoritmos de contacto si sus movimientos están prescritos como 
-en el caso de los procesos de estampado. Para la mayoría de los casos que involucran 
-cuerpos rígidos, las ecuaciones anteriores no son directamente aplicables ya que las 
-masas nodales locales de los nodos de cuerpos rígidos son usualmente insignificantes. 
-Someter los dos lados de una superficie \textit{shell} a este algoritmo de contacto 
-también dará lugar a resultados erróneos, ya que un nodo de interfaz no puede 
-ser restringido a moverse simultáneamente en dos superficies mutuamente independientes.\\
+% La magnitud de la fuerza tangencial es limitada por la magnitud del producto de la constante de fricción 
+% de Coulomb con la fuerza normal definido como:
 
-La mayor ventaja del algoritmo de restricción es que los nodos de interfaz permanecen 
-muy cerca de las superficies con las cuales están en contacto. Además, las vibraciones 
-elásticas que pueden ocurrir en las formulaciones de penalización son insignificantes 
-con la técnica de restricción, evitando además la necesidad de encontrar una constante 
-adecuada de penalización.
+% $$
+% f_n = m_s \mathbf{a}_{ns} \cdot \mathbf{n}
+% $$
+
+% La fuerza limitada es, por lo tanto:
+
+% $$
+% F_y = m |\mathbf{f}_n|
+% $$
+
+% y 
+
+% $$
+% \mathbf{f}^{n+1} = \mathbf{f^{\ast}} \,\,\, if \,\,\, |\mathbf{f^{\ast}}| = F_y
+% $$
+
+% $$
+% \mathbf{f}^{n+1} = \frac{F_y \mathbf{f^{\ast}}}{|\mathbf{f^{\ast}}|} \,\,\, if \,\,\, |\mathbf{f^{\ast}}| > F_y
+% $$
+
+% Por lo tanto, usando las ecuaciones anteriores la modificiación a la componente de  aceleración tangencial 
+% del nodo esclavo está dado por:
+
+% $$
+% \mathbf{a_t} = \min\left( \mu \mathbf{a_{nt}} \cdot \mathbf{n} , \frac{|\mathbf{v_s}|}{\Delta t} \right)
+% $$
+
+% el cual debe actuar en la dirección del vector tangencial definido como:
+
+% $$
+% \mathbf{n_t} = \frac{\mathbf{v_t}}{v_t}
+% $$
+
+% Las correcciones a las componentes de aceleración del nodo esclavo y maestro son: 
+
+% $$
+% a_{ts} = a_{t} \mathbf{n_t}
+% $$
+
+% $$
+% \mathbf{a_{tk}} = - \phi_k \frac{a_s m_s}{m_k} \mathbf{n_t}
+% $$
+
+% El proceso anterior se repite después de invertir la definición de esclavo y maestro. En el 
+% paso final la corrección final promediada al vector de aceleración está dada por:
+
+% $$
+% \mathbf{a}_t^{final} = \frac{1}{2} \left( 1-\beta \right) \mathbf{a}_t^{1st pass}  + 
+% \frac{1}{2} \left( 1 + \beta \right) \mathbf{a}_t^{2nd pass} 
+% $$
+
+% y es usado para calcular la aceleración final en el tiempo $n+1$: 
+
+% $$
+% \mathbf{a}^{n+1} = \mathbf{a}^{prueba}  +  \mathbf{a}_n^{final} + \mathbf{a}_t^{final}
+% $$
+
+% Una desventaja significativa del método de restricción respecto al método de penalización 
+% aparece si un nodo de interfaz está sujeto a una restricción adicional como puntos de 
+% soldadura, ecuaciones de restricción y cuerpos rígidos. Los cuerpos rígidos pueden 
+% ser usados con estos algoritmos de contacto si sus movimientos están prescritos como 
+% en el caso de los procesos de estampado. Para la mayoría de los casos que involucran 
+% cuerpos rígidos, las ecuaciones anteriores no son directamente aplicables ya que las 
+% masas nodales locales de los nodos de cuerpos rígidos son usualmente insignificantes. 
+% Someter los dos lados de una superficie \textit{shell} a este algoritmo de contacto 
+% también dará lugar a resultados erróneos, ya que un nodo de interfaz no puede 
+% ser restringido a moverse simultáneamente en dos superficies mutuamente independientes.\\
+
+% La mayor ventaja del algoritmo de restricción es que los nodos de interfaz permanecen 
+% muy cerca de las superficies con las cuales están en contacto. Además, las vibraciones 
+% elásticas que pueden ocurrir en las formulaciones de penalización son insignificantes 
+% con la técnica de restricción, evitando además la necesidad de encontrar una constante 
+% adecuada de penalización.
 
 
 

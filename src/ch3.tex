@@ -179,7 +179,18 @@ Triangular shell formulation & $C^0$ triangular shell \\
 En el \textit{blank} se utilizó un tamaño global de elemento de 0.03 in, y 0.035 in en el caso de las partes 
 rígidas, exceptuando las áreas que están directamente en contacto con el \textit{blank}, en cuyo caso se hizo 
 un refinamiento, dejando el tamaño global en 0.02 in. En el \textit{blank} fue necesario segmentar en cuatro 
-volúmenes, para permitir un mallado más uniforme.
+volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_seg}.
+
+
+% Partición del blank
+\begin{center}
+\includegraphics[scale=0.6]{src/ch3/blank_segmentado.png}
+\captionof{figure}{Blank segmentado en cuatro regiones}
+\label{fig:blank_seg}
+\end{center}
+
+
+% Mallado del ensamble 01
 
 \begin{center}
 \includegraphics[scale=0.6]{src/ch3/mesh_assembly_01.png}
@@ -187,6 +198,7 @@ volúmenes, para permitir un mallado más uniforme.
 \label{fig:mesh_assembly01}
 \end{center}
 
+% Mallado del ensamble 01
 \begin{center}
 \includegraphics[scale=0.6]{src/ch3/mesh_assembly_02.png}
 \captionof{figure}{Mallado del ensamble, segundo paso}
@@ -216,7 +228,7 @@ Paso 2 & 48884 & 42264 \\
 
 Para efectos de la simulación el blank fue sujetado en el punto medio, en las
 direcciones X y Z, para evitar que se desplace indebidamente y con esto ayudar
-en la convergencia de la solución.
+en la convergencia de la solución.\\
 
 Para los componentes del troquel, al ser cuerpos rígidos la mayoría de sus
 restricciones fueron consideradas en la definición del material. En el caso de los
@@ -224,7 +236,7 @@ formadores superiores, sólo se especificaron los desplazamientos en la direcci�
 vertical Y, se utilizaron arreglos unidimensionales para especificar la relación
 tiempo-desplazamiento, en todos los casos se especificó como desplazamiento de
 cuerpo rígido (RBUY), aplicándose esta condición a cada uno de los
-componentes.
+componentes.\\
 
 La relación tiempo-desplazamiento se definió utilizando una función de tipo
 smooth-step o suave por tramos, cuya forma general es $f(t) = A(Bt^2 - Ct^3)$ , donde
@@ -232,7 +244,7 @@ A, B y C son constantes a ajustar para el requerimiento de desplazamiento total,
 se caracteriza por tener un crecimiento lento al principio y final del intervalo
 especificado, con la finalidad de que esto facilite la estabilización y convergencia
 del análisis. En la Figura 7 se muestra la gráfica del tiempo-desplazamiento
-utilizado en el primer paso del troquel.
+utilizado en el primer paso del troquel.\\
 
 \begin{apdl}
 *DIM,tiempo,ARRAY,400
