@@ -159,8 +159,8 @@ este elemento se indican en la tabla \ref{tab:shell_param}
 \label{fig:shell163}
 \end{center}
 
-% Tabla de propiedades para elemento SHELL163
 
+% Tabla de propiedades para elemento SHELL163
 \begin{table}[h]
 \centering
 \caption{Parámetros utilizados para el elemento SHELL163}
@@ -171,6 +171,26 @@ Parámetros & Valores \\
 General shell formulation & Belytschko-Tsay \\
 Membrane element formulation & Belytschko-Tsay Membrane \\
 Triangular shell formulation & $C^0$ triangular shell \\
+\hline
+\end{tabular}
+\label{tab:shell_param}
+\end{table}
+
+
+% Tabla de constantes reales para elemento SHELL163
+\begin{table}[h]
+\centering
+\caption{Constantes reales para el elemento SHELL163}
+\label{}
+\begin{tabular}{p{6cm} p{3cm}} \hline
+Parámetros & Valores \\
+\hline
+Factor cortante (SHRF) & 5/6 \\
+Puntos de integración (NIP) & 1 \\
+Espesor en nodo 1 (T1) & 0.2 \\
+Espesor en nodo 2 (T2) & 0.2 \\
+Espesor en nodo 3 (T3) & 0.2 \\
+Espesor en nodo 4 (T4) & 0.2 \\
 \hline
 \end{tabular}
 \label{tab:shell_param}
@@ -226,25 +246,30 @@ Paso 2 & 48884 & 42264 \\
 % Condiciones de frontera ==================================================================
 \section{Condiciones de frontera}
 
-Para efectos de la simulación el blank fue sujetado en el punto medio, en las
-direcciones X y Z, para evitar que se desplace indebidamente y con esto ayudar
-en la convergencia de la solución.\\
+Para efectos de la simulación el blank fue sujetado en el punto medio de cada extremo, 
+en las direcciones X y Z, para evitar que se desplace de manera no deseada y con esto 
+ayudar en la convergencia de la solución.\\
 
 Para los componentes del troquel, al ser cuerpos rígidos la mayoría de sus
 restricciones fueron consideradas en la definición del material. En el caso de los
 formadores superiores, sólo se especificaron los desplazamientos en la dirección
 vertical Y, se utilizaron arreglos unidimensionales para especificar la relación
 tiempo-desplazamiento, en todos los casos se especificó como desplazamiento de
-cuerpo rígido (RBUY), aplicándose esta condición a cada uno de los
+cuerpo rígido en la dirección Y (\texttt{RBUY}), aplicándose esta condición a cada uno de los
 componentes.\\
 
 La relación tiempo-desplazamiento se definió utilizando una función de tipo
-smooth-step o suave por tramos, cuya forma general es $f(t) = A(Bt^2 - Ct^3)$ , donde
-A, B y C son constantes a ajustar para el requerimiento de desplazamiento total,
+\textit{smooth-step}, cuya forma general es $f(t) = A(Bt^2 - Ct^3)$ , donde
+$A$, $B$ y $C$ son constantes a ajustar para el requerimiento de desplazamiento total,
 se caracteriza por tener un crecimiento lento al principio y final del intervalo
-especificado, con la finalidad de que esto facilite la estabilización y convergencia
-del análisis. En la Figura 7 se muestra la gráfica del tiempo-desplazamiento
-utilizado en el primer paso del troquel.\\
+especificado, implicando una velocidad reducida de los formadores al principio y final 
+del recorrido, con la finalidad de que esto facilite la estabilización y convergencia
+del análisis.\\
+
+En la figura \ref{fig:smooth_displacement} se muestra la gráfica del tiempo-desplazamiento 
+utilizado en el primer paso del troquel. Para el segundo caso se utilizó una curva 
+similar, con algunas variaciones en las constantes para disminuir la amplitud o valor máximo.\\
+
 
 \begin{apdl}
 *DIM,tiempo,ARRAY,400
@@ -277,10 +302,12 @@ _k3 = -1.22
 \end{center}
 
 
+
+% ==================================== CONTACTOS ============================================
 \section{Contactos}
 
-En la definición de contactos se utilizó un tipo de contacto superficie-superficie
-general. (STS). El programa de simulación utiliza los coeficientes de fricción
+En la definición de contactos se utilizó un tipo de contacto superficie a superficie
+general. El programa de simulación utiliza los coeficientes de fricción 
 estático (FS) y dinámico (FD) para la formulación del coeficiente friccional ($\mu_c$),
 que viene dado por la ecuación :
 
@@ -288,7 +315,7 @@ que viene dado por la ecuación :
 \mu_c = FD + (FS - FD) e^{-DCv_{rel}}
 \end{equation}
 
-Donde DC es el coeficiente de decaimiento exponencial y $v_{rel}$ la velocidad relativa
+Donde $DC$ es el coeficiente de decaimiento exponencial y $v_{rel}$ la velocidad relativa
 entre las superficies en contacto ~\cite{lsdyna-manual}. Los valores del coeficiente de fricción estático
 y dinámico se establecieron en 0.2 y 0.1, respectivamente [REVISAR REFERENCIA A HANDBOOK DATA]. 
 En la simulación del segundo paso se utilizó el contacto de tipo Single Surface (SS) para tomar en
