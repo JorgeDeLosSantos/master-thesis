@@ -16,7 +16,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.5 r10040"
-   sodipodi:docname="doblado_u.svg"
+   sodipodi:docname="doblado_u.eps"
    inkscape:export-filename="C:\Users\User\Desktop\LABPro\master-thesis\src\ch2\doblado_u.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -2586,7 +2586,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
      inkscape:cx="92.623473"
-     inkscape:cy="176.75193"
+     inkscape:cy="233.89479"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -2610,7 +2610,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
