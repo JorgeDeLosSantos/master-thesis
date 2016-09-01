@@ -6,7 +6,9 @@
 \label{fig:diagrama_metodologia}
 \end{center}
 
-\section{Consideraciones generales}
+\section{Análisis por elementos finitos}
+
+\subsection{Consideraciones generales}
 
 Para realizar el análisis por elemento finito se han tomado sólo los elementos formadores que 
 tienen influencia directa o contacto sobre el formado del tubo, quitando todos los elementos 
@@ -14,7 +16,7 @@ del troquel adicionales. Además, los formadores se han considerado como element
 para simplificar y agilizar el análisis numérico, al permanecer sus características geométricas 
 invariables, siendo solamente el blank un sólido deformable.
 
-\section{Geometrías y partes}
+\subsection{Geometrías y partes}
 
 En ANSYS/LS-DYNA el concepto de parte es fundamental e incluye dentro de este a todos aquellos 
 elementos que comparten el tipo de material, tipo de elemento y sección. Así, es preferible que 
@@ -28,7 +30,7 @@ distinto (aunque con las mismas propiedades).
 \label{fig:all_tool}
 \end{center}
 
-\section{Modelo constitutivo}
+\subsection{Modelo constitutivo}
 
 Se utilizó un modelo de tipo \textit{Piecewise Linear Plasticity}, el cual es un modelo multilineal 
 que permite utilizar una curva esfuerzo-deformación y la dependencia de la tasa de deformación 
@@ -134,7 +136,7 @@ P & 5 \\
 \end{table}
 
 
-\section{Mallado}
+\subsection{Mallado}
 
 Para el mallado de la pieza de trabajo se utilizó el elemento \texttt{SOLID164} 
 (ver figura \ref{fig:solid164}, el cual es un sólido de 8 nodos, que puede ser utilizado con el modelo 
@@ -244,7 +246,7 @@ Paso 2 & 48884 & 42264 \\
 
 
 % Condiciones de frontera ==================================================================
-\section{Condiciones de frontera}
+\subsection{Condiciones de frontera}
 
 Para efectos de la simulación el blank fue sujetado en el punto medio de cada extremo, 
 en las direcciones X y Z, para evitar que se desplace de manera no deseada y con esto 
@@ -304,7 +306,7 @@ _k3 = -1.22
 
 
 % ==================================== CONTACTOS ============================================
-\section{Contactos}
+\subsection{Contactos}
 
 En la definición de contactos se utilizó un tipo de contacto superficie a superficie
 general. El programa de simulación utiliza los coeficientes de fricción 
@@ -321,3 +323,8 @@ y dinámico se establecieron en 0.2 y 0.1, respectivamente [REVISAR REFERENCIA A
 En la simulación del segundo paso se utilizó el contacto de tipo Single Surface (SS) para tomar en
 cuenta el contacto del blank con él mismo (cerrado del tubo) ~\cite{lsdyna-manual}, utilizando
 también los parámetros de fricción indicados anteriormente.
+
+
+\section{Análisis experimental}
+
+

@@ -76,7 +76,7 @@ en forma de V, como se muestra en la figura \ref{fig:doblado_v}. Los ángulos de
 pueden incluir una variedad de rangos.
 
 \begin{center}
-\includegraphics[scale=0.5]{src/ch2/doblado_v.eps}
+\includegraphics[scale=0.4]{src/ch2/doblado_v.eps}
 \captionof{figure}{Doblado en V}
 \label{fig:doblado_v}
 \end{center}
@@ -85,7 +85,7 @@ El doblado en U es muy similar al anterior, con la diferencia que el radio del d
 suele ser más amplio, como se muestra en la figura \ref{fig:doblado_u}.
 
 \begin{center}
-\includegraphics[scale=0.5]{src/ch2/doblado_u.eps}
+\includegraphics[scale=0.4]{src/ch2/doblado_u.eps}
 \captionof{figure}{Doblado en U}
 \label{fig:doblado_u}
 \end{center}
@@ -98,7 +98,7 @@ de la matriz (ver figura \ref{fig:doblado_bordes}. Normalmente este tipo de dobl
 se limita a ángulos de 90° o menores.
 
 \begin{center}
-\includegraphics[scale=0.5]{src/ch2/doblado_bordes.eps}
+\includegraphics[scale=0.4]{src/ch2/doblado_bordes.eps}
 \captionof{figure}{Doblado de bordes}
 \label{fig:doblado_bordes}
 \end{center}
@@ -106,10 +106,61 @@ se limita a ángulos de 90° o menores.
 
 \subsubsection{Tolerancia de doblado}
 
+En el proceso de doblado es importante tomar en cuenta algunas características relativas a la 
+pieza de trabajo. Tomando como referencia la figura \ref{fig:doblado_lamina}, una hoja metálica 
+de espesor $t$ se dobla a través de un ángulo llamado ángulo de doblado $\alpha$. El  resultado 
+es una pieza doblada con un ángulo incluido $\alpha'$, tal que $\alpha + \alpha' = 180°$. 
+El radio de doblado $R$ se especifica normalmente en la parte interna de la pieza, en lugar de 
+sobre el eje neutral, y se determina por el radio de la herramienta utilizada para ejecutar 
+la operación. El doblado se hace sobre el ancho de la pieza de trabajo $w$. ~\cite{groover2007}\\
 
+Si el radio de doblado es pequeño respecto al espesor del material el metal tiende a estirarse 
+durante el doblado. Es importante poder estimar la magnitud del estirado que ocurre, de manera 
+que la longitud de la pieza final pueda coincidir con la dimensión especificada. El problema 
+es determinar la longitud del eje neutral antes del doblado, para tomar en cuenta el estirado 
+de la sección doblada final. Esta longitud se llama \textit{tolerancia de doblado} y se puede 
+estimar como sigue: ~\cite{groover2007}
+
+\begin{equation}
+A_b = 2\pi \frac{\alpha}{360} \left( R + K_{ba} t \right)
+\end{equation}
+
+Donde $A_b$ es la tolerancia de doblado en $mm$, $\alpha$ el ángulo de doblado en grados, 
+$R$ el radio de doblado, $t$ el espesor del material y $K_{ba}$ es un factor para estimar 
+el estirado. Los siguientes valores de diseño se recomiendan para $K_{ba}$: ~\cite{groover2007}
+
+$$
+\left\{
+\begin{matrix}
+K_{ba} = 0.33 & Si \,\,\, R<2t \\
+K_{ba} = 0.5 & Si \,\,\, R>2t \\
+\end{matrix} \right.
+$$
+
+Estos valores de $K_{ba}$ predicen que el estiramiento ocurre solamente si el radio de doblado 
+es más pequeño en relación con el espesor de la lámina.
 
 \subsubsection{Fuerza de doblado}
 
+La fuerza requerida para llevar a cabo un proceso de doblado depende de la configuración del 
+herramental, así como de las propiedades mecánicas y geométricas de la pieza de trabajo. 
+Con la ecuación \ref{eq:fuerza_doblado} se puede estimar la fuerza máxima de doblado.
+
+\begin{equation}\label{eq:fuerza_doblado}
+F = \frac{K S_{t} w t^2}{D}
+\end{equation}
+
+Donde $F$ es la fuerza de doblado, $S_t$ la resistencia a la tensión del material, $w$ y $t$ el 
+ancho y espesor de la pieza de trabajo, respectivamente, $D$ es la longitud de la parte abierta 
+de la matriz, tal como se esquematiza en la figura \ref{fig:fuerza_doblado}. $K$ es una constante 
+cuyo valor depende del tipo de doblado, normalmente 1.33 para doblado en V y 0.33 para doblado 
+de bordes. ~\cite{groover2007}
+
+\begin{center}
+\includegraphics[scale=0.4]{src/ch2/fuerza_doblado.eps}
+\captionof{figure}{Esquema de la fuerza de doblado}
+\label{fig:fuerza_doblado}
+\end{center}
 
 
 \subsubsection{Recuperación elástica}
@@ -204,289 +255,7 @@ negativa de estos.
 \end{center}
 
 
-\section{Mecánica de sólidos}
-
-\subsection{Relaciones constitutivas}
-
-En el caso de un sólido tridimensional isotrópico la relación esfuerzo-deformación está dada por la Ley de Hooke, 
-expresada en términos matemáticos como:
-
-\begin{equation}\label{eq:ecdef}
-\vec{\varepsilon} = 
-\left\{\begin{matrix}
-\varepsilon_{xx} \\ \varepsilon_{yy} \\ \varepsilon_{zz} \\ \varepsilon_{xy} \\ \varepsilon_{yz} \\ \varepsilon_{zx}
-\end{matrix}\right\} = 
-\left[ C \right] \vec{\sigma} + \vec{\varepsilon_0} = 
-\left[ C \right]
-\left\{\begin{matrix}
-\sigma_{xx} \\ \sigma_{yy} \\ \sigma_{zz} \\ \sigma_{xy} \\ \sigma_{yz} \\ \sigma_{zx}
-\end{matrix}\right\} + 
-\left\{\begin{matrix}
-\varepsilon_{xx}_0 \\ \varepsilon_{yy}_0 \\ \varepsilon_{zz}_0 \\ \varepsilon_{xy}_0 \\ \varepsilon_{yz}_0 \\ \varepsilon_{zx}_0
-\end{matrix}\right\}
-\end{equation}
-
-Donde $[C]$ es la matriz de constantes elásticas definida por:
-
-\begin{equation}
-[C] = \frac{1}{E}
-\left[\begin{matrix}
-1 & -\nu & -\nu & 0 & 0 & 0 \\
--\nu & 1 & -\nu & 0 & 0 & 0 \\
--\nu & -\nu & 1 & 0 & 0 & 0 \\
-0 & 0 & 0 & 2(1+\nu) & 0 & 0 \\
-0 & 0 & 0 & 0 & 2(1+\nu) & 0 \\
-0 & 0 & 0 & 0 & 0 & 2(1+\nu) \\
-\end{matrix}\right]
-\end{equation}
-
-$\vec{\varepsilon_0}$ es el vector de esfuerzos iniciales, $E$ es el módulo de Young y $\nu$ el coeficiente de Poisson del 
-material.\\
-
-Algunas veces la expresión de esfuerzos en términos de deformaciones puede ser necesaria. Incluyendo las deformaciones 
-térmicas, la ecuación \ref{eq:ecdef} puede ser invertida para obtener:
-
-\begin{equation}
-\vec{\sigma} = 
-\left\{\begin{matrix}
-\sigma_{xx} \\ \sigma_{yy} \\ \sigma_{zz} \\ \sigma_{xy} \\ \sigma_{yz} \\ \sigma_{zx}
-\end{matrix}\right\} = 
-\left[ D \right] (\vec{\varepsilon} - \vec{\varepsilon_0})= 
-\left[ D \right] 
-\left\{\begin{matrix}
-\varepsilon_{xx} \\ \varepsilon_{yy} \\ \varepsilon_{zz} \\ \varepsilon_{xy} \\ \varepsilon_{yz} \\ \varepsilon_{zx}
-\end{matrix}\right\} - 
-\frac{E\alpha T}{1-2\nu}
-\left\{\begin{matrix}
-1 \\ 1 \\ 1 \\ 0 \\ 0 \\ 0
-\end{matrix}\right\} 
-\end{equation}
-
-Donde la matriz $[D]$ está dada por:
-
-\begin{equation}
-[C] = \frac{E}{(1+\nu)(1-2\nu)}
-\left[\begin{matrix}
-1-\nu & \nu & \nu & 0 & 0 & 0 \\
-\nu & 1-\nu & \nu & 0 & 0 & 0 \\
-\nu & \nu & 1-\nu & 0 & 0 & 0 \\
-0 & 0 & 0 & \frac{1-2\nu}{2} & 0 & 0 \\
-0 & 0 & 0 & 0 & \frac{1-2\nu}{2} & 0 \\
-0 & 0 & 0 & 0 & 0 & \frac{1-2\nu}{2} \\
-\end{matrix}\right]
-\end{equation}
-
-En el caso de problemas bidimensionales, dos tipos de distribuciones de esfuerzos son posibles: esfuerzo plano 
-y deformación plana.
-
-\subsubsection{Esfuerzo plano}
-
-La consideración de esfuerzo plano es aplicable para cuerpos en los cuales su dimensión en una dirección es muy 
-pequeña comparada con las otras. En el caso de esfuerzo plano se asume que:
-
-\begin{equation}
-\sigma_{zz} = \sigma_{zx} = \sigma_{yz} = 0
-\end{equation}
-
-Donde $z$ representa la dirección perpendicular al plano de la placa mostrada en la figura \ref{fig:fg1}, 
-y los componentes de esfuerzo no varían a través del espesor de la placa.
-
-\begin{center}
-\includegraphics[scale=0.35]{src/ch2/plane_stress.png}
-\captionof{figure}{Esfuerzo plano}
-\label{fig:fg1}
-\end{center}
-
-Entonces, las relaciones esfuerzo deformación se reducen a:
-
-\begin{equation}
-\vec{\varepsilon} = [C] \vec{\sigma} + \vec{\varepsilon_0}
-\end{equation}
-
-donde:
-
-\begin{equation}
-\vec{\varepsilon} = 
-\left\{\begin{matrix}
-\varepsilon_{xx} \\ \varepsilon_{yy} \\ \varepsilon_{xy}
-\end{matrix}\right\}
-\end{equation}
-
-\begin{equation}
-\vec{\sigma} = 
-\left\{\begin{matrix}
-\sigma_{xx} \\ \sigma_{yy} \\ \sigma_{xy}
-\end{matrix}\right\}
-\end{equation}
-
-\begin{equation}
-[C] = \frac{1}{E}
-\left[\begin{matrix}
-1 & -\nu & 0 \\
--\nu & 1 & 0 \\
-0 & 0 & 2(1+\nu) \\
-\end{matrix}\right]
-\end{equation}
-
-\begin{equation}
-\vec{\varepsilon_0} = 
-\left\{\begin{matrix}
-\varepsilon_{xx_0} \\ \varepsilon_{yy_0} \\ \varepsilon_{xy_0}
-\end{matrix}\right\} =
-\alpha T 
-\left\{\begin{matrix}
-1 \\ 1 \\ 0 \\
-\end{matrix}\right\}
-\end{equation}
-
-En el caso de deformaciones térmicas,
-
-\begin{equation}
-\vec{\sigma} = [D] (\vec{\varepsilon} - \vec{\varepsilon_0}) = 
-[D] \vec{\varepsilon} - 
-\frac{E\alpha T}{1-\nu} 
-\left\{\begin{matrix}
-1 \\ 1 \\ 0 \\
-\end{matrix}\right\}
-\end{equation}
-
-Con, 
-
-\begin{equation}
-[D] = \frac{E}{1-\nu^2}
-\left[\begin{matrix}
-1 & \nu & 0 \\
-\nu & 1 & 0 \\
-0 & 0 & \frac{1-\nu}{2} \\
-\end{matrix}\right]
-\end{equation}
-
-En el caso de esfuerzo plano la componente de la deformación en el plano $z$, será diferente de cero, debido al 
-efecto del coeficiente de Poisson, estando dada  por la expresión:
-
-\begin{equation}
-\varepsilon_{zz} = -\frac{\nu}{E} (\sigma_{xx} + \sigma_{yy}) + \alpha T = 
-\frac{-\nu}{1-\nu} (\varepsilon_{xx} + \varepsilon_{yy}) +  
-\frac{1+\nu}{1-\nu} \alpha T
-\end{equation}
-
-Mientras que, 
-
-\begin{equation}
-\varepsilon_{yz} = \varepsilon_{zx} = 0
-\end{equation}
-
-
-\subsubsection{Deformación plana}
-
-La consideración de deformación plana es aplicable para sólidos largos y cuya geometría y cargas no varían de 
-manera significativa en la dirección longitudinal.\\
-
-En este caso las ecuaciones de esfuerzo-deformación tridimensional se reducen a:
-
-\begin{equation}
-\vec{\varepsilon} = [C] \vec{\sigma} + \vec{\varepsilon_0}
-\end{equation}
-
-donde:
-
-\begin{equation}
-\vec{\varepsilon} = 
-\left\{\begin{matrix}
-\varepsilon_{xx} \\ \varepsilon_{yy} \\ \varepsilon_{xy}
-\end{matrix}\right\}
-\end{equation}
-
-\begin{equation}
-\vec{\sigma} = 
-\left\{\begin{matrix}
-\sigma_{xx} \\ \sigma_{yy} \\ \sigma_{xy}
-\end{matrix}\right\}
-\end{equation}
-
-\begin{equation}
-[C] = \frac{1+\nu}{E}
-\left[\begin{matrix}
-1-\nu & -\nu & 0 \\
--\nu & 1-\nu & 0 \\
-0 & 0 & 2 \\
-\end{matrix}\right]
-\end{equation}
-
-\begin{equation}
-\vec{\varepsilon_0} = 
-\left\{\begin{matrix}
-\varepsilon_{xx_0} \\ \varepsilon_{yy_0} \\ \varepsilon_{xy_0}
-\end{matrix}\right\} =
-(1+\nu) \alpha T 
-\left\{\begin{matrix}
-1 \\ 1 \\ 0 \\
-\end{matrix}\right\}
-\end{equation}
-
-En el caso de deformaciones térmicas,
-
-\begin{equation}
-\vec{\sigma} = [D] (\vec{\varepsilon} - \vec{\varepsilon_0}) = 
-[D] \vec{\varepsilon} - 
-\frac{E\alpha T}{1-2\nu} 
-\left\{\begin{matrix}
-1 \\ 1 \\ 0 \\
-\end{matrix}\right\}
-\end{equation}
-
-Con, 
-
-\begin{equation}
-[D] = \frac{E}{(1+\nu)(1-2\nu)}
-\left[\begin{matrix}
-1-\nu & \nu & 0 \\
-\nu & 1-\nu & 0 \\
-0 & 0 & \frac{1-2\nu}{2} \\
-\end{matrix}\right]
-\end{equation}
-
-\begin{center}
-\includegraphics[scale=0.55]{src/ch2/plane_strain.png}
-\captionof{figure}{Deformación plana}
-\label{fig:fg2}
-\end{center}
-
-El componente de esfuerzo en la dirección $z$ no será nulo debido a los efectos del coeficiente de Poisson, y está 
-dado por:
-
-\begin{equation}
-\sigma_{zz} = \nu(\sigma_{xx}+\sigma_{yy}) - E \alpha T
-\end{equation}
-
-y, 
-
-\begin{equation}
-\sigma_{yz} = \sigma_{zx} = 0
-\end{equation}
-
-\subsection{Relaciones deformación-desplazamiento}
-
-La forma deformada de un cuerpo elástico bajo una determinada configuración de cargas y distribución de temperaturas 
-pueden ser descritas completamente por tres componentes de desplazamiento $u, v$ y $w$ paralelas a las direcciones 
-$x, y$ y $z$ respectivamente. En general, cada una de estas componentes $u,v$ y $w$ es una función de las 
-coordenadas $x,y$ y $z$. Las deformaciones inducidas en el sólido pueden ser expresadas en términos de los 
-desplazamientos $u,v$ y $w$.\\
-
-Si los desplazamientos se consideran muy pequeños, la deformaciones pueden ser expresadas como:
-
-\begin{subequations}
-\begin{eqnarray}
-\varepsilon_{xx} = \frac{du}{dx} \\
-\varepsilon_{yy} = \frac{dv}{dy} \\
-\varepsilon_{zz} = \frac{dw}{dz} \\
-\varepsilon_{xy} = \frac{du}{dy} + \frac{dv}{dx} \\
-\varepsilon_{yz} = \frac{dw}{dy} + \frac{dv}{dz} \\
-\varepsilon_{zx} = \frac{du}{dz} + \frac{dw}{dx} \\
-\end{eqnarray}
-\end{subequations}
-
-\subsection{Plasticidad}
+\section{Teoría de plasticidad}
 
 La teoría de plasticidad estudia la fluencia de materiales bajo estados de esfuerzos complejos. Permite 
 conocer si un material cederá bajo ciertas condiciones de esfuerzo y determinar el cambio en la forma o 
@@ -496,7 +265,7 @@ son parte fundamental de los códigos de computadora utilizados para predecir la
 para absorber impactos, así como en procesos de formado o estampado que involucran la deformación plástica de 
 placas metálicas.
 
-\subsubsection{Criterio de fluencia}
+\subsection{Criterio de fluencia}
 
 Un criterio de fluencia es una expresión matemática propuesta del estado de esfuerzo que causará la fluencia. La forma más general es:
 
@@ -528,7 +297,7 @@ La consideración que la fluencia es independiente de $\sigma_m$ es razonable po
 f[(\sigma_2-\sigma_3 ),(\sigma_3-\sigma_1 ),(\sigma_1-\sigma_2 )] = C
 \end{equation}
 
-\subsubsection{Criterio de Tresca}
+\subsection{Criterio de Tresca}
 
 El criterio más simple es uno de los primero propuestos por Tresca. Afirma que la cedencia ocurrirá cuando el máximo 
 esfuerzo cortante alcance un valor crítico. El máximo esfuerzo cortante viene dado por:
@@ -564,7 +333,7 @@ $ k = Y/2 $ en la ecuación \ref{eq:ec2}, entonces:
 \sigma_1 - \sigma_3 = 2k = C
 \end{equation}
 
-\subsubsection{Criterio de Von Mises}
+\subsection{Criterio de Von Mises}
 
 El efecto del esfuerzo principal medio puede ser incluido asumiendo que la fluencia depende de la raíz cuadrada 
 del promedio de los diámetros de los tres círculos de Mohr. Este es el criterio de Von Mises, el cual puede ser 
@@ -597,6 +366,288 @@ consiguiente sustitución de $\alpha = \sigma_2/\sigma_1$,
 \begin{equation}
 \sigma_1 = Y/(1-\alpha+\alpha^2)^{1/2}
 \end{equation}
+
+
+
+% \subsection{Relaciones constitutivas}
+
+% En el caso de un sólido tridimensional isotrópico la relación esfuerzo-deformación está dada por la Ley de Hooke, 
+% expresada en términos matemáticos como:
+
+% \begin{equation}\label{eq:ecdef}
+% \vec{\varepsilon} = 
+% \left\{\begin{matrix}
+% \varepsilon_{xx} \\ \varepsilon_{yy} \\ \varepsilon_{zz} \\ \varepsilon_{xy} \\ \varepsilon_{yz} \\ \varepsilon_{zx}
+% \end{matrix}\right\} = 
+% \left[ C \right] \vec{\sigma} + \vec{\varepsilon_0} = 
+% \left[ C \right]
+% \left\{\begin{matrix}
+% \sigma_{xx} \\ \sigma_{yy} \\ \sigma_{zz} \\ \sigma_{xy} \\ \sigma_{yz} \\ \sigma_{zx}
+% \end{matrix}\right\} + 
+% \left\{\begin{matrix}
+% \varepsilon_{xx}_0 \\ \varepsilon_{yy}_0 \\ \varepsilon_{zz}_0 \\ \varepsilon_{xy}_0 \\ \varepsilon_{yz}_0 \\ \varepsilon_{zx}_0
+% \end{matrix}\right\}
+% \end{equation}
+
+% Donde $[C]$ es la matriz de constantes elásticas definida por:
+
+% \begin{equation}
+% [C] = \frac{1}{E}
+% \left[\begin{matrix}
+% 1 & -\nu & -\nu & 0 & 0 & 0 \\
+% -\nu & 1 & -\nu & 0 & 0 & 0 \\
+% -\nu & -\nu & 1 & 0 & 0 & 0 \\
+% 0 & 0 & 0 & 2(1+\nu) & 0 & 0 \\
+% 0 & 0 & 0 & 0 & 2(1+\nu) & 0 \\
+% 0 & 0 & 0 & 0 & 0 & 2(1+\nu) \\
+% \end{matrix}\right]
+% \end{equation}
+
+% $\vec{\varepsilon_0}$ es el vector de esfuerzos iniciales, $E$ es el módulo de Young y $\nu$ el coeficiente de Poisson del 
+% material.\\
+
+% Algunas veces la expresión de esfuerzos en términos de deformaciones puede ser necesaria. Incluyendo las deformaciones 
+% térmicas, la ecuación \ref{eq:ecdef} puede ser invertida para obtener:
+
+% \begin{equation}
+% \vec{\sigma} = 
+% \left\{\begin{matrix}
+% \sigma_{xx} \\ \sigma_{yy} \\ \sigma_{zz} \\ \sigma_{xy} \\ \sigma_{yz} \\ \sigma_{zx}
+% \end{matrix}\right\} = 
+% \left[ D \right] (\vec{\varepsilon} - \vec{\varepsilon_0})= 
+% \left[ D \right] 
+% \left\{\begin{matrix}
+% \varepsilon_{xx} \\ \varepsilon_{yy} \\ \varepsilon_{zz} \\ \varepsilon_{xy} \\ \varepsilon_{yz} \\ \varepsilon_{zx}
+% \end{matrix}\right\} - 
+% \frac{E\alpha T}{1-2\nu}
+% \left\{\begin{matrix}
+% 1 \\ 1 \\ 1 \\ 0 \\ 0 \\ 0
+% \end{matrix}\right\} 
+% \end{equation}
+
+% Donde la matriz $[D]$ está dada por:
+
+% \begin{equation}
+% [C] = \frac{E}{(1+\nu)(1-2\nu)}
+% \left[\begin{matrix}
+% 1-\nu & \nu & \nu & 0 & 0 & 0 \\
+% \nu & 1-\nu & \nu & 0 & 0 & 0 \\
+% \nu & \nu & 1-\nu & 0 & 0 & 0 \\
+% 0 & 0 & 0 & \frac{1-2\nu}{2} & 0 & 0 \\
+% 0 & 0 & 0 & 0 & \frac{1-2\nu}{2} & 0 \\
+% 0 & 0 & 0 & 0 & 0 & \frac{1-2\nu}{2} \\
+% \end{matrix}\right]
+% \end{equation}
+
+% En el caso de problemas bidimensionales, dos tipos de distribuciones de esfuerzos son posibles: esfuerzo plano 
+% y deformación plana.
+
+% \subsubsection{Esfuerzo plano}
+
+% La consideración de esfuerzo plano es aplicable para cuerpos en los cuales su dimensión en una dirección es muy 
+% pequeña comparada con las otras. En el caso de esfuerzo plano se asume que:
+
+% \begin{equation}
+% \sigma_{zz} = \sigma_{zx} = \sigma_{yz} = 0
+% \end{equation}
+
+% Donde $z$ representa la dirección perpendicular al plano de la placa mostrada en la figura \ref{fig:fg1}, 
+% y los componentes de esfuerzo no varían a través del espesor de la placa.
+
+% \begin{center}
+% \includegraphics[scale=0.35]{src/ch2/plane_stress.png}
+% \captionof{figure}{Esfuerzo plano}
+% \label{fig:fg1}
+% \end{center}
+
+% Entonces, las relaciones esfuerzo deformación se reducen a:
+
+% \begin{equation}
+% \vec{\varepsilon} = [C] \vec{\sigma} + \vec{\varepsilon_0}
+% \end{equation}
+
+% donde:
+
+% \begin{equation}
+% \vec{\varepsilon} = 
+% \left\{\begin{matrix}
+% \varepsilon_{xx} \\ \varepsilon_{yy} \\ \varepsilon_{xy}
+% \end{matrix}\right\}
+% \end{equation}
+
+% \begin{equation}
+% \vec{\sigma} = 
+% \left\{\begin{matrix}
+% \sigma_{xx} \\ \sigma_{yy} \\ \sigma_{xy}
+% \end{matrix}\right\}
+% \end{equation}
+
+% \begin{equation}
+% [C] = \frac{1}{E}
+% \left[\begin{matrix}
+% 1 & -\nu & 0 \\
+% -\nu & 1 & 0 \\
+% 0 & 0 & 2(1+\nu) \\
+% \end{matrix}\right]
+% \end{equation}
+
+% \begin{equation}
+% \vec{\varepsilon_0} = 
+% \left\{\begin{matrix}
+% \varepsilon_{xx_0} \\ \varepsilon_{yy_0} \\ \varepsilon_{xy_0}
+% \end{matrix}\right\} =
+% \alpha T 
+% \left\{\begin{matrix}
+% 1 \\ 1 \\ 0 \\
+% \end{matrix}\right\}
+% \end{equation}
+
+% En el caso de deformaciones térmicas,
+
+% \begin{equation}
+% \vec{\sigma} = [D] (\vec{\varepsilon} - \vec{\varepsilon_0}) = 
+% [D] \vec{\varepsilon} - 
+% \frac{E\alpha T}{1-\nu} 
+% \left\{\begin{matrix}
+% 1 \\ 1 \\ 0 \\
+% \end{matrix}\right\}
+% \end{equation}
+
+% Con, 
+
+% \begin{equation}
+% [D] = \frac{E}{1-\nu^2}
+% \left[\begin{matrix}
+% 1 & \nu & 0 \\
+% \nu & 1 & 0 \\
+% 0 & 0 & \frac{1-\nu}{2} \\
+% \end{matrix}\right]
+% \end{equation}
+
+% En el caso de esfuerzo plano la componente de la deformación en el plano $z$, será diferente de cero, debido al 
+% efecto del coeficiente de Poisson, estando dada  por la expresión:
+
+% \begin{equation}
+% \varepsilon_{zz} = -\frac{\nu}{E} (\sigma_{xx} + \sigma_{yy}) + \alpha T = 
+% \frac{-\nu}{1-\nu} (\varepsilon_{xx} + \varepsilon_{yy}) +  
+% \frac{1+\nu}{1-\nu} \alpha T
+% \end{equation}
+
+% Mientras que, 
+
+% \begin{equation}
+% \varepsilon_{yz} = \varepsilon_{zx} = 0
+% \end{equation}
+
+
+% \subsubsection{Deformación plana}
+
+% La consideración de deformación plana es aplicable para sólidos largos y cuya geometría y cargas no varían de 
+% manera significativa en la dirección longitudinal.\\
+
+% En este caso las ecuaciones de esfuerzo-deformación tridimensional se reducen a:
+
+% \begin{equation}
+% \vec{\varepsilon} = [C] \vec{\sigma} + \vec{\varepsilon_0}
+% \end{equation}
+
+% donde:
+
+% \begin{equation}
+% \vec{\varepsilon} = 
+% \left\{\begin{matrix}
+% \varepsilon_{xx} \\ \varepsilon_{yy} \\ \varepsilon_{xy}
+% \end{matrix}\right\}
+% \end{equation}
+
+% \begin{equation}
+% \vec{\sigma} = 
+% \left\{\begin{matrix}
+% \sigma_{xx} \\ \sigma_{yy} \\ \sigma_{xy}
+% \end{matrix}\right\}
+% \end{equation}
+
+% \begin{equation}
+% [C] = \frac{1+\nu}{E}
+% \left[\begin{matrix}
+% 1-\nu & -\nu & 0 \\
+% -\nu & 1-\nu & 0 \\
+% 0 & 0 & 2 \\
+% \end{matrix}\right]
+% \end{equation}
+
+% \begin{equation}
+% \vec{\varepsilon_0} = 
+% \left\{\begin{matrix}
+% \varepsilon_{xx_0} \\ \varepsilon_{yy_0} \\ \varepsilon_{xy_0}
+% \end{matrix}\right\} =
+% (1+\nu) \alpha T 
+% \left\{\begin{matrix}
+% 1 \\ 1 \\ 0 \\
+% \end{matrix}\right\}
+% \end{equation}
+
+% En el caso de deformaciones térmicas,
+
+% \begin{equation}
+% \vec{\sigma} = [D] (\vec{\varepsilon} - \vec{\varepsilon_0}) = 
+% [D] \vec{\varepsilon} - 
+% \frac{E\alpha T}{1-2\nu} 
+% \left\{\begin{matrix}
+% 1 \\ 1 \\ 0 \\
+% \end{matrix}\right\}
+% \end{equation}
+
+% Con, 
+
+% \begin{equation}
+% [D] = \frac{E}{(1+\nu)(1-2\nu)}
+% \left[\begin{matrix}
+% 1-\nu & \nu & 0 \\
+% \nu & 1-\nu & 0 \\
+% 0 & 0 & \frac{1-2\nu}{2} \\
+% \end{matrix}\right]
+% \end{equation}
+
+% \begin{center}
+% \includegraphics[scale=0.55]{src/ch2/plane_strain.png}
+% \captionof{figure}{Deformación plana}
+% \label{fig:fg2}
+% \end{center}
+
+% El componente de esfuerzo en la dirección $z$ no será nulo debido a los efectos del coeficiente de Poisson, y está 
+% dado por:
+
+% \begin{equation}
+% \sigma_{zz} = \nu(\sigma_{xx}+\sigma_{yy}) - E \alpha T
+% \end{equation}
+
+% y, 
+
+% \begin{equation}
+% \sigma_{yz} = \sigma_{zx} = 0
+% \end{equation}
+
+% \subsection{Relaciones deformación-desplazamiento}
+
+% La forma deformada de un cuerpo elástico bajo una determinada configuración de cargas y distribución de temperaturas 
+% pueden ser descritas completamente por tres componentes de desplazamiento $u, v$ y $w$ paralelas a las direcciones 
+% $x, y$ y $z$ respectivamente. En general, cada una de estas componentes $u,v$ y $w$ es una función de las 
+% coordenadas $x,y$ y $z$. Las deformaciones inducidas en el sólido pueden ser expresadas en términos de los 
+% desplazamientos $u,v$ y $w$.\\
+
+% Si los desplazamientos se consideran muy pequeños, la deformaciones pueden ser expresadas como:
+
+% \begin{subequations}
+% \begin{eqnarray}
+% \varepsilon_{xx} = \frac{du}{dx} \\
+% \varepsilon_{yy} = \frac{dv}{dy} \\
+% \varepsilon_{zz} = \frac{dw}{dz} \\
+% \varepsilon_{xy} = \frac{du}{dy} + \frac{dv}{dx} \\
+% \varepsilon_{yz} = \frac{dw}{dy} + \frac{dv}{dz} \\
+% \varepsilon_{zx} = \frac{du}{dz} + \frac{dw}{dx} \\
+% \end{eqnarray}
+% \end{subequations}
 
 
 % \subsection{Ecuaciones de equilibrio}
@@ -762,6 +813,8 @@ El método implícito requiere conocer las derivadas temporales en el paso n+1, 
 La simulación de estampados se caracteriza por las diversas no linealidades presentes, debidas al material, y a los contactos entre los diversos cuerpos analizados. Sin embargo, usando la integración explícita estas no linealidades pueden ser tratadas sin mayores problemas. Por ello, en la mayoría de las simulaciones de estampados suelen ser conveniente el uso de algoritmos de integración explícita.
 
 \subsection{Contactos}
+
+
 
 % \section{Teoría de contactos}
 
