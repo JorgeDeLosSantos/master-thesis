@@ -36,11 +36,6 @@ fonttitle=\bfseries, colbacktitle=white, coltext=gray!30!black}
 \usepackage{textcomp}
 \usepackage{gensymb}
 
-% For nomenclature
-\usepackage{nomencl}
-\makenomenclature
-
-
 % Colores
 \definecolor{verdep}{rgb}{0.5,0.5,0.9}
 \definecolor{ccap}{rgb}{0.2,0.2,0.2}
@@ -111,46 +106,56 @@ fonttitle=\bfseries, colbacktitle=white, coltext=gray!30!black}
 
 
 \author{Pedro Jorge De Los Santos Lara}
-\title{Simulación por elemento finito del proceso de formado de un tubo de acero SAE 1018}
+\title{Simulación por elemento finito del proceso de estampado de un tubo de acero SAE 1018}
 
 
 % ======================================================================================================
 \begin{document}
 \maketitle
-
-\frontmatter
 \tableofcontents
 
-\addcontentsline{toc}{chapter}{\listfigurename}
-\listoffigures
 
-\addcontentsline{toc}{chapter}{\listtablename}
-\listoftables
-
-% \input{src/nomenclatura.tex}
-
-\nomenclature{$c$}{Speed of light in a vacuum inertial frame}
-\nomenclature{$h$}{Planck constant} 
-
-\printnomenclature
+\chapter{Marco de referencia}
+\section{Antecedentes}
+\section{Planteamiento del problema}
+\section{Estado del arte}
+\section{Justificación}
+\section{Objetivo general}
+\section{Objetivos particulares}
+\section{Alcances}
 
 
+\chapter{Marco teórico}
+\section{Procesos de formado}
+\section{Teoría de plasticidad}
+\section{El método de los elementos finitos}
 
-\input{src/resumen.tex}
-\input{src/intro.tex}
+
+\chapter{Metodología}
+\section{Análisis por elemento finito}
+\section{Análisis experimental}
 
 
-% ==================================================== Contenido ====================================================
-\mainmatter
-\input{src/_settings_.tex} % Setting for chapters
-\input{src/ch1.tex}
-\input{src/ch2.tex}
-\input{src/ch3.tex}
-\input{src/ch4.tex}
+\chapter{Resultados}
+\section{Fuerza de formado requerida}
+\section{Esfuerzos y deformaciones}
 
-% ==================================================== Referencias ====================================================
-\bibliographystyle{ieeetr}
-\bibliography{bibs}
+
+
+\addcontentsline{toc}{chapter}{Conclusiones}
+\chapter*{Conclusiones}
+
+\addcontentsline{toc}{chapter}{Referencias}
+\chapter*{Referencias}
+
+\addcontentsline{toc}{chapter}{Anexos}
+\chapter*{Anexos}
+
+
+%\newpage
+% \input{src/bib.tex}
+% \bibliographystyle{ieeetr}
+% \bibliography{bibs}
 
 \end{document}
 
