@@ -165,7 +165,62 @@ de bordes. ~\cite{groover2007}
 
 \subsubsection{Recuperación elástica}
 
+Cuando se diseña un troquel, es necesario considerar la recuperación elástica o \textit{springback} 
+que ocurre después de la descarga, debido a que el material tiende a recuperar su forma 
+inicial e implica que el ángulo de doblado final $\alpha$ no corresponda exactamente con el 
+ángulo deseado $\alpha_2$. La recuperación elástica ocurre en todos los tipos de formado 
+que implican un tipo de doblado.\\
 
+\begin{center}
+\includegraphics[scale=0.4]{src/ch2/springback.eps}
+\captionof{figure}{Recuperación elástica de una pieza metálica sometida a doblez}
+\label{fig:springback}
+\end{center}
+
+La relación dada entre los ángulos $\alpha$ y $\alpha_2$ se conoce como factor de \textit{springback} $k_R$, 
+y depende de las características del material y la relación entre el radio de doblez y el espesor de la 
+pieza de trabajo. La relación se puede expresar como sigue: ~\cite{schuler1998}
+
+\begin{equation}\label{eq:factor_springback}
+k_R = \frac{\alpha_2}{\alpha_1} = \frac{r_{i1} + 0.5 s}{r_{i2} + 0.5 s}
+\end{equation}
+
+Donde, usando como referencia gráfica la figura \ref{fig:springback}, $\alpha_1$ es el ángulo por el 
+herramental, $\alpha_2$ el ángulo deseado en la pieza de trabajo (o después del springback), 
+$s$ es el espesor de la pieza de trabajo, $r_{i1}$ el radio interno en el herramental y $r_{i2}$ el 
+radio interno en la pieza de trabajo.\\
+
+Luego, el ángulo necesario en el troquel o matriz viene dado por:
+
+\begin{equation}
+\alpha_1 = \frac{\alpha_2}{k_R}
+\end{equation}
+
+El radio interior requerido en el troquel puede ser calculado como:
+
+\begin{equation}
+r_{i1} = \frac{r_{i2}}{1+\frac{r_{i2} \cdot S_t}{s \cdot E}}
+\end{equation}
+
+Donde $S_t$ es la resistencia a la tensión del material y $E$ el módulo elástico correspondiente.\\
+
+La ecuación \ref{eq:factor_springback} permite calcular la recuperación elástica a si se conoce 
+previamente ambos radios internos (antes y después de la descarga). Pero es posible 
+predecir la relación $r_i/r_f$ mediante la siguiente ecuación: ~\cite{kalpakjian2008}
+
+\begin{equation}
+\frac{r_i}{r_f} = 4 \left( C r_i\right)^3 - 3 \left( C r_i \right) + 1
+\end{equation}
+
+Donde $C$ es una constante dada por:
+
+\begin{equation}
+C = \frac{S_y}{Es}
+\end{equation}
+
+Siendo $S_y$ la esfuerzo de fluencia del material. Esta ecuación nos permite observar 
+que la recuperación elástica aumenta cuando lo hacen la relación $r/s$ y el 
+esfuerzo de fluencia $S_y$, así como al disminuir el módulo elástico.
 
 
 \subsection{Herramentales (troqueles)}
