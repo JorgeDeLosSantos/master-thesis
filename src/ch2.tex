@@ -167,8 +167,8 @@ de bordes. ~\cite{groover2007}
 
 Cuando se diseña un troquel, es necesario considerar la recuperación elástica o \textit{springback} 
 que ocurre después de la descarga, debido a que el material tiende a recuperar su forma 
-inicial e implica que el ángulo de doblado final $\alpha$ no corresponda exactamente con el 
-ángulo deseado $\alpha_2$. La recuperación elástica ocurre en todos los tipos de formado 
+inicial e implica que el ángulo de doblado en el herramental $\alpha_i$ no corresponda exactamente con el 
+ángulo deseado $\alpha_f$. La recuperación elástica ocurre en todos los tipos de formado 
 que implican un tipo de doblado.\\
 
 \begin{center}
@@ -177,29 +177,29 @@ que implican un tipo de doblado.\\
 \label{fig:springback}
 \end{center}
 
-La relación dada entre los ángulos $\alpha$ y $\alpha_2$ se conoce como factor de \textit{springback} $k_R$, 
+La relación dada entre los ángulos $\alpha_i$ y $\alpha_f$ se conoce como factor de \textit{springback} $k_R$, 
 y depende de las características del material y la relación entre el radio de doblez y el espesor de la 
 pieza de trabajo. La relación se puede expresar como sigue: ~\cite{schuler1998}
 
 \begin{equation}\label{eq:factor_springback}
-k_R = \frac{\alpha_2}{\alpha_1} = \frac{r_{i1} + 0.5 s}{r_{i2} + 0.5 s}
+k_R = \frac{\alpha_f}{\alpha_i} = \frac{r_{i} + 0.5 s}{r_{f} + 0.5 s}
 \end{equation}
 
-Donde, usando como referencia gráfica la figura \ref{fig:springback}, $\alpha_1$ es el ángulo por el 
-herramental, $\alpha_2$ el ángulo deseado en la pieza de trabajo (o después del springback), 
-$s$ es el espesor de la pieza de trabajo, $r_{i1}$ el radio interno en el herramental y $r_{i2}$ el 
+Donde, usando como referencia gráfica la figura \ref{fig:springback}, $\alpha_i$ es el ángulo por el 
+herramental, $\alpha_f$ el ángulo deseado en la pieza de trabajo (o después del springback), 
+$s$ es el espesor de la pieza de trabajo, $r_{i}$ el radio interno en el herramental y $r_{f}$ el 
 radio interno en la pieza de trabajo.\\
 
 Luego, el ángulo necesario en el troquel o matriz viene dado por:
 
 \begin{equation}
-\alpha_1 = \frac{\alpha_2}{k_R}
+\alpha_i = \frac{\alpha_f}{k_R}
 \end{equation}
 
 El radio interior requerido en el troquel puede ser calculado como:
 
 \begin{equation}
-r_{i1} = \frac{r_{i2}}{1+\frac{r_{i2} \cdot S_t}{s \cdot E}}
+r_{i} = \frac{r_{f}}{1+\frac{r_{f} \cdot S_t}{s \cdot E}}
 \end{equation}
 
 Donde $S_t$ es la resistencia a la tensión del material y $E$ el módulo elástico correspondiente.\\
@@ -318,23 +318,26 @@ geometría en caso de que la fluencia ocurra. También permite usar datos de ens
 el endurecimiento por carga durante la deformación bajo complejos estados de esfuerzo. Estas relaciones 
 son parte fundamental de los códigos de computadora utilizados para predecir la capacidad de una estructura 
 para absorber impactos, así como en procesos de formado o estampado que involucran la deformación plástica de 
-placas metálicas.
+placas metálicas. ~\cite{hosford2005}
 
 \subsection{Criterio de fluencia}
 
-Un criterio de fluencia es una expresión matemática propuesta del estado de esfuerzo que causará la fluencia. La forma más general es:
+Un criterio de fluencia es una expresión matemática propuesta del estado de esfuerzo que causará 
+la fluencia. La forma más general es: ~\cite{hosford2005}
 
 \begin{equation}
 f(\sigma_x,\sigma_y, \sigma_z, \tau_{yz}, \tau_{zx}, \tau_{xy} ) = C 
 \end{equation}
 
-Para materiales isotrópicos esto puede ser expresado en términos de los esfuerzos principales como:
+Donde C es una constante del material. Para materiales isotrópicos esto puede ser expresado en 
+términos de los esfuerzos principales como: ~\cite{hosford2005}
 
 \begin{equation}
 f(\sigma_1,\sigma_2,\sigma_3 )=C
 \end{equation}
 
-Para la mayoría de los metales dúctiles isotrópicos comúnmente se hacen las siguientes consideraciones:
+Para la mayoría de los metales dúctiles isotrópicos comúnmente se hacen las siguientes consideraciones: ~\cite{hosford2007}
+
 
 \begin{itemize}
 \item El esfuerzo de fluencia en tensión y compresión es el mismo.
@@ -346,11 +349,27 @@ Para la mayoría de los metales dúctiles isotrópicos comúnmente se hacen las 
 \sigma_m=\frac{\sigma_1+\sigma_2+\sigma_3}{3}
 \end{equation}
 
-La consideración que la fluencia es independiente de $\sigma_m$ es razonable porque la deformación usualmente ocurre por deslizamiento o mecanismos de corte. Por lo tanto los criterios de fluencia para materiales isotrópicos tienen la forma:
+La consideración que la fluencia es independiente de $\sigma_m$ es razonable porque la deformación 
+usualmente ocurre por deslizamiento o mecanismos de corte. Por lo tanto los criterios de fluencia 
+para materiales isotrópicos tienen la forma: ~\cite{hosford2007}
 
 \begin{equation}
 f[(\sigma_2-\sigma_3 ),(\sigma_3-\sigma_1 ),(\sigma_1-\sigma_2 )] = C
 \end{equation}
+
+Esto es equivalente a considerar que la fluencia depende sólo del tamaño del círculo de Mohr, 
+y no de su posición, la figura \ref{fig:circulos_mohr} muestra esto. Si el estado de esfuerzos 
+$\sigma_1$, $\sigma_2$, $\sigma_3$, causará la fluencia, otro estado de efuerzos 
+$\sigma_1' = \sigma_1 - \sigma_m $, $\sigma_2' = \sigma_2 - \sigma_m $, $\sigma_3' = \sigma_3 - \sigma_m $, 
+que difiere sólo por $\sigma_m$, también causará la fluencia. Estos esfuerzos $\sigma_1'$, $\sigma_2'$, 
+$\sigma_3'$ se conocen como esfuerzos desviatorios. ~\cite{hosford2007}
+
+\begin{center}
+\includegraphics[scale=0.75]{src/ch2/circulos_mohr.png}
+\captionof{figure}{Círculos de Mohr para dos estados de esfuerzos que difieren por un esfuerzo hidrostático, $\sigma_m$ y que son equivalentes en términos de la fluencia}
+\label{fig:circulos_mohr}
+\end{center}
+
 
 \subsection{Criterio de Tresca}
 
@@ -798,9 +817,19 @@ consiguiente sustitución de $\alpha = \sigma_2/\sigma_1$,
 
 \subsection{Generalidades del método}
 
-En el método de elementos finitos se considera un cuerpo continuo o sólido, como un ensamble de pequeñas subdivisiones llamadas elementos finitos. Estos elementos están interconectados a través de nodos comunes. Debido a que la variación real de las variables de campo (desplazamientos, esfuerzos, temperaturas, etc.) se desconoce en el continuo, se asume que la variación de estas en el modelo de elemento finito puede ser aproximada por una simple función. Estas funciones de aproximación, también llamadas modelos de interpolación, son definidas en términos de los valores nodales de las variables de campo.\\
+En el método de elementos finitos se considera un cuerpo continuo o sólido, como un ensamble de pequeñas 
+subdivisiones llamadas elementos finitos. Estos elementos están interconectados a través de nodos comunes. 
+Debido a que la variación real de las variables de campo (desplazamientos, esfuerzos, temperaturas, etc.) 
+se desconoce en el continuo, se asume que la variación de estas en el modelo de elemento finito puede ser 
+aproximada por una simple función. Estas funciones de aproximación, también llamadas modelos de interpolación, 
+son definidas en términos de los valores nodales de las variables de campo.\\
 
-En general, el método de los elementos finitos, consiste en formular un sistema de ecuaciones (ecuaciones de equilibrio) para el sistema continuo que ha sido discretizado, donde las incógnitas suelen ser los valores nodales de las variables de campo. Luego, se resuelve este sistema de ecuaciones, con las consideraciones correspondientes a las condiciones de frontera o valores iniciales que simplifiquen el modelo original. La siguiente ecuación muestra, en notación matricial, el sistema de ecuaciones resuelto en una formulación de elemento finito.
+En general, el método de los elementos finitos, consiste en formular un sistema de ecuaciones 
+(ecuaciones de equilibrio) para el sistema continuo que ha sido discretizado, donde las incógnitas 
+suelen ser los valores nodales de las variables de campo. Luego, se resuelve este sistema de ecuaciones, 
+con las consideraciones correspondientes a las condiciones de frontera o valores iniciales que simplifiquen 
+el modelo original. La siguiente ecuación muestra, en notación matricial, el sistema de ecuaciones resuelto 
+en una formulación de elemento finito.
 
 \begin{equation}
 K\,\bm{u} = \bm{P}
