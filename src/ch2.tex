@@ -616,7 +616,7 @@ Sustituyendo $\sigma_3 = 0$, $\sigma_1^2 + \sigma_2^2 - \sigma_1 \sigma_2 = Y^2$
 consiguiente sustitución de $\alpha = \sigma_2/\sigma_1$,
 
 \begin{equation}
-\sigma_1 = frac{y}{(1-\alpha+\alpha^2)^{1/2}}
+\sigma_1 = \frac{y}{(1-\alpha+\alpha^2)^{1/2}}
 \end{equation}
 
 El criterio de fluencia de Von Mises puede ser expresado en términos de los esfuerzos que no son principales. 
@@ -713,12 +713,108 @@ M\ddot{\bm{u}} + C\dot{\bm{u}} ̇+ K\bm{u} = \bf{P}
 \end{equation}
 
 Donde $C\,\dot{u}$ representa las fuerzas viscosas, mismas que deben incluirse cuando el 
-sistema esté amortiguado artificialmente.
+sistema esté amortiguado artificialmente y $M$ la matriz de masas.\\
 
-\subsection{Mallado}
+\subsection{Discretización de un modelo continuo}
+
+En un cuerpo discretizado, su deformación viene definida por un número finito de parámetros 
+que conforman el vector de desplazamientos $\bm{u}$. Un medio continuo tiene infinitas formas 
+posibles de deformarse, independientes unas de otras, ya que cada punto puede desplazarse 
+manteniendo fijos cualquier número finito de los puntos restantes, por grande que sea este 
+último. Luego, la configuración deformada es una función vectorial $\bm{u}$, que indica cuáles 
+son las deformaciones de cualquier punto, y que tiene tres componentes escalares: ~\cite{celigueta2011}
+
+\begin{equation}
+\bm{u} = \left\{ 
+\begin{matrix}
+u(x,y,z) \\
+v(x,y,z) \\
+w(x,y,z)
+\end{matrix}
+\right\}
+\end{equation}
 
 
-\subsection{Contactos}
+\subsection{Teoría de contactos}
+
+Una dificultad particular para análisis no lineales son los contactos entre dos o más 
+cuerpos. Los problemas de contactos abarcan desde pequeños desplazamientos con nula  
+fricción hasta condiciones de fricción en grandes deformaciones. Ahora, es lógico que 
+las no linealidades de un determinado problema no sólo se deban a las geometrías y el 
+material, sino incluso a las derivadas de los contactos o interacciones entre elementos.
+~\cite{bathe1996} \\
+
+Considere $N$ cuerpos que están en contacto en el tiempo $t$. Sea $^tS_c$ el área total 
+de contacto por cada cuerpo L, con $L=1,...,N$; entonces el principio del trabajo virtual 
+para $N$ cuerpos en el tiempo $t$ está dado por:
+
+\begin{equation} \label{eq:contact_n}
+\sum\limits_{L=1}^N \left\{ \int_{^tV} ^t\tau_{ij} \delta_t e_{ij} d^t V \right\} = 
+\sum\limits_{L=1}^N \left\{ 
+\int_{^tV} \delta u_i ^tf_i^B \, d^t V + 
+\int_{^tS_f} \delta u_i^s ^tf_i^S \, d^t S
+\right\} + 
+\sum\limits_{L=1}^N \int_{^tS_c} \delta u_i^c ^tf_i^c \, d^t VS
+\end{equation}
+
+Donde la parte entre llaves corresponde a los términos usuales de la formulación de elementos 
+finitos, y la última corresponde a la contribución de las fuerzas de contacto. Se puede 
+notar que el efecto de las fuerzas de contacto se incluye como una contribución en las 
+tracciones aplicadas externamente.\\
+
+\begin{center}
+\includegraphics[scale=0.9]{src/ch2/body_contacts.png}
+\captionof{figure}{Esquema del contacto entre dos cuerpos}
+\label{fig:body_contacts}
+\end{center}
+
+En la figura \ref{fig:body_contacts} muestra un esquema para el caso de dos cuerpos, 
+denotados como $I$ y $J$ respectivamente. Se asume que cada cuerpo está sujeto de
+modo que si no hay contacto no exista un movimiento de cuerpo rígido. Sea $^tF^{IJ}$ 
+el vector de las fuerzas de la superficie de contacto en el cuerpo $I$ debido 
+al contacto con el cuerpo $J$, entonces $^tf^{IJ} = -^tf^{JI}$. Por lo tanto, 
+el trabajo virtual debido a las fuerzas de contacto en \ref{eq:contact_n} puede 
+ser escrito como:
+
+\begin{equation}
+\int_{S^{IJ}} \delta u_i^I ^tf_i^{IJ} \, dS^{IJ} + 
+\int_{S^{JI}} \delta u_i^J ^tf_i^{JI} \, dS^{JI} = 
+\int_{S^{IJ}} \delta u_i^{IJ} ^tf_i^{IJ} \, dS^{IJ}
+\end{equation}
+
+Donde $\delta u_i^I$ y $\delta u_i^J$ son las componentes del desplazamiento virtual en 
+las superficies de contacto de los cuerpos $I$ y $J$, respectivamente, y:
+
+\begin{equation}
+\delta u_i^{IJ} = \delta u_i^I - \delta u_i^J
+\end{equation}
+
+Comúnmente se llama \textit{pares de contacto} a las superficies $S^{IJ}$ y $S^{JI}$, mismas 
+que no necesariamente son del mismo tamaño. Es conveniente llamar a $S^{IJ}$ la 
+\textit{superficie contactora} y a $S^{JI}$ la \textit{superficie objetivo}.\\
+
+Tomando como referencia la figura \ref{fig:contact_analysis}, sea $\bm{n}$ el vector unitario 
+normal a $S^{JI}$ y sea $\bm{s}$ un vector unitario de tal manera que $\bm{n}$ y $\bm{s}$ formen un base 
+ortonormal derecha. Se puede descomponer la fuerza de contacto $^tf^{IJ}$ actuando en $S^{IJ}$ en 
+sus componentes normal y tangencial correspondientes a $\bm{n}$ y $\bm{s}$ en $S^{JI}$,
+
+\begin{equation}
+^tf^{IJ} = \lambda \bm{n} + t \bm{s}
+\end{equation}
+
+Donde $\lambda$ y $t$ son las componentes normal y tangencial de la fuerza. Por consiguiente:
+
+\begin{equation}
+\lambda = \left( ^tf^{IJ} \right)^T \bm{n}; \,\,\,\,\,\,\,\,\,\, t = \left( ^tf^{IJ} \right)^T \bm{S}
+\end{equation}
+
+\begin{center}
+\includegraphics[scale=0.65]{src/ch2/contact_analysis.png}
+\captionof{figure}{Esquema del análisis de contactos}
+\label{fig:contact_analysis}
+\end{center}
+
+
 
 
 \subsection{Integración implícita vs explícita}

@@ -9,11 +9,24 @@ o el mecanizado. Es empleado en gran variedad de sectores: electrodomésticos ,
 automotriz, aeronáutico, naval, electrónico e informático y su objetivo es aprovechar al máximo 
 el material para elaborar la mayor cantidad de piezas con el menor tiempo y costo posible. \\
 
+Las operaciones de troquelado y estampado parecen actividades en las cuales no hay mayor 
+ciencia o desarrollo de ingeniería, y muchas veces, los herramentales utilizados 
+se fabrican mediante una aproximación dada por la experiencia de un jefe de taller o un 
+mecánico matricero, y posteriormente se realizan pruebas para ajustar en donde sea necesario. 
+Está claro que para una industria pequeña esto puede funcionar, dado que la exigencia 
+en la producción y las pérdidas derivadas de un diseño inadecuado son mínimas. Pero, normalmente,  
+en las industrias del sector automotriz los requerimientos en tiempo y costo dejan menos margen 
+de maniobra e implican que los procesos de diseño sean desarrollados mediante una metodología 
+que garantice la disponibilidad del producto en tiempo y forma.\\
+
+% Actualmente para garantizar el desarrollo a tiempo de un producto es necesario 
+
 La posibilidad de desarrollar simulaciones de los procesos de estampados metálicos fue 
-durante mucho tiempo un deseo inalcanzable para la industria de estampados. Los ingenieros 
+durante mucho tiempo casi una utopía para la industria. Los ingenieros 
 de procesos esperaban ser capaces de identificar posibles defectos en el formado en etapas 
 tempranas de diseño y/o desarrollo de los herramentales, y minimizar la necesidad de 
-modificaciones costosas de las herramientas en una serie de procesos de ensayo y error.
+modificaciones costosas de las herramientas en una serie de procesos de ensayo y error.\\
+
 
 \section{Planteamiento del problema}
 
@@ -30,8 +43,11 @@ involucrados en el desarrollo de los herramentales es una parte importante del p
 permitirá tomar decisiones respecto a los diseños en etapas tempranas, minimizando los costos derivados de 
 los ajustes realizados después de ejecutar \textit{corridas} de prueba.\\
 
-Se requiere simular el proceso de formado de un tubo de acero SAE 1018 que será fabricado con el herramental 
-diseñado en el nuevo centro de desarrollo.
+Se requiere simular el proceso de formado de un tubo de acero AISI 1018 que será fabricado con 
+un herramental diseñado en el nuevo centro de desarrollo, con la finalidad de determinar 
+la forma de la geometría final del producto, comparar con las especificaciones, determinar 
+si es necesario un rediseño, además de obtener algunos datos como la fuerza de formado 
+requerida para el proceso. 
 
 \section{Justificación}
 
@@ -55,7 +71,7 @@ de un componente.
 
 \section{Objetivo general}
 
-Simular y validar el proceso de formado de un tubo de acero SAE 1018.
+Simular y validar el proceso de formado de un tubo de acero AISI 1018.
 
 \section{Objetivos particulares}
 \begin{itemize}
@@ -70,10 +86,11 @@ Simular y validar el proceso de formado de un tubo de acero SAE 1018.
 
 \section{Alcances}
 
-
 \begin{itemize}
-\item Desarrollo de un modelo de elemento finito del proceso de formado de un tubo.
-\item Publicación de un artículo.
+\item Desarrollo de un modelo de elemento finito del proceso de formado del tubo.
+\item Simulación del modelo utilizando un análisis tipo dinámico-explícito.
+\item Validación de la simulación.
+% \item Publicación de un artículo.
 \end{itemize}
 
 
@@ -88,9 +105,10 @@ El modelado de problemas de estampado de partes metálicas requiere una precisi�
 de efectos como el comportamiento no lineal de un material, grandes deformaciones y condiciones de contacto entre la
 herramienta y la parte a estampar.que derivan  en algoritmos complejos.\cite{banabic2000}\\
 
-La primera formulación teóricamente correcta de problemas de formado de metales fue presentada por Wang y Budiansky 
-\cite{wang1978} en 1978. El método presentado fue una formulación total lagrangiana e involucraba elementos triangulares membrana de 
-deformación constante. La solución implementada fue un esquema incremental Euleriano hacia adelante. Los métodos basados en un 
+La primera formulación teóricamente correcta de problemas de formado de metales fue presentada por 
+Wang y Budiansky ~\cite{wang1978} en 1978. El método presentado fue una formulación total lagrangiana 
+e involucraba elementos triangulares membrana de deformación constante. La solución implementada fue 
+un esquema incremental Euleriano hacia adelante. Los métodos basados en un 
 esquema de solución como el anterior son llamados como métodos estáticos-explícitos.\\
 
 En el inicio de la década de los 90's hubo un incremento considerable en la utilización de la simulación de estampado 
@@ -99,7 +117,7 @@ establecieron las simulaciones de estampado como aspectos elementales en el desa
 Actualmente existen programas de computadora altamente especializados en la simulación de estampados, siendo AutoForm 
 uno de los más utilizados, este surgió como un proyecto de investigación en el ETH de Zurich en los inicios de los 90's. 
 El código está basado en un enfoque estático-implícito, pero utiliza algunos algoritmos innovativos que le permiten 
-una estabilidad y eficiencia computacional competitiva respecto a los códigos de tipo dinámico-explícito.\cite{banabic2000}
+una estabilidad y eficiencia computacional competitiva respecto a los códigos de tipo dinámico-explícito. \\ ~\cite{banabic2000}
 
 Huang & Leu \cite{huang1995} desarrollaron un código de análisis elasto-plástico por elemento finito, basado en una formulación 
 lagrangiana modificada, para simular proceso de doblado UO en placas metálicas, bajo condiciones de deformación 
