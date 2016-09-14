@@ -2,20 +2,33 @@
 
 \section{Antecedentes}
 
-La empresa Bypasa S.A. de C.V. diseña y fabrica componentes utilizados en partes antivibratorias, para el sector 
-automotriz, específicamente bujes y abrazaderas utilizadas en las suspensiones, 
-partiendo desde la creación de los materiales poliméricos requeridos, la 
-selección de la geometría y la validación del diseño. Sin embargo los herramentales: moldes y troqueles,  
-que utiliza en sus procesos de producción son diseñados y fabricados por empresas extranjeras y/o 
-nacionales. Por esto se está desarrollando un proyecto cuyo objetivo es poner en operación un centro 
-de diseño, fabricación y validación de moldes y troqueles.\\
+Los procesos de estampado forman  parte importante de la industria metal-mecánica, muchas 
+piezas metálicas se fabrican utilizando estos procesos, debido a los altos volúmenes de 
+producción y a la rapidez de fabricación respecto a otros métodos como la fundición, forja 
+o el mecanizado. Es empleado en gran variedad de sectores: electrodomésticos ,
+automotriz, aeronáutico, naval, electrónico e informático y su objetivo es aprovechar al máximo 
+el material para elaborar la mayor cantidad de piezas con el menor tiempo y costo posible. \\
+
+La posibilidad de desarrollar simulaciones de los procesos de estampados metálicos fue 
+durante mucho tiempo un deseo inalcanzable para la industria de estampados. Los ingenieros 
+de procesos esperaban ser capaces de identificar posibles defectos en el formado en etapas 
+tempranas de diseño y/o desarrollo de los herramentales, y minimizar la necesidad de 
+modificaciones costosas de las herramientas en una serie de procesos de ensayo y error.
+
+\section{Planteamiento del problema}
+
+La empresa Bypasa S.A. de C.V. diseña y fabrica componentes utilizados en partes antivibratorias, 
+para el sector automotriz, específicamente bujes y abrazaderas utilizadas en las suspensiones, 
+partiendo desde la creación de los materiales poliméricos requeridos, la selección de la geometría 
+y la validación del diseño. Sin embargo los herramentales: moldes y troqueles, que utiliza en sus 
+procesos de producción son diseñados y fabricados por empresas extranjeras y/o nacionales. Por esto 
+se está desarrollando un proyecto cuyo objetivo es poner en operación un centro de diseño, fabricación 
+y validación de moldes y troqueles.\\
 
 El modelado y simulación, por medio de métodos numéricos computacionales, de los procesos de fabricación 
 involucrados en el desarrollo de los herramentales es una parte importante del proyecto, puesto que 
 permitirá tomar decisiones respecto a los diseños en etapas tempranas, minimizando los costos derivados de 
-los ajustes realizados después de ejecutar \textit{corridas} de prueba.
-
-\section{Planteamiento del problema}
+los ajustes realizados después de ejecutar \textit{corridas} de prueba.\\
 
 Se requiere simular el proceso de formado de un tubo de acero SAE 1018 que será fabricado con el herramental 
 diseñado en el nuevo centro de desarrollo.
@@ -31,6 +44,8 @@ Además de lo anterior, la simulación presenta la ventaja de poder variar pará
 estampado, de manera conveniente, sin que esto derive en gastos excesivos de recursos, con la finalidad de entender 
 de mejor manera la influencia de ciertas propiedades o condiciones, e inclusive optimizar las características 
 de un componente.
+
+
 
 % \section{Hipótesis}
 
@@ -91,10 +106,8 @@ lagrangiana modificada, para simular proceso de doblado UO en placas metálicas,
 plana. Para realizar el análisis del proceso completo, dividieron este en tres pasos de carga o configuraciones 
 que se muestran en la figura 1, doblado en U, descarga y doblado final en O. Aplicaron además simetría debido a la 
 disposicion de las herramientas y el blank a formar, simplificando aún más el análisis. Utilizaron un coeficiente 
-de fricción de $\mu = 0.02$ y el espesor de la chapa fue de 6 mm.\\
-
-En la figura 2 se puede observar la secuencia del desarrollo de la geometría obtenida mediante el análisis 
-realizado. 
+de fricción de $\mu = 0.02$ y el espesor de la chapa fue de 6 mm. En la figura 2 se puede observar la secuencia del 
+desarrollo de la geometría obtenida mediante el análisis realizado. \\
 
 \begin{center}
 \includegraphics[scale=0.95]{src/ch1/uo-bending.png}
@@ -102,6 +115,6 @@ realizado.
 \end{center}
 
 \begin{center}
-\includegraphics[scale=0.8]{src/ch1/shape_sequence.png}
+\includegraphics[scale=0.75]{src/ch1/shape_sequence.png}
 \captionof{figure}{Secuencia obtenida mediante el proceso de doblado UO. \cite{huang1995}}
 \end{center}

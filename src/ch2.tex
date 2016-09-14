@@ -310,6 +310,10 @@ negativa de estos.
 \end{center}
 
 
+% ====================================================================================================
+% ======================================== Teoría de plasticidad =====================================
+% ====================================================================================================
+
 \section{Teoría de plasticidad}
 
 La teoría de plasticidad estudia la fluencia de materiales bajo estados de esfuerzos complejos. Permite 
@@ -319,6 +323,176 @@ el endurecimiento por carga durante la deformación bajo complejos estados de es
 son parte fundamental de los códigos de computadora utilizados para predecir la capacidad de una estructura 
 para absorber impactos, así como en procesos de formado o estampado que involucran la deformación plástica de 
 placas metálicas. ~\cite{hosford2005}
+
+
+\subsection{Esfuerzos, deformaciones y tasa de deformación}
+
+Las cantidades elementales que pueden ser usadas para describir los mecanismos de deformación 
+cuando un sólido se deforma de una configuración a otra bajo la influencia de cargas externas 
+son los esfuerzos, deformaciones y la tasa de deformación. ~\cite{kobayashi1989} \\
+
+Considere el ensayo de tensión uniaxial de un especimen cilíndrico cuya longitud inicial 
+es $l_0$ y un área transversal $A_0$. El especimen se reduce en la dirección axial 
+por acción de la fuerza $P$ a la longitud $l$ y sección transversal $A$ en el tiempo 
+$t$, como se observa en la figura \ref{fig:tensile_test}. El comportamiento del material 
+se caracteriza como una curva carga-desplazamiento, y se convierte a una de 
+esfuerzo-deformación como se muestra en la figura \ref{fig:tensile_test}. La deformación 
+se asume homogénea hasta que se presentan grietas. ~\cite{kobayashi1989} \\
+
+\begin{center}
+\includegraphics[scale=0.8]{src/ch2/tensile_test.png}
+\captionof{figure}{Ensayo de tensión uniaxial a) Especimen b) Curva esfuerzo-deformación}
+\label{fig:tensile_test}
+\end{center}
+
+Hay dos formas de describir la deformación de un medio continuo: la lagrangiana y la euleriana. 
+La descripción lagrangiana utiliza las coordenadas $X_i$ de una partícula típica en el estado 
+de referencia (o sin deformar) como las variables independientes, mientras en el caso 
+de la descripción euleriana la descripción de las variables independientes son las coordenadas 
+$x_i$ de un punto material en el estado deformado. Cuando la deformación es infinitesimal, los 
+productos de las derivadas de desplazamiento pueden ser \textit{despreciados}, y entonces no 
+se hace una distinción entre ambos enfoques. ~\cite{kobayashi1989} \\
+
+En la teoría de deformación infinitesimal, las esfuerzos y las tasas de deformación son expresadas 
+con respecto a un sistema fijo de coordenadas en la configuración actual del material en 
+un tiempo determinado. Para el caso de tensión uniaxial se tiene: ~\cite{kobayashi1989}
+
+\begin{align}
+\sigma = \frac{P}{A} \\
+\dot{\varepsilon} = \frac{\dot{l}}{l} \\
+d\varepsilon = \frac{dl}{l}
+\end{align}
+
+Los esfuerzos definidos en la ecuación anterior son llamados esfuerzos verdaderos o 
+esfuerzo de Cauchy. La cantidad total de deformación se obtiene integrando las deformaciones 
+infinitesimales:
+
+\begin{equation}
+\varepsilon = \int_{l_0}^{l} d\varepsilon = \ln{\frac{l}{l_0}}
+\end{equation}
+
+y es llamada deformación logarítmica o natural.\\
+
+En la descripción lagrangiana de la deformación finita, la medida de los esfuerzos, 
+deformaciones y tasa de deformación son expresadas como sigue. Sea la posición 
+de una partícula en su configuración deformada en el tiempo $t$ la designada por: 
+
+\begin{equation}
+x = \chi(X,t)
+\end{equation}
+
+donde $X$ es una posición de referencia de una partícula y $t$ el tiempo. En 
+tensión uniaxial sea $X$ una posición a lo largo del eje longitudinal del 
+especimen de la figura \ref{fig:tensile_test}, entonces:
+
+\begin{equation}
+x = X + \left( \frac{l-l_0}{l_0} \right) X
+\end{equation}
+
+La elongación se define como el gradiente del desplazamiento relativo a la posición 
+de referencia y se expresa como:
+
+\begin{equation} \label{eq:disp_grad}
+\frac{\partial (x-X)}{\partial X} = \frac{l-l_0}{l_0} = e
+\end{equation}
+
+Esto es el esfuerzo ingenieril o de ingeniería. \\
+
+La componente de deformación lagrangiana $E_{11}$ está definida por:
+
+\begin{equation} \label{eq:lagra_strain}
+E_{11} = \frac{1}{2} \left( \frac{\partial x}{\partial X} \frac{\partial x}{\partial X} - 1 \right) = 
+\frac{1}{2} \left\[ (1+e)^2 - 1 \right\] = e + \frac{1}{2} e^2
+\end{equation}
+
+% [REFERENCIA]: Revisar referencia para interpretación geométrica 
+
+Los componentes de la tasa de deformación son las derivadas del tiempo de las componentes 
+de deformación dadas por las ecuaciones \ref{eq:disp_grad} y \ref{eq:lagra_strain}, y son:
+
+\begin{equation}
+\dot{e} = \frac{\dot{l}}{l_0}
+\end{equation}
+
+y 
+
+\begin{equation}
+\dot{E_{11}} = \frac{\partial x}{\partial X} \frac{\partial \dot{x}}{\partial X} = 
+(1+e)\dot{e}
+\end{equation}
+
+siendo:
+
+\begin{equation}
+\dot{x} = \frac{\partial \chi}{\partial t} \Big\rvert_{X = const.}
+\end{equation}
+
+Para el análisis de procesos de formado, la formulación de flujo está basada la teoría 
+de deformación infinitesimal, mientras la formulación sólida considera deformaciones 
+finitas. \\
+
+El tensor de la tasa de deformacion $[\dot{\varepsilon_{ij}}]$, donde $i,j = x,y,z$ es simétrico 
+y los componentes del tensor están definidos por: 
+
+\begin{eqnarray} \label{eq:strain_rate_tensor}
+\dot{\varepsilon_x} = \frac{\partial u_x}{\partial x} \,\,\,\,\, ;
+\dot{\varepsilon_x} = \frac{\partial u_x}{\partial x}  \,\,\,\,\, ;
+\dot{\varepsilon_x} = \frac{\partial u_x}{\partial x} \\
+\dot{\varepsilon_{xy}} = \frac{1}{2} \left( \frac{\partial u_x}{\partial y} + \frac{\partial u_y}{\partial x} \right) = \frac{\dot{\gamma_{xy}}}{2} \\
+\dot{\varepsilon_{yz}} = \frac{1}{2} \left( \frac{\partial u_y}{\partial z} + \frac{\partial u_z}{\partial y} \right) = \frac{\dot{\gamma_{yz}}}{2} \\
+\dot{\varepsilon_{zx}} = \frac{1}{2} \left( \frac{\partial u_z}{\partial x} + \frac{\partial u_x}{\partial z} \right) = \frac{\dot{\gamma_{zx}}}{2}
+\end{eqnarray}
+
+Donde $u_i$ son componentes de velocidad y $\gamma_{ij}$ son componentes de la tasa 
+deformación por cortante ingenieril. Utilizando notación de subíndices, la ecuación 
+\ref{eq:strain_rate_tensor} puede ser reescrita como:
+
+\begin{equation}
+\dot{\varepsilon_{ij}} = \frac{1}{2} \left( u_{i,j} + u_{j,i} \right)
+\end{equation}
+
+Donde las comas denotan la derivación respecto a las coordenadas que siguen.\\
+
+El tensor de esfuerzos de Cauchy $[\sigma_{ij}]$, donde $i,j = 1,2,3$ o $x,y,z$, es 
+también simétrico y es representado por los nueve componentes como sigue:
+
+\begin{equation}
+[\sigma_{ij}] = 
+\begin{bmatrix}
+\sigma_{11} & \sigma_{21} & \sigma_{31} \\
+\sigma_{12} & \sigma_{22} & \sigma_{32} \\
+\sigma_{13} & \sigma_{23} & \sigma_{33} 
+\end{bmatrix}
+=
+\begin{bmatrix}
+\sigma_x & \tau_{yx} & \tau_{zx} \\
+\tau_{xy} & \sigma_y & \tau_{zy} \\
+\tau_{xz} & \tau_{yz} & \sigma_z 
+\end{bmatrix}
+\end{equation}
+
+El esfuerzo puede también especificarse por sus tres componentes principales, o por 
+los tres invariantes. Los esfuerzos principales ($\sigma_1, \sigma_2, \sigma_3$), son 
+ráices de la ecuación cúbica:
+
+\begin{equation}
+\sigma^3 - I_1 \sigma^2 - I_2 \sigma - I_3 = 0
+\end{equation}
+
+Donde $I_1$, $I_2$ e $I_3$ son cantidades independientes de la dirección de los ejes 
+seleccionados y son llamados los tres invariantes del tensor de esfuerzos $\sigma_{ij}$, y están definidos 
+por las relaciones:
+
+\begin{align}
+I_1 = \sigma_x + \sigma_y + \sigma_z = \sigma_1 + \sigma_2 + \sigma_3 \\
+I_2 = -\left( \sigma_x \sigma_y + \sigma_y \sigma_z + \sigma_z \sigma_x \right) + \tau_{xy}^2 + 
+\tau_{yz}^2 + \tau_{zx}^2 = -(\sigma_1 \sigma_2 + \sigma_2 \sigma_3 + \sigma_3 \sigma_1) \\
+I_3 = \sigma_x \sigma_y \sigma_z + 2 \tau_{xy} \tau_{yz} \tau_{zx} - \sigma_x \tau_{yz}^2 - \sigma_y \tau_{zx}^2 - 
+\sigma_z \tau_{xy}^2 = \sigma_1 \sigma_2 \sigma_3
+\end{align}
+
+El primer y segundo invariantes tienen importancia física en la teoría de plasticidad.
+
 
 \subsection{Criterio de fluencia}
 
@@ -366,7 +540,7 @@ que difiere sólo por $\sigma_m$, también causará la fluencia. Estos esfuerzos
 $\sigma_3'$ se conocen como esfuerzos desviatorios. ~\cite{hosford2007}
 
 \begin{center}
-\includegraphics[scale=0.75]{src/ch2/circulos_mohr.png}
+\includegraphics[scale=0.75]{src/ch2/circulos_mohr_svg.eps}
 \captionof{figure}{Círculos de Mohr para dos estados de esfuerzos que difieren por un esfuerzo hidrostático, $\sigma_m$ y que son equivalentes en términos de la fluencia}
 \label{fig:circulos_mohr}
 \end{center}
@@ -418,10 +592,10 @@ del promedio de los diámetros de los tres círculos de Mohr. Este es el criteri
 expresado como:
 
 \begin{equation} \label{eq:ec3}
-\left\{ [(\sigma_2-\sigma_3)^2 + (\sigma_3-\sigma_1 )^2 + (\sigma_1-\sigma_2 )^2]/3 \right\}^{1/2} = C
+\left( \frac{ (\sigma_2-\sigma_3)^2 + (\sigma_3-\sigma_1 )^2 + (\sigma_1-\sigma_2)}{3} \right) ^{1/2} = C
 \end{equation}
 
-Como cada término está elevado al cuadrado, la convención $\sigma_1 \me \sigma_2 \me \sigma_3$ no es necesaria. 
+Como cada término está elevado al cuadrado, la convención $\sigma_1 \geq \sigma_2 \geq \sigma_3$ no es necesaria. 
 La constante del material, $C$, puede ser evaluada mediante un ensayo de tensión uniaxial. En la fluencia, 
 $\sigma_1 = Y$ y $\sigma_2 = \sigma_3 = 0$. Sustituyendo, $[0^2 + (-Y)^2 + Y^2]/3 = C^2$, o 
 $C = (2/3)^{1/3} Y $, entonces, la ecuación usualmente se escribe como:
@@ -434,7 +608,7 @@ Para cortante puro, $\sigma_1 = -\sigma_3 = k$ y $\sigma_2=0$. Sustituyendo en l
 $ (-k)^2 + [ (-k)-k ]^2 + k^2 = 2Y^2 $, entonces:
 
 \begin{equation}\label{eq:ec5}
-k = Y/\sqrt{3}
+k = Y / \sqrt{3}
 \end{equation}
 
 La ecuación \ref{eq:ec5} puede ser simplificada si uno de los esfuerzos principales es cero (condición de esfuerzo plano). 
@@ -442,13 +616,67 @@ Sustituyendo $\sigma_3 = 0$, $\sigma_1^2 + \sigma_2^2 - \sigma_1 \sigma_2 = Y^2$
 consiguiente sustitución de $\alpha = \sigma_2/\sigma_1$,
 
 \begin{equation}
-\sigma_1 = Y/(1-\alpha+\alpha^2)^{1/2}
+\sigma_1 = frac{y}{(1-\alpha+\alpha^2)^{1/2}}
 \end{equation}
 
+El criterio de fluencia de Von Mises puede ser expresado en términos de los esfuerzos que no son principales. 
+En este caso es necesario incluir los términos de cortante:
+
+\begin{equation}
+(\sigma_y - \sigma_z)^2 + (\sigma_z - \sigma_x)^2 + (\sigma_x - \sigma_y)^2 + 6 (\tau_{yz}^2 + \tau_{zx}^2 + \tau_{xy}^2) = 2Y^2
+\end{equation}
+
+donde x, y, z, son esfuerzos en esas direcciones, que no necesariamente son las direcciones principales.
+
+
+\subsection{Reglas de flujo}
+
+Las deformaciones resultantes en la región elástica son descritas por la ley de Hooke. 
+Hay una relación similar para las deformaciones plásticas, llamadas reglas de flujo. 
+En el caso más general, la forma de una regla de flujo puede escribirse como: ~\cite{hosford2007}
+
+\begin{equation}
+d\varepsilon_{ij} = d\lambda (\partial f / \partial \sigma_{ij})
+\end{equation}
+
+Donde $f$ es la función de $\sigma_{ij}$ que describe la fluencia. Esto está relacionado 
+con el por qué ha sido llamado el \textit{potencial plástico}. Para el criterio de 
+Von Mises, la diferenciación resulta en: ~\cite{hosford2007}
+
+\begin{align}
+d\varepsilon_1 = d\lambda \left[ \sigma_1 - (1/2) (\sigma_2 + \sigma_3) \right] \\
+d\varepsilon_2 = d\lambda \left[ \sigma_2 - (1/2) (\sigma_3 + \sigma_1) \right] \\
+d\varepsilon_3 = d\lambda \left[ \sigma_3 - (1/2) (\sigma_1 + \sigma_2) \right]
+\end{align}
+
+En estas expresiones $d\lambda = d \overline{\varepsilon} / \overline{\sigma} $, el cual varía 
+con la posición en la curva $ \overline{\sigma} - \overline{\varepsilon} $. Sin embargo, la 
+relación de las deformaciones plásticas permanece constante: ~\cite{hosford2007} \\
+
+% \begin{equation}
+% d\varepsilon_1 : d\varepsilon_2 : d\varepsilon_3  = 
+% \left\[ \sigma_1 - (1/2) (\sigma_2 + \sigma_3) \right\] :
+% \left\[ \sigma_2 - (1/2) (\sigma_3 + \sigma_1) \right\] :
+% \left\[ \sigma_3 - (1/2) (\sigma_1 + \sigma_2) \right\]
+% \end{equation}
+
+Para el criterio de Tresca, $f = \sigma_1 - \sigma_3$, entonces las reglas de flujo son simples:
+~\cite{hosford2007}
+
+\begin{align*}
+d\varepsilon_1 = dl \\
+d\varepsilon_2 = 0 \\
+d\varepsilon_3 = -dl
+\end{align*}
+
+
+% ================================================================================================================
+% ================================= 	MÉTODO DE LOS ELEMENTOS FINITOS ==========================================
+% ================================================================================================================
 
 \section{El método de los elementos finitos}
 
-\subsection{Generalidades del método}
+\subsection{Una introducción al método}
 
 En el método de elementos finitos se considera un cuerpo continuo o sólido, como un ensamble de pequeñas 
 subdivisiones llamadas elementos finitos. Estos elementos están interconectados a través de nodos comunes. 
@@ -487,9 +715,13 @@ M\ddot{\bm{u}} + C\dot{\bm{u}} ̇+ K\bm{u} = \bf{P}
 Donde $C\,\dot{u}$ representa las fuerzas viscosas, mismas que deben incluirse cuando el 
 sistema esté amortiguado artificialmente.
 
+\subsection{Mallado}
 
 
-\subsection{Solución implícita vs explícita}
+\subsection{Contactos}
+
+
+\subsection{Integración implícita vs explícita}
 
 Existen, de manera general, dos tipos de métodos para resolver ecuaciones diferenciales  
 en problemas dependientes del tiempo: integración implícita e integración explícita. El 
@@ -517,4 +749,8 @@ explícita estas no linealidades pueden ser tratadas sin mayores problemas. Por 
 las simulaciones de estampados suelen ser conveniente el uso de algoritmos de integración explícita.
 
 
-\subsection{Contactos}
+\subsection{Implementación del método en problemas de ingeniería}
+
+
+
+
