@@ -692,24 +692,24 @@ con las consideraciones correspondientes a las condiciones de frontera o valores
 el modelo original. La siguiente ecuación muestra, en notación matricial, el sistema de ecuaciones resuelto 
 en una formulación de elemento finito.
 
-\begin{equation}
-K\,\bm{u} = \bm{P}
+\begin{equation} \label{eq:fem_simple}
+K\,\vec{u} = \vec{P}
 \end{equation}
 
-Donde $K$ es la matriz global de rigidez, $\bm{u}$ es el vector de desplazamientos nodales y $\bm{P}$ el 
+Donde $K$ es la matriz global de rigidez, $\vec{u}$ es el vector de desplazamientos nodales y $\vec{P}$ el 
 vector de fuerzas nodales en el sistema.\\
 
-Para problemas lineales, el vector $\bm{u}$ puede ser resuelto de manera sencilla, mediante 
+Para problemas lineales, el vector $\vec{u}$ puede ser resuelto de manera sencilla, mediante 
 procedimientos básicos del álgebra lineal. Sin embargo, para problemas no lineales, la solución 
 tiene que ser obtenida mediante una secuencia de pasos, en el cual cada uno de estos implica la 
-modificación de la matriz de rigidez $K$ y/o el vector global de carga $\bm{P}$.\\
+modificación de la matriz de rigidez $K$ y/o el vector global de carga $\vec{P}$.\\
 
 En problemas de análisis dinámico, desplazamientos, velocidades, deformaciones, esfuerzos y cargas 
 son dependientes del tiempo. Por ello deben incluirse algunos otros términos, por lo que la ecuación 
 a resolver viene dada por la expresión siguiente:
 
 \begin{equation}
-M\ddot{\bm{u}} + C\dot{\bm{u}} ̇+ K\bm{u} = \bf{P}
+M\ddot{\vec{u}} + C\dot{\vec{u}} ̇+ K\vec{u} = \bf{P}
 \end{equation}
 
 Donde $C\,\dot{u}$ representa las fuerzas viscosas, mismas que deben incluirse cuando el 
@@ -718,14 +718,14 @@ sistema esté amortiguado artificialmente y $M$ la matriz de masas.\\
 \subsection{Discretización de un modelo continuo}
 
 En un cuerpo discretizado, su deformación viene definida por un número finito de parámetros 
-que conforman el vector de desplazamientos $\bm{u}$. Un medio continuo tiene infinitas formas 
+que conforman el vector de desplazamientos $\vec{u}$. Un medio continuo tiene infinitas formas 
 posibles de deformarse, independientes unas de otras, ya que cada punto puede desplazarse 
 manteniendo fijos cualquier número finito de los puntos restantes, por grande que sea este 
-último. Luego, la configuración deformada es una función vectorial $\bm{u}$, que indica cuáles 
+último. Luego, la configuración deformada es una función vectorial $\vec{u}$, que indica cuáles 
 son las deformaciones de cualquier punto, y que tiene tres componentes escalares: ~\cite{celigueta2011}
 
 \begin{equation}
-\bm{u} = \left\{ 
+\vec{u} = \left\{ 
 \begin{matrix}
 u(x,y,z) \\
 v(x,y,z) \\
@@ -734,6 +734,54 @@ w(x,y,z)
 \right\}
 \end{equation}
 
+Esta función es la solución de la ecuación diferencial que gobierna el problema, y si éste 
+está bien planteado, cumplirá las condiciones de contorno impuestas, pero en principio no 
+puede asegurarse que esta función tenga una expresión analítica manejable, ni siquiera que 
+pueda calcularse. Por lo tanto la función $\vec{u}$ no podrá conocerse en general.
+
+Para resolver este problema el método de los elementos finitos recurre a la hipótesis de 
+discretización, que se basa en lo siguiente: ~\cite{zienkiewicz2005} \\
+
+\begin{itemize}
+\item El continuo se divide por medio de líneas o superficies imaginarias, en un número 
+de elementos finitos.
+\item Se supone que los elementos están conectados entre sí mediante un número discreto de puntos, 
+que llamaremos nodos, situados en sus contornos. Los desplazamientos de estos nodos serán las 
+incógnitas fundamentales del problema, tal como ocurre en el análisis simple de estructuras.
+\item Se toma un conjunto de funciones que definan de manera única el campo de desplazamientos 
+dentro de cada elemento finito en función de los desplazamientos nodales de dicho elemento.
+\item Estas funciones de desplazamientos definirán entonces de manera única el estado de 
+deformación dentro del elemento en función de los desplazamientos nodales. Estas deformaciones, 
+junto con las deformaciones iniciales y las propiedades constitutivas del material, definirán el 
+estado de tensiones en todo el elemento y, por consiguiente, también en sus contornos.
+\item Se determina un sistema de fuerzas concentradas en los nodos, tal que equilibre las tensiones 
+en el contorno y cualesquiera cargas repartidas, resultando así una relación entre fuerzas y 
+desplazamientos como la descrita en la ecuación \ref{eq:fem_simple}.
+\end{itemize}
+
+Esta hipótesis de discretización es el pilar básico del método de los elementos finitos, 
+el cuál es un método discretizante, de parámetros distribuidos. La aproximación descrita 
+se conoce como la formulación en desplazamiento. ~\cite{celigueta2011} \\
+
+Primero, no siempre es fácil asegurar que las funciones de desplazamiento escogidas satisfacen las 
+condiciones de continuidad de los desplazamientos entre elementos adyacentes. Por consiguiente, 
+esta condición de compatibilidad puede no cumplirse en el contorno de los elementos. 
+En segundo lugar, al concentrar las fuerzas equivalentes en los nodos, las condiciones de 
+equilibrio sólo se cumplirán para el conjunto del continuo. Normalmente ocurrirá que tales 
+condiciones no se cumplirán en zonas localizadas dentro y en el contorno de cada 
+elemento. ~\cite{zienkiewicz2005} \\
+
+Como consecuencia, será responsabilidad del ingeniero o analista  seleccionar la forma de 
+los elementos y de las funciones de desplazamiento para cada paso particular, y aquí 
+el grado de aproximación a la solución del problema dependerá de la habilidad, experiencia 
+e ingenio del mismo.\\
+
+Actualmente existen una multitud de entornos de simulación por elementos finitos que 
+facilitan en gran medida la tarea de discretización de un modelo sólido, estos incorporan 
+un preprocesador que se encarga de ejecutar las tareas de mallado/discretización, asignación 
+de propiedades y selección del modelo constitutivo, entre otras. Pero aquí, nuevamente 
+es vital el criterio de quien realiza el modelo, puesto que debe incluir datos de ingeniería 
+coherentes y desarrollar un modelo adecuado al fenómeno físico representado.
 
 \subsection{Teoría de contactos}
 
@@ -793,19 +841,19 @@ Comúnmente se llama \textit{pares de contacto} a las superficies $S^{IJ}$ y $S^
 que no necesariamente son del mismo tamaño. Es conveniente llamar a $S^{IJ}$ la 
 \textit{superficie contactora} y a $S^{JI}$ la \textit{superficie objetivo}.\\
 
-Tomando como referencia la figura \ref{fig:contact_analysis}, sea $\bm{n}$ el vector unitario 
-normal a $S^{JI}$ y sea $\bm{s}$ un vector unitario de tal manera que $\bm{n}$ y $\bm{s}$ formen un base 
+Tomando como referencia la figura \ref{fig:contact_analysis}, sea $\vec{n}$ el vector unitario 
+normal a $S^{JI}$ y sea $\vec{s}$ un vector unitario de tal manera que $\vec{n}$ y $\vec{s}$ formen un base 
 ortonormal derecha. Se puede descomponer la fuerza de contacto $^tf^{IJ}$ actuando en $S^{IJ}$ en 
-sus componentes normal y tangencial correspondientes a $\bm{n}$ y $\bm{s}$ en $S^{JI}$,
+sus componentes normal y tangencial correspondientes a $\vec{n}$ y $\vec{s}$ en $S^{JI}$,
 
 \begin{equation}
-^tf^{IJ} = \lambda \bm{n} + t \bm{s}
+^tf^{IJ} = \lambda \vec{n} + t \vec{s}
 \end{equation}
 
 Donde $\lambda$ y $t$ son las componentes normal y tangencial de la fuerza. Por consiguiente:
 
 \begin{equation}
-\lambda = \left( ^tf^{IJ} \right)^T \bm{n}; \,\,\,\,\,\,\,\,\,\, t = \left( ^tf^{IJ} \right)^T \bm{S}
+\lambda = \left( ^tf^{IJ} \right)^T \vec{n}; \,\,\,\,\,\,\,\,\,\, t = \left( ^tf^{IJ} \right)^T \vec{S}
 \end{equation}
 
 \begin{center}
@@ -813,8 +861,6 @@ Donde $\lambda$ y $t$ son las componentes normal y tangencial de la fuerza. Por 
 \captionof{figure}{Esquema del análisis de contactos}
 \label{fig:contact_analysis}
 \end{center}
-
-
 
 
 \subsection{Integración implícita vs explícita}
@@ -847,6 +893,9 @@ las simulaciones de estampados suelen ser conveniente el uso de algoritmos de in
 
 \subsection{Implementación del método en problemas de ingeniería}
 
-
-
+\begin{center}
+\includegraphics[scale=0.85]{src/ch2/elemento_finito_diagrama.eps}
+\captionof{figure}{Diagrama de la implementación del FEM en la solución de problemas de ingeniería}
+\label{fig:fem_diagram}
+\end{center}
 

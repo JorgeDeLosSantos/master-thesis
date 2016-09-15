@@ -1,5 +1,7 @@
 \chapter{Metodología}
 
+\section{Descripción de la metodología aplicada}
+
 \begin{center}
 \includegraphics[scale=0.75]{src/ch3/diagrama_metodologia.png}
 \captionof{figure}{Metodología del proyecto}
@@ -10,7 +12,7 @@
 
 \subsection{Consideraciones generales}
 
-Para realizar el análisis por elemento finito se han tomado sólo los elementos formadores que 
+Para realizar el análisis por elementos finitos se han tomado sólo los elementos formadores que 
 tienen influencia directa o contacto sobre el formado del tubo, quitando todos los elementos 
 del troquel adicionales. Además, los formadores se han considerado como elementos rígidos, 
 para simplificar y agilizar el análisis numérico, al permanecer sus características geométricas 
@@ -139,7 +141,7 @@ P & 5 \\
 \subsection{Mallado}
 
 Para el mallado de la pieza de trabajo se utilizó el elemento \texttt{SOLID164} 
-(ver figura \ref{fig:solid164}, el cual es un sólido de 8 nodos, que puede ser utilizado con el modelo 
+( ver figura \ref{fig:solid164} ), el cual es un sólido de 8 nodos, que puede ser utilizado con el modelo 
 constitutivo descrito en la sección anterior. Este elemento utiliza, por defecto, integración reducida 
 (un punto de integración), el cual tiene la ventaja de reducir el tiempo de cómputo y adiciona 
 robustez para el caso de grandes deformaciones. ~\cite{lsdyna-ansys-manual}
@@ -198,10 +200,11 @@ Espesor en nodo 4 (T4) & 0.2 \\
 \label{tab:shell_param}
 \end{table}
 
+
 En el \textit{blank} se utilizó un tamaño global de elemento de 0.03 in, y 0.035 in en el caso de las partes 
 rígidas, exceptuando las áreas que están directamente en contacto con el \textit{blank}, en cuyo caso se hizo 
 un refinamiento, dejando el tamaño global en 0.02 in. En el \textit{blank} fue necesario segmentar en cuatro 
-volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_seg}.
+volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_seg} ).
 
 
 % Partición del blank
@@ -227,8 +230,8 @@ volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_se
 \label{fig:mesh_assembly02}
 \end{center}
 
-En las tabla \ref{tab:elements_and_nodes} se muestra el número de nodos y elementos obtenidos para cada uno de los 
-ensambles.
+En las tabla \ref{tab:elements_and_nodes} se muestra el número de nodos y elementos obtenidos 
+para cada uno de los ensambles.
 
 \begin{table}[h]
 \centering
