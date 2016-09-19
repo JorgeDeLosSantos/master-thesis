@@ -17,6 +17,9 @@ bib/
 ## Exclude PDFs
 *.pdf
 
+## Include image PDFs
+!src/ch*/*.pdf
+
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
 *.bcf
