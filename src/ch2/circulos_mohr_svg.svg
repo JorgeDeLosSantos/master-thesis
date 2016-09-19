@@ -16,7 +16,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.5 r10040"
-   sodipodi:docname="circulos_mohr_svg.eps"
+   sodipodi:docname="circulos_mohr_svg.svg"
    inkscape:export-filename="C:\Users\User\Desktop\LABPro\master-thesis\src\ch2\doblado_v.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -5306,7 +5306,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -5404,10 +5404,10 @@
          sodipodi:role="line"
          id="tspan6491"
          x="-173.74625"
-         y="347.46698"></tspan></text>
+         y="347.46698" /></text>
     <g
        id="g8833"
-       transform="translate(-8,2)">
+       transform="matrix(1.0499411,0,0,1.0499411,-19.588165,-42.421379)">
       <path
          sodipodi:open="true"
          sodipodi:end="7.0832644"
