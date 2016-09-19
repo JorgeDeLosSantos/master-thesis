@@ -76,7 +76,7 @@ en forma de V, como se muestra en la figura \ref{fig:doblado_v}. Los ángulos de
 pueden incluir una variedad de rangos.
 
 \begin{center}
-\includegraphics[scale=0.4]{src/ch2/doblado_v.eps}
+\includegraphics[scale=0.4]{src/ch2/doblado_v}
 \captionof{figure}{Doblado en V}
 \label{fig:doblado_v}
 \end{center}
@@ -85,7 +85,7 @@ El doblado en U es muy similar al anterior, con la diferencia que el radio del d
 suele ser más amplio, como se muestra en la figura \ref{fig:doblado_u}.
 
 \begin{center}
-\includegraphics[scale=0.4]{src/ch2/doblado_u.eps}
+\includegraphics[scale=0.4]{src/ch2/doblado_u}
 \captionof{figure}{Doblado en U}
 \label{fig:doblado_u}
 \end{center}
@@ -98,7 +98,7 @@ de la matriz (ver figura \ref{fig:doblado_bordes}. Normalmente este tipo de dobl
 se limita a ángulos de 90° o menores.
 
 \begin{center}
-\includegraphics[scale=0.4]{src/ch2/doblado_bordes.eps}
+\includegraphics[scale=0.4]{src/ch2/doblado_bordes}
 \captionof{figure}{Doblado de bordes}
 \label{fig:doblado_bordes}
 \end{center}
@@ -157,7 +157,7 @@ cuyo valor depende del tipo de doblado, normalmente 1.33 para doblado en V y 0.3
 de bordes. ~\cite{groover2007}
 
 \begin{center}
-\includegraphics[scale=0.4]{src/ch2/fuerza_doblado.eps}
+\includegraphics[scale=0.425]{src/ch2/fuerza_doblado}
 \captionof{figure}{Esquema de la fuerza de doblado}
 \label{fig:fuerza_doblado}
 \end{center}
@@ -172,7 +172,7 @@ inicial e implica que el ángulo de doblado en el herramental $\alpha_i$ no corr
 que implican un tipo de doblado.\\
 
 \begin{center}
-\includegraphics[scale=0.4]{src/ch2/springback.eps}
+\includegraphics[scale=0.4]{src/ch2/springback}
 \captionof{figure}{Recuperación elástica de una pieza metálica sometida a doblez}
 \label{fig:springback}
 \end{center}
@@ -541,7 +541,7 @@ que difiere sólo por $\sigma_m$, también causará la fluencia. Estos esfuerzos
 $\sigma_3'$ se conocen como esfuerzos desviatorios. ~\cite{hosford2007}
 
 \begin{center}
-\includegraphics[scale=0.75]{src/ch2/circulos_mohr_svg.eps}
+\includegraphics[scale=0.75]{src/ch2/circulos_mohr_svg}
 \captionof{figure}{Círculos de Mohr para dos estados de esfuerzos que difieren por un esfuerzo hidrostático, $\sigma_m$ y que son equivalentes en términos de la fluencia}
 \label{fig:circulos_mohr}
 \end{center}
@@ -669,6 +669,102 @@ d\varepsilon_1 = dl \\
 d\varepsilon_2 = 0 \\
 d\varepsilon_3 = -dl
 \end{align*}
+
+
+\subsection{Endurecimiento por deformación}
+
+En el caso unidimensional, un especimen se deformará hasta la fluencia y entonces generalmente 
+endurece, como se muestra en la figura \ref{fig:strain_stress_hardening}. En el caso de 
+plasticidad perfecta, una vez que el esfuerzo alcanza el punto de fluencia $A$, le sigue una 
+deformación plástica siempre y cuando el esfuerzo se mantenga en $Y$. Si el esfuerzo se reduce, 
+una descarga elástica ocurre. En el caso con efectos de endurecimiento, una vez que la fluencia 
+ocurre, el esfuerzo necesita continuar incrementando para producir la deformación plástica. 
+Si el esfuerzo se mantiene constante, por ejemplo en $B$, no ocurrirá una deformación plástica, 
+además tampoco sucederá una descarga elástica como en el caso idealizado. ~\cite{kelly2012}
+
+\begin{center}
+\includegraphics[scale=0.6]{src/ch2/strain_stress_hardening}
+\captionof{figure}{Curva esfuerzo-deformación}
+\label{fig:strain_stress_hardening}
+\end{center}
+
+
+Estas ideas pueden ser extendidas al caso multiaxial, donde la superficie de fluencia inicial 
+tendrá la forma:
+
+\begin{equation}
+f_0 (\sigma_{ij}) = 0
+\end{equation}
+
+En el caso de plasticidad perfecta, la superficie de fluencia permanece invariable. En el caso 
+más general, la superficie de fluencia puede cambiar de tamaño, forma y posición, y puede ser 
+descrita por:
+
+\begin{equation}
+f(\sigma_{ij}, K_i) = 0
+\end{equation}
+
+Donde $K_i$ representa uno o más parámetros de endurecimiento, los cuales cambian durante la 
+deformación plástica y determinan la evolución de la superficie de fluencia. Estos pueden 
+ser escalares o tensores de orden superior. Al inicio de la fluencia, los parámetros de 
+endurecimiento son cero, y $f(\sigma_{ij}, 0) = f_0(\sigma_{ij}) $. \\
+
+La descripción de cómo la superficie de fluencia cambia con la deformación plástica es 
+llamada regla de endurecimiento. 
+
+\subsubsection{Endurecimiento isotrópico}
+
+El endurecimiento isotrópico es cuando la superficie de fluencia permance en la misma forma, 
+pero se expande cuando el esfuerzo aumenta, tal como se esquematiza en la figura \ref{fig:isotropic_hardening}.
+
+\begin{center}
+\includegraphics[scale=0.8]{src/ch2/isotropic_hardening}
+\captionof{figure}{Endurecimiento isotrópico}
+\label{fig:isotropic_hardening}
+\end{center}
+
+En particular, la función de fluencia toma la forma:
+
+\begin{equation}
+f(\sigma_{ij}, K_i) = f_0 ( \sigma_{ij} ) - K = 0
+\end{equation}
+
+La forma de la función de fluencia es especificada por la función de fluencia inicial y su 
+tamaño cambia conforme lo hace el parámetro de endurecimiento $K$.
+
+
+\subsubsection{Endurecimiento cinemático}
+
+El modelo isotrópico implica que, si el esfuerzo de fluencia en tensión y compresión son 
+inicialmente iguales, estos permanecen iguales a como la superficie de fluencia se desarrolla 
+con la deformación plástica. Con la finalidad de modelar el efecto de Bauschinger y comportamientos 
+similares, donde un endurecimiento a tensión dará lugar a un ablandamiento en una compresión 
+subsecuente, se puede entonces utilizar la regla de endurecimiento cinemático. En esta 
+la superficie de fluencia permanece de la misma forma y tamaño, pero conlleva una traslación simple 
+en el espacio de esfuerzos, como se muestra en la figura \ref{fig:kinematic_hardening}
+
+
+\begin{center}
+\includegraphics[scale=0.8]{src/ch2/kinematic_hardening}
+\captionof{figure}{Endurecimiento cinemático}
+\label{fig:kinematic_hardening}
+\end{center}
+
+La función de fluencia ahora toma la forma general:
+
+\begin{equation}
+f(\sigma_{ij}, K_i) = f_0 (\sigma_{ij} - \alpha_{ij}) = 0
+\end{equation}
+
+Aquí el parámetro de endurecimiento es el esfuerzo $\alpha_{ij}$, conocido como \textit{back-stress}; 
+la superficie de fluencia se desplaza respecto a los ejes del espacio de esfuerzos por $\alpha_{ij}$, 
+como se muestra en la figura \ref{fig:shift_back_stress}
+
+\begin{center}
+\includegraphics[scale=0.8]{src/ch2/shift_back_stress}
+\captionof{figure}{Endurecimiento cinemático: desplazamiento por el \textit{back-stress} }
+\label{fig:shift_back_stress}
+\end{center}
 
 
 % ================================================================================================================
@@ -895,7 +991,7 @@ las simulaciones de estampados suelen ser conveniente el uso de algoritmos de in
 \subsection{Implementación del método en problemas de ingeniería}
 
 \begin{center}
-\includegraphics[scale=0.85]{src/ch2/elemento_finito_diagrama.eps}
+\includegraphics[scale=0.85]{src/ch2/elemento_finito_diagrama}
 \captionof{figure}{Diagrama de la implementación del FEM en la solución de problemas de ingeniería}
 \label{fig:fem_diagram}
 \end{center}
