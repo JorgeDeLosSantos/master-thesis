@@ -1,0 +1,4 @@
+Si la energía de hourglass es superior al 10% de la energía interna del modelo, existe un 
+problema con el análisis. 
+
+REF [http://ricabib.cab.cnea.gov.ar/165/1/1Cardenas_Eyzaguirre.pdf]
