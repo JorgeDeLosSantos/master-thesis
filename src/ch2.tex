@@ -943,7 +943,7 @@ normal a $S^{JI}$ y sea $\vec{s}$ un vector unitario de tal manera que $\vec{n}$
 ortonormal derecha. Se puede descomponer la fuerza de contacto $^tf^{IJ}$ actuando en $S^{IJ}$ en 
 sus componentes normal y tangencial correspondientes a $\vec{n}$ y $\vec{s}$ en $S^{JI}$,
 
-\begin{equation}
+\begin{equation} \label{eq:contact_01}
 ^tf^{IJ} = \lambda \vec{n} + t \vec{s}
 \end{equation}
 
@@ -958,6 +958,66 @@ Donde $\lambda$ y $t$ son las componentes normal y tangencial de la fuerza. Por 
 \captionof{figure}{Esquema del análisis de contactos}
 \label{fig:contact_analysis}
 \end{center}
+
+Para definir el valor actual de $\vec{n}$,  $\vec{s}$ que se utiliza en los cálculos de contacto, 
+considere un punto genérico $\vec{x}$ en $S^{IJ}$ y sea $\vec{y^{\ast}}(\vec{x}, t)$ el punto en $S^{JI}$ 
+que satisface: ~\cite{bathe1996}
+
+\begin{equation}
+\left\Vert \vec{x} - \vec{y^{\ast}}(\vec{x}, t) \right\Vert_2 = \min \left\{ \Vert \vec{x} - \vec{y} \Vert_2 \right\}
+\end{equation}
+
+La distancia de $\vec{x}$ a $S^{JI}$ está dada por:
+
+\begin{equation}
+g(\vec{x}, t) = (\vec{x} - \vec{y^{\ast}})^T \vec{n^{\ast}}
+\end{equation}
+
+Donde $\vec{n^{\ast}}$ es el vector normal unitario que se utilizó en $\vec{y^{\ast}}(\vec{x}, t)$ y 
+$\vec{n^{\ast}}, \, \vec{s^{\ast}}$ son usadas en \ref{eq:contact_01} correspondiendo al punto 
+$\vec{x}$. La función $g$ es la función de espaciamiento (\textit{gap function}) para el par 
+de la superficie de contacto.\\
+
+Con estas definiciones, las condiciones para el contacto normal puede ser escrito como:
+
+\begin{equation}
+g \ge 0;\,\,\,\,\,\, \lambda \ge 0; \,\,\,\,\,\,  g\lambda = 0
+\end{equation}
+
+Donde la última ecuación expresa el hecho que si $g > 0$, entonces se tendrá  $\lambda = 0$, 
+y viceversa.\\
+
+Para incluir las condiciones de fricción, se asume que la ley de Coulomb se cumple en cada 
+nodo de la superficie de contacto y que $\mu$ es el coeficiente de fricción. Esta suposición 
+significa por supuesto que los efectos friccionales son incluidos de una forma simplificada.
+Primero, se define una variable adimensional $\tau$ dada por:
+
+\begin{equation}
+\tau = \frac{t}{\mu \lambda}
+\end{equation}
+
+donde $\mu \lambda$ es la resistencia friccional, y la magnitud de la velocidad tangencial relativa 
+viene expresada por:
+
+\begin{equation}
+\dot{u} (\vec{x}, t) = \left( \vec{\dot{u}} ^J|_{\vec{y^{\ast}}(\vec{x},t)}  - 
+\vec{\dot{u}} ^I|_{(\vec{x},t)} | \right) \cdot \vec{s^{\ast}}
+\end{equation}
+
+Correspondiente a la vector tangencial unitario $\vec{s}$ en $\vec{y^{\ast}}(\vec{x},t)$. 
+Por lo tanto, $ \dot{u}(\vec{x}, t) \vec{s^{\ast}}$ es la velocidad tangencial en el tiempo 
+$t$ del punto material en $\vec{y^{\ast}}$ relativo al punto material en $\vec{x}$. Con 
+estas definiciones de la ley de Coulomb se tienen las siguientes condiciones:
+
+\begin{equation}
+\left\{}
+\begin{matrix}
+|\tau| \le 1 \\
+|\tau| < 1 \,\,\, \text{implica que} \,\,\, \dot{u} = 0 \\
+|\tau| = 1 \,\,\, \text{implica que} \,\,\, sign(\dot{u}) = sign(\tau)
+\end{matrix}
+\right.
+\end{equation}
 
 
 \subsection{Integración implícita vs explícita}

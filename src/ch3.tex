@@ -18,13 +18,13 @@ del troquel adicionales. Además, los formadores se han considerado como element
 para simplificar y agilizar el análisis numérico, al permanecer sus características geométricas 
 invariables, siendo solamente el blank un sólido deformable.
 
-\subsection{Geometrías y partes}
+\subsection{Modelo CAD}
 
-En ANSYS/LS-DYNA el concepto de parte es fundamental e incluye dentro de este a todos aquellos 
-elementos que comparten el tipo de material, tipo de elemento y sección. Así, es preferible que 
-cada componente o pieza se defina como una parte, aun cuando las propiedades elasto-plásticas 
-sean iguales. Por ello, para cada una de los componentes del troquel se definió un material 
-distinto (aunque con las mismas propiedades).
+% En ANSYS/LS-DYNA el concepto de parte es fundamental e incluye dentro de este a todos aquellos 
+% elementos que comparten el tipo de material, tipo de elemento y sección. Así, es preferible que 
+% cada componente o pieza se defina como una parte, aun cuando las propiedades elasto-plásticas 
+% sean iguales. Por ello, para cada una de los componentes del troquel se definió un material 
+% distinto (aunque con las mismas propiedades).
 
 \begin{center}
 \includegraphics[scale=0.55]{src/ch3/troquel}
@@ -138,7 +138,23 @@ P & 5 \\
 \end{table}
 
 
+\begin{center}
+\includegraphics[scale=0.75]{src/ch3/material_curve.pdf}
+\captionof{figure}{Curva esfuerzo-deformación del acero AISI 1018}
+\label{fig:material_curve}
+\end{center}
+
+
+\begin{center}
+\includegraphics[scale=0.75]{src/ch3/ls_dyna_material_curve.pdf}
+\captionof{figure}{Curva esfuerzo-deformación del acero AISI 1018}
+\label{fig:ls_dyna_material_curve}
+\end{center}
+
+
 \subsection{Mallado}
+
+\subsubsection{Primer ensamble}
 
 Para el mallado de la pieza de trabajo se utilizó el elemento \texttt{SOLID164} 
 ( ver figura \ref{fig:solid164} ), el cual es un sólido de 8 nodos, que puede ser utilizado con el modelo 
@@ -148,7 +164,7 @@ robustez para el caso de grandes deformaciones. ~\cite{lsdyna-ansys-manual}
 
 \begin{center}
 \includegraphics[scale=0.65]{src/ch3/solid164.png}
-\captionof{figure}{Elemento SOLID164}
+\captionof{figure}{Elemento \texttt{SOLID164}}
 \label{fig:solid164}
 \end{center}
 
@@ -215,37 +231,77 @@ volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_se
 \end{center}
 
 
-% Mallado del ensamble 01
-
+% Mallado del blank
 \begin{center}
-\includegraphics[scale=0.6]{src/ch3/mesh_assembly_01.png}
-\captionof{figure}{Mallado del ensamble, primer paso}
-\label{fig:mesh_assembly01}
+\includegraphics[scale=0.6]{src/ch3/mesh_blank.png}
+\captionof{figure}{Mallado del blank}
+\label{fig:mesh_blank}
 \end{center}
 
-% Mallado del ensamble 01
+\begin{center}
+\includegraphics[scale=0.6]{src/ch3/mesh_fi.png}
+\captionof{figure}{Mallado del formador inferior}
+\label{fig:mesh_fi}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=0.6]{src/ch3/mesh_fs.png}
+\captionof{figure}{Mallado del formador inferior}
+\label{fig:mesh_fs}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=0.6]{src/ch3/mesh_leva.png}
+\captionof{figure}{Mallado del formador inferior}
+\label{fig:mesh_leva}
+\end{center}
+
+
+% % Mallado del ensamble 01
+
+% \begin{center}
+% \includegraphics[scale=0.6]{src/ch3/mesh_assembly_01.png}
+% \captionof{figure}{Mallado del ensamble, primer paso}
+% \label{fig:mesh_assembly01}
+% \end{center}
+
+
+%  Partes 
+\begin{center}
+\includegraphics[scale=0.8]{src/ch3/parts_plot.png}
+\captionof{figure}{Partes del ensamble 1}
+\label{fig:parts_plot}
+\end{center}
+
+% En las tabla \ref{tab:elements_and_nodes} se muestra el número de nodos y elementos obtenidos 
+% para cada uno de los ensambles.
+
+% \begin{table}[h]
+% \centering
+% \caption{Número de nodos y elementos}
+% \label{}
+% \begin{tabular}{p{2cm} p{2cm} p{2cm}} \hline
+%  & Nodos & Elementos \\
+% \hline
+% Paso 1 & 52285 & 45348 \\
+% Paso 2 & 48884 & 42264 \\
+% \hline
+% \end{tabular}
+% \label{tab:elements_and_nodes}
+% \end{table}
+
+
+\subsection{Segundo ensamble}
+
+% Mallado del ensamble 02
 \begin{center}
 \includegraphics[scale=0.6]{src/ch3/mesh_assembly_02.png}
 \captionof{figure}{Mallado del ensamble, segundo paso}
 \label{fig:mesh_assembly02}
 \end{center}
 
-En las tabla \ref{tab:elements_and_nodes} se muestra el número de nodos y elementos obtenidos 
-para cada uno de los ensambles.
 
-\begin{table}[h]
-\centering
-\caption{Número de nodos y elementos}
-\label{}
-\begin{tabular}{p{2cm} p{2cm} p{2cm}} \hline
- & Nodos & Elementos \\
-\hline
-Paso 1 & 52285 & 45348 \\
-Paso 2 & 48884 & 42264 \\
-\hline
-\end{tabular}
-\label{tab:elements_and_nodes}
-\end{table}
+
 
 
 % Condiciones de frontera ==================================================================

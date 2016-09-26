@@ -5205,6 +5205,28 @@
        r="109.3677"
        gradientTransform="matrix(-0.67588174,1.3426714,-6.1291487,-3.0853288,4807.9167,2783.9416)"
        gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3867"
+       id="radialGradient3883"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(2.0541302,-7.4412906,7.8685673,2.1720774,-6622.9323,1999.2461)"
+       cx="392.92932"
+       cy="787.10547"
+       fx="392.92932"
+       fy="787.10547"
+       r="70.70122" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3875"
+       id="radialGradient3885"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.67588174,1.3426714,-6.1291487,-3.0853288,4807.9167,2783.9416)"
+       cx="174.22198"
+       cy="739.18585"
+       fx="174.22198"
+       fy="739.18585"
+       r="109.3677" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -5214,8 +5236,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="350.92501"
-     inkscape:cy="225.02836"
+     inkscape:cx="253.28518"
+     inkscape:cy="177.26914"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -5247,14 +5269,6 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-552.3622)">
-    <rect
-       style="opacity:0.98999999;fill:url(#radialGradient3881);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.83200806;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       id="rect3428"
-       width="217.20074"
-       height="83.592697"
-       x="50.982937"
-       y="695.43683"
-       ry="18.999746" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot3693"
@@ -5313,14 +5327,6 @@
        x="50.495647"
        y="816.06342"
        ry="17.447927" />
-    <rect
-       style="opacity:0.98999999;fill:url(#radialGradient3873);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.85275501;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       id="rect3430"
-       width="140.09546"
-       height="196.13367"
-       x="307.54037"
-       y="686.93195"
-       ry="23.258675" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot3693-1"
@@ -5356,9 +5362,10 @@
            y="184.83751" /></flowRegion><flowPara
          id="flowPara4222-3" /></flowRoot>    <path
        style="opacity:0.98999999;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.89376962;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       d="m 55.916527,783.1714 0,29.71318 191.507953,0 c 12.88853,0 23.25367,9.3037 23.25367,20.8392 l 0,42.02484 32.96009,0 0,-49.83286 c 0,-23.68414 -21.2958,-42.74436 -47.75788,-42.74436 l -199.963833,0 z"
+       d="m 43,795.3622 0,20 205,0 c 12.88853,0 20,13.4645 20,25 l 0,45 20,0 0,-45 c 0,-23.68414 -13.53792,-45 -40,-45 z"
        id="rect4386"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccssccssc" />
     <path
        style="fill:#000080;stroke:#000000;stroke-width:7.73851299;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:none;marker-end:url(#Arrow2Send)"
        d="m 161.52996,586.92089 0,92.86215"
@@ -5387,27 +5394,51 @@
          id="tspan4436"
          x="129.70497"
          y="937.46643">Matriz</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:23.5156498px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="120.54301"
-       y="742.01166"
-       id="text4438"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4440"
+    <g
+       id="g3873"
+       transform="translate(-2,14.968821)">
+      <rect
+         ry="18.999746"
+         y="695.43683"
+         x="50.982937"
+         height="83.592697"
+         width="217.20074"
+         id="rect3428"
+         style="opacity:0.98999999;fill:url(#radialGradient3885);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.83200806;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4438"
+         y="742.01166"
          x="120.54301"
-         y="742.01166">Pisador</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:23.5156498px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="337.37564"
-       y="790.87531"
-       id="text4442"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4444"
+         style="font-size:23.5156498px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         xml:space="preserve"><tspan
+           y="742.01166"
+           x="120.54301"
+           id="tspan4440"
+           sodipodi:role="line">Pisador</tspan></text>
+    </g>
+    <g
+       id="g3878"
+       transform="translate(-18.162441,2.0203051)">
+      <rect
+         ry="23.258675"
+         y="686.93195"
+         x="307.54037"
+         height="196.13367"
+         width="140.09546"
+         id="rect3430"
+         style="opacity:0.98999999;fill:url(#radialGradient3883);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.85275501;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4442"
+         y="790.87531"
          x="337.37564"
-         y="790.87531">Punzón</tspan></text>
+         style="font-size:23.5156498px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         xml:space="preserve"><tspan
+           y="790.87531"
+           x="337.37564"
+           id="tspan4444"
+           sodipodi:role="line">Punzón</tspan></text>
+    </g>
   </g>
 </svg>
