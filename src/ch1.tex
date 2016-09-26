@@ -9,23 +9,38 @@ o el mecanizado. Es empleado en gran variedad de sectores: electrodomésticos ,
 automotriz, aeronáutico, naval, electrónico e informático y su objetivo es aprovechar al máximo 
 el material para elaborar la mayor cantidad de piezas con el menor tiempo y costo posible. \\
 
-Las operaciones de troquelado y estampado parecen actividades en las cuales no hay mayor 
+El proceso de estampado, vital dentro del sector automotriz en México, genera una demanda 
+de mercado con un valor de unos \$17,000 millones de dólares. Este monto es conformado por la 
+suma de la proveeduría nacional, que aporta \$6,000 millones de dólares y las importaciones de 
+piezas y componentes que utilizan este proceso de manufactura, valuadas en poco más de 
+\$11,000 millones de dólares. Esto significa que la proveeduría nacional (fabricantes en el país) 
+abastece el 35.2\% de la demanda que se presenta dentro de dicho proceso de la cadena de valor 
+del sector automotriz. ~\cite{elhorizonte} \\
+
+Las operaciones de troquelado y estampado pueden parecer actividades en las cuales no hay mayor 
 ciencia o desarrollo de ingeniería, y muchas veces, los herramentales utilizados 
 se fabrican mediante una aproximación dada por la experiencia de un jefe de taller o un 
-mecánico matricero, y posteriormente se realizan pruebas para ajustar en donde sea necesario. 
+mecánico matricero, y posteriormente se realizan pruebas para ajustar en donde sea necesario.
 Está claro que para una industria pequeña esto puede funcionar, dado que la exigencia 
-en la producción y las pérdidas derivadas de un diseño inadecuado son mínimas. Pero, normalmente,  
-en las industrias del sector automotriz los requerimientos en tiempo y costo dejan menos margen 
-de maniobra e implican que los procesos de diseño sean desarrollados mediante una metodología 
-que garantice la disponibilidad del producto en tiempo y forma.\\
+en la producción y las pérdidas económicas derivadas de un diseño inadecuado son mínimas. 
+Pero, normalmente, en las industrias del sector automotriz los requerimientos en tiempo y 
+costo dejan menos margen de maniobra e implican que los procesos de diseño sean desarrollados 
+mediante una metodología que garantice la disponibilidad del producto en tiempo y forma.\\
+
+En ese contexto, las herramientas computacionales, es decir paquetes de software CAD, CAE o CAM, 
+proporcionan una ventaja competitiva considerable, puesto que permiten a las empresas agilizar 
+los procesos de diseño y manufactura de los herramentales utilizados, que 
+en conjunto con los procedimientos de producción y los aspectos de logística, posibilitan  
+establecer una metodología ágil para el desarrollo de nuevos productos o de los ya existentes.
+
 
 % Actualmente para garantizar el desarrollo a tiempo de un producto es necesario 
 
-La posibilidad de desarrollar simulaciones de los procesos de estampados metálicos fue 
-durante mucho tiempo casi una utopía para la industria. Los ingenieros 
-de procesos esperaban ser capaces de identificar posibles defectos en el formado en etapas 
-tempranas de diseño y/o desarrollo de los herramentales, y minimizar la necesidad de 
-modificaciones costosas de las herramientas en una serie de procesos de ensayo y error.\\
+% La posibilidad de desarrollar simulaciones de los procesos de estampados metálicos fue 
+% durante mucho tiempo casi una utopía para la industria. Los ingenieros 
+% de procesos esperaban ser capaces de identificar posibles defectos en el formado en etapas 
+% tempranas de diseño y/o desarrollo de los herramentales, y minimizar la necesidad de 
+% modificaciones costosas de las herramientas en una serie de procesos de ensayo y error.\\
 
 
 \section{Planteamiento del problema}
@@ -117,22 +132,49 @@ establecieron las simulaciones de estampado como aspectos elementales en el desa
 Actualmente existen programas de computadora altamente especializados en la simulación de estampados, siendo AutoForm 
 uno de los más utilizados, este surgió como un proyecto de investigación en el ETH de Zurich en los inicios de los 90's. 
 El código está basado en un enfoque estático-implícito, pero utiliza algunos algoritmos innovativos que le permiten 
-una estabilidad y eficiencia computacional competitiva respecto a los códigos de tipo dinámico-explícito. \\ ~\cite{banabic2000}
+una estabilidad y eficiencia computacional competitiva respecto a los códigos de tipo dinámico-explícito.  ~\cite{banabic2000}\\
 
-Huang & Leu \cite{huang1995} desarrollaron un código de análisis elasto-plástico por elemento finito, basado en una formulación 
-lagrangiana modificada, para simular proceso de doblado UO en placas metálicas, bajo condiciones de deformación 
-plana. Para realizar el análisis del proceso completo, dividieron este en tres pasos de carga o configuraciones 
-que se muestran en la figura 1, doblado en U, descarga y doblado final en O. Aplicaron además simetría debido a la 
-disposicion de las herramientas y el blank a formar, simplificando aún más el análisis. Utilizaron un coeficiente 
-de fricción de $\mu = 0.02$ y el espesor de la chapa fue de 6 mm. En la figura 2 se puede observar la secuencia del 
-desarrollo de la geometría obtenida mediante el análisis realizado. \\
+Para la simulación numérica de procesos de formado de tubo mediante doblados sucesivos en UO, 
+similares al proceso a desarrollar, se tienen algunos trabajos anteriores, mismos que se describen 
+a continuación.\\
+
+Huang & Leu ~\cite{huang1995} desarrollaron un código de análisis elasto-plástico por elemento finito, 
+basado en una formulación lagrangiana modificada, para simular proceso de doblado UO en placas metálicas, 
+bajo condiciones de deformación plana. Para realizar el análisis del proceso completo, dividieron este 
+en tres pasos de carga o configuraciones que se muestran en la figura ~\ref{fig:pasos_formado_01}, 
+doblado en U, descarga y doblado final en O. Aplicaron además simetría debido a la disposicion de las 
+herramientas y el blank a formar, simplificando aún más el análisis. Utilizaron un coeficiente 
+de fricción de $\mu = 0.02$ y el espesor de la chapa fue de 6 mm. \\
+% En la figura ~\ref{fig:shape_sequence} 
+% se puede observar la secuencia del desarrollo de la geometría obtenida mediante el análisis realizado. \\
 
 \begin{center}
-\includegraphics[scale=0.95]{src/ch1/uo-bending.png}
+\includegraphics[scale=1.0]{src/ch1/uo-bending.png}
 \captionof{figure}{Proceso de doblado UO, a) Doblado en U b) Descarga c) Doblado en O \cite{huang1995}}
+ \label{fig:pasos_formado_01}
+\end{center}
+
+% \begin{center} \label{fig:shape_sequence}
+% \includegraphics[scale=0.75]{src/ch1/shape_sequence.png}
+% \captionof{figure}{Secuencia obtenida mediante el proceso de doblado UO. \cite{huang1995}}
+% \end{center}
+
+Chen y Huang ~\cite{chen2007} de manera similar a ~\cite{huang1995} simularon un proceso de doblado 
+UO, con las mismas etapas: doblado en U, descarga y doblado en O. El espesor de lámina de la pieza 
+de trabajo fue de 6 mm y un ancho de 10 mm. Utilizaron una ecuación exponencial para la relación 
+esfuerzo-deformación.  En las figuras ~\ref{fig:u_bend} y ~\ref{fig:o_bend} se muestran el modelo 
+FEM de los pasos de formado correspondientes. Los resultados obtenidos fueron la distribución 
+de esfuerzos de Von Mises y la forma geométrica resultante, medidas para ciertos intervalos 
+de desplazamiento del punzon formador superior.
+
+\begin{center}
+\includegraphics[scale=0.65]{src/ch1/u_bend.png}
+\captionof{figure}{Modelo de elementos finitos del doblado en U \cite{chen2007}}
+\label{fig:u_bend}
 \end{center}
 
 \begin{center}
-\includegraphics[scale=0.75]{src/ch1/shape_sequence.png}
-\captionof{figure}{Secuencia obtenida mediante el proceso de doblado UO. \cite{huang1995}}
+\includegraphics[scale=0.65]{src/ch1/o_bend.png}
+\captionof{figure}{Modelo de elementos finitos del doblado en O \cite{chen2007}}
+\label{fig:o_bend}
 \end{center}
