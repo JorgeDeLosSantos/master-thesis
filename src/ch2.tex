@@ -325,7 +325,6 @@ son parte fundamental de los códigos de computadora utilizados para predecir la
 para absorber impactos, así como en procesos de formado o estampado que involucran la deformación plástica de 
 placas metálicas. ~\cite{hosford2005}
 
-
 \subsection{Esfuerzos, deformaciones y tasa de deformación}
 
 Las cantidades elementales que pueden ser usadas para describir los mecanismos de deformación 
@@ -403,7 +402,7 @@ La componente de deformación lagrangiana $E_{11}$ está definida por:
 
 \begin{equation} \label{eq:lagra_strain}
 E_{11} = \frac{1}{2} \left( \frac{\partial x}{\partial X} \frac{\partial x}{\partial X} - 1 \right) = 
-\frac{1}{2} \left\[ (1+e)^2 - 1 \right\] = e + \frac{1}{2} e^2
+\frac{1}{2} \left[ (1+e)^2 - 1 \right] = e + \frac{1}{2} e^2
 \end{equation}
 
 % [REFERENCIA]: Revisar referencia para interpretación geométrica 
@@ -492,7 +491,9 @@ I_3 = \sigma_x \sigma_y \sigma_z + 2 \tau_{xy} \tau_{yz} \tau_{zx} - \sigma_x \t
 \sigma_z \tau_{xy}^2 = \sigma_1 \sigma_2 \sigma_3
 \end{align}
 
-El primer y segundo invariantes tienen importancia física en la teoría de plasticidad.
+El primer y segundo invariantes tienen importancia física en la teoría de plasticidad.\\
+
+
 
 
 \subsection{Criterio de fluencia}
@@ -1055,4 +1056,47 @@ las simulaciones de estampados suelen ser conveniente el uso de algoritmos de in
 \captionof{figure}{Diagrama de la implementación del FEM en la solución de problemas de ingeniería}
 \label{fig:fem_diagram}
 \end{center}
+
+
+\section{Extensometría} 
+
+La extensometría es la técnica más utilizada para el análisis experimental de tensiones. Su
+fundamento básico es la variación de la resistencia producida en un hilo de conductor cuando se alarga
+o contrae, y se emplea también en otras aplicaciones como por ejemplo la construcción de
+transductores.
+
+\subsection{Teoría básica}
+
+La expresión \ref{eq:res_elect} proporciona la resistencia eléctrica de un conductor 
+cilíndrico de diámetro $D$, logitud $l$ y resistividad $\rho$:
+
+\begin{equation}\label{eq:res_elect}
+R = \rho \frac{4l}{\pi D^2}
+\end{equation}
+
+Derivando la expresión anterior y suponiendo que $\rho$ es independiente de la deformación:
+
+\begin{equation}\label{eq:xxx01}
+dR = 4\rho \frac{dl\,\pi D^2 - l\,2\pi D \, dD}{\pi^2 D^4} = 
+4\rho \frac{dl}{\pi D^2} - 4\rho \frac{2l\,dD}{\pi D^3}
+\end{equation}
+
+A partir de la ecuación anterior se puede hallar la variación de resistencia relativa:
+
+\begin{equation}\label{eq:xxx02}
+\frac{dR}{R} = \frac{dl}{l} - 2 \frac{dD}{D}
+\end{equation}
+
+Teniendo en cuenta la relación entre deformaciones longitudinales y transversales (efecto Poisson) 
+la ecuación \ref{eq:xxx02} puede simplificarse utilizando el módulo de Poisson, $\nu$:
+
+\begin{equation}
+\frac{dD}{D} = -\nu \frac{dl}{l} \\ 
+\frac{dR}{R} = (1 + 2\nu) \frac{dl}{l} = K \cdot \epsilon
+\end{equation}
+
+
+
+
+
 

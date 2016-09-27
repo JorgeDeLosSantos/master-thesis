@@ -1,4 +1,4 @@
-\chapter{Metodología}
+\chapter{Metodología aplicada}
 
 \section{Descripción de la metodología aplicada}
 
@@ -8,29 +8,81 @@
 \label{fig:diagrama_metodologia}
 \end{center}
 
+
 \section{Análisis por elementos finitos}
 
-\subsection{Consideraciones generales}
+\subsection{El proceso a simular}
 
-Para realizar el análisis por elementos finitos se han tomado sólo los elementos formadores que 
-tienen influencia directa o contacto sobre el formado del tubo, quitando todos los elementos 
-del troquel adicionales. Además, los formadores se han considerado como elementos rígidos, 
-para simplificar y agilizar el análisis numérico, al permanecer sus características geométricas 
-invariables, siendo solamente el blank un sólido deformable.
+En el capítulo \ref{ch:marco_de_referencia} se ha descrito someramente el proceso de formado que se requiere 
+simular. Ahora, en lo subsiguiente, se detallan en mayor grado las características 
+relativas al proceso, materiales utilizados y condiciones de operación que influyen en este. \\
 
-\subsection{Modelo CAD}
+El tubo interior mostrado en la figura \ref{fig:ti_rb131} se utiliza en un buje como 
+el mostrado en la figura \ref{fig:buje_rb131}, el cual forma parte de un sistema de muelles 
+parabólicas similar al de \ref{fig:muelle_parabolica}.
 
-% En ANSYS/LS-DYNA el concepto de parte es fundamental e incluye dentro de este a todos aquellos 
-% elementos que comparten el tipo de material, tipo de elemento y sección. Así, es preferible que 
-% cada componente o pieza se defina como una parte, aun cuando las propiedades elasto-plásticas 
-% sean iguales. Por ello, para cada una de los componentes del troquel se definió un material 
-% distinto (aunque con las mismas propiedades).
+\begin{figure}[!h]
+\centering
+\begin{subfigure}[t]{0.35\textwidth}
+\centering
+\includegraphics[width=\textwidth]{src/ch3/ti_rb131.pdf}
+\caption{}
+\label{fig:ti_rb131}
+\end{subfigure}
+~ 
+\begin{subfigure}[t]{0.35\textwidth}
+\centering
+\includegraphics[width=\textwidth]{src/ch3/buje_rb131.pdf}
+\caption{}
+\label{fig:buje_rb131}
+\end{subfigure}
+\caption{a) Modelo CAD del tubo interior manufacturado por estampado b) Modelo CAD del buje RB-131}
+\end{figure}
+
+
+Para fabricar el tubo interior \ref{fig:ti_rb131} se utiliza un troquel compuesto o semi-progresivo 
+de dos etapas, a saber: un doblado en U y un cerrado o doblado en O, mismo cuyo modelo CAD se muestra 
+en la figura \ref{fig:troquel}. El troquel tiene como materia de entrada una placa metálica 
+(\textit{blank}) rectangular de acero AISI 1018, con un largo de 3 in y un acho de 2.125 in, 
+con un espesor de 0.12 in (ver figura \ref{fig:blank_inicial}). El \textif{blank} tiene además 
+dos chaflanes en la dirección axial, sobre una de las caras, mismos que sirven para permitir un 
+cierre de tubo adecuado.
+
 
 \begin{center}
-\includegraphics[scale=0.55]{src/ch3/troquel}
-\captionof{figure}{Vista completa del troquel}
-\label{fig:all_tool}
+\includegraphics[scale=0.75]{src/ch3/muelle_parabolica.jpg}
+\captionof{figure}{Muelle parabólica}
+\label{fig:muelle_parabolica}
 \end{center}
+
+
+\begin{center}
+\includegraphics[scale=0.4]{src/ch3/troquel.pdf}
+\captionof{figure}{Vista completa del troquel}
+\label{fig:troquel}
+\end{center}
+
+
+\begin{figure}[!h]
+\centering
+\begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{src/ch3/troquel_vista_inferior.pdf}
+    \caption{}
+    \label{fig:troquel_vista_inferior}
+\end{subfigure}
+~ 
+\begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{src/ch3/troquel_vista_superior.pdf}
+    \caption{}
+    \label{fig:troquel_vista_superior}
+\end{subfigure}
+\caption{Partes a) inferior y b) superior del troquel}
+
+\end{figure}
+
+
 
 \subsection{Modelo constitutivo}
 
@@ -115,10 +167,7 @@ TBDATA,5,0.1 ! P (strain rate parameter)
 TBDATA,6,1 ! Load Curve ID
 \end{apdl}
 
-
-
 % Tabla de propiedades
-
 \begin{table}[h]
 \centering
 \caption{Propiedades del acero AISI 1018}
@@ -138,16 +187,39 @@ P & 5 \\
 \end{table}
 
 
+% Tabla de propiedades plásticas
+
+\begin{table}[h]
+\centering
+\caption{Conversión de esfuerzos y deformaciones}
+\label{}
+\begin{tabular}{p{2.5cm} p{2.5cm} p{2.5cm} p{2.5cm} p{2.5cm}} \hline
+{\bf $\varepsilon_{nom}$ & $\sigma_{nom}$ (psi) & $\varepsilon_t$ & $\sigma_t$ (psi) & $\varepsilon_{pl}$ } \\
+\hline
+0.0084 & 51376.41 & 0.0084 & 51808.49 & 0.0000 \\
+0.0224 & 59624.27 & 0.0221 & 60957.47 & 0.0200 \\
+0.0418 & 67059.05 & 0.0409 & 69858.77 & 0.0385 \\
+0.0607 & 70769.55 & 0.0589 & 75063.85 & 0.0563 \\
+0.0846 & 72814.73 & 0.0812 & 78971.94 & 0.0785 \\
+0.1287 & 72924.09 & 0.1210 & 82305.77 & 0.1182 \\
+0.1554 & 70462.94 & 0.1444 & 81412.18 & 0.1416 \\
+\hline
+\end{tabular}
+\label{tab:stress_strain_curve}
+\end{table}
+
+
+
 \begin{center}
-\includegraphics[scale=0.75]{src/ch3/material_curve.pdf}
-\captionof{figure}{Curva esfuerzo-deformación del acero AISI 1018}
+\includegraphics[scale=0.6]{src/ch3/material_curve.pdf}
+\captionof{figure}{Curvas de esfuerzo-deformación, ingenieril y verdadera, del acero AISI 1018}
 \label{fig:material_curve}
 \end{center}
 
 
 \begin{center}
-\includegraphics[scale=0.75]{src/ch3/ls_dyna_material_curve.pdf}
-\captionof{figure}{Curva esfuerzo-deformación del acero AISI 1018}
+\includegraphics[scale=0.6]{src/ch3/ls_dyna_material_curve.pdf}
+\captionof{figure}{Curva esfuerzo-deformación ingresada en ANSYS/LS-DYNA}
 \label{fig:ls_dyna_material_curve}
 \end{center}
 
@@ -232,29 +304,54 @@ volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_se
 
 
 % Mallado del blank
-\begin{center}
-\includegraphics[scale=0.6]{src/ch3/mesh_blank.png}
-\captionof{figure}{Mallado del blank}
+
+
+\begin{figure}[!h]
+\centering
+
+\begin{subfigure}[t]{0.5\textwidth}
+\includegraphics[width=\textwidth]{src/ch3/mesh_blank.png}
+\caption{}
 \label{fig:mesh_blank}
-\end{center}
+\end{subfigure}
+~ 
+\begin{subfigure}[t]{0.4\textwidth}
+\includegraphics[width=\textwidth]{src/ch3/mesh_blank_front.png}
+\caption{}
+\label{fig:mesh_blank_front}
+\end{subfigure}
 
-\begin{center}
-\includegraphics[scale=0.6]{src/ch3/mesh_fi.png}
-\captionof{figure}{Mallado del formador inferior}
+\caption{Mallado del blank en vista a) trimétrica b) frontal}
+\end{figure}
+
+
+
+
+\begin{figure}[!h]
+\centering
+\begin{subfigure}[t]{0.3\textwidth}
+\centering
+\includegraphics[width=\textwidth]{src/ch3/mesh_fi.png}
+\caption{}
 \label{fig:mesh_fi}
-\end{center}
-
-\begin{center}
-\includegraphics[scale=0.6]{src/ch3/mesh_fs.png}
-\captionof{figure}{Mallado del formador inferior}
+\end{subfigure}
+~ 
+\begin{subfigure}[t]{0.3\textwidth}
+\centering
+\includegraphics[width=\textwidth]{src/ch3/mesh_fs.png}
+\caption{}
 \label{fig:mesh_fs}
-\end{center}
-
-\begin{center}
-\includegraphics[scale=0.6]{src/ch3/mesh_leva.png}
-\captionof{figure}{Mallado del formador inferior}
+\end{subfigure}
+~ 
+\begin{subfigure}[t]{0.3\textwidth}
+\centering
+\includegraphics[width=\textwidth]{src/ch3/mesh_leva.png}
+\caption{}
 \label{fig:mesh_leva}
-\end{center}
+\end{subfigure}
+
+\caption{Mallado de a) formador inferior b) formador superior c) leva}
+\end{figure}
 
 
 % % Mallado del ensamble 01
@@ -267,11 +364,12 @@ volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_se
 
 
 %  Partes 
-\begin{center}
-\includegraphics[scale=0.8]{src/ch3/parts_plot.png}
-\captionof{figure}{Partes del ensamble 1}
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.5]{src/ch3/parts_plot.png}
+\caption{Partes del ensamble 1}
 \label{fig:parts_plot}
-\end{center}
+\end{figure}
 
 % En las tabla \ref{tab:elements_and_nodes} se muestra el número de nodos y elementos obtenidos 
 % para cada uno de los ensambles.
@@ -291,16 +389,16 @@ volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_se
 % \end{table}
 
 
-\subsection{Segundo ensamble}
+\subsubsection{Segundo ensamble}
 
 % Mallado del ensamble 02
-\begin{center}
+
+\begin{figure}[!h]
+\centering
 \includegraphics[scale=0.6]{src/ch3/mesh_assembly_02.png}
 \captionof{figure}{Mallado del ensamble, segundo paso}
 \label{fig:mesh_assembly02}
-\end{center}
-
-
+\end{figure}
 
 
 
@@ -327,7 +425,7 @@ especificado, implicando una velocidad reducida de los formadores al principio y
 del recorrido, con la finalidad de que esto facilite la estabilización y convergencia
 del análisis.\\
 
-En la figura \ref{fig:smooth_displacement} se muestra la gráfica del tiempo-desplazamiento 
+En la figura \ref{fig:smooth_displacement_01} se muestra la gráfica del tiempo-desplazamiento 
 utilizado en el primer paso del troquel. Para el segundo caso se utilizó una curva 
 similar, con algunas variaciones en las constantes para disminuir la amplitud o valor máximo.\\
 
@@ -337,7 +435,7 @@ similar, con algunas variaciones en las constantes para disminuir la amplitud o 
 *DIM,desplazamiento,ARRAY,400
 
 *DO,ii,1,400
-	tiempo(ii)=ii/2E3
+    tiempo(ii)=ii/2E3
 *ENDDO
 
 _k1 = 3.8E-7
@@ -345,22 +443,23 @@ _k2 = 1.15E-4
 _k3 = -1.22
 
 *DO,jj,1,200
-	desplazamiento(jj)= _k3*(_k2*jj**2 - _k1*jj**3) - (_k3*(_k2 - _k1))
+    desplazamiento(jj)= _k3*(_k2*jj**2 - _k1*jj**3) - (_k3*(_k2 - _k1))
 *ENDDO
 
 *DO,kk,1,200
-	desplazamiento(200+kk) = (-1)*_k3*(_k2*kk**2 - _k1*kk**3) + (_k3*(_k2*200**2 - _k1*200**3))
+    desplazamiento(200+kk) = (-1)*_k3*(_k2*kk**2 - _k1*kk**3) + (_k3*(_k2*200**2 - _k1*200**3))
 *ENDDO
 
 *vplot,tiempo,desplazamiento
 \end{apdl}
 
 
-\begin{center}
-\includegraphics[scale=0.6]{src/ch3/smooth_displacement.png}
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.6]{src/ch3/smooth_displacement_01.pdf}
 \captionof{figure}{Vector de tiempo desplazamiento}
-\label{fig:smooth_displacement}
-\end{center}
+\label{fig:smooth_displacement_01}
+\end{figure}
 
 
 
@@ -368,20 +467,22 @@ _k3 = -1.22
 \subsection{Contactos}
 
 En la definición de contactos se utilizó un tipo de contacto superficie a superficie
-general. El programa de simulación utiliza los coeficientes de fricción 
-estático (FS) y dinámico (FD) para la formulación del coeficiente friccional ($\mu_c$),
+general (\texttt{STS}). El programa de simulación utiliza los coeficientes de fricción 
+estático ($FS$) y dinámico ($FD$) para la formulación del coeficiente friccional ($\mu_c$),
 que viene dado por la ecuación :
 
 \begin{equation}
 \mu_c = FD + (FS - FD) e^{-DCv_{rel}}
+\label{eq:frictional_coeff}
 \end{equation}
 
 Donde $DC$ es el coeficiente de decaimiento exponencial y $v_{rel}$ la velocidad relativa
-entre las superficies en contacto ~\cite{lsdyna-manual}. Los valores del coeficiente de fricción estático
-y dinámico se establecieron en 0.2 y 0.1, respectivamente [REVISAR REFERENCIA A HANDBOOK DATA]. 
-En la simulación del segundo paso se utilizó el contacto de tipo Single Surface (SS) para tomar en
-cuenta el contacto del blank con él mismo (cerrado del tubo) ~\cite{lsdyna-manual}, utilizando
-también los parámetros de fricción indicados anteriormente.
+entre las superficies en contacto ~\cite{lsdyna-manual}. Los valores del coeficiente de 
+fricción estáticoy dinámico se establecieron en 0.2 y 0.1, respectivamente. ~\cite{carvill1993} \\
+
+En la simulación del segundo paso se utilizó el contacto de tipo Single Surface (SS) para 
+tomar en cuenta el contacto del blank con él mismo (cerrado del tubo) ~\cite{lsdyna-manual}, 
+utilizandotambién los parámetros de fricción indicados anteriormente.
 
 
 \section{Análisis experimental}
