@@ -629,3 +629,98 @@
 
 
 
+
+
+
+\subsection{Teoría básica}
+
+La expresión \ref{eq:res_elect} proporciona la resistencia eléctrica de un conductor 
+cilíndrico de diámetro $D$, logitud $l$ y resistividad $\rho$:
+
+\begin{equation}\label{eq:res_elect}
+R = \rho \frac{4l}{\pi D^2}
+\end{equation}
+
+Derivando la expresión anterior y suponiendo que $\rho$ es independiente de la deformación:
+
+\begin{equation}\label{eq:xxx01}
+dR = 4\rho \frac{dl\,\pi D^2 - l\,2\pi D \, dD}{\pi^2 D^4} = 
+4\rho \frac{dl}{\pi D^2} - 4\rho \frac{2l\,dD}{\pi D^3}
+\end{equation}
+
+A partir de la ecuación anterior se puede hallar la variación de resistencia relativa:
+
+\begin{equation}\label{eq:xxx02}
+\frac{dR}{R} = \frac{dl}{l} - 2 \frac{dD}{D}
+\end{equation}
+
+Teniendo en cuenta la relación entre deformaciones longitudinales y transversales (efecto Poisson) 
+la ecuación \ref{eq:xxx02} puede simplificarse utilizando el módulo de Poisson, $\nu$:
+
+\begin{equation}\label{eq:xxx03}
+\frac{dD}{D} = -\nu \frac{dl}{l} \\ 
+\frac{dR}{R} = (1 + 2\nu) \frac{dl}{l} = K \cdot \epsilon
+\end{equation}
+
+La ecuación anterior proporciona la ley de proporcionalidad entre deformaciones unitarias y 
+variaciones relativas de resistencia. Al factor K, que relaciona ambas cantidades, se le denomina 
+\textbf{factor de galga}.\\
+
+Si $\nu$ fuera igual a 0.3, el factor de galga según la ecuación \ref{eq:xxx03} debería 
+ser 1.6. En la práctica, se comprueba que no es así; por tanto, la hipótesis que se hizo 
+para derivar la ecuación \ref{eq:res_elect} de que $\rho$ no variaba con la deformación 
+no es correcta. Si se deriva de nuevo la ecuación \ref{eq:res_elect} teniendo en cuenta la 
+variación de $\rho$ se obtiene la siguiente expresión:
+
+\begin{equation}\label{eq:xxx37}
+\frac{dR}{R} = \frac{dl}{l} - 2\frac{dD}{D} + \frac{d\rho}{\rho}
+\end{equation}
+
+Para poder simplificar la ecuación anterior, la variación de la resistividad se relaciona 
+con la variación de volumen según la relación:
+
+\begin{equation}\label{eq:xxx38}
+\frac{d\rho}{\rho} = C \frac{dV}{V}
+\end{equation}
+
+siendo C la llamada constante de Bridgman.\\
+
+Teniendo en cuenta que el volumen del hilo de diámetro $D$ y longitud $l$ es $V = (\pi D^2 / 4) \cdot l$, 
+el valor de $dV$ vendrá dado por la siguiente ecuación:
+
+\begin{equation}
+dV = \frac{\pi D \, dD}{2} l + \frac{\pi D^2}{4} dl
+\end{equation}
+
+Las expresiones de $V$ y $dV$ en función de $D$ y $l$ se pueden utilizar para hallar la variación 
+relativa de volumen:
+
+\begin{equation}
+\frac{dV}{V} = 2 \frac{dD}{D} + \frac{dl}{l}
+\end{equation}
+
+y sustituyendo la expresión anterior en la ecuación \ref{eq:xxx38} se obtiene la variación 
+relativa de volumen en función de $D$, $l$ y la constante $C$ definida anteriormente:
+
+\begin{equation}
+\frac{d\rho}{\rho} = 2C \frac{dD}{D} + C \frac{dl}{l}
+\end{equation}
+
+y sustituyendo esta expresión en la ecuación \ref{eq:xxx37}:
+
+\begin{equation}
+\frac{dR}{R} = (1+C) \frac{dl}{l} + (C-1)\cdot\frac{dD}{D}
+\end{equation}
+
+La expresión anterior puede simplificarse utilizando el módulo de Poisson:
+
+\begin{equation}
+\frac{dR}{R} = [1+C-(C-1)\cdot 2\nu]\cdot \varepsilon
+\end{equation}
+
+ecuación que permite hallar, con la hipótesis que $\rho$ varía con la deformación, una nueva 
+expresión para el factor de galga.
+
+\begin{equation}
+K = 1 + C - (C-1) \cdot 2\nu
+\end{equation}

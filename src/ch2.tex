@@ -1060,40 +1060,91 @@ las simulaciones de estampados suelen ser conveniente el uso de algoritmos de in
 
 \section{Extensometría} 
 
-La extensometría es la técnica más utilizada para el análisis experimental de tensiones. Su
-fundamento básico es la variación de la resistencia producida en un hilo de conductor cuando se alarga
-o contrae, y se emplea también en otras aplicaciones como por ejemplo la construcción de
-transductores.
+La extensometría es la técnica más utilizada para el análisis experimental de deformaciones.
+Su fundamento básico es la variación de la resistencia producida en un hilo de conductor 
+cuando se alarga o contrae.\\
 
-\subsection{Teoría básica}
+Una galga extensiométrica consiste en un alambre muy fino, o más comunmente, una hoja metálica 
+dispuesta en forma de rejilla. El patrón de rejilla maximiza la cantidad de alambre metálico 
+u hoja sometida a deformación en la dirección paralela (ver figura \ref{fig:strain_gauge_scheme}). 
+La sección transversal de la rejilla es minimizada para reducir los efectos de las deformaciones 
+por cortante y de Poisson. La rejilla está unida a una base delgada, llamada soporte, la cual 
+está unida directamente a la probeta. Por lo tanto, la deformación experimentada por la probeta 
+es transferida directamente a la galga extensiométrica, la cual responde con una variación 
+lineal en la resistencia eléctrica. Las galgas están disponibles comercialmente, con valores 
+de resistencia nominal de 30 a 3000 $\Omega$, siendo 120, 350 y 1000 $\Omega$ los valores más 
+comunes.
 
-La expresión \ref{eq:res_elect} proporciona la resistencia eléctrica de un conductor 
-cilíndrico de diámetro $D$, logitud $l$ y resistividad $\rho$:
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.75]{src/ch2/strain_gauge_scheme.png}
+\caption{Galga extensiométrica}
+\label{fig:strain_gauge_scheme}
+\end{figure}
 
-\begin{equation}\label{eq:res_elect}
-R = \rho \frac{4l}{\pi D^2}
-\end{equation}
+Es muy importante que la galga extensiométrica sea montada apropiadamente en la probeta, así 
+se asegura que la deformación se transfiere de manera correcta.\\
 
-Derivando la expresión anterior y suponiendo que $\rho$ es independiente de la deformación:
-
-\begin{equation}\label{eq:xxx01}
-dR = 4\rho \frac{dl\,\pi D^2 - l\,2\pi D \, dD}{\pi^2 D^4} = 
-4\rho \frac{dl}{\pi D^2} - 4\rho \frac{2l\,dD}{\pi D^3}
-\end{equation}
-
-A partir de la ecuación anterior se puede hallar la variación de resistencia relativa:
-
-\begin{equation}\label{eq:xxx02}
-\frac{dR}{R} = \frac{dl}{l} - 2 \frac{dD}{D}
-\end{equation}
-
-Teniendo en cuenta la relación entre deformaciones longitudinales y transversales (efecto Poisson) 
-la ecuación \ref{eq:xxx02} puede simplificarse utilizando el módulo de Poisson, $\nu$:
+Un parámetro fundamental de la galga extensiométrica es su sensividad a la deformación, expresada 
+cuantitativamente como el factor de galga ($GF$). El factor de galga es definido como la relación 
+de la variación fraccional en la resistencia eléctrica y la variación fraccional en longitud (deformación): 
 
 \begin{equation}
-\frac{dD}{D} = -\nu \frac{dl}{l} \\ 
-\frac{dR}{R} = (1 + 2\nu) \frac{dl}{l} = K \cdot \epsilon
+GF = \frac{\Delta R/R}{\Delta L/L} = \frac{\Delta R/R}{\varepsilon}
 \end{equation}
+
+El factor de galga para galgas extensiométricas es típicamente alrededor de 2.	\\
+
+Idealmente se podría pensar que la galga cambia solamente por efecto de una deformación 
+inducida. Sin embargo, el material de la galga, así como el propio de la probeta, también 
+responden a cambios por temperatura. Así, es importante tener en cuenta la compensación 
+por temperatura y la sensibilidad de la galga, que normalmente proporciona el fabricante. \\
+
+
+En la práctica, la medición de deformaciones raramente involucra cantidades mayores a 
+unas milideformaciones ($\varepsilon \, x \, 10^{-3}$). Por lo tanto, la medición 
+de las deformaciones requiere una medición precisa de pequeñas variaciones en la resistencia.\\
+
+Para medir pequeños cambios en la resistencia, y compensar por la sensibilidad a la temperatura, 
+las galgas normalmente se utilizan en una configuración de puente con una fuente de voltaje o 
+corriente de excitación. El puente de Wheatstone, mostrado en la figura \ref{fig:wheatstone_bridge}, 
+consiste en cuatro \textit{ramificaciones} con un voltaje de excitación, $V_{EX}$, que es 
+aplicado a través del puente.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.65]{src/ch2/wheatstone_bridge.png}
+\caption{Puente de Wheatstone}
+\label{fig:wheatstone_bridge}
+\end{figure}
+
+El voltaje de salida del puente, $V_O$, está dado por:
+
+\begin{equation}
+V_O = \left[ \frac{R_3}{R_3 + R_4} - \frac{R_2}{R_1 + R_2} \right] \cdot V_{EX}
+\end{equation}
+
+De esta ecuación, aparentemente cuando $R_1/R_2 = R_{G1}/R_{G2}$, el voltaje de salida $V_O$ será cero. 
+Bajo estás condiciones, el puente se dice que está balanceado. Cualquier cambio en la resistencia en 
+cualquiera de las ramificaciones del puente resultará en un voltaje de salida diferente de cero.\\
+
+Por lo tanto, si remplazamos $R_4$ en la figura \ref{fig:wheatstone_bridge} con una galga activa, 
+cualquier cambio en la resistencia de la galga producirá un desbalance en el puente y producirá 
+un voltaje de salida diferente de cero. Si la resistencia nominal de la galga es diseñada como 
+$R_G$, entonces el cambio inducido por deformación en resistencia, $\Delta R$, puede ser 
+expresado como $\Delta R = R_G \cdot GF \cdot \varepsilon$. Asumiendo que $R_1 = R_2$ y 
+$R_3 = R_G$, la ecuación del puente puede ser reescrita para expresar $V_O/V_{EX}$ como una 
+función de la deformación (ver figura \ref{fig:quarter_bridge}). Note la presencia 
+del término $1 / (1 + GF \cdot \varepsilon / 2)$ que indica la no linealidad de 
+la salida del cuarto de puente con respecto a la deformación.
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=1.0]{src/ch2/quarter_bridge.png}
+\caption{Cuarto de puente}
+\label{fig:quarter_bridge}
+\end{figure}
 
 
 
