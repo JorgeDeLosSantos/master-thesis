@@ -1077,7 +1077,7 @@ comunes.
 
 \begin{figure}[!h]
 \centering
-\includegraphics[scale=0.75]{src/ch2/strain_gauge_scheme.png}
+\includegraphics[scale=0.55]{src/ch2/strain_gauge_scheme.png}
 \caption{Galga extensiométrica}
 \label{fig:strain_gauge_scheme}
 \end{figure}
@@ -1113,7 +1113,7 @@ aplicado a través del puente.
 
 \begin{figure}[!h]
 \centering
-\includegraphics[scale=0.65]{src/ch2/wheatstone_bridge.png}
+\includegraphics[scale=0.55]{src/ch2/wheatstone_bridge.png}
 \caption{Puente de Wheatstone}
 \label{fig:wheatstone_bridge}
 \end{figure}
@@ -1134,20 +1134,56 @@ un voltaje de salida diferente de cero. Si la resistencia nominal de la galga es
 $R_G$, entonces el cambio inducido por deformación en resistencia, $\Delta R$, puede ser 
 expresado como $\Delta R = R_G \cdot GF \cdot \varepsilon$. Asumiendo que $R_1 = R_2$ y 
 $R_3 = R_G$, la ecuación del puente puede ser reescrita para expresar $V_O/V_{EX}$ como una 
-función de la deformación (ver figura \ref{fig:quarter_bridge}). Note la presencia 
+función de la deformación, como se expresa en la ecuáción \ref{eq:vovex}. Note la presencia 
 del término $1 / (1 + GF \cdot \varepsilon / 2)$ que indica la no linealidad de 
 la salida del cuarto de puente con respecto a la deformación.
 
+\begin{equation}\label{eq:vovex}
+\frac{V_O}{V_{EX}} = - \frac{GF\cdot \varepsilon}{4} \left( \frac{1}{1+GF\cdot\varepsilon/2} \right)
+\end{equation}
 
 \begin{figure}[!h]
 \centering
-\includegraphics[scale=1.0]{src/ch2/quarter_bridge.png}
+\includegraphics[scale=0.55]{src/ch2/quarter_bridge.png}
 \caption{Cuarto de puente}
 \label{fig:quarter_bridge}
 \end{figure}
 
+Utilizando dos galgas extensiométricas en el puente, el efecto de la temperatura puede ser 
+evitado. Por ejemplo, en la figura \ref{fig:dummy_gauge} se muestra una configuración donde 
+una galga es activa ($R_G + \Delta R$), y una segunda galga es colocada de manera transversal 
+a la deformación aplicada. Por lo tanto, la deformación tiene un pequeño efecto en la segunda 
+galga, llamada galga \textit{dummy}. Sin embargo, cualquier cambio en la temperatura afectará 
+a ambas galgas de la misma manera. Dado que los cambios debidos a la temperatura son idénticos 
+en ambas galgas, la relación de estas resistencias no cambia, el voltaje $V_O$ no cambia, 
+y los efectos de los cambios por temperatura son minimizados.
 
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.55]{src/ch2/dummy_gauge.png}
+\caption{Uso de una galga \textit{dummy} para eliminar los efectos de la temperatura}
+\label{fig:dummy_gauge}
+\end{figure}
 
+Alternativamente, se puede doblar la sensibilidad a la deformación del puente haciendo 
+ambas galgas activas, aunque en direcciones diferentes. La figura \ref{fig:half_bridge} 
+muestra un viga a flexión con un puente montado en tensión ($R_G + \Delta R$) y el otro 
+en compresión ($R_G - \Delta R$). Esta configuración de medio puente produce un voltaje 
+de salida que es lineal y aproximadamente el doble de la salida del circuito de cuarto 
+de puente.
 
+\begin{equation}
+\frac{V_O}{V_{EX}} = - \frac{GF \cdot \varepsilon}{2}
+\end{equation}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.55]{src/ch2/half_bridge.png}
+\caption{Circuito de medio puente}
+\label{fig:half_bridge}
+\end{figure}
+
+Finalmente, se puede incrementar la sensibilidad del circuito haciendo que las cuatro 
+ramificaciones del puente sean galgas activas.
 
 
