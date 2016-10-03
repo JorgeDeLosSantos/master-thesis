@@ -34,10 +34,22 @@ fonttitle=\bfseries, colbacktitle=white, coltext=gray!30!black}
 \addto\captionsspanish{
     \renewcommand{\figurename}{{\bf Figura}}% 
 }
+
+\usepackage{titletoc} %
+\titlecontents{chapter} % <section-type>
+  [5pt] % <left>
+  {\bfseries \vspace{2 mm}}% <above-code>
+  {\chaptername\ \thecontentslabel:\quad}% <numbered-entry-format>
+  {}% <numberless-entry-format>
+  {\hfill\contentspage}% <filler-page-format>
+  [\vspace{2 mm}]
+
 \usepackage{epigraph}
 \usepackage{xcolor}
 \usepackage{textcomp}
 \usepackage{gensymb}
+\usepackage{fontawesome}
+% \usepackage[Bjornstrup]{fncychap}
 
 % \renewcommand{\familydefault}{\sfdefault}
 
