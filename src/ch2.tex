@@ -157,7 +157,7 @@ cuyo valor depende del tipo de doblado, normalmente 1.33 para doblado en V y 0.3
 de bordes. ~\cite{groover2007}
 
 \begin{center}
-\includegraphics[scale=0.425]{src/ch2/fuerza_doblado}
+\includegraphics[scale=0.4]{src/ch2/fuerza_doblado}
 \captionof{figure}{Esquema de la fuerza de doblado}
 \label{fig:fuerza_doblado}
 \end{center}
@@ -262,18 +262,16 @@ Los componentes de un troquel varían dependiendo del tipo, pero típicamente ha
 que se encuentran en casi todos los troqueles y que cumplen con funciones específicas 
 en el proceso de formado.\\
 
-\textbf{Base superior}. Contiene en su interior todas las placas y elementos que sostienen 
-los punzones del troquel, está anclada a la prensa. Algunos elementos alojados en 
-la parte superior son: placa porta-punzones, punzones, sufrideras, postes, pisadores, resortes, 
-entre otros elementos adicionales.\\
-
-
 \begin{center}
 \includegraphics[scale=0.3]{src/ch2/componentes_troquel.png}
 \captionof{figure}{Componentes de un troquel. \textit{Fuente:} ~\cite{wikiTroquel2008}}
 \label{fig:componentes_troquel}
 \end{center}
 
+\textbf{Base superior}. Contiene en su interior todas las placas y elementos que sostienen 
+los punzones del troquel, está anclada a la prensa. Algunos elementos alojados en 
+la parte superior son: placa porta-punzones, punzones, sufrideras, postes, pisadores, resortes, 
+entre otros elementos adicionales.\\
 
 \textbf{Base inferior}. Es el elemento sobre el cual van montados todos los componentes 
 que hacen la parte de la matriz, y a su vez, está fuertemente sujeta en la bancada 
@@ -358,20 +356,20 @@ con respecto a un sistema fijo de coordenadas en la configuración actual del ma
 un tiempo determinado. Para el caso de tensión uniaxial se tiene: ~\cite{kobayashi1989}
 
 \begin{align}
-\sigma = \frac{P}{A} \\
-\dot{\varepsilon} = \frac{\dot{l}}{l} \\
-d\varepsilon = \frac{dl}{l}
+\sigma = \frac{P}{A} \label{eq:simple_stress} \\ 
+\dot{\varepsilon} = \frac{\dot{l}}{l} \label{eq:strain_rate} \\
+d\varepsilon = \frac{dl}{l} \label{eq:strain_diff}
 \end{align}
 
 Los esfuerzos definidos en la ecuación anterior son llamados esfuerzos verdaderos o 
 esfuerzo de Cauchy. La cantidad total de deformación se obtiene integrando las deformaciones 
 infinitesimales:
 
-\begin{equation}
+\begin{equation} \label{eq:true_strain_integral}
 \varepsilon = \int_{l_0}^{l} d\varepsilon = \ln{\frac{l}{l_0}}
 \end{equation}
 
-y es llamada deformación logarítmica o natural.\\
+y es llamada deformación logarítmica o verdadera.\\
 
 En la descripción lagrangiana de la deformación finita, la medida de los esfuerzos, 
 deformaciones y tasa de deformación son expresadas como sigue. Sea la posición 
@@ -494,6 +492,76 @@ I_3 = \sigma_x \sigma_y \sigma_z + 2 \tau_{xy} \tau_{yz} \tau_{zx} - \sigma_x \t
 El primer y segundo invariantes tienen importancia física en la teoría de plasticidad.\\
 
 
+\subsection{Esfuerzo y deformación verdadera}
+
+Las deformaciones en comprensión y tensión son las mismas sólo si son consideradas 
+en forma de límite, como $\Delta l \to dl  \to 0$. La ecuación \ref{eq:strain_diff} 
+define la deformación en términos de diferenciales. Además, la ecuación 
+\ref{eq:true_strain_integral} define la deformación verdadera o logarítmica como una integral 
+de \ref{eq:strain_diff} sobre el rango de deformación $[l_0, l]$, donde 
+$l_0$ es la longitud inicial y $l$ la longitud actual.\\
+
+Un metal dúctil sujeto a deformaciones finitas tendrá el mismo comportamiento esfuerzo-deformación 
+en tensión y compresión si se gráfica el esfuerzo verdadero contra la deformación verdadera.
+~\cite{abaqus-gs-manual} \\.
+
+Normalmente los datos obtenidos de un ensayo de tensión corresponden a los valores nominales 
+o ingenieriles de deformación y esfuerzo. No obstante, en muchos casos, los paquetes de simulación por 
+elementos finitos utilizan como dato de entrada, para la definición de materiales, una curva de 
+deformación verdadera vs esfuerzo verdadero, con lo cual se hace necesario conocer la 
+relación existente entre estos.\\
+
+La relación entre la deformación verdadera y la deformación nominal puede establecerse como sigue:
+
+\begin{equation}
+\varepsilon_{nom} = \frac{l - l_0}{l_0} = \frac{l}{l_0} - 1
+\end{equation} 
+
+Luego si sumamos la unidad a ambos lados y aplicamos la función logaritmo natural, se tiene:
+
+\begin{equation}
+\ln{\frac{l}{l_0}} = \ln(1 + \varepsilon_{nom}) \,\,\,\,  \rightarrow \,\,\,\,\, 
+\varepsilon = \ln(1 + \varepsilon_{nom}) 
+\end{equation}
+
+La relación entre el esfuerzo verdadero y el esfuerzo nominal puede establecerse considerando 
+la naturaleza incompresible de la deformación plástica y asumiendo que la elasticidad es 
+también incompresible, entonces:
+
+\begin{equation}
+l_0 A_0 = l A
+\end{equation}
+
+Luego, el área actual viene dada por:
+
+\begin{equation}
+A = A_0 \frac{l_0}{l}
+\end{equation}
+
+Sustituyendo esta definición de $A$ en la ecuación \ref{eq:simple_stress}:
+
+\begin{equation}
+\sigma = \frac{P}{A} = \frac{P}{A_0} \frac{l}{l_0} = \sigma_{nom} \left( \frac{l}{l_0} \right)
+\end{equation}
+
+Donde el término $l/l_0$  puede ser reescrito como $1 + \varepsilon_{nom}$. Sustituyendo 
+en la ecuación anterior se tiene:
+
+\begin{equation} \label{eq:true_stress}
+\sigma = \sigma_{nom} ( 1 + \varepsilon_{nom} )
+\end{equation}
+
+Comúnmente la deformación verdadera es la deformación total, es decir, la deformación elástica más 
+la deformación plástica. Luego, se hace necesario cuantificar solamente lo correspondiente a la 
+deformación plástica, para tener una curva de plasticidad mejor definida. La siguiente ecuación 
+relaciona la deformación plástica con la deformación total verdadera: ~\cite{abaqus-gs-manual}
+
+\begin{equation} \label{eq:plastic_strain}
+\varepsilon_{pl} = \varepsilon_t - \varepsilon_{el} = \varepsilon_t - \sigma/E
+\end{equation}
+
+Donde $\varepsilon_{pl}$ es la deformación plástica, $\varepsilon_t$ la deformación total verdadera y 
+$\varepsilon_{el}$ la deformación elástica.
 
 
 \subsection{Criterio de fluencia}
@@ -1051,11 +1119,57 @@ las simulaciones de estampados suelen ser conveniente el uso de algoritmos de in
 
 \subsection{Implementación del método en problemas de ingeniería}
 
+El método del elemento finito es utilizado para resolver problemas físicos en análisis de ingeniería 
+y diseño. La figura \ref{fig:fem_diagram} esquematiza el proceso del análisis por elementos finitos.
+El problema físico típicamente involucra una estructura o ciertos elementos mecánicos sometidos 
+a condiciones de cargas establecidas. La \textit{conversión} del problema físico a un modelo matemático 
+correspondiente requiere que se hagan consideraciones para la simplificación y resolución de las 
+ecuaciones diferenciales resultantes. El análisis de elementos finitos resuelve ese modelo matemático 
+resultante. Puesto que la solución por elemento finito involucra un procedimiento por técnicas de 
+análisis numérico es necesario evaluar la exactitud de la solución. Si no existe un criterio de 
+exactitud o punto de comparación, la solución numérica debe repetirse refinando algunos parámetros 
+(como la densidad de malla) hasta que las variaciones entre soluciones sean aceptables.\\
+
 \begin{center}
 \includegraphics[scale=0.85]{src/ch2/elemento_finito_diagrama}
 \captionof{figure}{Diagrama de la implementación del FEM en la solución de problemas de ingeniería}
 \label{fig:fem_diagram}
 \end{center}
+
+Está claro que la solución por elementos finitos resolvera sólo el modelo matemático 
+establecido y la respuesta del sistema reflejará las consideraciones o simplificaciones 
+realizadas a este. La selección de un modelo matemático apropiado es crucial y determina 
+completamente la percepción actual del fenómeno físico que puede obtenerse mediante el 
+análisis. Luego, es claro que, naturalmente, la respuesta de problemas solucionados 
+mediante técnicas de elemento finito no corresponderán exactamente con la situación real, 
+dado que es casi imposible reproducir las condiciones de un entorno tomando en cuenta 
+todas las variables que inciden en el proceso, en la mayoría de los casos se tendrá 
+una comparación basada en la correlación o correspondencia entre la respuesta matemática 
+y la experimental.\\
+
+Una vez que el modelo matemático ha sido resuelto y los resultados han sido interpretados, 
+se puede entonces considerar ´la refinación o redefinición del modelo matemático para 
+considerar otros factores que permitan obtener una solución más ajustada a la realidad.\\
+
+Para definir la confiabilidad y efectividad de un modelo seleccionado debemos pensar 
+en un modelo matemático muy completo del problema físico y medir la respuesta de nuestro 
+modelo seleccionado contra la respuesta del modelo completo. En general, un modelo matemático 
+completo incluye una descripción tridimensional del problema e incluye efectos no-lineales. \\
+
+Para evaluar el resultado obtenido por la solución de un modelo matemático seleccionado, 
+puede ser necesario también resolver problemas de modelado matemático de orden superior, 
+e incluso ir incluyendo cada vez factores más complejos. Por ejemplo, una viga estructural 
+puede primero analizarse usando la teoría de la viga de Bernoulli, luego usando 
+la teoría de una viga de Timoshenko, siguiendo con una análisis bidimensional por la 
+teoría de esfuerzo plano, y finalmente utilizando un modelo tridimensional continuo, 
+y en cada caso la posibilidad de incluir efectos no lineales.\\
+
+Claramente con esa jerarquía de modelos, enunciada en el párrafo anterior, el análisis 
+incluirá cada vez respuestas más complejas, incrementando consecuentemente el costo de 
+la solución. Es conocido que un análisis tridimensional es alrededor de un orden de 
+magnitud más costoso que el caso bidimensional, tanto en recursos computacionales 
+como en el tiempo de ingeniería realizada.
+
 
 
 \section{Extensometría} 
@@ -1073,7 +1187,7 @@ está unida directamente a la probeta. Por lo tanto, la deformación experimenta
 es transferida directamente a la galga extensiométrica, la cual responde con una variación 
 lineal en la resistencia eléctrica. Las galgas están disponibles comercialmente, con valores 
 de resistencia nominal de 30 a 3000 $\Omega$, siendo 120, 350 y 1000 $\Omega$ los valores más 
-comunes.
+comunes. ~\cite{gageNI}
 
 \begin{figure}[!h]
 \centering
@@ -1087,33 +1201,33 @@ se asegura que la deformación se transfiere de manera correcta.\\
 
 Un parámetro fundamental de la galga extensiométrica es su sensividad a la deformación, expresada 
 cuantitativamente como el factor de galga ($GF$). El factor de galga es definido como la relación 
-de la variación fraccional en la resistencia eléctrica y la variación fraccional en longitud (deformación): 
+de la variación fraccional en la resistencia eléctrica y la variación fraccional en longitud (deformación):
+~\cite{gageNI} 
 
 \begin{equation}
 GF = \frac{\Delta R/R}{\Delta L/L} = \frac{\Delta R/R}{\varepsilon}
 \end{equation}
 
-El factor de galga para galgas extensiométricas es típicamente alrededor de 2.	\\
+El factor de galga para galgas extensiométricas es típicamente alrededor de 2. ~\cite{gageNI}\\
 
 Idealmente se podría pensar que la galga cambia solamente por efecto de una deformación 
 inducida. Sin embargo, el material de la galga, así como el propio de la probeta, también 
 responden a cambios por temperatura. Así, es importante tener en cuenta la compensación 
 por temperatura y la sensibilidad de la galga, que normalmente proporciona el fabricante. \\
 
-
 En la práctica, la medición de deformaciones raramente involucra cantidades mayores a 
 unas milideformaciones ($\varepsilon \, x \, 10^{-3}$). Por lo tanto, la medición 
-de las deformaciones requiere una medición precisa de pequeñas variaciones en la resistencia.\\
+de las deformaciones requiere una medición precisa de pequeñas variaciones en la resistencia. ~\cite{gageNI}\\
 
 Para medir pequeños cambios en la resistencia, y compensar por la sensibilidad a la temperatura, 
 las galgas normalmente se utilizan en una configuración de puente con una fuente de voltaje o 
 corriente de excitación. El puente de Wheatstone, mostrado en la figura \ref{fig:wheatstone_bridge}, 
 consiste en cuatro \textit{ramificaciones} con un voltaje de excitación, $V_{EX}$, que es 
-aplicado a través del puente.
+aplicado a través del puente. ~\cite{gageNI}
 
 \begin{figure}[!h]
 \centering
-\includegraphics[scale=0.55]{src/ch2/wheatstone_bridge.png}
+\includegraphics[scale=0.45]{src/ch2/wheatstone_bridge.png}
 \caption{Puente de Wheatstone}
 \label{fig:wheatstone_bridge}
 \end{figure}
@@ -1126,7 +1240,7 @@ V_O = \left[ \frac{R_3}{R_3 + R_4} - \frac{R_2}{R_1 + R_2} \right] \cdot V_{EX}
 
 De esta ecuación, aparentemente cuando $R_1/R_2 = R_{G1}/R_{G2}$, el voltaje de salida $V_O$ será cero. 
 Bajo estás condiciones, el puente se dice que está balanceado. Cualquier cambio en la resistencia en 
-cualquiera de las ramificaciones del puente resultará en un voltaje de salida diferente de cero.\\
+cualquiera de las ramificaciones del puente resultará en un voltaje de salida diferente de cero. ~\cite{gageNI}\\
 
 Por lo tanto, si remplazamos $R_4$ en la figura \ref{fig:wheatstone_bridge} con una galga activa, 
 cualquier cambio en la resistencia de la galga producirá un desbalance en el puente y producirá 
@@ -1136,7 +1250,7 @@ expresado como $\Delta R = R_G \cdot GF \cdot \varepsilon$. Asumiendo que $R_1 =
 $R_3 = R_G$, la ecuación del puente puede ser reescrita para expresar $V_O/V_{EX}$ como una 
 función de la deformación, como se expresa en la ecuáción \ref{eq:vovex}. Note la presencia 
 del término $1 / (1 + GF \cdot \varepsilon / 2)$ que indica la no linealidad de 
-la salida del cuarto de puente con respecto a la deformación.
+la salida del cuarto de puente con respecto a la deformación. ~\cite{gageNI}
 
 \begin{equation}\label{eq:vovex}
 \frac{V_O}{V_{EX}} = - \frac{GF\cdot \varepsilon}{4} \left( \frac{1}{1+GF\cdot\varepsilon/2} \right)
@@ -1156,7 +1270,7 @@ a la deformación aplicada. Por lo tanto, la deformación tiene un pequeño efec
 galga, llamada galga \textit{dummy}. Sin embargo, cualquier cambio en la temperatura afectará 
 a ambas galgas de la misma manera. Dado que los cambios debidos a la temperatura son idénticos 
 en ambas galgas, la relación de estas resistencias no cambia, el voltaje $V_O$ no cambia, 
-y los efectos de los cambios por temperatura son minimizados.
+y los efectos de los cambios por temperatura son minimizados. ~\cite{gageNI}
 
 \begin{figure}[!h]
 \centering
@@ -1170,7 +1284,7 @@ ambas galgas activas, aunque en direcciones diferentes. La figura \ref{fig:half_
 muestra un viga a flexión con un puente montado en tensión ($R_G + \Delta R$) y el otro 
 en compresión ($R_G - \Delta R$). Esta configuración de medio puente produce un voltaje 
 de salida que es lineal y aproximadamente el doble de la salida del circuito de cuarto 
-de puente.
+de puente. ~\cite{gageNI}
 
 \begin{equation}
 \frac{V_O}{V_{EX}} = - \frac{GF \cdot \varepsilon}{2}
@@ -1184,6 +1298,23 @@ de puente.
 \end{figure}
 
 Finalmente, se puede incrementar la sensibilidad del circuito haciendo que las cuatro 
-ramificaciones del puente sean galgas activas.
+ramificaciones del puente sean galgas activas, y colocar dos galgas en tensión y dos en 
+compresión. El circuito de puente completo se muestra en la figura \ref{fig:full_bridge}. ~\cite{gageNI}
 
+\begin{equation}
+\frac{V_{O}}{V_{EX}} = -GF\cdot \varepsilon
+\end{equation}
 
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.55]{src/ch2/full_bridge.png}
+\caption{Circuito de puente completo}
+\label{fig:full_bridge}
+\end{figure}
+
+Las ecuaciones anteriores para el circuito del puente de Wheatstone asumen un 
+puente inicialmente balanceado que genera una salida cero cuando no se aplica una 
+deformación. Sin embargo, en la práctica, las tolerancias de las resistencias y 
+la deformación inducida por la instrumentación generarán un voltaje inicial. 
+Normalmente eso se soluciona mediante una compensación, tomando como cero el 
+voltaje inicial.
