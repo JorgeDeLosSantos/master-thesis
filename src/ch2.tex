@@ -6,6 +6,7 @@
 % Método del elemento finito
 % Teoría de contactos
 % 
+
 \chapter{Marco teórico}
 
 \section{Procesos de formado}
@@ -307,7 +308,9 @@ a fin de obtener piezas con una calidad acorde a las medidas requeridas, hay tan
 como variantes del troquelado.\\
 
 \textbf{Matrices}. Las matrices son los elementos complementarios a los punzones, tienen la forma 
-negativa de estos.
+negativa de estos. Es común que cuando las matrices no realizan una operación de corte si no más 
+bien un doblez o cualquier otra transformación que no implique remoción de material, se conozcan 
+también como formadores.
 
 % ====================================================================================================
 % ======================================== Teoría de plasticidad =====================================
@@ -616,7 +619,6 @@ $\sigma_3'$ se conocen como esfuerzos desviatorios. ~\cite{hosford2007}
 \end{center}
 
 
-
 % =========================================== Criterio de tresca =============================================
 \subsubsection{Criterio de Tresca}
 
@@ -680,6 +682,13 @@ $ (-k)^2 + [ (-k)-k ]^2 + k^2 = 2Y^2 $, entonces:
 \begin{equation}\label{eq:ec5}
 k = Y / \sqrt{3}
 \end{equation}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.65\textwidth]{src/ch2/mises_tresca.pdf}
+\caption{Círculo de von Mises y hexágono de Tresca}
+\label{fig:mises_tresca}
+\end{figure}
 
 La ecuación \ref{eq:ec5} puede ser simplificada si uno de los esfuerzos principales es cero (condición de esfuerzo plano). 
 Sustituyendo $\sigma_3 = 0$, $\sigma_1^2 + \sigma_2^2 - \sigma_1 \sigma_2 = Y^2$, el cual es una elipse. Con la 
@@ -752,11 +761,10 @@ Si el esfuerzo se mantiene constante, por ejemplo en $B$, no ocurrirá una defor
 además tampoco sucederá una descarga elástica como en el caso idealizado. ~\cite{kelly2012}
 
 \begin{center}
-\includegraphics[scale=0.6]{src/ch2/strain_stress_hardening}
+\includegraphics[width=0.55\textwidth]{src/ch2/strain_stress_hardening}
 \captionof{figure}{Curva esfuerzo-deformación}
 \label{fig:strain_stress_hardening}
 \end{center}
-
 
 Estas ideas pueden ser extendidas al caso multiaxial, donde la superficie de fluencia inicial 
 tendrá la forma:
@@ -787,7 +795,7 @@ El endurecimiento isotrópico es cuando la superficie de fluencia permance en la
 pero se expande cuando el esfuerzo aumenta, tal como se esquematiza en la figura \ref{fig:isotropic_hardening}.
 
 \begin{center}
-\includegraphics[scale=0.8]{src/ch2/isotropic_hardening}
+\includegraphics[width=0.75\textwidth]{src/ch2/isotropic_hardening}
 \captionof{figure}{Endurecimiento isotrópico}
 \label{fig:isotropic_hardening}
 \end{center}
@@ -814,7 +822,7 @@ en el espacio de esfuerzos, como se muestra en la figura \ref{fig:kinematic_hard
 
 
 \begin{center}
-\includegraphics[scale=0.8]{src/ch2/kinematic_hardening}
+\includegraphics[width=0.75\textwidth]{src/ch2/kinematic_hardening}
 \captionof{figure}{Endurecimiento cinemático}
 \label{fig:kinematic_hardening}
 \end{center}
@@ -830,7 +838,7 @@ la superficie de fluencia se desplaza respecto a los ejes del espacio de esfuerz
 como se muestra en la figura \ref{fig:shift_back_stress}
 
 \begin{center}
-\includegraphics[scale=0.8]{src/ch2/shift_back_stress}
+\includegraphics[width=0.75\textwidth]{src/ch2/shift_back_stress}
 \captionof{figure}{Endurecimiento cinemático: desplazamiento por el \textit{back-stress} }
 \label{fig:shift_back_stress}
 \end{center}
@@ -1130,12 +1138,6 @@ análisis numérico es necesario evaluar la exactitud de la solución. Si no exi
 exactitud o punto de comparación, la solución numérica debe repetirse refinando algunos parámetros 
 (como la densidad de malla) hasta que las variaciones entre soluciones sean aceptables.\\
 
-\begin{center}
-\includegraphics[scale=0.85]{src/ch2/elemento_finito_diagrama}
-\captionof{figure}{Diagrama de la implementación del FEM en la solución de problemas de ingeniería}
-\label{fig:fem_diagram}
-\end{center}
-
 Está claro que la solución por elementos finitos resolvera sólo el modelo matemático 
 establecido y la respuesta del sistema reflejará las consideraciones o simplificaciones 
 realizadas a este. La selección de un modelo matemático apropiado es crucial y determina 
@@ -1156,6 +1158,12 @@ en un modelo matemático muy completo del problema físico y medir la respuesta 
 modelo seleccionado contra la respuesta del modelo completo. En general, un modelo matemático 
 completo incluye una descripción tridimensional del problema e incluye efectos no-lineales. \\
 
+\begin{center}
+\includegraphics[scale=0.85]{src/ch2/elemento_finito_diagrama}
+\captionof{figure}{Diagrama de la implementación del FEM en la solución de problemas de ingeniería}
+\label{fig:fem_diagram}
+\end{center}
+
 Para evaluar el resultado obtenido por la solución de un modelo matemático seleccionado, 
 puede ser necesario también resolver problemas de modelado matemático de orden superior, 
 e incluso ir incluyendo cada vez factores más complejos. Por ejemplo, una viga estructural 
@@ -1170,13 +1178,15 @@ la solución. Es conocido que un análisis tridimensional es alrededor de un ord
 magnitud más costoso que el caso bidimensional, tanto en recursos computacionales 
 como en el tiempo de ingeniería realizada.
 
-
+% =======================================================================================
+% ================================= EXTENSOMETRÍA =======================================
+% =======================================================================================
 
 \section{Extensometría} 
 
 La extensometría es la técnica más utilizada para el análisis experimental de deformaciones.
 Su fundamento básico es la variación de la resistencia producida en un hilo de conductor 
-cuando se alarga o contrae.\\
+cuando se alarga o contrae. \\
 
 Una galga extensiométrica consiste en un alambre muy fino, o más comunmente, una hoja metálica 
 dispuesta en forma de rejilla. El patrón de rejilla maximiza la cantidad de alambre metálico 
@@ -1187,7 +1197,7 @@ está unida directamente a la probeta. Por lo tanto, la deformación experimenta
 es transferida directamente a la galga extensiométrica, la cual responde con una variación 
 lineal en la resistencia eléctrica. Las galgas están disponibles comercialmente, con valores 
 de resistencia nominal de 30 a 3000 $\Omega$, siendo 120, 350 y 1000 $\Omega$ los valores más 
-comunes. ~\cite{gageNI}
+comunes. ~\cite{gageNI} \\
 
 \begin{figure}[!h]
 \centering
@@ -1202,7 +1212,7 @@ se asegura que la deformación se transfiere de manera correcta.\\
 Un parámetro fundamental de la galga extensiométrica es su sensividad a la deformación, expresada 
 cuantitativamente como el factor de galga ($GF$). El factor de galga es definido como la relación 
 de la variación fraccional en la resistencia eléctrica y la variación fraccional en longitud (deformación):
-~\cite{gageNI} 
+~\cite{gageNI} \\
 
 \begin{equation}
 GF = \frac{\Delta R/R}{\Delta L/L} = \frac{\Delta R/R}{\varepsilon}
@@ -1219,11 +1229,13 @@ En la práctica, la medición de deformaciones raramente involucra cantidades ma
 unas milideformaciones ($\varepsilon \, x \, 10^{-3}$). Por lo tanto, la medición 
 de las deformaciones requiere una medición precisa de pequeñas variaciones en la resistencia. ~\cite{gageNI}\\
 
+\subsection{El puente de Wheatstone}
+
 Para medir pequeños cambios en la resistencia, y compensar por la sensibilidad a la temperatura, 
 las galgas normalmente se utilizan en una configuración de puente con una fuente de voltaje o 
 corriente de excitación. El puente de Wheatstone, mostrado en la figura \ref{fig:wheatstone_bridge}, 
 consiste en cuatro \textit{ramificaciones} con un voltaje de excitación, $V_{EX}$, que es 
-aplicado a través del puente. ~\cite{gageNI}
+aplicado a través del puente. ~\cite{gageNI}\\
 
 \begin{figure}[!h]
 \centering
@@ -1232,7 +1244,7 @@ aplicado a través del puente. ~\cite{gageNI}
 \label{fig:wheatstone_bridge}
 \end{figure}
 
-El voltaje de salida del puente, $V_O$, está dado por:
+El voltaje de salida del puente, $V_O$, está dado por: \\
 
 \begin{equation}
 V_O = \left[ \frac{R_3}{R_3 + R_4} - \frac{R_2}{R_1 + R_2} \right] \cdot V_{EX}
@@ -1250,7 +1262,7 @@ expresado como $\Delta R = R_G \cdot GF \cdot \varepsilon$. Asumiendo que $R_1 =
 $R_3 = R_G$, la ecuación del puente puede ser reescrita para expresar $V_O/V_{EX}$ como una 
 función de la deformación, como se expresa en la ecuáción \ref{eq:vovex}. Note la presencia 
 del término $1 / (1 + GF \cdot \varepsilon / 2)$ que indica la no linealidad de 
-la salida del cuarto de puente con respecto a la deformación. ~\cite{gageNI}
+la salida del cuarto de puente con respecto a la deformación. ~\cite{gageNI} \\
 
 \begin{equation}\label{eq:vovex}
 \frac{V_O}{V_{EX}} = - \frac{GF\cdot \varepsilon}{4} \left( \frac{1}{1+GF\cdot\varepsilon/2} \right)
@@ -1270,9 +1282,9 @@ a la deformación aplicada. Por lo tanto, la deformación tiene un pequeño efec
 galga, llamada galga \textit{dummy}. Sin embargo, cualquier cambio en la temperatura afectará 
 a ambas galgas de la misma manera. Dado que los cambios debidos a la temperatura son idénticos 
 en ambas galgas, la relación de estas resistencias no cambia, el voltaje $V_O$ no cambia, 
-y los efectos de los cambios por temperatura son minimizados. ~\cite{gageNI}
+y los efectos de los cambios por temperatura son minimizados. ~\cite{gageNI} \\
 
-\begin{figure}[!h]
+\begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.55]{src/ch2/dummy_gauge.png}
 \caption{Uso de una galga \textit{dummy} para eliminar los efectos de la temperatura}
@@ -1284,7 +1296,7 @@ ambas galgas activas, aunque en direcciones diferentes. La figura \ref{fig:half_
 muestra un viga a flexión con un puente montado en tensión ($R_G + \Delta R$) y el otro 
 en compresión ($R_G - \Delta R$). Esta configuración de medio puente produce un voltaje 
 de salida que es lineal y aproximadamente el doble de la salida del circuito de cuarto 
-de puente. ~\cite{gageNI}
+de puente. ~\cite{gageNI} \\
 
 \begin{equation}
 \frac{V_O}{V_{EX}} = - \frac{GF \cdot \varepsilon}{2}
@@ -1299,7 +1311,7 @@ de puente. ~\cite{gageNI}
 
 Finalmente, se puede incrementar la sensibilidad del circuito haciendo que las cuatro 
 ramificaciones del puente sean galgas activas, y colocar dos galgas en tensión y dos en 
-compresión. El circuito de puente completo se muestra en la figura \ref{fig:full_bridge}. ~\cite{gageNI}
+compresión. El circuito de puente completo se muestra en la figura \ref{fig:full_bridge}. ~\cite{gageNI} \\
 
 \begin{equation}
 \frac{V_{O}}{V_{EX}} = -GF\cdot \varepsilon
@@ -1318,3 +1330,127 @@ deformación. Sin embargo, en la práctica, las tolerancias de las resistencias 
 la deformación inducida por la instrumentación generarán un voltaje inicial. 
 Normalmente eso se soluciona mediante una compensación, tomando como cero el 
 voltaje inicial.
+
+\subsection{Arreglos de galgas extensiométricas}
+
+La galga extensiométrica debe ser montada en la superficie de la probeta o 
+especimen, mediante el procedimiento y adhesivo adecuado. El estado bidimensional 
+de esfuerzos existentes en la superficie del especimen pueden ser expresados en 
+términos de los tres componentes cartesianos de la deformación utilizando la 
+ley de Hooke. En general es necesario medir tres direcciones de deformación 
+en un punto para expresar de manera completa el campo de deformaciones. Sin 
+embargo, en ciertos casos, el estado de deformaciones puede ser establecido 
+con una sola galga. En general, pueden considerarse los casos que a continuación 
+se describen.
+
+\subsubsection*{Estado de esfuerzo uniaxial}
+
+En este caso, como se muestra en la figura \ref{fig:uniaxial_state}, sólo existe un 
+esfuerzo en la dirección axial horizontal $\sigma_{xx}$. Entonces, sólo es necesario 
+utilizar una galga extensiométrica dispuesta en la dirección coincidente al eje 
+sobre el cual está aplicado el esfuerzo. El esfuerzo estará dado por:
+
+\begin{equation}
+\sigma_{xx} = E \varepsilon_{xx}
+\end{equation}
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{src/ch2/uniaxial_state.pdf}
+\captionof{figure}{Estado uniaxial de esfuerzo}
+\label{fig:uniaxial_state}
+\end{center}
+
+\subsubsection*{Estado de esfuerzo isotrópico}
+
+Un estado de esfuerzo isotrópico implica que $\sigma_{xx} = \sigma_{yy} = \sigma_1 = \sigma_2 = \sigma$ y 
+$\tau_{xy}$. Para determinar el estado de esfuerzo se puede colocar una sola galga en cualquier dirección, 
+como se muestra en la figura \ref{fig:isotropic_state} y la magnitud del esfuerzo vendrá 
+determinada por siguiente expresión:\\
+
+\begin{equation}
+\sigma_{xx} = \sigma_{yy} = \sigma_1 = \sigma_2 = \sigma = \frac{E\varepsilon}{1-\nu}
+\end{equation}
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{src/ch2/isotropic_state.pdf}
+\captionof{figure}{Estado de esfuerzo isotrópico}
+\label{fig:isotropic_state}
+\end{center}
+
+\subsubsection*{Estado de esfuerzo biaxial}
+
+\textbf{Caso 1.} Si se desconoce el estado de esfuerzo, pero las direcciones de los 
+esfuerzos principales son conocidas, entonces se puede utilizar una roseta rectangular 
+de dos elementos, donde estas coincidan con las direccioness principales, tal 
+como se muestra en el esquema de la figura \ref{fig:biaxial_state}. Se obtienen las 
+deformaciones principales $\varepsilon_1$ y $\varepsilon_2$ y los esfuerzos correspondientes 
+se calculan usando las ecuaciones \ref{eq:principal_stress_1} y \ref{eq:principal_stress_2}  ~\cite{metu2011}
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{src/ch2/biaxial_state.pdf}
+\captionof{figure}{Estado de esfuerzo biaxial, direcciones principales conocidas}
+\label{fig:biaxial_state}
+\end{center}
+
+\begin{equation}\label{eq:principal_stress_1}
+\sigma_1 = \frac{E}{1-\nu^2} \left( \varepsilon_1 + \nu\varepsilon_2 \right)
+\end{equation}
+
+\begin{equation}\label{eq:principal_stress_2}
+\sigma_2 = \frac{E}{1-\nu^2} \left( \varepsilon_2 + \nu\varepsilon_1 \right)
+\end{equation}
+
+Estas relaciones proporcionan el estado de esfuerzo, si se conocen, a priori, las direcciones 
+principales. \\
+
+\textbf{Caso 2.} Si se desconocen las direcciones principales, entonces es necesario utilizar 
+una roseta de tres elementos. Para mostrar que tres elementos son suficientes, considere las 
+tres galgas colocadas a lo largo de los ejes A, B y C, como se muestra en la figura 
+\ref{fig:biaxial_state_three}.
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{src/ch2/biaxial_state_three.pdf}
+\captionof{figure}{Estado de esfuerzo biaxial}
+\label{fig:biaxial_state_three}
+\end{center}
+
+Entonces la siguientes ecuaciones de transformación son válidas para las lecturas $\varepsilon_{A}$, 
+$\varepsilon_{B}$ y $\varepsilon_{C}$ de las galgas respectivas:
+
+\begin{equation}
+\varepsilon_A = \varepsilon_{xx} \cos^2\alpha + \varepsilon_{yy} \sin^2\alpha + \gamma_{xy} \cos\alpha \sin\alpha
+\end{equation}
+
+\begin{equation}
+\varepsilon_B = \varepsilon_{xx} \cos^2\beta + \varepsilon_{yy} \sin^2\beta + \gamma_{xy} \cos\beta \sin\beta
+\end{equation}
+
+\begin{equation}
+\varepsilon_A = \varepsilon_{xx} \cos^2\gamma + \varepsilon_{yy} \sin^2\gamma + \gamma_{xy} \cos\gamma \sin\gamma
+\end{equation}
+
+Los componentes cartesianos de la deformación $varepsilon_{xx}$, $\varepsilon_{yy}$ y $\gamma_{xy}$ pueden 
+ser determinados resolviendo el sistemas de ecuaciones simultáneas resultante. Las deformaciones 
+y direcciones principales pueden ser calculadas utilizando 
+
+\begin{equation}\label{eq:principal_strain_1}
+\varepsilon_1 = \frac{1}{2} \left( \varepsilon_{xx} + \varepsilon_{yy} \right) + 
+\frac{1}{2} \sqrt{\left( \varepsilon_{xx} - \varepsilon_{yy} \right)^2 + \gamma_{xy}^2 }
+\end{equation}
+
+\begin{equation}\label{eq:principal_strain_2}
+\varepsilon_2 = \frac{1}{2} \left( \varepsilon_{xx} + \varepsilon_{yy} \right) - 
+\frac{1}{2} \sqrt{\left( \varepsilon_{xx} - \varepsilon_{yy} \right)^2 + \gamma_{xy}^2 }
+\end{equation}
+
+\begin{equation}\label{eq:principal_plane}
+\tan 2\theta = \frac{\gamma_{xy}}{\varepsilon_{xx} - \varepsilon_{yy}}
+\end{equation}
+
+La solución de la ecuación \ref{eq:principal_plane} proporciona dos valores para el ángulo $\theta$. Estos son 
+$\theta_1$ y $\theta_2$, que corresponden al ángulo medido del eje x a los ejes correspondientes de las 
+deformaciones principales $\varepsilon_1$ y $\varepsilon_2$ respectivamente.\\
+
+Los esfuerzos principales pueden ser calculados a partir de las ecuaciones \ref{eq:principal_stress_1} y 
+\ref{eq:principal_stress_2}. En la práctica, una roseta de tres elementos con ángulos específicos son 
+utilizadas para realizar lecturas que definen de manera completa el estado de esfuerzo y deformaciones.

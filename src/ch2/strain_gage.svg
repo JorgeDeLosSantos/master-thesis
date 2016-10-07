@@ -12,39 +12,127 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    inkscape:export-ydpi="90"
    inkscape:export-xdpi="90"
-   inkscape:export-filename="C:\Users\User\Desktop\LABPro\master-thesis\src\ch3\diagrama_metodologia.png"
-   sodipodi:docname="diagrama_metodologia.svg"
+   inkscape:export-filename="C:\Users\User\Desktop\LABPro\master-thesis\src\ch2\fuerza_doblado.png"
+   sodipodi:docname="strain_gage.svg"
    inkscape:version="0.48.5 r10040"
    version="1.1"
    id="svg2"
-   height="800"
-   width="600">
+   height="100"
+   width="200">
   <defs
      id="defs4">
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient5289">
-      <stop
-         style="stop-color:#ffe6d5;stop-opacity:1;"
-         offset="0"
-         id="stop5291" />
-      <stop
-         style="stop-color:#ffe6d5;stop-opacity:0;"
-         offset="1"
-         id="stop5293" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient3452">
-      <stop
-         style="stop-color:#aaffcc;stop-opacity:1;"
-         offset="0"
-         id="stop3454" />
-      <stop
-         style="stop-color:#aaffcc;stop-opacity:0;"
-         offset="1"
-         id="stop3456" />
-    </linearGradient>
+    <marker
+       inkscape:stockid="Arrow2Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lstart"
+       style="overflow:visible">
+      <path
+         id="path5630"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(1.1,0,0,1.1,1.1,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend"
+       style="overflow:visible">
+      <path
+         id="path8308"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mstart"
+       style="overflow:visible">
+      <path
+         id="path8305"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.4,0,0,0.4,4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Send"
+       style="overflow:visible">
+      <path
+         id="path4542"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend"
+       style="overflow:visible">
+      <path
+         id="path4530"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         id="path4512"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect4237"
+       is_visible="true"
+       pattern="m 0,547.3622 1,0"
+       copytype="single_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect4235"
+       is_visible="true"
+       pattern="m 6.6152237,545.74698 1,0"
+       copytype="repeated"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       fuse_tolerance="0" />
     <linearGradient
        inkscape:collect="always"
        id="linearGradient4603">
@@ -2482,26 +2570,76 @@
          result="composite8"
          id="feComposite8285" />
     </filter>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient3452"
-       id="linearGradient3458"
-       x1="-354.50296"
-       y1="518.52466"
-       x2="34.270737"
-       y2="519.95325"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.0986928,0,0,1,-33.3673,-144.73386)" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5289"
-       id="linearGradient5295"
-       x1="-544.28571"
-       y1="416.64792"
-       x2="-105.71429"
-       y2="455.21933"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(108.57143,87.142857)" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect4235-7"
+       is_visible="true"
+       pattern="m 35.807612,554.55458 1,0"
+       copytype="repeated"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect4235-0"
+       is_visible="true"
+       pattern="m 82.32233,555.03986 1,0"
+       copytype="repeated"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect4235-4"
+       is_visible="true"
+       pattern="m 122.97918,554.38301 1,0"
+       copytype="repeated"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       fuse_tolerance="0" />
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-0"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path8308-9"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-0-9"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path8308-9-4"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -2510,9 +2648,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="112.91339"
-     inkscape:cy="429.24979"
+     inkscape:zoom="2"
+     inkscape:cx="117.7245"
+     inkscape:cy="8.597713"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -2522,8 +2660,15 @@
      inkscape:window-x="-4"
      inkscape:window-y="-4"
      inkscape:window-maximized="1"
-     showguides="true"
-     inkscape:guide-bbox="true" />
+     showguides="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4197"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -2540,7 +2685,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-252.3622)">
+     transform="translate(0,-952.3622)">
     <flowRoot
        xml:space="preserve"
        id="flowRoot3693"
@@ -2551,15 +2696,7 @@
            height="85.714287"
            x="1771.4286"
            y="562.85712" /></flowRegion><flowPara
-         id="flowPara3699" /></flowRoot>    <rect
-       style="opacity:0.98999999;fill:url(#linearGradient3458);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       id="rect3413"
-       width="240.73041"
-       height="57.543118"
-       x="-373.94724"
-       y="343.95438"
-       ry="7.4828587" />
-    <text
+         id="flowPara3699" /></flowRoot>    <text
        xml:space="preserve"
        style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
        x="-251.52798"
@@ -2582,140 +2719,50 @@
            height="40.406101"
            x="-204.05081"
            y="184.83751" /></flowRegion><flowPara
-         id="flowPara4222" /></flowRoot>    <flowRoot
-       xml:space="preserve"
-       id="flowRoot4224"
-       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       transform="translate(494.11121,214.15693)"><flowRegion
-         id="flowRegion4226"><rect
-           id="rect4228"
-           width="221.22342"
-           height="56.568542"
-           x="-280.82242"
-           y="150.49232"
-           style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
-         id="flowPara4230"
-         style="font-size:20px;text-align:center;text-anchor:middle">Consulta de fuentes de información</flowPara></flowRoot>    <text
-       xml:space="preserve"
-       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-392.24329"
-       y="774.24628"
-       id="text4232"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         x="-392.24329"
-         y="774.24628"
-         id="tspan4236"
-         style="text-align:center;text-anchor:middle">Simulación por elemento finito</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-584.24457"
-       y="820.71313"
-       id="text4238"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         x="-584.24457"
-         y="820.71313"
-         id="tspan4242">Desarrollo del proceso de manufactura</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-402.38779"
-       y="859.36432"
-       id="text4238-0"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         x="-402.38779"
-         y="859.36432"
-         id="tspan4281">Fabricación del herramental</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-519.61346"
-       y="903.55951"
-       id="text4238-8"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         x="-519.61346"
-         y="903.55951"
-         id="tspan4242-2">Pruebas en producción</tspan></text>
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot3422"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"><flowRegion
-         id="flowRegion3424"><rect
-           id="rect3426"
-           width="242.85715"
-           height="100"
-           x="-302.85715"
-           y="-15.714286" /></flowRegion><flowPara
-         id="flowPara3428" /></flowRoot>    <flowRoot
-       xml:space="preserve"
-       id="flowRoot3430"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       transform="translate(0,552.3622)"><flowRegion
-         id="flowRegion3432"><rect
-           id="rect3434"
-           width="151.42857"
-           height="98.571426"
-           x="-457.14285"
-           y="125.71429" /></flowRegion><flowPara
-         id="flowPara3436" /></flowRoot>    <flowRoot
-       xml:space="preserve"
-       id="flowRoot3438"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"><flowRegion
-         id="flowRegion3440"><rect
-           id="rect3442"
-           width="224.28572"
-           height="110"
-           x="-414.28571"
-           y="100" /></flowRegion><flowPara
-         id="flowPara3444" /></flowRoot>    <text
-       xml:space="preserve"
-       style="font-size:25.00632095px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#0000ff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="10.749917"
-       y="267.53674"
-       id="text3446"
-       sodipodi:linespacing="125%"
-       transform="scale(0.93577907,1.0686283)"><tspan
-         sodipodi:role="line"
-         id="tspan3448"
-         x="10.749917"
-         y="267.53674"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#0000ff;font-family:Top Secret;-inkscape-font-specification:Top Secret">Borrador</tspan></text>
-    <rect
-       style="opacity:0.98999999;fill:url(#linearGradient5295);fill-opacity:1;fill-rule:nonzero;stroke:#db2c31;stroke-width:0.75;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:0.75, 2.25;stroke-dashoffset:0"
-       id="rect3460"
-       width="207.14285"
-       height="53.107143"
-       x="-331.42859"
-       y="495.21936"
-       ry="6.1816726" />
-    <text
-       xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="315.71429"
-       y="205.71429"
-       id="text4230"
-       sodipodi:linespacing="125%"
-       transform="translate(0,252.3622)"><tspan
-         sodipodi:role="line"
-         id="tspan4232"
-         x="315.71429"
-         y="205.71429" /></text>
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot4224-3"
-       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       transform="translate(489.70508,316.95667)"><flowRegion
-         id="flowRegion4226-1"><rect
-           id="rect4228-6"
-           width="221.2234"
-           height="80.854256"
-           x="-280.82242"
-           y="150.49232"
-           style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
-         id="flowPara4230-8"
-         style="font-size:20px;text-align:center;text-anchor:middle">Caracterización de las propiedades mecánicas de la materia prima</flowPara></flowRoot>  </g>
+         id="flowPara4222" /></flowRoot>    <g
+       id="g4331">
+      <rect
+         ry="0"
+         y="959.86432"
+         x="8.7959585"
+         height="86.803963"
+         width="181.17105"
+         id="rect4298"
+         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.74117577;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <g
+         transform="matrix(0.60118446,0,0,0.60118446,64.986857,397.9849)"
+         id="g4291">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           d="m 35,957.3622 145,0 c 6.66667,0 6.66667,20 0,20 l -145,0 c -6.666667,0 -6.666667,20 0,20 l 145,0 c 6.6667,0 6.6667,20 0,20 l -145,0 c -6.666667,0 -6.666667,20 0,20 l 145,0 c 6.66667,0 6.66667,20 0,20 l -145,0"
+           id="path3465"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cssssssssssc" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           d="M 35,5 -25,5"
+           id="path3467"
+           inkscape:connector-curvature="0"
+           transform="translate(0,952.3622)" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           d="m 35,105 -60,0"
+           id="path3469"
+           inkscape:connector-curvature="0"
+           transform="translate(0,952.3622)" />
+        <path
+           style="fill:#000000;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m -25,5 -45,0 0,25 25,0 z"
+           id="path3471"
+           inkscape:connector-curvature="0"
+           transform="translate(0,952.3622)" />
+        <path
+           style="fill:#000000;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m -25,105 -45,0 0,-25 25,0 z"
+           id="path3473"
+           inkscape:connector-curvature="0"
+           transform="translate(0,952.3622)" />
+      </g>
+    </g>
+  </g>
 </svg>
