@@ -1,12 +1,22 @@
 \chapter{Metodología aplicada}
 
-\section{Descripción de la metodología aplicada}
-
 \begin{center}
-\includegraphics[scale=0.75]{src/ch3/diagrama_metodologia}
+\includegraphics[width=0.9\textwidth]{src/ch3/diagrama_metodologia.pdf}
 \captionof{figure}{Metodología del proyecto}
 \label{fig:diagrama_metodologia}
 \end{center}
+
+\section{Consulta de fuentes de información}
+
+La consulta de fuentes de información 
+
+\section{Caracterización del material}
+
+Cuando se requiere conocer las propiedades mecánicas de un material en ingeniería, se utilizan ensayos 
+normalizados. En este caso se hace necesario obtener la curva esfuerzo-deformación del 
+acero AISI 1018, misma que se utiliza como dato de entrada para la definición del material 
+en el software de simulación utilizado. Para obtener el comportamiento esfuerzo-deformación 
+de un metal se utiliza un ensayo de tensión uniaxial descrito en la norma ASTM-E8. ~\cite{ASTME8} \\
 
 
 \section{Análisis por elementos finitos}
@@ -29,7 +39,7 @@ parabólicas similar al de \ref{fig:muelle_parabolica}.
 \caption{}
 \label{fig:ti_rb131}
 \end{subfigure}
-~ 
+~  
 \begin{subfigure}[t]{0.35\textwidth}
 \centering
 \includegraphics[width=\textwidth]{src/ch3/buje_rb131.pdf}
@@ -92,12 +102,8 @@ como datos de entrada para definir el comportamiento plástico del material. Par
 la tasa de deformación este modelo utiliza la relación de Cowper-Symonds.\\
 
 \begin{equation}
-\[{{\sigma }_{y}}\left( \varepsilon _{eff}^{P},\dot{\varepsilon }_{eff}^{P} \right) = 
-{{\sigma }_{y}}\left( \varepsilon _{eff}^{P} \right)\left[ 1+{{\left( \frac{\dot{\varepsilon }_{eff}^{P}}{C} \right)}^{\frac{1}{P}}}\right]\]
-\end{equation}
-
-\begin{equation}
-a^2 + b^2 = c^2
+\sigma_{y}\left( \varepsilon _{eff}^{P},\dot{\varepsilon }_{eff}^{P} \right) = 
+{{\sigma }_{y}}\left( \varepsilon _{eff}^{P} \right)\left[ 1+{{\left( \frac{\dot{\varepsilon }_{eff}^{P}}{C} \right)}^{\frac{1}{P}}} \right]
 \end{equation}
 
 En los componentes del troquel se utilizó un modelo rígido, para el cual sólo es necesario 
@@ -491,5 +497,8 @@ utilizandotambién los parámetros de fricción indicados anteriormente.
 
 
 \section{Análisis experimental}
+
+
+\section{Comparación de análisis numérico vs experimental}
 
 

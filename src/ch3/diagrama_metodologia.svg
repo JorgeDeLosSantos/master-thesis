@@ -13,11 +13,11 @@
    inkscape:export-ydpi="90"
    inkscape:export-xdpi="90"
    inkscape:export-filename="C:\Users\User\Desktop\LABPro\master-thesis\src\ch3\diagrama_metodologia.png"
-   sodipodi:docname="diagrama_metodologia.svg"
+   sodipodi:docname="diagrama_metodologia.pdf"
    inkscape:version="0.48.5 r10040"
    version="1.1"
    id="svg2"
-   height="800"
+   height="600"
    width="600">
   <defs
      id="defs4">
@@ -2491,7 +2491,7 @@
        x2="34.270737"
        y2="519.95325"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.0986928,0,0,1,-33.3673,-144.73386)" />
+       gradientTransform="matrix(1.0986928,0,0,1,-34.156982,44.543146)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient5289"
@@ -2501,7 +2501,167 @@
        x2="-105.71429"
        y2="455.21933"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(108.57143,87.142857)" />
+       gradientTransform="translate(64.28572,240)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3452-7"
+       id="linearGradient3458-1"
+       x1="-354.50296"
+       y1="518.52466"
+       x2="34.270737"
+       y2="519.95325"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0986928,0,0,1,-46.224442,40.980426)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3452-7">
+      <stop
+         style="stop-color:#aaffcc;stop-opacity:1;"
+         offset="0"
+         id="stop3454-1" />
+      <stop
+         style="stop-color:#aaffcc;stop-opacity:0;"
+         offset="1"
+         id="stop3456-1" />
+    </linearGradient>
+    <linearGradient
+       y2="519.95325"
+       x2="34.270737"
+       y1="518.52466"
+       x1="-354.50296"
+       gradientTransform="matrix(1.1026272,0,0,1.4111605,376.08809,-91.801579)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3537"
+       xlink:href="#linearGradient3452-7"
+       inkscape:collect="always" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3452-76"
+       id="linearGradient3458-2"
+       x1="-354.50296"
+       y1="518.52466"
+       x2="34.270737"
+       y2="519.95325"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0986928,0,0,1,-46.224442,40.980426)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3452-76">
+      <stop
+         style="stop-color:#aaffcc;stop-opacity:1;"
+         offset="0"
+         id="stop3454-14" />
+      <stop
+         style="stop-color:#aaffcc;stop-opacity:0;"
+         offset="1"
+         id="stop3456-2" />
+    </linearGradient>
+    <linearGradient
+       y2="519.95325"
+       x2="34.270737"
+       y1="518.52466"
+       x1="-354.50296"
+       gradientTransform="matrix(1.2971777,0,0,1.1133773,415.08248,162.85493)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3537-3"
+       xlink:href="#linearGradient3452-76"
+       inkscape:collect="always" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3452-6"
+       id="linearGradient3458-21"
+       x1="-354.50296"
+       y1="518.52466"
+       x2="34.270737"
+       y2="519.95325"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0986928,0,0,1,-46.224442,40.980426)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3452-6">
+      <stop
+         style="stop-color:#aaffcc;stop-opacity:1;"
+         offset="0"
+         id="stop3454-8" />
+      <stop
+         style="stop-color:#aaffcc;stop-opacity:0;"
+         offset="1"
+         id="stop3456-5" />
+    </linearGradient>
+    <linearGradient
+       y2="519.95325"
+       x2="34.270737"
+       y1="518.52466"
+       x1="-354.50296"
+       gradientTransform="matrix(1.1654462,0,0,1.5093237,388.67906,172.86446)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3537-7"
+       xlink:href="#linearGradient3452-6"
+       inkscape:collect="always" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3452-9"
+       id="linearGradient3458-18"
+       x1="-354.50296"
+       y1="518.52466"
+       x2="34.270737"
+       y2="519.95325"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0986928,0,0,1,-46.224442,40.980426)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3452-9">
+      <stop
+         style="stop-color:#aaffcc;stop-opacity:1;"
+         offset="0"
+         id="stop3454-2" />
+      <stop
+         style="stop-color:#aaffcc;stop-opacity:0;"
+         offset="1"
+         id="stop3456-7" />
+    </linearGradient>
+    <linearGradient
+       y2="519.95325"
+       x2="34.270737"
+       y1="518.52466"
+       x1="-354.50296"
+       gradientTransform="matrix(1.2159944,0,0,1.3749461,398.81063,129.02857)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3537-9"
+       xlink:href="#linearGradient3452-9"
+       inkscape:collect="always" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3452-1"
+       id="linearGradient3458-3"
+       x1="-354.50296"
+       y1="518.52466"
+       x2="34.270737"
+       y2="519.95325"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0986928,0,0,1,-46.224442,40.980426)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3452-1">
+      <stop
+         style="stop-color:#aaffcc;stop-opacity:1;"
+         offset="0"
+         id="stop3454-23" />
+      <stop
+         style="stop-color:#aaffcc;stop-opacity:0;"
+         offset="1"
+         id="stop3456-3" />
+    </linearGradient>
+    <linearGradient
+       y2="519.95325"
+       x2="34.270737"
+       y1="518.52466"
+       x1="-354.50296"
+       gradientTransform="matrix(1.0986928,0,0,1,375.29951,15.683598)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3537-4"
+       xlink:href="#linearGradient3452-1"
+       inkscape:collect="always" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -2511,8 +2671,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="112.91339"
-     inkscape:cy="429.24979"
+     inkscape:cx="321.59382"
+     inkscape:cy="311.99351"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -2523,7 +2683,8 @@
      inkscape:window-y="-4"
      inkscape:window-maximized="1"
      showguides="true"
-     inkscape:guide-bbox="true" />
+     inkscape:guide-bbox="true"
+     units="px" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -2532,7 +2693,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -2540,7 +2701,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-252.3622)">
+     transform="translate(0,-452.36183)">
     <flowRoot
        xml:space="preserve"
        id="flowRoot3693"
@@ -2556,8 +2717,8 @@
        id="rect3413"
        width="240.73041"
        height="57.543118"
-       x="-373.94724"
-       y="343.95438"
+       x="-374.73691"
+       y="533.23138"
        ry="7.4828587" />
     <text
        xml:space="preserve"
@@ -2582,65 +2743,28 @@
            height="40.406101"
            x="-204.05081"
            y="184.83751" /></flowRegion><flowPara
-         id="flowPara4222" /></flowRoot>    <flowRoot
+         id="flowPara4222" /></flowRoot>    <rect
+       style="opacity:0.98999999;fill:url(#linearGradient3537-4);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3413-1"
+       width="240.73041"
+       height="57.543118"
+       x="34.719585"
+       y="504.37186"
+       ry="7.4828587" />
+    <flowRoot
        xml:space="preserve"
        id="flowRoot4224"
-       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       transform="translate(494.11121,214.15693)"><flowRegion
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       transform="translate(324.78987,359.51737)"><flowRegion
          id="flowRegion4226"><rect
            id="rect4228"
            width="221.22342"
            height="56.568542"
            x="-280.82242"
            y="150.49232"
-           style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
+           style="font-size:20px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
          id="flowPara4230"
-         style="font-size:20px;text-align:center;text-anchor:middle">Consulta de fuentes de información</flowPara></flowRoot>    <text
-       xml:space="preserve"
-       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-392.24329"
-       y="774.24628"
-       id="text4232"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         x="-392.24329"
-         y="774.24628"
-         id="tspan4236"
-         style="text-align:center;text-anchor:middle">Simulación por elemento finito</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-584.24457"
-       y="820.71313"
-       id="text4238"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         x="-584.24457"
-         y="820.71313"
-         id="tspan4242">Desarrollo del proceso de manufactura</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-402.38779"
-       y="859.36432"
-       id="text4238-0"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         x="-402.38779"
-         y="859.36432"
-         id="tspan4281">Fabricación del herramental</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-519.61346"
-       y="903.55951"
-       id="text4238-8"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         x="-519.61346"
-         y="903.55951"
-         id="tspan4242-2">Pruebas en producción</tspan></text>
-    <flowRoot
+         style="font-size:20px;text-align:center;text-anchor:middle">Consulta de fuentes de información</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot3422"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"><flowRegion
@@ -2673,24 +2797,24 @@
            y="100" /></flowRegion><flowPara
          id="flowPara3444" /></flowRoot>    <text
        xml:space="preserve"
-       style="font-size:25.00632095px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#0000ff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="10.749917"
-       y="267.53674"
+       style="font-size:18.17883492px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#0000ff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="4.5601287"
+       y="442.30438"
        id="text3446"
        sodipodi:linespacing="125%"
        transform="scale(0.93577907,1.0686283)"><tspan
          sodipodi:role="line"
          id="tspan3448"
-         x="10.749917"
-         y="267.53674"
+         x="4.5601287"
+         y="442.30438"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#0000ff;font-family:Top Secret;-inkscape-font-specification:Top Secret">Borrador</tspan></text>
     <rect
        style="opacity:0.98999999;fill:url(#linearGradient5295);fill-opacity:1;fill-rule:nonzero;stroke:#db2c31;stroke-width:0.75;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:0.75, 2.25;stroke-dashoffset:0"
        id="rect3460"
        width="207.14285"
        height="53.107143"
-       x="-331.42859"
-       y="495.21936"
+       x="-375.71429"
+       y="648.07648"
        ry="6.1816726" />
     <text
        xml:space="preserve"
@@ -2704,18 +2828,89 @@
          id="tspan4232"
          x="315.71429"
          y="205.71429" /></text>
+    <rect
+       style="opacity:0.98999999;fill:url(#linearGradient3537);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.19004786;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3413-5"
+       width="241.59247"
+       height="81.202583"
+       x="34.288555"
+       y="597.81604"
+       ry="10.559515" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot4224-3"
-       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       transform="translate(489.70508,316.95667)"><flowRegion
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       transform="translate(324.62874,452.31712)"><flowRegion
          id="flowRegion4226-1"><rect
            id="rect4228-6"
            width="221.2234"
            height="80.854256"
            x="-280.82242"
            y="150.49232"
-           style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
+           style="font-size:20px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
          id="flowPara4230-8"
-         style="font-size:20px;text-align:center;text-anchor:middle">Caracterización de las propiedades mecánicas de la materia prima</flowPara></flowRoot>  </g>
+         style="font-size:20px;text-align:center;text-anchor:middle">Caracterización de las propiedades mecánicas de la materia prima</flowPara></flowRoot>    <rect
+       style="opacity:0.98999999;fill:url(#linearGradient3537-3);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.14652312;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3413-2"
+       width="284.2197"
+       height="64.0672"
+       x="12.974942"
+       y="706.94934"
+       ry="8.3312454" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4224-3-1"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       transform="translate(294.14924,563.66129)"><flowRegion
+         id="flowRegion4226-1-7"><rect
+           id="rect4228-6-4"
+           width="284.08054"
+           height="67.997108"
+           x="-280.82242"
+           y="150.49232"
+           style="font-size:20px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara4230-8-0"
+         style="font-size:20px;text-align:center;text-anchor:middle">Simulación por elementos finitos del proceso de formado</flowPara></flowRoot>    <rect
+       style="opacity:0.98999999;fill:url(#linearGradient3537-9);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.23358905;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3413-54"
+       width="266.43195"
+       height="79.118683"
+       x="21.868816"
+       y="800.94861"
+       ry="10.288527" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4224-3-1-9"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       transform="translate(297.80549,655.66128)"><flowRegion
+         id="flowRegion4226-1-7-4"><rect
+           id="rect4228-6-4-8"
+           width="275.50912"
+           height="90.854256"
+           x="-280.82242"
+           y="150.49232"
+           style="font-size:20px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara4230-8-0-8"
+         style="font-size:20px;text-align:center;text-anchor:middle">Análisis experimental de deformaciones y esfuerzos utilizando extensometría.</flowPara></flowRoot>    <rect
+       style="opacity:0.98999999;fill:url(#linearGradient3537-7);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.26531661;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3413-6"
+       width="255.35651"
+       height="86.851189"
+       x="27.406536"
+       y="910.45312"
+       ry="11.294055" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4224-3-1-9-2"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       transform="translate(303.91975,766.87697)"><flowRegion
+         id="flowRegion4226-1-7-4-4"><rect
+           id="rect4228-6-4-8-5"
+           width="262.65201"
+           height="93.711403"
+           x="-280.82242"
+           y="150.49232"
+           style="font-size:20px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara4230-8-0-8-5"
+         style="font-size:20px;text-align:center;text-anchor:middle">Comparación de los resultados de la simulación con los experimentales</flowPara></flowRoot>  </g>
 </svg>
