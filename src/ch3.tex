@@ -1,14 +1,23 @@
 \chapter{Metodología aplicada}
 
+En este capítulo se describe la metodología seguida para el desarrollo del proyecto, 
+desde la documentación del proyecto, la caracterización del material, el análisis por 
+elemento finito, el análisis experimental, y cada una de las etapas necesarias para 
+la conclusión y consecución de los objetivos planteados. En la figura \ref{fig:diagrama_metodologia} 
+se muestra un esquema de las etapas del desarrollo del proyecto y en las secciones 
+subsiguientes se describen de manera más amplia las actividades que implica cada una de ellas.
+
 \begin{center}
-\includegraphics[width=0.9\textwidth]{src/ch3/diagrama_metodologia.pdf}
+\includegraphics[width=0.75\textwidth]{src/ch3/diagrama_metodologia.pdf}
 \captionof{figure}{Metodología del proyecto}
 \label{fig:diagrama_metodologia}
 \end{center}
 
 \section{Consulta de fuentes de información}
 
-La consulta de fuentes de información 
+En esta etapa inicial del proyecto se consultaron diversas fuentes de información 
+relacionadas con los procesos de manufactura, específicamente los procesos 
+de formado de hojas metálicas y operaciones de troquelado.
 
 \section{Caracterización del material}
 
@@ -18,11 +27,20 @@ acero AISI 1018, misma que se utiliza como dato de entrada para la definición d
 en el software de simulación utilizado. Para obtener el comportamiento esfuerzo-deformación 
 de un metal se utiliza un ensayo de tensión uniaxial descrito en la norma ASTM-E8. ~\cite{ASTME8} \\
 
+Del ensayo de tensión se obtuvieron los datos agrupados en la curva de la figura \ref{fig:material_curve}, 
+en la cual se muestra, además, la curva esfuerzo-deformación verdadera calculada mediante las ecuaciones 
+\ref{eq:true_stress} y \ref{eq:true_strain}.
+
+\begin{center}
+\includegraphics[scale=0.6]{src/ch3/material_curve.pdf}
+\captionof{figure}{Curvas de esfuerzo-deformación, ingenieril y verdadera, del acero AISI 1018}
+\label{fig:material_curve}
+\end{center}
 
 \section{Análisis por elementos finitos}
 
 \begin{center}
-\includegraphics[width=0.9\textwidth]{src/ch3/metodologia_analisis_fem.pdf}
+\includegraphics[width=0.75\textwidth]{src/ch3/metodologia_analisis_fem.pdf}
 \captionof{figure}{Metodología para el análisis por elemento finito}
 \label{fig:metodologia_analisis_fem}
 \end{center}
@@ -56,7 +74,7 @@ parabólicas similar al de \ref{fig:muelle_parabolica}.
 \end{figure}
 
 
-Para fabricar el tubo interior \ref{fig:ti_rb131} se utiliza un troquel compuesto o semi-progresivo 
+Para fabricar el tubo interior \ref{fig:ti_rb131} se utiliza un troquel compuesto o semiprogresivo 
 de dos etapas, a saber: un doblado en U y un cerrado o doblado en O, mismo cuyo modelo CAD se muestra 
 en la figura \ref{fig:troquel}. El troquel tiene como materia de entrada una placa metálica 
 (\textit{blank}) rectangular de acero AISI 1018, con un largo de 3 in y un acho de 2.125 in, 
@@ -98,29 +116,64 @@ cierre de tubo adecuado.
 
 \end{figure}
 
+\subsection{Generalidades de la simulación}
+
 
 
 \subsection{Modelo constitutivo}
 
-Se utilizó un modelo de tipo \textit{Piecewise Linear Plasticity}, el cual es un modelo multilineal 
-que permite utilizar una curva esfuerzo-deformación y la dependencia de la tasa de deformación 
-como datos de entrada para definir el comportamiento plástico del material. Para cuantificar 
-la tasa de deformación este modelo utiliza la relación de Cowper-Symonds.\\
+Para la pieza de trabajo se utilizó un modelo de tipo \textit{Piecewise Linear Plasticity}, 
+el cual es un modelo multilineal que permite utilizar una curva esfuerzo-deformación y la 
+dependencia de la tasa de deformación como datos de entrada para definir el comportamiento 
+plástico del material. Para cuantificar la tasa de deformación este modelo utiliza la 
+relación de Cowper-Symonds mostrada en la ecuación \ref{eq:cowper_symonds}.\\
 
-\begin{equation}
+\begin{equation} \label{eq:cowper_symonds}
 \sigma_{y}\left( \varepsilon _{eff}^{P},\dot{\varepsilon }_{eff}^{P} \right) = 
 {{\sigma }_{y}}\left( \varepsilon _{eff}^{P} \right)\left[ 1+{{\left( \frac{\dot{\varepsilon }_{eff}^{P}}{C} \right)}^{\frac{1}{P}}} \right]
 \end{equation}
 
+La curva esfuerzo-deformación ingresada en el software de simulación fue la obtenida 
+de forma experimental, con algunas modificaciones a saber: se tomaron solamente 7 puntos 
+de la curva original linealmente equiespaciados, se calculó el esfuerzo y deformación verdadera 
+mediante las ecuaciones descritas en la sección \ref{subsec:true_strain_stress}, posteriormente 
+a partir de la deformación verdadera se obtuvo la deformación plástica mediante la 
+ecuación \ref{eq:plastic_strain}, mismas que se agrupan en la tabla \ref{tab:strain_stress_conversion}.
+La curva resultante y que se ingresó en el softaware se muestra en la figura \ref{fig:ls_dyna_material_curve}. \\
+
+Para definir completamente el modelo es necesario asignar las propiedades mecánicas elementales 
+como el módulo elástico, la relación de Poisson y la densidad. Además, se debe asignar 
+la resistencia a la fluencia y las constantes C y P utilizadas en la ecuación de Cowper-Symonds.
+Estas propiedades utilizadas se muestran en la tabla \ref{tab:material_properties}. \\
+
+% Tabla de propiedades
+\begin{table}[h]
+\centering
+\caption{Propiedades del acero AISI 1018}
+\label{tab:steel_properties}
+\begin{tabular}{p{4cm} p{4cm}} \hline
+Propiedad & Magnitud (unidades) \\
+\hline
+Módulo elástico & 29 000 (ksi) \\
+Densidad & 0.00073 (lbf s$^2$/in$^4$) \\
+Esfuerzo de fluencia & 52 000 (psi) \\
+Coeficiente de Poisson & 0.3 \\
+C & 40 (s$^{-1}$) \\
+P & 5 \\
+\hline
+\end{tabular}
+\label{tab:material_properties}
+\end{table}
+
 En los componentes del troquel se utilizó un modelo rígido, para el cual sólo es necesario 
 especificar las propiedades elásticas. Los componentes rígidos, normalmente, permiten la 
-aplicación de condiciones de desplazamiento utilizando el identificador (ID) de la parte, además 
+aplicación de condiciones de desplazamiento utilizando el identificador o ID de la parte, además 
 se pueden asignar propiedades de inercia o velocidades iniciales. En este caso, no se 
-especificaron propiedades adicionales, lo cual implica que ANSYS/LS-DYNA calcule automáticamente 
-las propiedades inerciales basadas en el modelo de elemento finito.\\
+especificaron propiedades adicionales, lo cual implica que el software de simulación calcule automáticamente 
+las propiedades inerciales basadas en el modelo de elemento finito. \\
 
 Para crear los materiales de cada uno de los componentes se utilizó un pequeño \textit{script}, 
-que se muestra a continuación:
+que se muestra a continuación:,k
 
 \begin{apdl}
 ! Para el formador inferior
@@ -159,49 +212,30 @@ MP,EX,1,29E6 ! psi
 MP,NUXY,1,0.3 ! 
 MP,DENS,1,0.00073 ! lbf s^2 / in^4
 
-! define array for effective plastic true strain data
+! Definir un arreglo para la deformación plástica verdadera
 *dim,strn,,6
-! define array for effective total true stress data
+! Definir un arreglo para el esfuerzo verdadero
 *dim,strs,,6
 
-! strain (in/in)
-strn(1)= 0.0, 0.0293, 0.0772, 0.1562, 0.2356, 0.344943
+! Deformación (in/in)
+strn(1) = 0.0, 0.0293, 0.0772, 0.1562, 0.2356, 0.344943
 
-! stress (psi)
-strs(1)=52489.4,60585.8,70710,76809.3,80244.3,82574.1
+! Esfuerzo (psi)
+strs(1) = 52489.4,60585.8,70710,76809.3,80244.3,82574.1
 
-! curve #1: abscissa=strain & ordinate=stress
+! Curva #1: Abscisa=deformación & Ordenada=esfuerzo
 edcurve,add,1,strn,strs 
 
-! specify power law #8 for material (MAT) #1
+! Especificar Power Law #8 para el material #1
 TB,PLAW,1,,,8  ! Piecewise Linear Plasticity
 
-! use load curve #1 for stress/strain data
-TBDATA,1,52e3 ! Yield stress (psi)
-TBDATA,3,.75 ! Failure strain
-TBDATA,4,40.0 ! C (strain rate parameter)
-TBDATA,5,0.1 ! P (strain rate parameter)
-TBDATA,6,1 ! Load Curve ID
+! Usar curva #1 para la relación esfuerzo-deformación
+TBDATA,1,52e3 ! Esfuerzo de fluencia (psi)
+TBDATA,3,.75 ! Deformación de falla
+TBDATA,4,40.0 ! C (Parámetro de tasa de deformación)
+TBDATA,5,0.1 ! P (Parámetro de tasa de deformación)
+TBDATA,6,1 ! ID de la curva
 \end{apdl}
-
-% Tabla de propiedades
-\begin{table}[h]
-\centering
-\caption{Propiedades del acero AISI 1018}
-\label{}
-\begin{tabular}{p{4cm} p{4cm}} \hline
-Propiedad & Magnitud (unidades) \\
-\hline
-Módulo elástico & 29 000 (ksi) \\
-Densidad & 0.00073 ($lbf s^2/in^4$) \\
-Esfuerzo de fluencia & 52 000 (psi) \\
-Coeficiente de Poisson & 0.3 \\
-C & 40 ($s^{-1}$) \\
-P & 5 \\
-\hline
-\end{tabular}
-\label{tab:material_properties}
-\end{table}
 
 
 % Tabla de propiedades plásticas
@@ -209,7 +243,7 @@ P & 5 \\
 \begin{table}[h]
 \centering
 \caption{Conversión de esfuerzos y deformaciones}
-\label{}
+\label{tab:strain_stress_conversion}
 \begin{tabular}{p{2.5cm} p{2.5cm} p{2.5cm} p{2.5cm} p{2.5cm}} \hline
 {\bf $\varepsilon_{nom}$ & $\sigma_{nom}$ (psi) & $\varepsilon_t$ & $\sigma_t$ (psi) & $\varepsilon_{pl}$ } \\
 \hline
@@ -224,14 +258,6 @@ P & 5 \\
 \end{tabular}
 \label{tab:stress_strain_curve}
 \end{table}
-
-
-
-\begin{center}
-\includegraphics[scale=0.6]{src/ch3/material_curve.pdf}
-\captionof{figure}{Curvas de esfuerzo-deformación, ingenieril y verdadera, del acero AISI 1018}
-\label{fig:material_curve}
-\end{center}
 
 
 \begin{center}
@@ -249,7 +275,9 @@ Para el mallado de la pieza de trabajo se utilizó el elemento \texttt{SOLID164}
 ( ver figura \ref{fig:solid164} ), el cual es un sólido de 8 nodos, que puede ser utilizado con el modelo 
 constitutivo descrito en la sección anterior. Este elemento utiliza, por defecto, integración reducida 
 (un punto de integración), el cual tiene la ventaja de reducir el tiempo de cómputo y adiciona 
-robustez para el caso de grandes deformaciones. ~\cite{lsdyna-ansys-manual}
+robustez para el caso de grandes deformaciones ~\cite{lsdyna-ansys-manual}, no obstante puede presentar 
+la desventaja de propiciar la inclusión de los modos de Hourglass en la solución, implicando que 
+se obtenga una malla deformada con apariencia corrugada.
 
 \begin{center}
 \includegraphics[scale=0.65]{src/ch3/solid164.png}
@@ -260,7 +288,7 @@ robustez para el caso de grandes deformaciones. ~\cite{lsdyna-ansys-manual}
 En los componentes del troquel se mallaron solamente las áreas que están en contacto directo con el 
 \textit{blank} durante el proceso de formado, con la finalidad de reducir el número de elementos del modelo. 
 Se utilizaron elementos \texttt{SHELL163} para realizar el mallado. Los parámetros requeridos para 
-este elemento se indican en la tabla \ref{tab:shell_param}
+este elemento se indican en la tabla \ref{tab:shell_param}.
 
 \begin{center}
 \includegraphics[scale=0.65]{src/ch3/shell163.png}
@@ -314,7 +342,7 @@ volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_se
 
 % Partición del blank
 \begin{center}
-\includegraphics[scale=0.6]{src/ch3/blank_segmentado.png}
+\includegraphics[width=0.5\textwidth]{src/ch3/blank_segmentado.pdf}
 \captionof{figure}{Blank segmentado en cuatro regiones}
 \label{fig:blank_seg}
 \end{center}
@@ -325,67 +353,67 @@ volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_se
 
 \begin{figure}[!h]
 \centering
-
-\begin{subfigure}[t]{0.5\textwidth}
-\includegraphics[width=\textwidth]{src/ch3/mesh_blank.png}
-\caption{}
+\includegraphics[width=0.5\textwidth]{src/ch3/mesh_blank.png}
 \label{fig:mesh_blank}
-\end{subfigure}
-~ 
-\begin{subfigure}[t]{0.4\textwidth}
-\includegraphics[width=\textwidth]{src/ch3/mesh_blank_front.png}
-\caption{}
-\label{fig:mesh_blank_front}
-\end{subfigure}
-
-\caption{Mallado del blank en vista a) trimétrica b) frontal}
+\caption{Mallado del blank}
 \end{figure}
-
-
 
 
 \begin{figure}[!h]
 \centering
-\begin{subfigure}[t]{0.3\textwidth}
-\centering
-\includegraphics[width=\textwidth]{src/ch3/mesh_fi.png}
-\caption{}
+\includegraphics[width=0.5\textwidth]{src/ch3/mesh_fi.png}
+\caption{Mallado del formador inferior}
 \label{fig:mesh_fi}
-\end{subfigure}
-~ 
-\begin{subfigure}[t]{0.3\textwidth}
-\centering
-\includegraphics[width=\textwidth]{src/ch3/mesh_fs.png}
-\caption{}
-\label{fig:mesh_fs}
-\end{subfigure}
-~ 
-\begin{subfigure}[t]{0.3\textwidth}
-\centering
-\includegraphics[width=\textwidth]{src/ch3/mesh_leva.png}
-\caption{}
-\label{fig:mesh_leva}
-\end{subfigure}
+\end{figure}
 
-\caption{Mallado de a) formador inferior b) formador superior c) leva}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.5\textwidth]{src/ch3/mesh_fs.png}
+\caption{Mallado del formador superior}
+\label{fig:mesh_fi}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.5\textwidth]{src/ch3/mesh_leva.png}
+\caption{Mallado de la leva}
+\label{fig:mesh_fi}
 \end{figure}
 
 
-% % Mallado del ensamble 01
+% \begin{figure}[!h]
+% \centering
+% \begin{subfigure}[t]{0.3\textwidth}
+% \centering
+% \includegraphics[width=\textwidth]{src/ch3/mesh_fi.png}
+% \caption{}
+% \label{fig:mesh_fi}
+% \end{subfigure}
+% ~ 
+% \begin{subfigure}[t]{0.3\textwidth}
+% \centering
+% \includegraphics[width=\textwidth]{src/ch3/mesh_fs.png}
+% \caption{}
+% \label{fig:mesh_fs}
+% \end{subfigure}
+% ~ 
+% \begin{subfigure}[t]{0.3\textwidth}
+% \centering
+% \includegraphics[width=\textwidth]{src/ch3/mesh_leva.png}
+% \caption{}
+% \label{fig:mesh_leva}
+% \end{subfigure}
 
-% \begin{center}
-% \includegraphics[scale=0.6]{src/ch3/mesh_assembly_01.png}
-% \captionof{figure}{Mallado del ensamble, primer paso}
-% \label{fig:mesh_assembly01}
-% \end{center}
+% \caption{Mallado de a) formador inferior b) formador superior c) leva}
+% \end{figure}
 
 
 %  Partes 
 \begin{figure}[!h]
 \centering
-\includegraphics[scale=0.5]{src/ch3/parts_plot.png}
+\includegraphics[width=0.8\textwidth]{src/ch3/parts_01.pdf}
 \caption{Partes del ensamble 1}
-\label{fig:parts_plot}
+\label{fig:parts_01}
 \end{figure}
 
 % En las tabla \ref{tab:elements_and_nodes} se muestra el número de nodos y elementos obtenidos 
@@ -408,14 +436,49 @@ volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_se
 
 \subsubsection{Segundo ensamble}
 
-% Mallado del ensamble 02
+Al igual que en el primer ensamble, los formadores y/o componentes del herramental, se 
+mallaron por áreas utilizando elementos \texttt{SHELL163}. En el caso de la pieza de trabajo, 
+esta se importó en su configuración deformada del análisis del primer paso, incluyendo 
+además la distribución de esfuerzos. En la figura \ref{fig:mesh_blank_02} se observa 
+la malla deformada del blank. El mallado de cada uno de los componentes del troquel 
+se puede observar en las figuras \ref{fig:mesh_ffi}, \ref{fig:mesh_ffs} y \ref{fig:mesh_perno}.
+
 
 \begin{figure}[!h]
 \centering
-\includegraphics[scale=0.6]{src/ch3/mesh_assembly_02.png}
-\captionof{figure}{Mallado del ensamble, segundo paso}
-\label{fig:mesh_assembly02}
+\includegraphics[width=0.6\textwidth]{src/ch3/parts_02.png}
+\caption{Mallado del segundo ensamble}
+\label{fig:parts_02}
 \end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.5\textwidth]{src/ch3/mesh_blank_02.png}
+\caption{Geometría deformada del blank importada del primer paso}
+\label{fig:mesh_blank_02}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.5\textwidth]{src/ch3/mesh_ffi.png}
+\caption{Mallado del formador final inferior}
+\label{fig:mesh_ffi}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.5\textwidth]{src/ch3/mesh_ffs.png}
+\caption{Mallado del formador final superior}
+\label{fig:mesh_ffs}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.5\textwidth]{src/ch3/mesh_perno.png}
+\caption{Mallaod del perno formador}
+\label{fig:mesh_perno}
+\end{figure}
+
 
 
 
