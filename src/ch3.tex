@@ -17,7 +17,14 @@ subsiguientes se describen de manera más amplia las actividades que implica cad
 
 En esta etapa inicial del proyecto se consultaron diversas fuentes de información 
 relacionadas con los procesos de manufactura, específicamente los procesos 
-de formado de hojas metálicas y operaciones de troquelado.
+de formado de hojas metálicas y operaciones de troquelado. Se buscó también información 
+referente a la simulación por elementos finitos de operaciones que involucran 
+deformación plástica, con la finalidad de conocer los tipos de análisis y definir 
+el más conveniente para el caso. \\
+
+Se consultó información relativa al estado del arte en artículos y/o publicaciones, 
+sobre procesos de formado de manera general y para operaciones de doblado similares a la 
+de este proyecto.
 
 \section{Caracterización del material}
 
@@ -39,8 +46,23 @@ en la cual se muestra, además, la curva esfuerzo-deformación verdadera calcula
 
 \section{Análisis por elementos finitos}
 
+Como se describió en la sección \ref{subsec:implementacion-fem}, el análisis por elementos 
+finitos en problemas de ingeniería es un proceso iterativo, en el que normalmente hay que ajustar 
+algunos parámetros e ir revisando que los resultados obtenidos sean, al menos en principio, 
+coherentes o se encuentren dentro de un intervalo esperado. \\
+
+En el esquema mostrado en la figura \ref{fig:fem_diagram} se observa una metodología generalizada 
+para un análisis por elementos finitos, partiendo desde el planteamiento de las 
+ecuaciones diferenciales que gobiernan el problema. Cuando se utiliza un software 
+de simulación, estos normalmente incorporan un entorno integrado que 
+proporciona y facilita el desarrollo de un modelo de elemento finito a partir 
+de las geometrías involucradas, debido a esto, el proceso para el análisis por elemento 
+finito involucra algunas cuestiones como las que se muestran en el diagrama de 
+la figura \ref{fig:metodologia_analisis_fem}, el cual sería más acorde con 
+el proceso de análisis realizado en este caso.
+
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch3/metodologia_analisis_fem.pdf}
+\includegraphics[width=0.65\textwidth]{src/ch3/metodologia_analisis_fem.pdf}
 \captionof{figure}{Metodología para el análisis por elemento finito}
 \label{fig:metodologia_analisis_fem}
 \end{center}
@@ -84,7 +106,7 @@ cierre de tubo adecuado.
 
 
 \begin{center}
-\includegraphics[scale=0.75]{src/ch3/muelle_parabolica.jpg}
+\includegraphics[scale=0.65]{src/ch3/muelle_parabolica.jpg}
 \captionof{figure}{Muelle parabólica}
 \label{fig:muelle_parabolica}
 \end{center}
@@ -173,7 +195,7 @@ especificaron propiedades adicionales, lo cual implica que el software de simula
 las propiedades inerciales basadas en el modelo de elemento finito. \\
 
 Para crear los materiales de cada uno de los componentes se utilizó un pequeño \textit{script}, 
-que se muestra a continuación:,k
+que se muestra a continuación:
 
 \begin{apdl}
 ! Para el formador inferior
@@ -543,7 +565,6 @@ _k3 = -1.22
 \end{figure}
 
 
-
 % ==================================== CONTACTOS ============================================
 \subsection{Contactos}
 
@@ -565,10 +586,9 @@ En la simulación del segundo paso se utilizó el contacto de tipo Single Surfac
 tomar en cuenta el contacto del blank con él mismo (cerrado del tubo) ~\cite{lsdyna-manual}, 
 utilizandotambién los parámetros de fricción indicados anteriormente.
 
+% \section{Análisis experimental}
 
-\section{Análisis experimental}
 
-
-\section{Comparación de análisis numérico vs experimental}
+% \section{Comparación de análisis numérico vs experimental}
 
 
