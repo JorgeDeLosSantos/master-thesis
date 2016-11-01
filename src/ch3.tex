@@ -480,18 +480,19 @@ se puede observar en las figuras \ref{fig:mesh_ffi}, \ref{fig:mesh_ffs} y \ref{f
 \end{figure}
 
 
-
-
 % Condiciones de frontera ==================================================================
 \subsection{Condiciones de frontera}
 
 Para efectos de la simulación el blank fue sujetado en el punto medio de cada extremo, 
-en las direcciones X y Z, para evitar que se desplace de manera no deseada y con esto 
-ayudar en la convergencia de la solución.\\
+en las direcciones \textit{X} y \textit{Z}, para evitar que se desplace de manera no 
+deseada y con esto ayudar en la convergencia de la solución. La localización de las 
+condiciones de sujeción en la parte central se debe a que se considera que la placa 
+no sufre una deformación significativa en esa parte y por tanto no influirá en el campo 
+de deformaciones resultante. \\
 
-Para los componentes del troquel, al ser cuerpos rígidos la mayoría de sus
-restricciones fueron consideradas en la definición del material. En el caso de los
-formadores superiores, sólo se especificaron los desplazamientos en la dirección
+Los componentes del troquel, al ser cuerpos rígidos, la mayoría de sus 
+restricciones fueron consideradas en la definición del material. En el caso de los 
+formadores superiores, sólo se especificaron los desplazamientos en la dirección 
 vertical Y, se utilizaron arreglos unidimensionales para especificar la relación
 tiempo-desplazamiento, en todos los casos se especificó como desplazamiento de
 cuerpo rígido en la dirección Y (\texttt{RBUY}), aplicándose esta condición a cada uno de los
