@@ -24,7 +24,13 @@ el más conveniente para el caso. \\
 
 Se consultó información relativa al estado del arte en artículos y/o publicaciones, 
 sobre procesos de formado de manera general y para operaciones de doblado similares a la 
-de este proyecto.
+de este proyecto, es decir, aquellas que involucran una deformación sucesiva en UO. 
+Todo esto se buscó en las principales bases de datos de contenido científico tales 
+como Springer, Thomson, Elsevier, Scielo, Redalyc, así como en las bibliotecas 
+digitales de diversas universidades hispanas y anglosajonas que proporcionan una 
+cantidad considerable de trabajos de tesis, además de una revisión general en 
+Google Scholar, que refiere e indexa la mayor parte del contenido de carácter científico 
+y/o académico.
 
 \section{Caracterización del material}
 
@@ -49,15 +55,15 @@ en la cual se muestra, además, la curva esfuerzo-deformación verdadera calcula
 Como se describió en la sección \ref{subsec:implementacion-fem}, el análisis por elementos 
 finitos en problemas de ingeniería es un proceso iterativo, en el que normalmente hay que ajustar 
 algunos parámetros e ir revisando que los resultados obtenidos sean, al menos en principio, 
-coherentes o se encuentren dentro de un intervalo esperado. \\
+coherentes o se encuentren dentro de un rango esperado. \\
 
 En el esquema mostrado en la figura \ref{fig:fem_diagram} se observa una metodología generalizada 
 para un análisis por elementos finitos, partiendo desde el planteamiento de las 
 ecuaciones diferenciales que gobiernan el problema. Cuando se utiliza un software 
 de simulación, estos normalmente incorporan un entorno integrado que 
-proporciona y facilita el desarrollo de un modelo de elemento finito a partir 
-de las geometrías involucradas, debido a esto, el proceso para el análisis por elemento 
-finito involucra algunas cuestiones como las que se muestran en el diagrama de 
+proporciona y facilita el desarrollo de un modelo de elementos finitos a partir 
+de las geometrías involucradas, debido a esto, el proceso para el análisis por elementos 
+finitos involucra algunas cuestiones como las que se muestran en el diagrama de 
 la figura \ref{fig:metodologia_analisis_fem}, el cual sería más acorde con 
 el proceso de análisis realizado en este caso.
 
@@ -137,6 +143,7 @@ cierre de tubo adecuado.
 \caption{Partes a) inferior y b) superior del troquel}
 
 \end{figure}
+
 
 \subsection{Generalidades de la simulación}
 
@@ -586,8 +593,9 @@ En la simulación del segundo paso se utilizó el contacto de tipo Single Surfac
 tomar en cuenta el contacto del blank con él mismo (cerrado del tubo) ~\cite{lsdyna-manual}, 
 utilizandotambién los parámetros de fricción indicados anteriormente.
 
-% \section{Análisis experimental}
+\section{Análisis experimental}
 
+\texttt{EP-40-125TQ-350} 
 
 % \section{Comparación de análisis numérico vs experimental}
 
