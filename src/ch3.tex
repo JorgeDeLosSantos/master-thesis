@@ -69,7 +69,7 @@ la figura \ref{fig:metodologia_analisis_fem}, el cual sería más acorde con
 el proceso de análisis realizado en este caso.
 
 \begin{center}
-\includegraphics[width=0.65\textwidth]{src/ch3/metodologia_analisis_fem.pdf}
+\includegraphics[width=0.75\textwidth]{src/ch3/metodologia_analisis_fem.pdf}
 \captionof{figure}{Metodología para el análisis por elemento finito}
 \label{fig:metodologia_analisis_fem}
 \end{center}
@@ -596,7 +596,83 @@ utilizandotambién los parámetros de fricción indicados anteriormente.
 
 \section{Análisis experimental}
 
-\texttt{EP-40-125TQ-350} 
+Para validar los resultados obtenidos mediante la simulación por elemento finito, se realizó 
+un análisis experimental de esfuerzos y deformaciones mediante la técnica de extensometría. 
+De manera general, se instrumentaron cuatro probetas y se sometieron al proceso de formado 
+mediante el troquel formador utilizado en producción. En las subsecciones posteriores se describe 
+de manera detallada la instrumentación y la realización de las pruebas.
+
+\subsection{Instrumentación de las probetas}
+
+Para llevar a cabo un análisis experimental mediante extensometría primero se hace necesario 
+seleccionar la galga extensométrica a utilizar, que dependerá del tipo de fenómeno o proceso 
+objeto de estudio. En este caso se seleccionó una galga del tipo \texttt{EP-40-125TQ-350}, la 
+cual pertenece a la serie EP, que se utiliza para mediciones de grandes deformaciones posteriores 
+a la fluencia ~\cite{vishay-catalog}. Esta galga tiene dimensiones de 0.125 pulgadas por lado, referidas a toda la 
+matriz o placa que contiene a la rejilla. La \texttt{EP-40-125TQ-350} es una galga de dos 
+elementos a 90° como se muestra en el esquema de la figura \ref{fig:strain_gage}, con 
+una resistencia eléctrica de 350 $\Omega$ para cada una. En la tabla \ref{tab:strain_gage_props} 
+se resumen las características de importancia de la galga seleccionada.
+
+
+\begin{center}
+\includegraphics[width=0.35\textwidth]{src/ch3/strain_gage.png}
+\captionof{figure}{Esquema de la galga \texttt{EP-40-125TQ-350} utilizada}
+\label{fig:strain_gage}
+\end{center}
+
+% Tabla de características de la galga
+\begin{table}[h]
+\centering
+\caption{Características de la galga extensométrica \texttt{EP-40-125TQ-350}}
+\label{tab:strain_gage_props}
+\begin{tabular}{p{6cm} p{4cm}} \hline
+Característica & Descripción \\
+\hline
+Serie & \texttt{EP-40-125TQ-350} \\
+Dimensiones & 0.125x0.125 in \\
+Resistencia eléctrica &  350 $\Omega$  \\
+Factor de galga & 2.04 \\
+Rango de deformaciones & $\pm$ 20\% \\
+\hline
+\end{tabular}
+\end{table}
+
+En la figura \ref{fig:metodologia_instrumentacion} se muestra la metodología aplicada 
+en la instrumentación de cada una de las probetas. Se debe tener especial cuidado con el 
+manejo de la galga puesto que ejecutar de manera incorrecta las operaciones necesarias 
+para la instrumentación puede dañar la funcionalidad. \\
+
+Una vez se tuvieron las probetas se procedió a preparar la superficie de la región en 
+la cual se colocó la galga, mediante el uso de lijas y un acondicionador especial 
+para lograr una superficie libre de grietas o pequeñas protuberancias, que permita 
+una adherencia adecuada de la galga. Evidentemente se utilizaron lijas de diversos 
+tamaños de grano en orden descendente para obtener la superficie requerida.\\
+
+\begin{center}
+\includegraphics[width=0.95\textwidth]{src/ch3/metodologia_instrumentacion.pdf}
+\captionof{figure}{Metodología de la instrumentación}
+\label{fig:metodologia_instrumentacion}
+\end{center}
+
+Con la superficie preparada se trazaron dos lineas dispuestas de manera perpendicular 
+como 
+
+
+
+\begin{center}
+\includegraphics[width=0.65\textwidth]{src/ch3/dir_prin_strain.png}
+\captionof{figure}{Dirección de la deformación principal en el \textit{blank}}
+\label{fig:dir_prin_strain}
+\end{center}
+
+
+\begin{center}
+\includegraphics[width=0.75\textwidth]{src/ch3/probetas_instrumentadas.jpg}
+\captionof{figure}{Probetas instrumentadas}
+\label{fig:probetas_instrumentadas}
+\end{center}
+
 
 % \section{Comparación de análisis numérico vs experimental}
 

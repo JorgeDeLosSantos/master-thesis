@@ -69,18 +69,6 @@
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
-       id="linearGradient5289">
-      <stop
-         style="stop-color:#ffe6d5;stop-opacity:1;"
-         offset="0"
-         id="stop5291" />
-      <stop
-         style="stop-color:#ffe6d5;stop-opacity:0;"
-         offset="1"
-         id="stop5293" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
        id="linearGradient4603">
       <stop
          style="stop-color:#1a1a1a;stop-opacity:1;"
@@ -2518,16 +2506,6 @@
     </filter>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient5289"
-       id="linearGradient5295"
-       x1="-544.28571"
-       y1="416.64792"
-       x2="-105.71429"
-       y2="455.21933"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.56468334,0,0,0.79959076,562.29595,491.02731)" />
-    <linearGradient
-       inkscape:collect="always"
        xlink:href="#linearGradient3452-7"
        id="linearGradient3458-1"
        x1="-354.50296"
@@ -3056,6 +3034,16 @@
        y1="557.96234"
        x2="-30.470947"
        y2="557.96234" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3780"
+       id="linearGradient3619"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.59643427,0,0,0.70027503,284.32966,135.76091)"
+       x1="-272.20135"
+       y1="557.96234"
+       x2="-30.470947"
+       y2="557.96234" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -3064,8 +3052,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="-7.0646948"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="118.57143"
      inkscape:cy="255.22897"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -3195,7 +3183,7 @@
          y="491.61636"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#0000ff;font-family:Top Secret;-inkscape-font-specification:Top Secret">Borrador</tspan></text>
     <rect
-       style="opacity:0.98999999;fill:url(#linearGradient5295);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.80000001;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:6.4, 6.4;stroke-dashoffset:0"
+       style="opacity:0.98999999000000005;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.80000000999999998;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:6.40000000000000040, 6.40000000000000040;stroke-dashoffset:0"
        id="rect3460"
        width="116.97012"
        height="42.463982"
@@ -3236,82 +3224,67 @@
            height="111.42857"
            x="180"
            y="112.85714" /></flowRegion><flowPara
-         id="flowPara3500" /></flowRoot>    <g
-       id="g3986"
-       transform="translate(-12.285706,78.571445)">
-      <g
-         id="g3979">
-        <rect
-           style="opacity:0.98999999;fill:url(#linearGradient4064);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.64627242;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-           id="rect3413"
-           width="143.57986"
-           height="40.296009"
-           x="122.27766"
-           y="506.34003"
-           ry="5.2400589" />
-        <flowRoot
-           xml:space="preserve"
-           id="flowRoot3502"
-           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-           transform="translate(9.6593933,460.44303)"><flowRegion
-             id="flowRegion3504"><rect
-               id="rect3506"
-               width="173.87962"
-               height="37.412594"
-               x="97.14286"
-               y="50"
-               style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
-             id="flowPara3508">Selección del tipo de análisis</flowPara></flowRoot>      </g>
-    </g>
-    <g
-       id="g3994"
-       transform="translate(-12.285706,84.18521)">
-      <rect
-         ry="5.2400589"
-         y="555.42188"
-         x="115.8884"
-         height="40.296009"
-         width="156.35838"
-         id="rect3413-2"
-         style="opacity:0.98999999;fill:url(#linearGradient4062);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.67441845;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-      <flowRoot
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-         id="flowRoot3502-1"
-         xml:space="preserve"
-         transform="translate(9.4338074,507.88993)"><flowRegion
-           id="flowRegion3504-7"><rect
-             style="text-align:center;text-anchor:middle"
-             y="50"
-             x="97.14286"
-             height="37.412594"
-             width="173.87962"
-             id="rect3506-4" /></flowRegion><flowPara
-           id="flowPara3508-0">Preparación del modelo CAD</flowPara></flowRoot>    </g>
-    <g
-       id="g4001"
-       transform="translate(-12.285714,84.053625)">
-      <rect
-         ry="3.0083942"
-         y="610.19629"
-         x="106.53959"
-         height="23.134529"
-         width="175.05602"
-         id="rect3413-8"
-         style="opacity:0.98999999;fill:url(#linearGradient4060);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.54070038;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-      <flowRoot
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-         id="flowRoot3502-1-9"
-         xml:space="preserve"
-         transform="translate(9.696991,564.1518)"><flowRegion
-           id="flowRegion3504-7-4"><rect
-             style="text-align:center;text-anchor:middle"
-             y="50"
-             x="97.14286"
-             height="37.412594"
-             width="173.87962"
-             id="rect3506-4-8" /></flowRegion><flowPara
-           id="flowPara3508-0-8">Discretización del modelo</flowPara></flowRoot>    </g>
+         id="flowPara3500" /></flowRoot>    <rect
+       style="opacity:0.98999999000000005;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.64627241999999996;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3413"
+       width="143.57986"
+       height="40.296009"
+       x="109.99195"
+       y="584.9115"
+       ry="5.2400589" />
     <flowRoot
+       xml:space="preserve"
+       id="flowRoot3502"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       transform="translate(-2.6263127,539.01448)"><flowRegion
+         id="flowRegion3504"><rect
+           id="rect3506"
+           width="173.87962"
+           height="37.412594"
+           x="97.14286"
+           y="50"
+           style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara3508">Selección del tipo de análisis</flowPara></flowRoot>    <rect
+       style="opacity:0.98999999000000005;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.67441845000000000;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3413-2"
+       width="156.35838"
+       height="40.296009"
+       x="103.60269"
+       y="639.60706"
+       ry="5.2400589" />
+    <flowRoot
+       transform="translate(-2.8518986,592.07514)"
+       xml:space="preserve"
+       id="flowRoot3502-1"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"><flowRegion
+         id="flowRegion3504-7"><rect
+           id="rect3506-4"
+           width="173.87962"
+           height="37.412594"
+           x="97.14286"
+           y="50"
+           style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara3508-0">Preparación del modelo CAD</flowPara></flowRoot>    <rect
+       style="opacity:0.98999999000000005;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.54070037999999998;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3413-8"
+       width="175.05602"
+       height="23.134529"
+       x="94.253876"
+       y="694.24994"
+       ry="3.0083942" />
+    <flowRoot
+       transform="translate(-2.588723,648.20542)"
+       xml:space="preserve"
+       id="flowRoot3502-1-9"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"><flowRegion
+         id="flowRegion3504-7-4"><rect
+           id="rect3506-4-8"
+           width="173.87962"
+           height="37.412594"
+           x="97.14286"
+           y="50"
+           style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara3508-0-8">Discretización del modelo</flowPara></flowRoot>    <flowRoot
        transform="translate(21.700515,617.8228)"
        xml:space="preserve"
        id="flowRoot3502-1-9-2"
@@ -3323,79 +3296,67 @@
            x="97.14286"
            y="50"
            style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
-         id="flowPara3508-0-8-5" /></flowRoot>    <g
-       id="g4008"
-       transform="translate(-12.285714,82.775422)">
-      <rect
-         ry="5.3144898"
-         y="649.01074"
-         x="89.834465"
-         height="40.868385"
-         width="208.46626"
-         id="rect3413-5"
-         style="opacity:0.98999999;fill:url(#linearGradient4058);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.78424084;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-      <flowRoot
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-         id="flowRoot3502-1-9-1"
-         xml:space="preserve"
-         transform="translate(-1.1755676,602.96835)"><flowRegion
-           id="flowRegion3504-7-4-7"><rect
-             style="text-align:center;text-anchor:middle"
-             y="50"
-             x="97.14286"
-             height="44.483662"
-             width="195.09283"
-             id="rect3506-4-8-1" /></flowRegion><flowPara
-           id="flowPara3508-0-8-1">Definición de las propiedades y modelos de material a utilizar</flowPara></flowRoot>    </g>
-    <g
-       id="g4015"
-       transform="translate(-12.285706,90.583665)">
-      <rect
-         ry="5.3213949"
-         y="696.54816"
-         x="113.06174"
-         height="40.921482"
-         width="162.0117"
-         id="rect3413-0"
-         style="opacity:0.98999999;fill:url(#linearGradient4056);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.69180983;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-      <flowRoot
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-         id="flowRoot3502-1-9-1-5"
-         xml:space="preserve"
-         transform="translate(10.00119,650.39132)"><flowRegion
-           id="flowRegion3504-7-4-7-2"><rect
-             style="text-align:center;text-anchor:middle"
-             y="50"
-             x="97.14286"
-             height="37.412594"
-             width="173.87962"
-             id="rect3506-4-8-1-7" /></flowRegion><flowPara
-           id="flowPara3508-0-8-1-6">Establecimiento de las condiciones de frontera</flowPara></flowRoot>    </g>
-    <g
-       id="g3621"
-       transform="translate(2.4262077,0)">
-      <rect
-         ry="5.2400589"
-         y="842.4787"
-         x="99.759285"
-         height="40.296009"
-         width="159.19278"
-         id="rect3413-55"
-         style="opacity:0.98999999;fill:url(#linearGradient3665);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.68050379;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-      <flowRoot
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-         id="flowRoot3502-1-9-1-5-1"
-         xml:space="preserve"
-         transform="translate(8.950399,795.82434)"><flowRegion
-           id="flowRegion3504-7-4-7-2-4"><rect
-             style="text-align:center;text-anchor:middle"
-             y="50"
-             x="97.14286"
-             height="36.402443"
-             width="146.6055"
-             id="rect3506-4-8-1-7-2" /></flowRegion><flowPara
-           id="flowPara3508-0-8-1-6-3">Definición de las superficies de contacto</flowPara></flowRoot>    </g>
+         id="flowPara3508-0-8-5" /></flowRoot>    <rect
+       style="opacity:0.98999999000000005;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.78424084000000005;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3413-5"
+       width="208.46626"
+       height="40.868385"
+       x="77.548752"
+       y="731.78619"
+       ry="5.3144898" />
     <flowRoot
+       transform="translate(-13.461282,685.74377)"
+       xml:space="preserve"
+       id="flowRoot3502-1-9-1"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"><flowRegion
+         id="flowRegion3504-7-4-7"><rect
+           id="rect3506-4-8-1"
+           width="195.09283"
+           height="44.483662"
+           x="97.14286"
+           y="50"
+           style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara3508-0-8-1">Definición de las propiedades y modelos de material a utilizar</flowPara></flowRoot>    <rect
+       style="opacity:0.98999999000000005;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.69180982999999996;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3413-0"
+       width="162.0117"
+       height="40.921482"
+       x="100.77603"
+       y="787.13184"
+       ry="5.3213949" />
+    <flowRoot
+       transform="translate(-2.284516,740.97498)"
+       xml:space="preserve"
+       id="flowRoot3502-1-9-1-5"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"><flowRegion
+         id="flowRegion3504-7-4-7-2"><rect
+           id="rect3506-4-8-1-7"
+           width="173.87962"
+           height="37.412594"
+           x="97.14286"
+           y="50"
+           style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara3508-0-8-1-6">Establecimiento de las condiciones de frontera</flowPara></flowRoot>    <rect
+       style="opacity:0.98999999000000005;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.68050379000000005;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3413-55"
+       width="159.19278"
+       height="40.296009"
+       x="102.18549"
+       y="842.4787"
+       ry="5.2400589" />
+    <flowRoot
+       transform="translate(11.376607,795.82434)"
+       xml:space="preserve"
+       id="flowRoot3502-1-9-1-5-1"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"><flowRegion
+         id="flowRegion3504-7-4-7-2-4"><rect
+           id="rect3506-4-8-1-7-2"
+           width="146.6055"
+           height="36.402443"
+           x="97.14286"
+           y="50"
+           style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara3508-0-8-1-6-3">Definición de las superficies de contacto</flowPara></flowRoot>    <flowRoot
        transform="translate(202.17713,772.25623)"
        xml:space="preserve"
        id="flowRoot3502-1-9-1-5-1-7"
@@ -3418,31 +3379,27 @@
            height="30.304577"
            width="83.842659"
            id="rect4121" /></flowRegion><flowPara
-         id="flowPara4123" /></flowRoot>    <g
-       id="g3634"
-       transform="translate(1.5675956,0)">
-      <rect
-         ry="3.3373828"
-         y="954.21643"
-         x="107.71429"
-         height="25.664446"
-         width="145"
-         id="rect3413-7"
-         style="opacity:0.98999999;fill:url(#linearGradient3663);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.51830781;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-      <flowRoot
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-         id="flowRoot3502-1-9-1-5-1-2"
-         xml:space="preserve"
-         transform="translate(-2.3631374,908.86885)"><flowRegion
-           id="flowRegion3504-7-4-7-2-4-2"><rect
-             style="text-align:center;text-anchor:middle"
-             y="50"
-             x="97.14286"
-             height="37.412594"
-             width="173.87962"
-             id="rect3506-4-8-1-7-2-1" /></flowRegion><flowPara
-           id="flowPara3508-0-8-1-6-3-6">Solución del modelo</flowPara></flowRoot>    </g>
+         id="flowPara4123" /></flowRoot>    <rect
+       style="opacity:0.98999999000000005;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.51830781000000004;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3413-7"
+       width="145"
+       height="25.664446"
+       x="109.28188"
+       y="954.21643"
+       ry="3.3373828" />
     <flowRoot
+       transform="translate(-0.7955418,908.86885)"
+       xml:space="preserve"
+       id="flowRoot3502-1-9-1-5-1-2"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"><flowRegion
+         id="flowRegion3504-7-4-7-2-4-2"><rect
+           id="rect3506-4-8-1-7-2-1"
+           width="173.87962"
+           height="37.412594"
+           x="97.14286"
+           y="50"
+           style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara3508-0-8-1-6-3-6">Solución del modelo</flowPara></flowRoot>    <flowRoot
        transform="translate(0.75391229,760.65379)"
        xml:space="preserve"
        id="flowRoot3502-1-9-1-5-1-8"
@@ -3454,55 +3411,47 @@
            x="97.14286"
            y="50"
            style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
-         id="flowPara3508-0-8-1-6-3-61" /></flowRoot>    <g
-       id="g4029"
-       transform="translate(-12.285706,107.44729)">
-      <rect
-         ry="5.5424213"
-         y="789.77722"
-         x="104.9435"
-         height="42.621174"
-         width="178.24818"
-         id="rect3413-3"
-         style="opacity:0.98999999;fill:url(#linearGradient4052);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.74056488;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-      <flowRoot
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-         id="flowRoot3502-1-9-1-5-1-89"
-         xml:space="preserve"
-         transform="translate(9.6252136,744.10254)"><flowRegion
-           id="flowRegion3504-7-4-7-2-4-27"><rect
-             style="text-align:center;text-anchor:middle"
-             y="50"
-             x="97.14286"
-             height="37.412594"
-             width="173.87962"
-             id="rect3506-4-8-1-7-2-9" /></flowRegion><flowPara
-           id="flowPara3508-0-8-1-6-3-5">Configuración de opciones generales para la solución </flowPara></flowRoot>    </g>
-    <g
-       id="g4043"
-       transform="translate(-12.285714,100.57143)">
-      <rect
-         ry="3.3351207"
-         y="893.57245"
-         x="119.62338"
-         height="25.647053"
-         width="148.88843"
-         id="rect3413-76"
-         style="opacity:0.98999999;fill:url(#linearGradient4066);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.52503347;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-      <flowRoot
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-         id="flowRoot3502-1-9-1-5-1-2-4"
-         xml:space="preserve"
-         transform="translate(9.9841003,849.20242)"><flowRegion
-           id="flowRegion3504-7-4-7-2-4-2-3"><rect
-             style="text-align:center;text-anchor:middle"
-             y="50"
-             x="97.14286"
-             height="37.412594"
-             width="173.87962"
-             id="rect3506-4-8-1-7-2-1-1" /></flowRegion><flowPara
-           id="flowPara3508-0-8-1-6-3-6-2">Análisis de resultados </flowPara></flowRoot>    </g>
-    <path
+         id="flowPara3508-0-8-1-6-3-61" /></flowRoot>    <rect
+       style="opacity:0.98999999000000005;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.74056487999999998;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3413-3"
+       width="178.24818"
+       height="42.621174"
+       x="92.657791"
+       y="897.22449"
+       ry="5.5424213" />
+    <flowRoot
+       transform="translate(-2.6604924,851.54983)"
+       xml:space="preserve"
+       id="flowRoot3502-1-9-1-5-1-89"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"><flowRegion
+         id="flowRegion3504-7-4-7-2-4-27"><rect
+           id="rect3506-4-8-1-7-2-9"
+           width="173.87962"
+           height="37.412594"
+           x="97.14286"
+           y="50"
+           style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara3508-0-8-1-6-3-5">Configuración de opciones generales para la solución </flowPara></flowRoot>    <rect
+       style="opacity:0.98999999000000005;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.52503347000000000;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3413-76"
+       width="148.88843"
+       height="25.647053"
+       x="107.33767"
+       y="994.14386"
+       ry="3.3351207" />
+    <flowRoot
+       transform="translate(-2.3016137,949.77385)"
+       xml:space="preserve"
+       id="flowRoot3502-1-9-1-5-1-2-4"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"><flowRegion
+         id="flowRegion3504-7-4-7-2-4-2-3"><rect
+           id="rect3506-4-8-1-7-2-1-1"
+           width="173.87962"
+           height="37.412594"
+           x="97.14286"
+           y="50"
+           style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara3508-0-8-1-6-3-6-2">Análisis de resultados </flowPara></flowRoot>    <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
        d="m 252.71429,965.93326 35.52038,-0.15994 0,-47.56383 -17.08593,-0.29586"
        id="path4086"
@@ -3532,10 +3481,6 @@
        id="path3667"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
-       inkscape:connection-start="#g3986"
-       inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g3994"
-       inkscape:connection-end-point="d4"
        transform="translate(0,552.36183)" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
@@ -3543,10 +3488,6 @@
        id="path3669"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
-       inkscape:connection-start="#g3994"
-       inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g4001"
-       inkscape:connection-end-point="d4"
        transform="translate(0,552.36183)" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
@@ -3554,10 +3495,6 @@
        id="path3671"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
-       inkscape:connection-start="#g4001"
-       inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g4008"
-       inkscape:connection-end-point="d4"
        transform="translate(0,552.36183)" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
@@ -3565,10 +3502,6 @@
        id="path3673"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
-       inkscape:connection-start="#g4008"
-       inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g4015"
-       inkscape:connection-end-point="d4"
        transform="translate(0,552.36183)" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
@@ -3576,10 +3509,6 @@
        id="path3675"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
-       inkscape:connection-start="#g4015"
-       inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g3621"
-       inkscape:connection-end-point="d4"
        transform="translate(0,552.36183)" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
@@ -3587,10 +3516,6 @@
        id="path3677"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
-       inkscape:connection-start="#g3621"
-       inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g4029"
-       inkscape:connection-end-point="d4"
        transform="translate(0,552.36183)" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
@@ -3598,10 +3523,6 @@
        id="path3679"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
-       inkscape:connection-start="#g4029"
-       inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g3634"
-       inkscape:connection-end-point="d4"
        transform="translate(0,552.36183)" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
@@ -3609,10 +3530,6 @@
        id="path3681"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
-       inkscape:connection-start="#g3634"
-       inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g4043"
-       inkscape:connection-end-point="d4"
        transform="translate(0,552.36183)" />
   </g>
 </svg>
