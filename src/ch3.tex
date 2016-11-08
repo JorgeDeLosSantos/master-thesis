@@ -614,7 +614,6 @@ elementos a 90° como se muestra en el esquema de la figura \ref{fig:strain_gage
 una resistencia eléctrica de 350 $\Omega$ para cada una. En la tabla \ref{tab:strain_gage_props} 
 se resumen las características de importancia de la galga seleccionada.
 
-
 \begin{center}
 \includegraphics[width=0.35\textwidth]{src/ch3/strain_gage.png}
 \captionof{figure}{Esquema de la galga \texttt{EP-40-125TQ-350} utilizada}
@@ -638,10 +637,43 @@ Rango de deformaciones & $\pm$ 20\% \\
 \end{tabular}
 \end{table}
 
+Como se menciona en el párrafo anterior, la \texttt{EP-40-125TQ-350} es una roseta 
+a 90° de dos componentes, entonces, se decidió hacer una configuración de 
+medio puente de Wheatstone para la lectura de las deformaciones, como se muestra 
+en el esquema de la figura \ref{fig:circuito_conexion}, con una de las resistencias 
+actuando como una galga pasiva ($R_3$) para el completado del circuito. En la figura 
+\ref{fig:diagrama_conexion} se muestra un esquema más aproximado a la conexión real 
+realizada, donde se observa que la galga que mide las deformaciones en dirección 
+transversal ($R_4$) es la activa y de la cual se tomaron las mediciones. Las deformaciones  
+se midieron en esa dirección puesto que es en donde se encuentra la deformación 
+principal, lo cual se puede determinar de manera intuitiva debido a que es la dirección 
+en la cual se realiza el doblado, además se corrobora mediante los resultados obtenidos 
+con el análisis por elementos finitos realizado, del cual se muestra la dirección 
+principal de uno de los elementos sobre el eje de doblado en la figura \ref{fig:dir_prin_strain}.
+
+
+\begin{center}
+\includegraphics[width=0.65\textwidth]{src/ch3/circuito_conexion.pdf}
+\captionof{figure}{Circuito eléctrico de la configuración de medio puente}
+\label{fig:circuito_conexion}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.65\textwidth]{src/ch3/diagrama_conexion.pdf}
+\captionof{figure}{Esquema de la conexión de medio puente realizada}
+\label{fig:diagrama_conexion}
+\end{center}
+
 En la figura \ref{fig:metodologia_instrumentacion} se muestra la metodología aplicada 
-en la instrumentación de cada una de las probetas. Se debe tener especial cuidado con el 
+en la instrumentación de cada una de las probetas. Se tuvo especial cuidado con el 
 manejo de la galga puesto que ejecutar de manera incorrecta las operaciones necesarias 
 para la instrumentación puede dañar la funcionalidad. \\
+
+\begin{center}
+\includegraphics[width=0.65\textwidth]{src/ch3/dir_prin_strain.png}
+\captionof{figure}{Dirección de la deformación principal en el \textit{blank}}
+\label{fig:dir_prin_strain}
+\end{center}
 
 Una vez se tuvieron las probetas se procedió a preparar la superficie de la región en 
 la cual se colocó la galga, mediante el uso de lijas y un acondicionador especial 
@@ -655,20 +687,25 @@ tamaños de grano en orden descendente para obtener la superficie requerida.\\
 \label{fig:metodologia_instrumentacion}
 \end{center}
 
-Con la superficie preparada se trazaron dos lineas dispuestas de manera perpendicular 
-como 
+Con la superficie preparada se trazaron dos líneas con un lápiz, dispuestas de manera perpendicular 
+como se muestra en el esquema de la figura \ref{fig:diagrama_conexion}, una centrada en 
+la dirección axial y la otra a 25 mm de uno de los extremos. Luego del marcado de líneas 
+se removió el grafito utilizando un cotonete impregnado con líquido neutralizador, deslizándolo en 
+dirección de cada una de las líneas trazadas, repitiendo esta operación hasta apreciar que 
+el cotonete estuviese libre de residuos de grafito. \\
 
-\begin{center}
-\includegraphics[width=0.65\textwidth]{src/ch3/lineas_galgas.pdf}
-\captionof{figure}{Diagrama del marcado de lineas en la probeta}
-\label{fig:lineas_galgas}
-\end{center}
 
-\begin{center}
-\includegraphics[width=0.65\textwidth]{src/ch3/dir_prin_strain.png}
-\captionof{figure}{Dirección de la deformación principal en el \textit{blank}}
-\label{fig:dir_prin_strain}
-\end{center}
+
+
+
+
+% \begin{center}
+% \includegraphics[width=0.65\textwidth]{src/ch3/lineas_galgas.pdf}
+% \captionof{figure}{Diagrama del marcado de lineas en la probeta}
+% \label{fig:lineas_galgas}
+% \end{center}
+
+Con la superficie libre de residuos y grafito se procedió 
 
 
 \begin{center}
