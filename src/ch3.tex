@@ -149,7 +149,6 @@ cierre de tubo adecuado.
 \subsection{Generalidades de la simulación}
 
 
-
 \subsection{Modelo constitutivo}
 
 Para la pieza de trabajo se utilizó un modelo de tipo \textit{Piecewise Linear Plasticity}, 
@@ -297,9 +296,18 @@ TBDATA,6,1 ! ID de la curva
 \end{center}
 
 
-\subsection{Mallado}
+\subsection{Análisis bidimensional}
 
-\subsubsection{Primer ensamble}
+\subsubsection{Mallado}
+
+
+
+
+\subsection{Análisis tridimensional}
+
+\subsubsection{Mallado}
+
+\subsubsubsection{Primer ensamble}
 
 Para el mallado de la pieza de trabajo se utilizó el elemento \texttt{SOLID164} 
 ( ver figura \ref{fig:solid164} ), el cual es un sólido de 8 nodos, que puede ser utilizado con el modelo 
@@ -464,7 +472,7 @@ volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_se
 % \end{table}
 
 
-\subsubsection{Segundo ensamble}
+\subsubsubsection{Segundo ensamble}
 
 Al igual que en el primer ensamble, los formadores y/o componentes del herramental, se 
 mallaron por áreas utilizando elementos \texttt{SHELL163}. En el caso de la pieza de trabajo, 
@@ -511,7 +519,7 @@ se puede observar en las figuras \ref{fig:mesh_ffi}, \ref{fig:mesh_ffs} y \ref{f
 
 
 % Condiciones de frontera ==================================================================
-\subsection{Condiciones de frontera}
+\subsubsection{Condiciones de frontera}
 
 Para efectos de la simulación el blank fue sujetado en el punto medio de cada extremo, 
 en las direcciones \textit{X} y \textit{Z}, para evitar que se desplace de manera no 
@@ -574,7 +582,7 @@ _k3 = -1.22
 
 
 % ==================================== CONTACTOS ============================================
-\subsection{Contactos}
+\subsubsection{Contactos}
 
 En la definición de contactos se utilizó un tipo de contacto superficie a superficie
 general (\texttt{STS}). El programa de simulación utiliza los coeficientes de fricción 
@@ -694,30 +702,79 @@ se removió el grafito utilizando un cotonete impregnado con líquido neutraliza
 dirección de cada una de las líneas trazadas, repitiendo esta operación hasta apreciar que 
 el cotonete estuviese libre de residuos de grafito. \\
 
-
 % \begin{center}
 % \includegraphics[width=0.65\textwidth]{src/ch3/lineas_galgas.pdf}
 % \captionof{figure}{Diagrama del marcado de lineas en la probeta}
 % \label{fig:lineas_galgas}
 % \end{center}
 
-Con la superficie libre de residuos y grafito se procedió al pegado de la galga, para lo cual se sigue 
-un procedimiento como el descrito a continuación: 
-
-\begin{itemize}
-\item Se retiró la galga del empaque utilizando una herramienta que permitiera manipularla adecuadamente, 
-la cual se neutralizó previamente. 
-\item La galga se colocó en un cristal neutralizado y se sujetó con una cinta adhesiva.
-\item Se despegó la cinta adhesiva/galga del cristal y se pegó en la probeta, con ayuda de las 
-líneas trazadas previamente para su correcto posicionamiento.
-\item Una vez posicionada, se despegó la cinta de la probeta en un ángulo de 30-45° y hasta una posición 
-que permitiera colocar el adhesivo líquido.
-\item 
-\end{itemize}
-
+Con la superficie libre de residuos y grafito se procedió al pegado de la galga, para lo cual 
+primeramente se retiró la galga de su empaque, utilizando una pinza pequeña previamente neutralizada, 
+y se colocó sobre un cristal neutralizado, luego se procedió a colocar una cinta adhesiva sobre la 
+galga de modo que esta se adhiera. Enseguida se procedió a despegar la cinta adhesiva del cristal  
+como se muestra en la figura \ref{fig:despegado_vidrio}.
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch3/probetas_instrumentadas.jpg}
+\includegraphics[width=0.5\textwidth]{src/ch3/despegado_vidrio.png}
+\captionof{figure}{Despegado de la galga/cinta del cristal}
+\label{fig:despegado_vidrio}
+\end{center}
+
+Posteriormente, la cinta/galga se pegó en la probeta, con ayuda de las líneas que fueron trazadas previamente 
+para la correcta orientación y ubicación de la galga. Una vez ha sido correctamente ubicada se despegó una porción 
+de la cinta que permitiera la aplicación del catalizador y adhesivo en la galga. Se aplicó el catalizador 
+de la forma que se observa en el esquema de la figura \ref{fig:aplicacion_catalizador}, el catalizador permite 
+que el adhesivo trabaje de manera rápida y fiable. Después de la aplicación del catalizador se dejó 
+\textit{reposar} alrededor de 1 minuto para permitir el secado, luego se procedió a la aplicación del 
+adhesivo (ver figura \ref{fig:aplicacion_adhesivo}), colocando una gota de este en la región a pegar.\\
+
+Una vez se aplicó el adhesivo se pegó nuevamente la cinta con ayuda de una gasa y mediante un deslizamiento firme 
+como se muestra en el esquema de la figura \ref{fig:deslizar_adhesivo}. Se esperó alrededor 
+de dos minutos para proceder al despegado de la cinta, el cual debe hacerse con en dirección opuesta 
+o un ángulo de 180°.
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{src/ch3/aplicacion_catalizador.png}
+\captionof{figure}{Aplicación del catalizador}
+\label{fig:aplicacion_catalizador}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{src/ch3/aplicacion_adhesivo.png}
+\captionof{figure}{Aplicación del adhesivo}
+\label{fig:aplicacion_adhesivo}
+\end{center}
+
+Con las galgas y terminales adheridas a las probetas se procedió al soldado de las diversas conexiones, lo 
+cual se realizó mediante un procedimiento convencional de soldadura con estaño.
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{src/ch3/deslizar_adhesivo.png}
+\captionof{figure}{Pegado de la galga}
+\label{fig:deslizar_adhesivo}
+\end{center}
+
+Cuando se tuvieron soldadas las conexiones se procedió a revisar la continuidad con ayuda de un 
+multímetro, corrigiendo/resoldando en los casos necesarios. Posteriormente se utilizó un lector 
+de deformaciones (P3) ~\cite{p3indicator} para conectar y realizar lecturas para verificar la funcionalidad de las 
+galgas extensométricas.\\
+
+Después de realizar las pruebas y verificaciones anteriores se recubrieron las zonas de instalación 
+de galga de cada probeta mediante una resina adecuada para estas tareas, con la finalidad de 
+proteger las galgas y conexiones. Las probetas ya instrumentadas se muestran en la 
+figura \ref{fig:probetas_instrumentadas}.
+
+\begin{center}
+\includegraphics[width=0.65\textwidth]{src/ch3/probetas_instrumentadas.jpg}
 \captionof{figure}{Probetas instrumentadas}
 \label{fig:probetas_instrumentadas}
 \end{center}
+
+
+\subsection{Realización de las pruebas}
+
+Las pruebas se realizaron en BLA BLA BLA 
+
+
+
+
