@@ -1,11 +1,20 @@
-\documentclass[12pt,letterpaper]{book}
+\documentclass[12pt,letterpaper,twoside]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish,es-tabla]{babel}
-\decimalpoint
+
+\usepackage[bitstream-charter]{mathdesign} 
+\usepackage[T1]{fontenc}
+\newcommand{\selectSans}{\usefont{T1}{qhv}{m}{n}\selectfont} % sans-serif TeX Gyre Heros font
+% \newcommand{\selectSans}{\usefont{T1}{cmr}{m}{n}\selectfont} % sans-serif TeX Gyre Heros font
+% \usepackage{charter}
+% \usepackage{mathpazo}
+
+\decimalpointxz 
 \let\cleardoublepage\clearpage
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+% \usepackage{natbib}
 \usepackage{esint}
 \usepackage{color}
 \usepackage{graphicx}
@@ -51,7 +60,7 @@ fonttitle=\bfseries, colbacktitle=white, coltext=gray!30!black}
 \usepackage{fontawesome}
 
 % Fancy chapters
-% \usepackage[Bjornstrup]{fncychap}
+\usepackage[Bjornstrup]{fncychap}
 
 % \renewcommand{\familydefault}{\sfdefault}
 
@@ -123,6 +132,19 @@ boxsep=0pt,left=6pt,right=6pt,top=2pt,bottom=2pt}
     {Ú}{{\'U}}1
 }}{}
 
+% Fancy header and foot
+\usepackage{fancyhdr}
+\lhead{}
+\chead{}
+\rhead{{\bfseries\small \leftmark}}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+\renewcommand{\headrulewidth}{0.2pt}
+\renewcommand{\footrulewidth}{0.2pt}
+\pagestyle{fancy}
+
+
 \author{Pedro Jorge De Los Santos Lara}
 \title{Simulación por elementos finitos del proceso de formado de un tubo de acero AISI 1018}
 
@@ -152,7 +174,8 @@ boxsep=0pt,left=6pt,right=6pt,top=2pt,bottom=2pt}
 
 % ==================================================== Contenido ====================================================
 \mainmatter
-\input{src/_settings_.tex} % Setting for chapters
+\thispagestyle{fancy}
+% \input{src/_settings_.tex} % Setting for chapters
 \input{src/ch1.tex}
 \input{src/ch2.tex}
 \input{src/ch3.tex}

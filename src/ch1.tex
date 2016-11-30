@@ -93,12 +93,16 @@ Simular y validar el proceso de formado de un tubo de acero AISI 1018.
 
 \section{Alcances}
 
-\begin{itemize}
-\item Desarrollo de un modelo de elemento finito del proceso de formado del tubo.
-\item Simulación del modelo utilizando un análisis tipo dinámico-explícito.
-\item Validación de la simulación.
-% \item Publicación de un artículo.
-\end{itemize}
+Los alcances de este proyecto comprenden el desarrollo de un modelo de elemento finito del proceso de 
+formado, con la posterior realización de la simulación mediante un enfoque dinámico-explícito. Además, 
+de la validación experimental de la simulación utilizando la técnica de extensometría.
+
+% \begin{itemize}
+% \item Desarrollo de un modelo de elemento finito del proceso de formado del tubo.
+% \item Simulación del modelo utilizando un análisis tipo dinámico-explícito.
+% \item Validación de la simulación.
+% % \item Publicación de un artículo.
+% \end{itemize}
 
 
 \section{Estado del arte}
@@ -116,19 +120,72 @@ La primera formulación teóricamente correcta de problemas de formado de metale
 Wang y Budiansky ~\cite{wang1978} en 1978. El método presentado fue una formulación total lagrangiana 
 e involucraba elementos triangulares membrana de deformación constante. La solución implementada fue 
 un esquema incremental Euleriano hacia adelante. Los métodos basados en un 
-esquema de solución como el anterior son llamados como métodos estáticos-explícitos.\\
-
+esquema de solución como el anterior son llamados como métodos estáticos-explícitos.
 En el inicio de la década de los 90's hubo un incremento considerable en la utilización de la simulación de estampado 
 metálico dentro de la industria y a mediados de esta década la mayoría de las compañías en la industria automotriz 
-establecieron las simulaciones de estampado como aspectos elementales en el desarrollo de sus procesos. 
-Actualmente existen programas de computadora altamente especializados en la simulación de estampados, siendo AutoForm 
-uno de los más utilizados, este surgió como un proyecto de investigación en el ETH de Zurich en los inicios de los 90's. 
-El código está basado en un enfoque estático-implícito, pero utiliza algunos algoritmos innovativos que le permiten 
-una estabilidad y eficiencia computacional competitiva respecto a los códigos de tipo dinámico-explícito.  ~\cite{banabic2000}\\
+establecieron las simulaciones de estampado como aspectos elementales en el desarrollo de sus procesos.
+Los códigos de tipo dinámico explícito dominaron el mercado, programas de propósito general como LS-DYNA y 
+Abaqus/Explicit, además de programas especializados como PAM-STAMP y OPTRIS \cite{banabic2000}.
+Actualmente existen programas de computadora altamente especializados en la simulación de estampados entre los 
+cuales se ecuentran AutoForm y STAMPACK, adémás de los de propósito general como ANSYS, LS-DYNA, Abaqus, 
+NASTRAN, entre otros.\\
+
+La simulación de procesos de estampado es una práctica extentendida sobre todo en los países industrializados y 
+aplicado de manera dominante en procesos de embutición profunda, el cual es un proceso de deformación un poco 
+más complejo que las operaciones de doblado tratadas en este trabajo de tesis. Enseguida se describen de 
+manera somera algunos trabajos realizados sobre simulación de estampados.\\
+
+Jorge Olivera en ~\cite{olivera2014} describe una metodología analítica y la simulación numérica de un doblado en U 
+utilizando un software comercial de elementos finitos. De la simulación numérica obtuvo las variaciones de espesor 
+y el estado de esfuerzos (ver figura \ref{fig:olivera}) de la pieza conformada.
+
+\begin{center}
+\includegraphics[width=0.6\textwidth]{src/ch1/olivera.png}
+\captionof{figure}{Estado de esfuerzos para el análisis realizado por Olivera \cite{olivera2014}}
+\label{fig:olivera}
+\end{center}
+
+Natalia García en \cite{garcia2009} realizó una simulación por elementos finitos del proceso de 
+embutición de una chapa que sirve como pieza de soporte de la llanta de repuesto de un automóvil. 
+Utilizó un enfoque dinámico explícito para la simulación. El análisis realizado consta 
+de 4 etapas, realizadas progresivamente, para cada una de las cuales ejecutó varios análisis 
+variando las propiedades del material utilizado, así como las velocidades de trabajo, con la 
+finalidad de obtener una velocidad de embutición adecuada y la reducción del peso de la pieza.\\
+
+Arwidson \cite{arwidson2005} realizó una comparación del comportamiento de cuatro materiales (aceros de
+alta resistencia) en un proceso de estampado mediante una simulación por elementos finitos
+utilizando dos software: PamStamp y LS-DYNA. Lo anterior buscando encontrar un modelo 
+numérico y las condiciones de frontera adecuadas para el proceso, además de simular
+el fenómeno de la recuperación elástica (springback) utilizando Abaqus, para determinar la
+sobre-deformación a aplicar con el herramental. De acuerdo a los resultados, Arwidson estima
+que las mayores deformaciones se sobrevaloran en alrededor de un 75 \% en las regiones sometidas 
+a flexión crítica. Reporta también que la variación del coeficiente de fricción en el rango 
+de 0 a 0.1 tiene una influencia casi nula en la simulación del proceso de estampado.
+
+\begin{center}
+\includegraphics[width=0.6\textwidth]{src/ch1/garcia2009.png}
+\captionof{figure}{Estado de esfuerzos esquivalentes en pieza analizada por García \cite{garcia2009}}
+\label{fig:garcia2009}
+\end{center}
+
+Lindberg \cite{lindberg2012} evaluó la implementación de un software de simulación por elemento finito 
+(LS-DYNA) en el proceso de diseño de herramentales de la compañía Duroc Tooling, buscando
+reducir los grandes costos derivados de errores en el proceso de diseño. Desarrolló un modelo
+de elemento finito para un elemento estructural producido mediante un proceso de estampado, 
+y evaluó los beneficios reportados por la simulación: tales como la identificación de grietas,
+arrugas o cualquier tipo de debilitamiento en la chapa. Respecto a la parte económica hace
+hincapié en el costo de una licencia de un software de este tipo, resultando redituable para 
+cuando una compañía desarrolla más de una decena de herramentales anualmente, si por el
+contrario desarrolla unas pocas herramientas, entonces resultaría mejor pagar a una empresa
+externa por cada simulación.\\
 
 Para la simulación numérica de procesos de formado de tubo mediante doblados sucesivos en UO, 
-similares al proceso a desarrollar, se tienen algunos trabajos anteriores, mismos que se describen 
-a continuación.\\
+similares al proceso a desarrollar, se tienen algunos trabajos anteriores, en la mayoría de los 
+casos son autores japoneses que desarrollaron códigos con un enfoque elasto-plástico.\\
+
+Makinouchi \cite{makinouchi1989} desarrolló un código de computadora para analizar un proceso 
+de deformación por doblado en UO bajo condiciones de deformación plana, obteniendo resultados 
+satisfactorios y sobre todo un algoritmo muy eficiente.\\
 
 Huang & Leu ~\cite{huang1995} desarrollaron un código de análisis elasto-plástico por elemento finito, 
 basado en una formulación lagrangiana modificada, para simular proceso de doblado UO en placas metálicas, 
@@ -141,7 +198,7 @@ de fricción de $\mu = 0.02$ y el espesor de la chapa fue de 6 mm. \\
 % se puede observar la secuencia del desarrollo de la geometría obtenida mediante el análisis realizado. \\
 
 \begin{center}
-\includegraphics[scale=1.0]{src/ch1/uo-bending.png}
+\includegraphics[width=0.75\textwidth]{src/ch1/uo-bending.png}
 \captionof{figure}{Proceso de doblado UO, a) Doblado en U b) Descarga c) Doblado en O \cite{huang1995}}
  \label{fig:pasos_formado_01}
 \end{center}
@@ -154,19 +211,25 @@ de fricción de $\mu = 0.02$ y el espesor de la chapa fue de 6 mm. \\
 Chen y Huang ~\cite{chen2007} de manera similar a ~\cite{huang1995} simularon un proceso de doblado 
 UO, con las mismas etapas: doblado en U, descarga y doblado en O. El espesor de lámina de la pieza 
 de trabajo fue de 6 mm y un ancho de 10 mm. Utilizaron una ecuación exponencial para la relación 
-esfuerzo-deformación.  En las figuras ~\ref{fig:u_bend} y ~\ref{fig:o_bend} se muestran el modelo 
-FEM de los pasos de formado correspondientes. Los resultados obtenidos fueron la distribución 
+esfuerzo-deformación. Los resultados obtenidos fueron la distribución 
 de esfuerzos de Von Mises y la forma geométrica resultante, medidas para ciertos intervalos 
-de desplazamiento del punzon formador superior.
+de desplazamiento del punzon formador superior. \\
 
-\begin{center}
-\includegraphics[scale=0.65]{src/ch1/u_bend.png}
-\captionof{figure}{Modelo de elementos finitos del doblado en U \cite{chen2007}}
-\label{fig:u_bend}
-\end{center}
+% \begin{center}
+% \includegraphics[scale=0.65]{src/ch1/u_bend.png}
+% \captionof{figure}{Modelo de elementos finitos del doblado en U \cite{chen2007}}
+% \label{fig:u_bend}
+% \end{center}
 
-\begin{center}
-\includegraphics[scale=0.65]{src/ch1/o_bend.png}
-\captionof{figure}{Modelo de elementos finitos del doblado en O \cite{chen2007}}
-\label{fig:o_bend}
-\end{center}
+% \begin{center}
+% \includegraphics[scale=0.65]{src/ch1/o_bend.png}
+% \captionof{figure}{Modelo de elementos finitos del doblado en O \cite{chen2007}}
+% \label{fig:o_bend}
+% \end{center}
+
+Finalmente , García \cite{garcia2005} desarrolló un modelo de predicción del ángulo de recuperación y del 
+radio de doblado final en procesos de doblado al aire, combinando técnicas de procesamiento digital 
+de imágenes para el procesamiento y obtención de datos de la parte experimental, y el uso de redes neuronales 
+para calcular el modelo de predicción a partir de la introducción de datos experimentales. En un enfoque 
+similar, Rodríguez \cite{rodriguez2014} trabajó en el desarrollo de un modelo matemático que utilizó para 
+optmizar parámetros de doblado mediante técnicas de inteligencia artificial.
