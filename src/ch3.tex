@@ -175,16 +175,43 @@ cierre de tubo adecuado.
 
 \subsection{Consideraciones generales}\label{sec:consideraciones-generales}
 
-En la sección anterior 
+En la sección anterior se describe la pieza de trabajo utilizada y las características del herramental 
+utilizado para el proceso de formado, sin embargo para llevar a cabo la simulación por elementos 
+finitos es necesario hacer algunas consideraciones, mismas que se describen a continuación.\\
+
+Siguiendo la lógica del proceso real, la simulación se dividió en dos etapas: el preformado en U y 
+el cerrado del tubo. Esto permite realizar dos análisis de menor costo computacional que uno entero, 
+además de evitar las complicaciones inherentes al tiempo de vida de los contactos y el correcto 
+posicionamiento de los formadores para cada caso.\\
+
+Para lo anterior se tuvieron dos ensambles correspondientes al primer (ver figura \ref{fig:assembly_01}) y 
+segundo paso (ver figura \ref{fig:assembly_02}) del troquel. En el primer paso se realizó 
+un análisis dinámico-explícito ordinario, definiendo los modelos de material, la discretización y 
+la definición de contactos. En el segundo paso se realizó un análisis de tipo \textit{full restart} o 
+\textit{análisis de reinicio}, que básicamente consiste en crear una base de datos de análisis a 
+partir de otro realizado, importanto la geometría deformada de la pieza de trabajo, así como toda 
+la información referente a la definición de materiales, partes, contactos, y distribución de esfuerzos. 
+En la sección \ref{sec:initial-stress} se describe de manera detallada este proceso. \\
+
+La figura \ref{fig:assembly_01} muestra las geometrías que componen el ensamble del primer paso, 
+que consta de un formador inferior que funge como un tipo de \textit{matriz} y es sobre la cual 
+se dobla el material, dos formadores superiores que ejecutan el doblado en U, y dos levas 
+que tienen la función de realizar un doblado más pronunciado a los extremos de la pieza de 
+trabajo y que permite un cierre más adecuado cuando se realiza el último paso del troquel.
+De igual manera, en la figura \ref{fig:assembly_02} se muestra el ensamble correspondiente 
+al segundo paso del troquel, que consta de un formador superior y formador inferior que contienen 
+la misma forma negativa (un semicírculo), con la diferencia evidente que el primero es el que ejerce 
+el trabajo de formado aplicado sobre la pieza, adémás se tiene un perno formador que permite 
+un cierre adecuado del tubo, conservando las especificaciones geométricas para el diámetro interior.
 
 \begin{center}
-\includegraphics[width=0.6\textwidth]{src/ch3/assembly_01.png}
+\includegraphics[width=0.6\textwidth]{src/ch3/assembly_01.pdf}
 \captionof{figure}{Ensamble primera etapa}
 \label{fig:assembly_01}
 \end{center}
 
 \begin{center}
-\includegraphics[width=0.6\textwidth]{src/ch3/assembly_02.png}
+\includegraphics[width=0.6\textwidth]{src/ch3/assembly_02.pdf}
 \captionof{figure}{Ensamble segunda etapa}
 \label{fig:assembly_02}
 \end{center}
@@ -241,71 +268,8 @@ se pueden asignar propiedades de inercia o velocidades iniciales. En este caso, 
 especificaron propiedades adicionales, lo cual implica que el software de simulación calcule automáticamente 
 las propiedades inerciales basadas en el modelo de elemento finito. \\
 
-Para crear los materiales de cada uno de los componentes se utilizó un pequeño \textit{script}, 
-que se muestra a continuación:
-
-\begin{apdl}
-! Para el formador inferior
-MP,EX,2,29E6 ! psi
-MP,NUXY,2,0.3 ! 
-MP,DENS,2,0.00073 ! lbf s^2 / in^4
-EDMP,rigid,2,7,7
-
-! Formador superior izquierdo
-MP,EX,3,29E6 ! psi
-MP,NUXY,3,0.3 ! 
-MP,DENS,3,0.00073 ! lbf s^2 / in^4
-EDMP,rigid,3,6,7
-
-! Formador superior derecho
-MP,EX,4,29E6 ! psi
-MP,NUXY,4,0.3 ! 
-MP,DENS,4,0.00073 ! lbf s^2 / in^4
-EDMP,rigid,4,6,7
-
-! Leva izquierda
-MP,EX,5,29E6 ! psi
-MP,NUXY,5,0.3 ! 
-MP,DENS,5,0.00073 ! lbf s^2 / in^4
-EDMP,rigid,5,6,4
-
-! Leva derecha
-MP,EX,6,29E6 ! psi
-MP,NUXY,6,0.3 ! 
-MP,DENS,6,0.00073 ! lbf s^2 / in^4
-EDMP,rigid,6,6,4
-
-! Para el blank
-! Propiedades elásticas
-MP,EX,1,29E6 ! psi
-MP,NUXY,1,0.3 ! 
-MP,DENS,1,0.00073 ! lbf s^2 / in^4
-
-! Definir un arreglo para la deformación plástica verdadera
-*dim,strn,,6
-! Definir un arreglo para el esfuerzo verdadero
-*dim,strs,,6
-
-! Deformación (in/in)
-strn(1) = 0.0, 0.0293, 0.0772, 0.1562, 0.2356, 0.344943
-
-! Esfuerzo (psi)
-strs(1) = 52489.4,60585.8,70710,76809.3,80244.3,82574.1
-
-! Curva #1: Abscisa=deformación & Ordenada=esfuerzo
-edcurve,add,1,strn,strs 
-
-! Especificar Power Law #8 para el material #1
-TB,PLAW,1,,,8  ! Piecewise Linear Plasticity
-
-! Usar curva #1 para la relación esfuerzo-deformación
-TBDATA,1,52e3 ! Esfuerzo de fluencia (psi)
-TBDATA,3,.75 ! Deformación de falla
-TBDATA,4,40.0 ! C (Parámetro de tasa de deformación)
-TBDATA,5,0.1 ! P (Parámetro de tasa de deformación)
-TBDATA,6,1 ! ID de la curva
-\end{apdl}
-
+Para crear los materiales de cada uno de los componentes se utilizó un pequeño \textit{script}, el 
+cual se anexa en \ref{sec:definicion-materiales}
 
 % Tabla de propiedades plásticas
 
@@ -567,10 +531,139 @@ mallados y la geometría deformada del \textit{blank}, además del pre-esfuerzo 
 obtenido en el primer paso, cuyo máximo valor de esfuerzo de von Mises es de alrededor de 38,000 psi.
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch3/initial_stress.png}
+\includegraphics[width=0.85\textwidth]{src/ch3/initial_stress.png}
 \captionof{figure}{Mallada deformada y esfuerzo inicial (pre-esfuerzo) aplicado}
 \label{fig:initial_stress}
 \end{center}
+
+\subsubsection{Contactos}
+
+Para el análisis bidimensional en ANSYS/LS-DYNA\CR existe un tipo de contacto especializado: 
+el \textit{Automatic Single Surface 2D} (\texttt{ASS2D}) y que fue el cual se utilizó en este caso. 
+Este contacto de tipo superficie única se establece cuando una superficie de un cuerpo está 
+en contacto con otra o bien con él mismo, el programa determina automáticamente cuales superficies 
+estarán en contacto y por tanto no es necesario definir superficies contactoras y objetivos.\\
+
+Cuando se define el contacto de tipo \texttt{ASS2D} no es necesario especificar una a una las partes 
+en contacto, sino solamente definir los coeficientes de fricción estático y dinámico. El programa de 
+simulación utiliza los coeficientes de fricción estático ($FS$) y dinámico ($FD$) para la 
+formulación del coeficiente friccional ($\mu_c$), que viene dado por la ecuación: ~\cite{lsdyna-manual}
+
+\begin{equation}
+\mu_c = FD + (FS - FD) e^{-DCv_{rel}}
+\label{eq:frictional_coeff}
+\end{equation}
+
+Donde $DC$ es el coeficiente de decaimiento exponencial y $v_{rel}$ la velocidad relativa
+entre las superficies en contacto ~\cite{lsdyna-ansys-manual}. Los valores del coeficiente de 
+fricción estáticoy dinámico se establecieron en 0.2 y 0.1, respectivamente. ~\cite{carvill1993} \\
+
+\subsubsection{Condiciones de frontera}
+
+Para establecer las condiciones de frontera es necesario tomar en cuenta algunas  consideraciones 
+básicas respecto al funcionamiento del herramental. En la primera etapa, al formar parte de un 
+mismo ensamble, tanto los formadores superiores como las levas se desplazan una determinada distancia 
+en dirección vertical hasta alcanzar la configuración de formado, además las levas forman 
+parte de un subensamble que les permite girar en la dirección axial para lograr el predoblado, en 
+cambio los formadores superiores permanecen fijos. En la segunda etapa, el formador final superior 
+es el único que tiene un movimiento preescrito y el formador inferior permanece fijo en la zapata del troquel. \\
+
+La tabla \ref{tab:bound_conds_01} resume las condiciones de carga y/o restricciones impuestas 
+para la simulación del primer paso. Para el caso de los componentes del troquel, modelados como 
+rígidos, las restricciones de movimiento se establecieron al momento de definir el material, 
+es decir, para cada componente se definió un material específico que contiene las restricciones 
+traslacionales ({\tt UX, UY, UZ}) y rotacionales ({\tt ROTX, ROTY, ROTZ}), en el \textit{script} 
+incluido en el anexo \ref{sec:definicion-materiales} se muestra la definición de los materiales 
+de tipo rígido para cada uno de los componentes, incluyendo las opciones de restricción como 
+se indican en ~\cite{lsdyna-ansys-manual}. \\
+
+\begin{table}[H]
+\centering
+\caption{Condiciones de frontera, paso 1}
+\label{}
+\begin{tabular}{p{4cm} p{8cm}} \hline
+Geometría &  Condiciones de frontera \\
+\hline
+Formador inferior        & Todas las restricciones   \\
+Formador superior izq.   & Desplazamiento de cuerpo rígido en Y (\texttt{RBUY}). \\
+Formador superior der.   & Desplazamiento de cuerpo rígido en Y (\texttt{RBUY}). \\
+Leva iquierda            & Desplazamiento de cuerpo rígido en Y (\texttt{RBUY}). Rotación en Z (\texttt{ROTZ}) libre. \\
+Leva derecha             & Desplazamiento de cuerpo rígido en Y (\texttt{RBUY}). Rotación en Z (\texttt{ROTZ}) libre. \\
+Blank                    & Ninguna restricción aplicada. \\
+\hline
+\end{tabular}
+\label{tab:bound_conds_01}
+\end{table}
+
+Las condiciones de desplazamiento de cuerpo rígido para los formadores superiores y levas 
+se establecieron utilizando arreglos unidimensionales tanto para el historial de tiempo 
+como para el de desplazamientos. Se optó por utilizar una curva de carga de tipo 
+\textit{smooth-step} ~\cite{smooth-step-wiki} tal como se recomienda para análisis 
+de tipo dinámico-explícito en simulaciones de estampado ~\cite{input-param-lsdyna}, 
+este tipo de curva se caracteriza por tener un crecimiento lento al principio y 
+final de su intervalo,  implicando una velocidad \textit{reducida} de los formadores al principio y final 
+del recorrido, con la finalidad de que esto facilite la estabilización y convergencia
+del análisis.
+
+La relación tiempo-desplazamiento se definió utilizando una función de tipo
+\textit{smooth-step}, cuya forma general es $f(t) = A(Bt^2 - Ct^3)$ , donde
+$A$, $B$ y $C$ son constantes a ajustar para el requerimiento de desplazamiento total,
+se caracteriza por tener un crecimiento lento al principio y final del intervalo
+especificado,\\
+
+En la figura \ref{fig:smooth_displacement_01} se muestra la gráfica del tiempo-desplazamiento 
+utilizado en el primer paso del troquel. Para el segundo caso se utilizó una curva 
+similar, con algunas variaciones en las constantes para disminuir la amplitud o valor máximo.\\
+
+\begin{table}[H]
+\centering
+\caption{Valores para las constantes A, B y c}
+\label{}
+\begin{tabular}{p{4cm} p{4cm} p{4cm}} \hline
+Parámetro & 1er. paso & 2do. paso \\
+\hline
+A & -1.22 & -0.225 \\
+B & 1.15e-4 & 1.15e-4 \\
+C & 3.8e-7 & 3.8e-7 \\
+\hline
+\end{tabular}
+\label{tab:bound_conds_02}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{Condiciones de frontera, paso 2}
+\label{}
+\begin{tabular}{p{4cm} p{8cm}} \hline
+Geometría &  Condiciones de frontera \\
+\hline
+Formador inferior        & Todas las restricciones   \\
+Formador superior        & Desplazamiento de cuerpo rígido en Y (\texttt{RBUY}). \\
+Perno formador           & Desplazamiento en Y (\texttt{UY}) libre  \\
+Blank                    & Ninguna restricción aplicada. \\
+\hline
+\end{tabular}
+\label{tab:bound_conds_02}
+\end{table}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{src/ch3/smooth_displacement_01.pdf}
+\captionof{figure}{Vector de tiempo desplazamiento, paso 1}
+\label{fig:smooth_displacement_01}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{src/ch3/smooth_displacement_02.pdf}
+\captionof{figure}{Vector de tiempo desplazamiento, paso 2}
+\label{fig:smooth_displacement_02}
+\end{figure}
+
+
+
 
 
 \subsection{Análisis tridimensional}
@@ -714,13 +807,13 @@ volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_se
 % \end{figure}
 
 
-%  Partes 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.8\textwidth]{src/ch3/parts_01.pdf}
-\caption{Partes del ensamble 1}
-\label{fig:parts_01}
-\end{figure}
+% %  Partes 
+% \begin{figure}[!h]
+% \centering
+% \includegraphics[width=0.8\textwidth]{src/ch3/parts_01.pdf}
+% \caption{Partes del ensamble 1}
+% \label{fig:parts_01}
+% \end{figure}
 
 % En las tabla \ref{tab:elements_and_nodes} se muestra el número de nodos y elementos obtenidos 
 % para cada uno de los ensambles.
@@ -785,64 +878,6 @@ se puede observar en las figuras \ref{fig:mesh_ffi}, \ref{fig:mesh_ffs} y \ref{f
 % Condiciones de frontera ==================================================================
 \subsubsection{Condiciones de frontera}
 
-Para efectos de la simulación el blank fue sujetado en el punto medio de cada extremo, 
-en las direcciones \textit{X} y \textit{Z}, para evitar que se desplace de manera no 
-deseada y con esto ayudar en la convergencia de la solución. La localización de las 
-condiciones de sujeción en la parte central se debe a que se considera que la placa 
-no sufre una deformación significativa en esa parte y por tanto no influirá en el campo 
-de deformaciones resultante. \\
-
-Los componentes del troquel, al ser cuerpos rígidos, la mayoría de sus 
-restricciones fueron consideradas en la definición del material. En el caso de los 
-formadores superiores, sólo se especificaron los desplazamientos en la dirección 
-vertical Y, se utilizaron arreglos unidimensionales para especificar la relación
-tiempo-desplazamiento, en todos los casos se especificó como desplazamiento de
-cuerpo rígido en la dirección Y (\texttt{RBUY}), aplicándose esta condición a cada uno de los
-componentes.\\
-
-La relación tiempo-desplazamiento se definió utilizando una función de tipo
-\textit{smooth-step}, cuya forma general es $f(t) = A(Bt^2 - Ct^3)$ , donde
-$A$, $B$ y $C$ son constantes a ajustar para el requerimiento de desplazamiento total,
-se caracteriza por tener un crecimiento lento al principio y final del intervalo
-especificado, implicando una velocidad reducida de los formadores al principio y final 
-del recorrido, con la finalidad de que esto facilite la estabilización y convergencia
-del análisis.\\
-
-En la figura \ref{fig:smooth_displacement_01} se muestra la gráfica del tiempo-desplazamiento 
-utilizado en el primer paso del troquel. Para el segundo caso se utilizó una curva 
-similar, con algunas variaciones en las constantes para disminuir la amplitud o valor máximo.\\
-
-
-\begin{apdl}
-*DIM,tiempo,ARRAY,400
-*DIM,desplazamiento,ARRAY,400
-
-*DO,ii,1,400
-    tiempo(ii)=ii/2E3
-*ENDDO
-
-_k1 = 3.8E-7
-_k2 = 1.15E-4
-_k3 = -1.22
-
-*DO,jj,1,200
-    desplazamiento(jj)= _k3*(_k2*jj**2 - _k1*jj**3) - (_k3*(_k2 - _k1))
-*ENDDO
-
-*DO,kk,1,200
-    desplazamiento(200+kk) = (-1)*_k3*(_k2*kk**2 - _k1*kk**3) + (_k3*(_k2*200**2 - _k1*200**3))
-*ENDDO
-
-*vplot,tiempo,desplazamiento
-\end{apdl}
-
-
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=0.6]{src/ch3/smooth_displacement_01.pdf}
-\captionof{figure}{Vector de tiempo desplazamiento}
-\label{fig:smooth_displacement_01}
-\end{figure}
 
 
 % ==================================== CONTACTOS ============================================

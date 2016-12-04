@@ -1,8 +1,95 @@
-\addcontentsline{toc}{chapter}{Anexos}
 \chapter*{Anexos}
+\addcontentsline{toc}{chapter}{Anexos}
+\renewcommand{\thesection}{\Alph{section}}
 
-\mybox{ANEXOS - PORTADAS DE ARTíCULO - ETC}
+\section{APDL Scripts}
+
+\subsection{Definición de materiales}\label{sec:definicion-materiales}
+
+\begin{apdl}
+! Para el formador inferior
+MP,EX,2,29E6 ! psi
+MP,NUXY,2,0.3 ! 
+MP,DENS,2,0.00073 ! lbf s^2 / in^4
+EDMP,rigid,2,7,7
+
+! Formador superior izquierdo
+MP,EX,3,29E6 ! psi
+MP,NUXY,3,0.3 ! 
+MP,DENS,3,0.00073 ! lbf s^2 / in^4
+EDMP,rigid,3,6,7
+
+! Formador superior derecho
+MP,EX,4,29E6 ! psi
+MP,NUXY,4,0.3 ! 
+MP,DENS,4,0.00073 ! lbf s^2 / in^4
+EDMP,rigid,4,6,7
+
+! Leva izquierda
+MP,EX,5,29E6 ! psi
+MP,NUXY,5,0.3 ! 
+MP,DENS,5,0.00073 ! lbf s^2 / in^4
+EDMP,rigid,5,6,4
+
+! Leva derecha
+MP,EX,6,29E6 ! psi
+MP,NUXY,6,0.3 ! 
+MP,DENS,6,0.00073 ! lbf s^2 / in^4
+EDMP,rigid,6,6,4
+
+! Para el blank
+! Propiedades elásticas
+MP,EX,1,29E6 ! psi
+MP,NUXY,1,0.3 ! 
+MP,DENS,1,0.00073 ! lbf s^2 / in^4
+
+! Definir un arreglo para la deformación plástica verdadera
+*dim,strn,,6
+! Definir un arreglo para el esfuerzo verdadero
+*dim,strs,,6
+
+! Deformación (in/in)
+strn(1) = 0.0, 0.0293, 0.0772, 0.1562, 0.2356, 0.344943
+
+! Esfuerzo (psi)
+strs(1) = 52489.4,60585.8,70710,76809.3,80244.3,82574.1
+
+! Curva #1: Abscisa=deformación & Ordenada=esfuerzo
+edcurve,add,1,strn,strs 
+
+! Especificar Power Law #8 para el material #1
+TB,PLAW,1,,,8  ! Piecewise Linear Plasticity
+
+! Usar curva #1 para la relación esfuerzo-deformación
+TBDATA,1,52e3 ! Esfuerzo de fluencia (psi)
+TBDATA,3,.75 ! Deformación de falla
+TBDATA,4,40.0 ! C (Parámetro de tasa de deformación)
+TBDATA,5,0.1 ! P (Parámetro de tasa de deformación)
+TBDATA,6,1 ! ID de la curva
+\end{apdl}
 
 
+\subsection{Definición de los arrays tiempo-desplazamiento}\label{sec:tiempo-desplazamiento}
 
+\begin{apdl}
+*DIM,tiempo,ARRAY,400
+*DIM,desplazamiento,ARRAY,400
 
+*DO,ii,1,400
+    tiempo(ii)=ii/2E3
+*ENDDO
+
+_k1 = 3.8E-7
+_k2 = 1.15E-4
+_k3 = -1.22
+
+*DO,jj,1,200
+    desplazamiento(jj)= _k3*(_k2*jj**2 - _k1*jj**3) - (_k3*(_k2 - _k1))
+*ENDDO
+
+*DO,kk,1,200
+    desplazamiento(200+kk) = (-1)*_k3*(_k2*kk**2 - _k1*kk**3) + (_k3*(_k2*200**2 - _k1*200**3))
+*ENDDO
+
+*vplot,tiempo,desplazamiento
+\end{apdl}

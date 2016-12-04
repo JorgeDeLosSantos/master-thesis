@@ -15,6 +15,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 % \usepackage{natbib}
+\usepackage[toc,page]{appendix}
 \usepackage{float}
 \usepackage{esint}
 \usepackage{color}
@@ -61,7 +62,7 @@ fonttitle=\bfseries, colbacktitle=white, coltext=gray!30!black}
 \usepackage{fontawesome}
 
 % Fancy chapters
-\usepackage[Bjornstrup]{fncychap}
+% \usepackage[Bjornstrup]{fncychap}
 
 \newcommand{\CR}{$^\faCopyright$}
 
@@ -178,7 +179,7 @@ boxsep=0pt,left=6pt,right=6pt,top=2pt,bottom=2pt}
 % ==================================================== Contenido ====================================================
 \mainmatter
 \thispagestyle{fancy}
-% \input{src/_settings_.tex} % Setting for chapters
+\input{src/_settings_.tex} % Setting for chapters
 \input{src/ch1.tex}
 \input{src/ch2.tex}
 \input{src/ch3.tex}
@@ -190,6 +191,7 @@ boxsep=0pt,left=6pt,right=6pt,top=2pt,bottom=2pt}
 \bibliography{bibs}
 
 % ==================================================== Anexos =========================================================
+\appendix
 \input{src/anexos.tex}
 
 
