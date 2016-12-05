@@ -558,7 +558,7 @@ Donde $DC$ es el coeficiente de decaimiento exponencial y $v_{rel}$ la velocidad
 entre las superficies en contacto ~\cite{lsdyna-ansys-manual}. Los valores del coeficiente de 
 fricción estáticoy dinámico se establecieron en 0.2 y 0.1, respectivamente. ~\cite{carvill1993} \\
 
-\subsubsection{Condiciones de frontera}
+\subsubsection{Condiciones de frontera}\label{sec:condiciones-fronteras}
 
 Para establecer las condiciones de frontera es necesario tomar en cuenta algunas  consideraciones 
 básicas respecto al funcionamiento del herramental. En la primera etapa, al formar parte de un 
@@ -603,33 +603,52 @@ de tipo dinámico-explícito en simulaciones de estampado ~\cite{input-param-lsd
 este tipo de curva se caracteriza por tener un crecimiento lento al principio y 
 final de su intervalo,  implicando una velocidad \textit{reducida} de los formadores al principio y final 
 del recorrido, con la finalidad de que esto facilite la estabilización y convergencia
-del análisis.
+del análisis. \\
 
-La relación tiempo-desplazamiento se definió utilizando una función de tipo
-\textit{smooth-step}, cuya forma general es $f(t) = A(Bt^2 - Ct^3)$ , donde
-$A$, $B$ y $C$ son constantes a ajustar para el requerimiento de desplazamiento total,
-se caracteriza por tener un crecimiento lento al principio y final del intervalo
-especificado,\\
+La función de tipo \textit{smooth-step} utilizada tiene la forma general $f(t) = A(Bt^2 - Ct^3)$, 
+donde $A$, $B$ y $C$ son constantes a ajustar para el requerimiento de desplazamiento total y el 
+tamaño del intervalo. En la tabla \ref{tab:smooth_step_constants} se muestran los valores para 
+las constantes utilizados en cada uno de los pasos de la simulación. Además, para cada 
+una de las dos etapas de simulación se necesitó definir dos funciones, una para el proceso 
+de carga y otra para la descarga, quedando de manera general una función definida a trozos como sigue:
 
-En la figura \ref{fig:smooth_displacement_01} se muestra la gráfica del tiempo-desplazamiento 
-utilizado en el primer paso del troquel. Para el segundo caso se utilizó una curva 
-similar, con algunas variaciones en las constantes para disminuir la amplitud o valor máximo.\\
+\begin{equation}
+f(t) = \left\{\begin{matrix}
+A(Bt^2 - Ct^3) \,\,\,\,\,\, &  \text{para} \,\, t \leq 0.1 \\
+-A(Bt^2 - Ct^3) + K \,\,\,\,\,\,& \text{para} \,\, t > 0.1 \\
+\end{matrix}\right.
+\end{equation}
+
+Donde K es el valor mínimo que toma la función, es decir, $K = f(t=0.1)$. Las gráficas de 
+las curvas resultantes para ambos pasos de la simulación se muestran en las figuras 
+\ref{fig:smooth_displacement_01} y \ref{fig:smooth_displacement_02}.
 
 \begin{table}[H]
 \centering
-\caption{Valores para las constantes A, B y c}
+\caption{Valores para las constantes A, B y C}
 \label{}
-\begin{tabular}{p{4cm} p{4cm} p{4cm}} \hline
+\begin{tabular}{p{3cm} p{2cm} p{2cm}} \hline
 Parámetro & 1er. paso & 2do. paso \\
 \hline
 A & -1.22 & -0.225 \\
-B & 1.15e-4 & 1.15e-4 \\
-C & 3.8e-7 & 3.8e-7 \\
+B & $1.15\text{x}10^{-4}$ & $1.15\text{x}10^{-4}$ \\
+C & $3.8\text{x}10^{-7}$ & $3.8\text{x}10^{-7}$ \\
 \hline
 \end{tabular}
-\label{tab:bound_conds_02}
+\label{tab:smooth_step_constants}
 \end{table}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{src/ch3/smooth_displacement_01.pdf}
+\captionof{figure}{Vector de tiempo desplazamiento, paso 1}
+\label{fig:smooth_displacement_01}
+\end{figure}
+
+En la tabla \ref{tab:bound_conds_02} se resumen las condiciones de carga y restricciones aplicadas 
+al ensamble del segundo paso. La imposición de esas condiciones se hicieron de igual manera que para 
+lo descrito en el primer ensamble, variando evidentemente la relación tiempo-desplazamiento de los 
+formadores, misma que ya se ha descrito.
 
 \begin{table}[H]
 \centering
@@ -647,23 +666,15 @@ Blank                    & Ninguna restricción aplicada. \\
 \label{tab:bound_conds_02}
 \end{table}
 
-
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{src/ch3/smooth_displacement_01.pdf}
-\captionof{figure}{Vector de tiempo desplazamiento, paso 1}
-\label{fig:smooth_displacement_01}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.6\textwidth]{src/ch3/smooth_displacement_02.pdf}
+\includegraphics[width=0.75\textwidth]{src/ch3/smooth_displacement_02.pdf}
 \captionof{figure}{Vector de tiempo desplazamiento, paso 2}
 \label{fig:smooth_displacement_02}
 \end{figure}
 
 
-
+% \subsubsection{Escalamiento de masa}\label{sec:mass-scaling}
 
 
 \subsection{Análisis tridimensional}
@@ -750,7 +761,7 @@ volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_se
 % Mallado del blank
 
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{src/ch3/mesh_blank.png}
 \label{fig:mesh_blank}
@@ -758,21 +769,21 @@ volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_se
 \end{figure}
 
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{src/ch3/mesh_fi.png}
 \caption{Mallado del formador inferior}
 \label{fig:mesh_fi}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{src/ch3/mesh_fs.png}
 \caption{Mallado del formador superior}
 \label{fig:mesh_fi}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{src/ch3/mesh_leva.png}
 \caption{Mallado de la leva}
@@ -839,35 +850,35 @@ además la distribución de esfuerzos. En la figura \ref{fig:mesh_blank_02} se o
 la malla deformada del blank. El mallado de cada uno de los componentes del troquel 
 se puede observar en las figuras \ref{fig:mesh_ffi}, \ref{fig:mesh_ffs} y \ref{fig:mesh_perno}.
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.6\textwidth]{src/ch3/parts_02.png}
 \caption{Mallado del segundo ensamble}
 \label{fig:parts_02}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{src/ch3/mesh_blank_02.png}
 \caption{Geometría deformada del blank importada del primer paso}
 \label{fig:mesh_blank_02}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{src/ch3/mesh_ffi.png}
 \caption{Mallado del formador final inferior}
 \label{fig:mesh_ffi}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{src/ch3/mesh_ffs.png}
 \caption{Mallado del formador final superior}
 \label{fig:mesh_ffs}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{src/ch3/mesh_perno.png}
 \caption{Mallado del perno formador}
@@ -878,7 +889,8 @@ se puede observar en las figuras \ref{fig:mesh_ffi}, \ref{fig:mesh_ffs} y \ref{f
 % Condiciones de frontera ==================================================================
 \subsubsection{Condiciones de frontera}
 
-
+La descripción de las condiciones de frontera de la sección \ref{sec:condiciones-fronteras} es 
+válido también para el análisis tridimensional.
 
 % ==================================== CONTACTOS ============================================
 \subsubsection{Contactos}
@@ -1072,7 +1084,7 @@ figura \ref{fig:probetas_instrumentadas}.
 
 \subsection{Realización de las pruebas}
 
-Las pruebas se realizaron en BLA BLA BLA 
+TODO
 
 
 

@@ -1,18 +1,23 @@
 \chapter{Análisis de resultados}
 
-En este capítulo se presenta el análisis de los resultados obtenidos en la 
-simulación por elementos finitos, tanto el caso bidimesional como el tridimensional. 
-Se comparan los resultados obtenidos en ambos casos con lo obtenido de manera 
-experimental mediante el uso de extensometría. Además se analizan y comparan  
-los dos enfoques de análisis numérico utilizados con la finalidad de determinar 
-si un análisis bidimensional es suficiente para el proceso de formado objeto 
-de este proyecto, lo cual representaría un ahorro considerable de tiempo y recursos 
-computacionales.\\
+En este capítulo se presenta el análisis y discusión de los principales resultados 
+obtenidos en el desarrollo de este proyecto. Del análisis por elementos finitos 
+se presentan los resultados del caso bidimensional y del modelo tridimensional, comparando 
+ambos casos, con la finalidad de discutir la viabilidad de utilizar un análisis de tipo 
+deformación plana en una simulación de formado como esta. Además los resultados del 
+análisis numérico se comparan con lo obtenido mediante el análisis experimental.\\
+
+Además, con la finalidad de determinar algunas condiciones o parámetros que faciliten 
+el análisis de procesos de formado de este tipo, se presenta una sección destinada 
+a evaluar la influencia del escalamiento de masa selectivo cuya utilidad va en 
+dirección de disminuir el tiempo de cómputo requerido. Asimismo se expone una sección 
+referente al uso de algunos modelos de material como el bilineal isotrópico y cinemático, 
+la plasticidad cinemática y curvas multilineales, para determinar si las variaciones 
+en el comportamiento del material son significativas.
 
 \section{Del análisis de elementos finitos}
 
 \subsection{Análisis 2D}
-
 
 \subsubsection{Estatus global}
 
@@ -22,8 +27,14 @@ Para considerar que un análisis es aceptable, la energía cinética debe repres
 menos de un 5 \% de la energía interna del modelo, de lo contrario, los efectos 
 inerciales inducidos podrían afectar de manera considerable tanto la geometría 
 resultante como los datos de salida. En la figura \ref{fig:energy_status_01} se observa 
-que la energía cinética representa un porcentaje menor al 2\% de la energía interna, lo 
+que la energía cinética representa un porcentaje menor al 1\% de la energía interna, lo 
 cual implica que el análisis está dentro del rango aceptable. \\
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{src/ch4/energy_status_01.pdf}
+\captionof{figure}{Variación de la energía total, interna y cinemática, primer paso}
+\label{fig:energy_status_01}
+\end{center}
 
 El elemento \texttt{PLANE162}, utilizado en el mallado para el análisis bidimensional, 
 tiene sólo un punto de integración, lo cual le hace robusto para grandes deformaciones 
@@ -40,12 +51,6 @@ se muestra la energía interna vs la energía de Hourglass y se aprecia que la p
 varía en un rango del 1.5 a 2\%, lo cual indica que la deformación de Hourglass se encuentra 
 dentro de los límites aceptables.
 
-\begin{center}
-\includegraphics[width=0.8\textwidth]{src/ch4/energy_status_01.pdf}
-\captionof{figure}{Variación de la energía total, interna y cinemática, primer paso}
-\label{fig:energy_status_01}
-\end{center}
-
 
 \begin{center}
 \includegraphics[width=0.8\textwidth]{src/ch4/hourglass_internal_01.pdf}
@@ -56,18 +61,20 @@ dentro de los límites aceptables.
 
 \subsubsection{Geometría resultante}
 
-En la figura \ref{fig:shape_sequence_01} se muestra la secuencia de formado 
-de la geometría resultante, se puede apreciar el doblado en U y el doblado 
-llevado a cabo por las levas.
+% En la figura \ref{fig:shape_sequence_01} se muestra la secuencia de formado 
+% de la geometría resultante, se puede apreciar el doblado en U y el doblado 
+% llevado a cabo por las levas.
 
-\begin{center}
-\includegraphics[width=0.95\textwidth]{src/ch4/shape_sequence_01.pdf}
-\captionof{figure}{Secuencia de la geometría resultante}
-\label{fig:shape_sequence_01}
-\end{center}
+% \begin{center}
+% \includegraphics[width=0.95\textwidth]{src/ch4/shape_sequence_01.pdf}
+% \captionof{figure}{Secuencia de la geometría resultante}
+% \label{fig:shape_sequence_01}
+% \end{center}
 
 Las figuras \ref{fig:geometry_01} y \ref{fig:geometry_02} muestran las geometrías 
-resultantes al final del primer y segundo paso del proceso de formado.
+resultantes al final del primer y segundo paso del proceso de formado. Las formas 
+obtenidas corresponden a lo esperado cuando se diseñó el herramental, y no se observan 
+algún tipo de anormalidad en las geometrías obtenidas.
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/geometry_01.png}
@@ -81,15 +88,17 @@ resultantes al final del primer y segundo paso del proceso de formado.
 \label{fig:geometry_02}
 \end{center}
 
-En la figura \ref{fig:thickness_variation} se muestra una gráfica con las variaciones de espesor en la geometría final obtenida, las líneas punteadas corresponden a las tolerancias mínima y máxima del espesor. Para efectuar tal medición se tomaron como referencia nodos interiores y exteriores en la geometría final, posicionados sobre la misma vertical en la geometría inicial, y enseguida, basándose en las coordenadas iniciales y los desplazamientos, se obtuvo la distancia.
+La figura \ref{fig:thickness_variation} muestra una gráfica con las variaciones de espesor en la geometría 
+final obtenida, las líneas punteadas corresponden a las tolerancias mínima y máxima del espesor. Para 
+efectuar tal medición se tomaron como referencia nodos interiores y exteriores en la geometría final, 
+posicionados sobre la misma vertical en la geometría inicial, y enseguida, basándose en las coordenadas 
+iniciales y los desplazamientos, se obtuvo la distancia.
 
 \begin{center}
-\includegraphics[width=0.85\textwidth]{src/ch4/thickness_variation.png}
+\includegraphics[width=0.75\textwidth]{src/ch4/thickness_variation.png}
 \captionof{figure}{Variación del espesor de la geometría resultante}
 \label{fig:thickness_variation}
 \end{center}
-
-
 
 \subsubsection{Esfuerzos}
 
@@ -126,17 +135,17 @@ En la figura \ref{fig:thickness_variation} se muestra una gráfica con las varia
 \label{fig:efective_plastic_strain}
 \end{center}
 
-\begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch4/strain_x_01.png}
-\captionof{figure}{Deformación en dirección X, final del primer paso}
-\label{fig:efective_plastic_strain}
-\end{center}
+% \begin{center}
+% \includegraphics[width=0.75\textwidth]{src/ch4/strain_x_01.png}
+% \captionof{figure}{Deformación en dirección X, final del primer paso}
+% \label{fig:efective_plastic_strain}
+% \end{center}
 
-\begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch4/strain_y_01.png}
-\captionof{figure}{Deformación en dirección Y, final del primer paso}
-\label{fig:efective_plastic_strain}
-\end{center}
+% \begin{center}
+% \includegraphics[width=0.75\textwidth]{src/ch4/strain_y_01.png}
+% \captionof{figure}{Deformación en dirección Y, final del primer paso}
+% \label{fig:efective_plastic_strain}
+% \end{center}
 
 
 \begin{center}
@@ -145,30 +154,109 @@ En la figura \ref{fig:thickness_variation} se muestra una gráfica con las varia
 \label{fig:efective_plastic_strain}
 \end{center}
 
+% \begin{center}
+% \includegraphics[width=0.75\textwidth]{src/ch4/strain_x_02.png}
+% \captionof{figure}{Deformación en dirección X, final del segundo paso}
+% \label{fig:efective_plastic_strain}
+% \end{center}
+
+% \begin{center}
+% \includegraphics[width=0.75\textwidth]{src/ch4/strain_y_02.png}
+% \captionof{figure}{Deformación en dirección Y, final del segundo paso}
+% \label{fig:efective_plastic_strain}
+% \end{center}
+
+
+\subsubsection{Fuerza de formado}
+
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch4/strain_x_02.png}
-\captionof{figure}{Deformación en dirección X, final del segundo paso}
-\label{fig:efective_plastic_strain}
+\includegraphics[width=0.75\textwidth]{src/ch4/nodal_force_01.pdf}
+\captionof{figure}{Fuerza de formado requerida, primer paso}
+\label{fig:nodal_force_01}
+\end{center}
+
+
+\subsubsection{Influencia del escalamiento de masa}
+
+En la sección \ref{sec:mass-scaling} se describió el proceso para utilizar el escalamiento de masa 
+selectivo en un análisis de tipo dinámico explícito, cuyo objetivo es reducir el tiempo de 
+solución de una simulación mediante la introducción controlada de \textit{masa artificial} que implica 
+un aumento en la densidad del material y esto a su vez la reducción de los intervalos de tiempo.\\
+
+En lo subsiguiente se presenta el análisis de cinco simulaciones realizadas con escalamientos de 
+masa selectivo, en donde el tamaño mínimo del paso de tiempo se varía desde $1x10^{-7}$ hasta 
+$5x10^{-7}$.\\
+
+La figura \ref{fig:ms_sol_time} muestra la variación del tiempo de solución (CPU Time) comparado con 
+el porcentaje de masa agregado. Se observa que la curva resultante muestra el comportamiento de 
+una función exponencial decreciente y que con un 12\% de masa adicional se puede reducir el tiempo 
+de solución hasta un 30\% respecto al tiempo de solución sin escalamiento de masa.
+
+\begin{center}
+\includegraphics[width=0.75\textwidth]{src/ch4/ms_sol_time.pdf}
+\captionof{figure}{Tiempo de solución para diversos escalamientos de masa}
+\label{fig:ms_sol_time}
+\end{center}
+
+En \ref{fig:ms_von_mises} se muestra la variación del esfuerzo equivalente máximo de von Mises, cuando 
+se aplica el escalamiento de masa. Se puede observar que la variación entre cada uno de los casos 
+es mínima en todo el hsitorial de tiempo, habiendo una diferencia significativa en el tiempo 
+correspondiente a cuando los formadores superiores dejan de actuar y las levas aún no interactúan 
+con la pieza de trabajo.
+
+\begin{center}
+\includegraphics[width=0.75\textwidth]{src/ch4/ms_von_mises.pdf}
+\captionof{figure}{Variación del esfuerzo de von Mises utilizando escalamiento de masa}
+\label{fig:ms_von_mises}
+\end{center}
+
+En \ref{fig:ms_force} se muestra la variación de la fuerza de formado, se observa que el 
+comportamiento es prácticamente similar para todos los casos.
+
+\begin{center}
+\includegraphics[width=0.75\textwidth]{src/ch4/ms_force.pdf}
+\captionof{figure}{Variación de la fuerza de formado usando escalamiento de masa}
+\label{fig:ms_force}
+\end{center}
+
+Con lo observado, se puede asumir que la influencia del escalamiento de masa, agregando hasta alrededor 
+de un 110\% de masa, no es significativa, y permite reducir hasta en un 90\% el tiempo de solución de 
+un análisis dinámico-explícito, lo cual representa una enorme ventaja.
+
+\subsubsection{Modelos de material}
+
+En las figuras  \ref{fig:mdm_von_mises} y \ref{fig:mdm_force} se muestran las gráficas correspondientes 
+al esfuerzo máximo de von Mises y la fuerza de formado, respectivamente, de la evaluación de los diversos 
+modelos de material que ahí se listan.\\
+
+Tanto la variación de los esfuerzos, como la de la fuerza de formado, es poco significativa, mostrando 
+un comportamiento similar en ambos casos para todos los modelos de material utilizados. La 
+diferencia más notoria ocurre en los esfuerzos residuales que quedan al finalizar el proceso 
+de formado, en donde se observa una diferencia de alrededor de un 20\% del modelo multilineal 
+respecto al bilineal cinemático.
+
+\begin{center}
+\includegraphics[width=0.75\textwidth]{src/ch4/mdm_von_mises.pdf}
+\captionof{figure}{Variación de la fuerza de formado usando escalamiento de masa}
+\label{fig:mdm_von_mises}
 \end{center}
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch4/strain_y_02.png}
-\captionof{figure}{Deformación en dirección Y, final del segundo paso}
-\label{fig:efective_plastic_strain}
+\includegraphics[width=0.75\textwidth]{src/ch4/mdm_force.pdf}
+\captionof{figure}{Variación de la fuerza de formado usando escalamiento de masa}
+\label{fig:mdm_force}
 \end{center}
-
-
 
 \subsection{Análisis 3D}
 
 
-\subsubsection{Estatus global}
+% \subsubsection{Estatus global}
 
-\begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch4/energy_status_3d.png}
-\captionof{figure}{Energía interna, cinética y total}
-\label{fig:von_mises_3D_01}
-\end{center}
+% \begin{center}
+% \includegraphics[width=0.75\textwidth]{src/ch4/energy_status_3d.png}
+% \captionof{figure}{Energía interna, cinética y total}
+% \label{fig:von_mises_3D_01}
+% \end{center}
 
 \subsubsection{Esfuerzos}
 
