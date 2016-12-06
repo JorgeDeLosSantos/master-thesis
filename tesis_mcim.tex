@@ -149,18 +149,19 @@ boxsep=0pt,left=6pt,right=6pt,top=2pt,bottom=2pt}
 \pagestyle{fancy}
 
 
-\author{Pedro Jorge De Los Santos Lara}
-\title{Simulación por elementos finitos del proceso de formado de un tubo de acero AISI 1018}
+\author{}
+\date{}
+\title{}
 
 
 % ======================================================================================================
 \begin{document}
-
-
-\maketitle
+\thispagestyle{empty}
+\input{src/titlepage.tex}
 
 \frontmatter
 \setcounter{page}{1}
+\pagestyle{plain}
 \input{src/agradecimientos.tex}
 \tableofcontents
 
@@ -176,9 +177,9 @@ boxsep=0pt,left=6pt,right=6pt,top=2pt,bottom=2pt}
 \input{src/intro.tex}
 
 
-% ==================================================== Contenido ====================================================
+%% ==================================================== Contenido ====================================================
 \mainmatter
-\thispagestyle{fancy}
+\pagestyle{fancy}
 \input{src/_settings_.tex} % Setting for chapters
 \input{src/ch1.tex}
 \input{src/ch2.tex}
