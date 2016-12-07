@@ -1,7 +1,32 @@
-\addcontentsline{toc}{chapter}{Conclusiones}
 \chapter*{Conclusiones}
+\addcontentsline{toc}{chapter}{Conclusiones}
 
+% \mybox{CONCLUSIONES DEL TRABAJO DE TESIS}
 
-\mybox{CONCLUSIONES DEL TRABAJO DE TESIS}
+La simulación por elementos finitos es una herramienta \\
 
+Es importante identificar cuándo se tienen análisis que pueden tratarse como casos simplificados 
+de esfuerzo plano o deformación plana, ya que esto puede representar una reducción significativa 
+de tiempo y recursos computacionales. En el caso del modelo analizado en este proyecto, asumir 
+una condición de deformación plana ha generado resultados bastante similares a los obtenidos 
+mediante la simulación del modelo tridimensional. Cuando se hace un análisis de tipo 
+deformación plana es importante tomar en cuenta que este se realiza considerando un especimen 
+de espesor unitario, y por tanto hay que hacer los ajustes o correcciones necesarias en 
+caso de que el modelo completo difiera de esta característica. \\
 
+El fenómeno de la fricción en un proceso de doblado no es tan significativo, puesto que no 
+es necesario realizar una lubricación adicional o especial, como puede ocurrir en casos 
+de embutición profunda, de modo que en análisis por elementos finitos se puede asumir 
+un coeficiente friccional ordinario de interacción metal-metal de 0.2, el cual da resultados 
+aceptables. De hecho, variando el coeficiente de fricción en el análisis realizado, se observó 
+muy poca diferencia en las geometrías deformadas y los resultados obtenidos en un rango de 0.05-0.3, 
+con valores menores o casi nulos de fricción la pieza tiende a deslizarse sobre el formador 
+inferior y en consecuencia se obtiene una geometría resultante asimétrica.\\
+
+El escalamiento de masa selectivo en un análisis de tipo dinámico explícito representa una 
+opción bastante viable para cuando se tienen recursos computacionales limitados y se 
+requiere ejecutar un análisis que no admite otro tipo de simplificaciones. Esto requiere 
+obviamente de un criterio de selección del tamaño de los pasos de tiempo y/o del porcentaje 
+de \textit{masa artificial} que se adiciona. De acuerdo al manual teórico del software 
+utilizado, es posible, en la mayoría de los casos, disminuir en un 50\% el tiempo de CPU 
+empleado agregando una cantidad alrededor de 0.001\% de masa adicional.\\

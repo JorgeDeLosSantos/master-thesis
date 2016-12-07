@@ -673,8 +673,48 @@ Blank                    & Ninguna restricción aplicada. \\
 \label{fig:smooth_displacement_02}
 \end{figure}
 
+\subsubsection{Escalamiento de masa}\label{sec:mass-scaling}
 
-% \subsubsection{Escalamiento de masa}\label{sec:mass-scaling}
+El escalamiento de masa es una técnica que consiste en la modificación del tamaño de los 
+pasos de tiempo de manera controlada mediante la adición de \textit{masa artificial} que implica 
+a la vez un aumento en la densidad de los materiales utilizados.\\
+
+El paso de tiempo mínimo para una integración temporal explícita depende de la longitud mínima, 
+$l_{min}$, y la velocidad del sonido, $c$. Para ciertas propiedades dadas de un material, el 
+paso de tiempo mínimo $\Delta t_{min}$ es controlado por la dimensión mínima de un elemento 
+en el modelo. Además, para un modelo discretizado, el paso de tiempo mínimo es dependiente 
+de la velocidad del sonido, la cual es función de las propiedades del material (densidad, 
+módulo elástico y la relación de Poisson). ~\cite{lsdyna-ansys-manual} \\
+
+El paso de tiempo mínimo viene dado por la relación:
+
+\begin{equation}
+\Delta t_{min} = \frac{l_{min}}{c} 
+\end{equation}
+
+donde la constante $c$ correspondiente a la velocidad del sonido, viene dada por:
+
+\begin{equation}
+c = \sqrt{\frac{E}{(1-\nu^2)\rho}}
+\end{equation}
+
+En este caso se utilizó el escalamiento de masa para determinar su posible uso en la 
+reducción del tiempo de cómputo, además de establecer o conocer un rango de uso en el que los 
+efectos artificiales introducidos sean mínimos.\\
+
+El escalamiento de masa se introdujo mediante el uso del comando \texttt{EDCTS} en ANSYS/LS-DYNA\CR,
+cuya sintaxis es:
+
+\begin{verbatim}
+EDCTS, DTMS, TSSFACT
+\end{verbatim}
+
+donde \texttt{DTMS} es el paso de tiempo para la solución escalada y \texttt{TSSFACT} es un factor 
+de escala para calcular el paso de tiempo que por default es 0.9.\\
+
+Se hicieron análisis para diversos pasos de tiempo, siendo $1x10^{-7}$ el mínimo y $5x10^{-6}$ el 
+máximo, los resultados obtenidos y las comparaciones referentes a resultados de interés se muestran 
+en la sección \ref{sec:mass-scaling-results}.
 
 
 \subsection{Análisis tridimensional}

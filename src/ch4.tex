@@ -51,7 +51,6 @@ se muestra la energía interna vs la energía de Hourglass y se aprecia que la p
 varía en un rango del 1.5 a 2\%, lo cual indica que la deformación de Hourglass se encuentra 
 dentro de los límites aceptables.
 
-
 \begin{center}
 \includegraphics[width=0.8\textwidth]{src/ch4/hourglass_internal_01.pdf}
 \captionof{figure}{Comparación energía interna vs energía de Hourglass}
@@ -74,7 +73,7 @@ dentro de los límites aceptables.
 Las figuras \ref{fig:geometry_01} y \ref{fig:geometry_02} muestran las geometrías 
 resultantes al final del primer y segundo paso del proceso de formado. Las formas 
 obtenidas corresponden a lo esperado cuando se diseñó el herramental, y no se observan 
-algún tipo de anormalidad en las geometrías obtenidas.
+algún tipo de anormalidad en las formas obtenidas.
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/geometry_01.png}
@@ -102,17 +101,35 @@ iniciales y los desplazamientos, se obtuvo la distancia.
 
 \subsubsection{Esfuerzos}
 
+La distribucíón de esfuerzos y sobre todo el historial del máximo se utilizó como 
+un criterio comparativo  que aporta información acerca del estatus del material, 
+es decir, para verificar que el material se encuentra en el rango de deformación 
+plástica acorde a lo obtenido de forma experimental en la curva esfuerzo-deformación.\\
+
+En las figuras \ref{fig:von_mises_01} y \ref{fig:von_mises_02} se muestran la 
+distribución del esfuerzo de von Mises al final de la primer y segunda etapa 
+del formado, respectivamente. 
+
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/von_mises_01.png}
 \captionof{figure}{Distribución de esfuerzos de von Mises, final del primer paso}
 \label{fig:von_mises_01}
 \end{center}
 
+La figura \ref{fig:von_mises_stress_01} muestra la variación del esfuerzo máximo 
+de von Mises, cuyo máximo valor es de alrededor de 87,000 psi.
+
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/von_mises_stress_01.pdf}
 \captionof{figure}{Variación del esfuerzo máximo de von Mises}
 \label{fig:von_mises_stress_01}
 \end{center}
+
+En \ref{fig:xyz_stress_01} se muestra el historial de esfuerzos en las direcciones 
+X, Y, Z. Es evidente que el esfuerzo en dirección $Z$ es en general el menor de 
+los tres, dado que este es calculado a partir de la ecuación de deformación plana 
+que lo considera alrededor de una tercera parte de la suma de $\sigma_x$ y $\sigma_y$ para 
+el caso de un acero. \\
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/xyz_stress_01.pdf}
@@ -123,35 +140,26 @@ iniciales y los desplazamientos, se obtuvo la distancia.
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/von_mises_02.png}
 \captionof{figure}{Distribución de esfuerzos de von Mises, final del segundo paso}
-\label{fig:von_mises_01}
+\label{fig:von_mises_02}
 \end{center}
 
 
 \subsubsection{Deformaciones}
 
+En las figuras \ref{fig:efective_plastic_strain_01} y \ref{fig:efective_plastic_strain_02} se muestran 
+las distribuciones de la deformación plástica efectiva, al final de ambas etapas del formado. 
+
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/efective_plastic_strain_01.png}
 \captionof{figure}{Deformación plástica efectiva, final del primer paso}
-\label{fig:efective_plastic_strain}
+\label{fig:efective_plastic_strain_01}
 \end{center}
-
-% \begin{center}
-% \includegraphics[width=0.75\textwidth]{src/ch4/strain_x_01.png}
-% \captionof{figure}{Deformación en dirección X, final del primer paso}
-% \label{fig:efective_plastic_strain}
-% \end{center}
-
-% \begin{center}
-% \includegraphics[width=0.75\textwidth]{src/ch4/strain_y_01.png}
-% \captionof{figure}{Deformación en dirección Y, final del primer paso}
-% \label{fig:efective_plastic_strain}
-% \end{center}
 
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/efective_plastic_strain_02.png}
 \captionof{figure}{Deformación plástica efectiva, final del segundo paso}
-\label{fig:efective_plastic_strain}
+\label{fig:efective_plastic_strain_02}
 \end{center}
 
 % \begin{center}
@@ -176,7 +184,7 @@ iniciales y los desplazamientos, se obtuvo la distancia.
 \end{center}
 
 
-\subsubsection{Influencia del escalamiento de masa}
+\subsubsection{Influencia del escalamiento de masa}\label{sec:mass-scaling-results}
 
 En la sección \ref{sec:mass-scaling} se describió el proceso para utilizar el escalamiento de masa 
 selectivo en un análisis de tipo dinámico explícito, cuyo objetivo es reducir el tiempo de 
@@ -221,7 +229,25 @@ comportamiento es prácticamente similar para todos los casos.
 
 Con lo observado, se puede asumir que la influencia del escalamiento de masa, agregando hasta alrededor 
 de un 110\% de masa, no es significativa, y permite reducir hasta en un 90\% el tiempo de solución de 
-un análisis dinámico-explícito, lo cual representa una enorme ventaja.
+un análisis dinámico-explícito, lo cual representa una enorme ventaja.\\
+
+\textbf{Escalamiento de masa excesivo} \\
+
+Un escalamiento de masa excesivo normalmente conlleva a un resultado alejado de la realidad, las formas 
+geométricas deformadas tienden a no corresponder con lo esperado, debido a que los efectos de la inercia 
+inducida por la introducción de masa artificial son muy exagerados. Por ejemplo, en la figura 
+\ref{fig:ms_excessive} se muestra una simulación que resulta de utilizar un escalamiento de masa bastante 
+exagerado (un ratio mayor a 400 de \textit{masa agregada}); se puede observar claramente que la geometría 
+de la pieza de trabajo se deforma hasta una configuración improbable para un material rígido como el acero, 
+aún cuando los formadores superiores no están en contacto directo en ese instante, esto debido a que la 
+energía cinética (que aumenta con la masa) del modelo representa una fracción superior al 10\% de la 
+energía interna.\\
+
+\begin{center}
+\includegraphics[width=0.85\textwidth]{src/ch4/ms_excessive.png}
+\captionof{figure}{Algunos efectos del escalamiento excesivo de masa}
+\label{fig:ms_excessive}
+\end{center}
 
 \subsubsection{Modelos de material}
 

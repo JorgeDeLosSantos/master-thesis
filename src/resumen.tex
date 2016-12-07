@@ -1,6 +1,24 @@
-\addcontentsline{toc}{chapter}{Resumen}
 \chapter*{Resumen}
+\addcontentsline{toc}{chapter}{Resumen}
 
 % \mybox{Resumen del trabajo de tesis. No mayor a 20 líneas.}
 
-La simulación por elemento finito de procesos de estampado es una herramienta auxiliar en el proceso de diseño y optimización de herramentales. En este artículo se presenta el análisis del proceso de formado de un tubo de acero AISI 1018 mediante un troquel progresivo de dos etapas. Se utilizó ANSYS/LS-DYNA para realizar las simulaciones de tipo dinámico explícito, considerando las diversas no linealidades que implican este tipo de análisis, derivadas de las propiedades del material, las grandes deformaciones y los contactos entre las herramientas y la pieza de trabajo. Los resultados obtenidos son la fuerza máxima requerida para el proceso de formado inicial que fue de 1.27 toneladas y los esfuerzos máximos que se generan en el proceso de doblez que fueron de 76 213 Psi. Se muestra, además, la geometría resultante del proceso de formado comparada de forma cualitativa con la obtenida mediante la simulación.
+La simulación por elementos finitos de procesos de formado es una herramienta auxiliar en el proceso de 
+diseño y optimización de herramentales. En este trabajo de tesis se presenta el análisis del proceso de formado 
+de un tubo de acero AISI 1018 mediante un troquel compuesto de dos etapas, a saber: un doblado en U y un 
+cerrado de tubo.\\
+
+Se utilizó un análisis de tipo dinámico explícito realizado mediante el software de simulación 
+ANSYS/LS-DYNA\CR, tomando en cuenta todas las no linealidades inherentes al proceso real, tales 
+como el modelo del material, las geometrías, la naturaleza dinámica del fenónemo y la interacción 
+entre los diversos componentes del herramental y la pieza de trabajo.\\
+
+Con la finalidad de evaluar el comportamiento de la pieza de trabajo durante el proceso de trabajo 
+se utilizaron cuatro modelos de material: curva multilineal, bilineal isotrópico, bilineal cinemático 
+y plasticidad cinemática, obteniéndose resultados muy similares para la variación del esfuerzo de 
+von Mises en todos los casos, y con diferencias menores a un 20\% en el caso de la fuerza de formado requerida. \\
+
+Se realizó un análisis comparativo para diversos casos de escalamiento de masa selectiva, con el objetivo 
+de determinar su influencia en los resultados obtenidos. De lo anterior se calculó que agregando alrededor de 
+un 110\% de \textit{masa artificial} es posible reducir en un 90\% el tiempo de cómputo, con variaciones mínimas 
+de los resultados de fuerza y esfuerzo de von Mises obtenidos.\\
