@@ -187,7 +187,7 @@ requerida para completar el primer paso es de 2500 lbf, de donde se debe conside
 que el análisis de deformación plana se realiza en base a una pieza de trabajo de 
 ancho unitario. Este resultado se puede extrapolar a la pieza real si multiplicamos el 
 resultado por un factor de 3 que es lo correspondiente a la longitud del \textit{blank}, 
-por tanto la fuerza requerida correspondería a 7500 lbf.\\
+por tanto la fuerza requerida correspondería a 7500 lbf.\\s
 
 De la gráfica de \ref{fig:nodal_force_01} se puede observar también que existen dos máximos 
 locales correspondientes a la fuerza requerida para la operación de los formadores superiores y 
@@ -197,16 +197,19 @@ El primer máximo local, que corresponde al doblado realizado por los formadores
 comparar con la fuerza calculada de manera analítica a partir de la ecuación \ref{eq:fuerza_doblado}, 
 de la cual se tiene:
 
-\begin{equation}\label{eq:fuerza_doblado}
+$$
 F = \frac{K S_{t} w t^2}{D} = \frac{(1.33)(52000)(3)(0.12)^2}{0.93} = 3212 \text{lbf}
-\end{equation}
+$$
+
+El resultado de la fuerza de formado obtenida mediante la simulación corresponde a un valor de 
+3600 lbf, lo cual implica una diferencia o error relativo de 10\% de sobrestimación mediante 
+el análisis numérico.
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/nodal_force_01.pdf}
 \captionof{figure}{Fuerza de formado requerida, primer paso}
 \label{fig:nodal_force_01}
 \end{center}
-
 
 \subsubsection{Influencia del escalamiento de masa}\label{sec:mass-scaling-results}
 
@@ -232,7 +235,7 @@ de solución hasta un 30\% respecto al tiempo de solución sin escalamiento de m
 
 En \ref{fig:ms_von_mises} se muestra la variación del esfuerzo equivalente máximo de von Mises, cuando 
 se aplica el escalamiento de masa. Se puede observar que la variación entre cada uno de los casos 
-es mínima en todo el hsitorial de tiempo, habiendo una diferencia significativa en el tiempo 
+es mínima en todo el historial de tiempo, habiendo una diferencia significativa en el tiempo 
 correspondiente a cuando los formadores superiores dejan de actuar y las levas aún no interactúan 
 con la pieza de trabajo.
 
@@ -299,14 +302,8 @@ respecto al bilineal cinemático.
 
 \subsection{Análisis 3D}
 
-
-% \subsubsection{Estatus global}
-
-% \begin{center}
-% \includegraphics[width=0.75\textwidth]{src/ch4/energy_status_3d.png}
-% \captionof{figure}{Energía interna, cinética y total}
-% \label{fig:von_mises_3D_01}
-% \end{center}
+En lo subsiguiente se muestran los resultados obtenidos para el análisis tridimensional 
+realizado.
 
 \subsubsection{Esfuerzos}
 
@@ -323,23 +320,77 @@ respecto al bilineal cinemático.
 \label{fig:von_mises_3D_02}
 \end{center}
 
-\subsubsection{Deformaciones}
-
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch4/eqv_strain_01.png}
-\captionof{figure}{Deformación plástica equivalente, primer paso}
-\label{fig:eqv_strain_01}
+\includegraphics[width=0.75\textwidth]{src/ch4/von_mises_3d_all.pdf}
+\captionof{figure}{Variación del esfuerzo máximo de von Mises}
+\label{fig:von_mises_3d_all}
 \end{center}
 
+% \subsubsection{Deformaciones}
+
+% \begin{center}
+% \includegraphics[width=0.75\textwidth]{src/ch4/eqv_strain_01.png}
+% \captionof{figure}{Deformación plástica equivalente, primer paso}
+% \label{fig:eqv_strain_01}
+% \end{center}
+
+\subsubsection{Fuerza de formado}
+
+En las figuras \ref{fig:fuerza_formado_3d_01} y \ref{fig:fuerza_formado_3d_02} se muestran las gráficas 
+correspondiente a la fuerza de formado requerida en cada una de las etapas del troquel. Se observa una 
+fuerza máxima de 15,800 lbf para el primer paso, y alrededor de 94,000 lbf para el cerrado en O.\\
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{src/ch4/fuerza_formado_3d_01.pdf}
+\captionof{figure}{Fuerza de formado, segundo paso}
+\label{fig:fuerza_formado_3d_01}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{src/ch4/fuerza_formado_3d_02.pdf}
+\captionof{figure}{Fuerza de formado, segundo paso}
+\label{fig:fuerza_formado_3d_02}
+\end{center}
 
 \subsection{Comparación 2D vs 3D}
 
-En esta sección se presenta un análisis comparativo entre el análisis bidimensional 
-y el análisis en tres dimensiones.
+En esta sección se presenta un análisis comparativo entre los análisis bidimensional 
+y el tridimensional realizados, con el objetivo de describir particularidades respecto 
+a cada enfoque y hacer énfasis en las ventajas y limitaciones de cada uno.\\
+
+\subsubsection{Notas generales}
+
+Es preciso hacer mención respecto a las dificultades que implica trabajar con uno u 
+otro enfoque. De manera general, el modelo tridimensional representó mayores dificultades 
+a la hora de ejecutar el análisis, sobre todo para cuestiones relaciones con deformaciones 
+excesivas derivadas de errores de contacto entre la parte aguda de las levas formadores 
+y la pieza de trabajo.\\
+
+En el análisis bidimensional, al utilizarse un elemento (\texttt{PLANE162}) con un sólo punto 
+de integración se tuvieron algunos problemas con la deformación de Hourglass, la cual implica 
+un aumento excesivo en los esfuerzos resultantes y por tanto un análisis no válido, por 
+lo cual se tuvieron que ajustar constantemente los parámetros de control de Hourglass.\\
+
+En la sección \ref{sec:contactos} se describió que para definir los contactos en el 
+análisis bidimensional se utiliza un contacto automático, esto implica un inconveniente 
+al momento de postprocesar los resultados referentes a las fuerzas de formado, puesto 
+que se tiene que hacer la lectura nodo a nodo y posteriormente sumar los resultados 
+obtenidos en el historial de tiempo.\\
 
 \subsubsection{Tiempo de cómputo}
 
+Con tiempo de cómputo se hace referencia al tiempo transcurrido desde el inicio hasta el 
+término del análisis, mismo del cual el software utilizado hace un registro. 
+Es evidente que el tiempo de cómputo requerido es mayor para un modelo tridimensional, dado 
+que la cantidad de ecuaciones a resolver aumenta de manera considerable.\\
+
+Un análisis de deformación plana sin escalamiento de masa selectivo se completó en 24 minutos 
+aproximadamente (0.4 horas), el mismo caso para el modelo tridimensional representó 
+un costo de tiempo computacional poco mayor a 16 horas, lo cual implica una reducción de tiempo 
+del 97.5\% cuando se utiliza un análisis bidimensional simplificado.
+
 \subsubsection{Fuerza de formado}
+
 
 
 \section{Del análisis experimental}
