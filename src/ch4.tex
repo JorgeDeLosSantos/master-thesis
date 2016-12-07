@@ -155,6 +155,11 @@ las distribuciones de la deformación plástica efectiva, al final de ambas etap
 \label{fig:efective_plastic_strain_01}
 \end{center}
 
+Tanto en \ref{fig:efective_plastic_strain_01} como en \ref{fig:efective_plastic_strain_02} se puede observar 
+de manera clara una región intermedia que permanece con deformaciones muy pequeñas (región azul) o casi nulas, 
+lo cual corresponde al eje neutro cuando se realiza una operación de doblado. Para una operación de doblado 
+en donde el radio interior de doblado (0.285 in en este caso) es mayor al doble del espesor (0.12 in) se 
+considera que el eje neutro se ubica alrededor de $0.42t$.
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/efective_plastic_strain_02.png}
@@ -176,6 +181,25 @@ las distribuciones de la deformación plástica efectiva, al final de ambas etap
 
 
 \subsubsection{Fuerza de formado}
+
+En la figura \ref{fig:nodal_force_01} se puede observar que la fuerza máxima de formado 
+requerida para completar el primer paso es de 2500 lbf, de donde se debe considerar 
+que el análisis de deformación plana se realiza en base a una pieza de trabajo de 
+ancho unitario. Este resultado se puede extrapolar a la pieza real si multiplicamos el 
+resultado por un factor de 3 que es lo correspondiente a la longitud del \textit{blank}, 
+por tanto la fuerza requerida correspondería a 7500 lbf.\\
+
+De la gráfica de \ref{fig:nodal_force_01} se puede observar también que existen dos máximos 
+locales correspondientes a la fuerza requerida para la operación de los formadores superiores y 
+de las levas formadoras, de manera respectiva.\\
+
+El primer máximo local, que corresponde al doblado realizado por los formadores, se puede 
+comparar con la fuerza calculada de manera analítica a partir de la ecuación \ref{eq:fuerza_doblado}, 
+de la cual se tiene:
+
+\begin{equation}\label{eq:fuerza_doblado}
+F = \frac{K S_{t} w t^2}{D} = \frac{(1.33)(52000)(3)(0.12)^2}{0.93} = 3212 \text{lbf}
+\end{equation}
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/nodal_force_01.pdf}
