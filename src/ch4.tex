@@ -211,6 +211,18 @@ el análisis numérico.
 \label{fig:nodal_force_01}
 \end{center}
 
+En la figura \ref{fig:nodal_force_02} se muestra la fuerza de formado requerida para completar el 
+segundo paso del formado, misma que se calculó en alrededor de 90,000 lbf (45 ton). En este punto 
+hay que considerar que la fuerza requerida varía considerablemente dependiendo del desplazamiento 
+del formador superior, y de esto depende, la forma final del tubo obtenido, con lo aquí descrito se 
+obtuvo una geometría como la mostrada en \ref{fig:geometry_02}.
+
+\begin{center}
+\includegraphics[width=0.75\textwidth]{src/ch4/nodal_force_02.pdf}
+\captionof{figure}{Fuerza de formado requerida, segundo paso}
+\label{fig:nodal_force_02}
+\end{center}
+
 \subsubsection{Influencia del escalamiento de masa}\label{sec:mass-scaling-results}
 
 En la sección \ref{sec:mass-scaling} se describió el proceso para utilizar el escalamiento de masa 
@@ -303,10 +315,19 @@ respecto al bilineal cinemático.
 \subsection{Análisis 3D}
 
 En lo subsiguiente se muestran los resultados obtenidos para el análisis tridimensional 
-realizado.
+realizado. Se omite el análisis de energía realizado para el caso bidimensional, además 
+de lo correspondiente al modo de deformación de Hourglass, puesto que en este caso el 
+elemento \texttt{SOLID164} utilizado es un elemento de tipo \textit{full integration} y 
+no presenta problemas de este tipo.
 
 \subsubsection{Esfuerzos}
 
+En las figuras \ref{fig:von_mises_3D_01} y \ref{fig:von_mises_3D_01} se muestra la distribución 
+de esfuerzos al final del primer y segundo paso del formado, además de las geometrías 
+resultantes en ambos casos.\\
+
+En \ref{fig:von_mises_3d_all} se muestra la variación del esfuerzo de von Mises máximo en 
+el historial de tiempo, para ambas etapas del formado.
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/von_mises_3D_01.png}
