@@ -953,7 +953,7 @@ En la simulación del segundo paso se utilizó el contacto de tipo Single Surfac
 tomar en cuenta el contacto del blank con él mismo (cerrado del tubo) ~\cite{lsdyna-manual}, 
 utilizandotambién los parámetros de fricción indicados anteriormente.
 
-\section{Análisis experimental}
+\section{Análisis experimental}\label{sec:analisis-experimental}
 
 Para validar los resultados obtenidos mediante la simulación por elemento finito, se realizó 
 un análisis experimental de esfuerzos y deformaciones mediante la técnica de extensometría. 
@@ -1123,8 +1123,30 @@ figura \ref{fig:probetas_instrumentadas}.
 
 \subsection{Realización de las pruebas}
 
-El prototipo utilizado difiere de la configuración del troquel de producción en que el proceso de 
-doblado se realiza con el formador único en la parte superior.\\
+Para llevar a cabo la realización de las pruebas se fabricó un prototipo que pudiera montarse en 
+la máquina universal del laboratorio del Departamento de Ingeniería Mecánica, y que permitiera 
+el doblado del blank en el primer paso.\\
 
-El prototipo creado se montó en una máquina universal.
+En la figura \ref{fig:prototipo} se puede observar el prototipo montado en la máquina universal, con 
+el blank en posición de ensayo. La diferencia principal de este respecto al herramental de producción 
+es claramente la disposición invertida de los formadores, lo cual responde a cuestiones de simplicidad 
+en el posicionamiento de la pieza de trabajo.
+
+\begin{center}
+\includegraphics[width=0.35\textwidth]{src/ch3/prototipo.jpg}
+\captionof{figure}{Protipo}
+\label{fig:prototipo}
+\end{center}
+
+Para la lectura de las deformaciones se utilizó una tarjeta de adquisición de datos en conjunto con 
+un instrumento virtual en LabView\CR, que permitió hacer las lecturas de forma manual y al mismo tiempo 
+almacenarlas en un archivo de texto. \\
+
+Las lecturas se hicieron de forma manual, de modo que se pudiera tener una relación carga-deformación. 
+Para esto se aplicaron cargas en un intervalo de 100 a 1600 kg con incrementos de 100 kg, y se hicieron 
+las lecturas correspondientes a las deformaciones en cada caso. Se tuvo 1600 kg como la carga máxima 
+aplicada debido a que en cargas superiores las galgas dejaron de leer de manera adecuada, debido a las 
+limitaciones inherentes a la instrumentación.
+
+
 

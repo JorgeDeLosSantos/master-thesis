@@ -421,17 +421,33 @@ los resultados obtenidos mediante el modelo tridimensional completo.
 
 \section{Del análisis experimental}
 
+En la sección \ref{sec:analisis-experimental} se describió el proceso de análisis experimental 
+realizado con el auxilio de un prototipo. Los resultados obtenidos de las cuatro probetas 
+ensayadas se pueden observar en la gráfica de la figura \ref{fig:experimental_probetas}, en 
+la cual se muestra la relación carga-deformación unitaria. 
+En general, las lecturas máximas que se pudieron obtener son del orden de 25 milideformaciones 
+para una carga de 1600 kg. Claro está que esto representa sólo una porción del formado del primer 
+paso (doblado U), pero nos sirve para comparar con los resultados arrojados por la simulación.\\
+
+La relación carga-deformación obtenida mediante el análisis por elementos finitos se estableció 
+exportando los datos de tiempo-fuerza y tiempo-deformación, para posteriormente unir estos datos 
+y graficarlos acorde a la relación tiempo-fuerza-desplazamiento, para evitar \textit{desfases} en 
+los datos generados, tomando además solamente los datos dentro del rango de comparación.\\
+
+En la figura \ref{fig:experimental_vs_simulacion} se muestran las curvas de carga-deformación 
+correspondientes a la simulación por elementos finitos y la curva experimental obtenida del 
+promedio de las cuatro probetas ensayadas. En general, se observa una tendencia/comportamiento 
+similar en ambos casos, con un error relativo máximo de 9\% en la sección donde la diferencia 
+entre ambas curvas es notoria.
 
 \begin{center}
-\includegraphics[width=0.8\textwidth]{src/ch4/experimental_probetas.pdf}
+\includegraphics[width=0.85\textwidth]{src/ch4/experimental_probetas.pdf}
 \captionof{figure}{Resultados experimentales de las probetas ensayadas}
 \label{fig:experimental_probetas}
 \end{center}
 
-
 \begin{center}
-\includegraphics[width=0.8\textwidth]{src/ch4/experimental_vs_simulacion.pdf}
+\includegraphics[width=0.85\textwidth]{src/ch4/experimental_vs_simulacion.pdf}
 \captionof{figure}{Resultados experimentales vs simulación}
-\label{fig:experimental_probetas}
+\label{fig:experimental_vs_simulacion}
 \end{center}
-
