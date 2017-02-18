@@ -13,11 +13,11 @@
    inkscape:export-ydpi="90"
    inkscape:export-xdpi="90"
    inkscape:export-filename="C:\Users\User\Desktop\LABPro\master-thesis\src\ch3\diagrama_metodologia.png"
-   sodipodi:docname="diagrama_metodologia.pdf"
-   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="diagrama_metodologia.svg"
+   inkscape:version="0.91 r13725"
    version="1.1"
    id="svg2"
-   height="350"
+   height="600"
    width="660">
   <defs
      id="defs4">
@@ -30,7 +30,7 @@
        style="overflow:visible">
       <path
          id="path4299"
-         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
          style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
          transform="matrix(-0.4,0,0,-0.4,-4,0)"
          inkscape:connector-curvature="0" />
@@ -73,10 +73,10 @@
     </linearGradient>
     <filter
        id="filter4627"
-       color-interpolation-filters="sRGB"
        inkscape:menu-tooltip="Glow of object's own color at the edges"
        inkscape:menu="Shadows and Glows"
-       inkscape:label="Glow">
+       inkscape:label="Glow"
+       style="color-interpolation-filters:sRGB">
       <feGaussianBlur
          id="feGaussianBlur4629"
          result="result91"
@@ -89,10 +89,10 @@
     </filter>
     <filter
        id="filter4593"
-       color-interpolation-filters="sRGB"
        inkscape:menu-tooltip="Basic specular bevel to use for building textures"
        inkscape:menu="ABCs"
-       inkscape:label="Specular light">
+       inkscape:label="Specular light"
+       style="color-interpolation-filters:sRGB">
       <feGaussianBlur
          id="feGaussianBlur4595"
          stdDeviation="6"
@@ -130,10 +130,10 @@
     </filter>
     <filter
        id="filter4105"
-       color-interpolation-filters="sRGB"
        inkscape:menu-tooltip="Scattered cubes; adjust the Morphology primitive to vary size"
        inkscape:menu="Scatter"
-       inkscape:label="Cubes">
+       inkscape:label="Cubes"
+       style="color-interpolation-filters:sRGB">
       <feTurbulence
          id="feTurbulence4107"
          type="fractalNoise"
@@ -188,10 +188,10 @@
     </filter>
     <filter
        id="filter4087"
-       color-interpolation-filters="sRGB"
        inkscape:menu-tooltip="Leaves on the ground in Fall, or living foliage"
        inkscape:menu="Scatter"
-       inkscape:label="Leaves">
+       inkscape:label="Leaves"
+       style="color-interpolation-filters:sRGB">
       <feTurbulence
          id="feTurbulence4089"
          result="result6"
@@ -248,10 +248,10 @@
     </filter>
     <filter
        id="filter4996"
-       color-interpolation-filters="sRGB"
        inkscape:menu-tooltip="Blur the contents of objects, preserving the outline and adding progressive transparency at edges"
        inkscape:menu="Blurs"
-       inkscape:label="Evanescent">
+       inkscape:label="Evanescent"
+       style="color-interpolation-filters:sRGB">
       <feGaussianBlur
          id="feGaussianBlur4998"
          in="SourceGraphic"
@@ -269,9 +269,9 @@
          operator="in" />
     </filter>
     <filter
-       color-interpolation-filters="sRGB"
        id="filter4910"
-       inkscape:label="Drop Shadow">
+       inkscape:label="Drop Shadow"
+       style="color-interpolation-filters:sRGB">
       <feFlood
          id="feFlood4912"
          result="flood"
@@ -429,12 +429,12 @@
     </filter>
     <filter
        id="filter4858"
-       color-interpolation-filters="sRGB"
        inkscape:label="Dark and Glow"
        inkscape:menu="Shadows and Glows"
        inkscape:menu-tooltip="Darkens the edge with an inner blur and adds a flexible glow"
        height="1.5"
-       y="-0.25">
+       y="-0.25"
+       style="color-interpolation-filters:sRGB">
       <feGaussianBlur
          id="feGaussianBlur4860"
          result="result6"
@@ -463,10 +463,10 @@
     </filter>
     <filter
        id="filter4798"
-       color-interpolation-filters="sRGB"
        inkscape:menu-tooltip="Glow of object's own color at the edges"
        inkscape:menu="Shadows and Glows"
-       inkscape:label="Glow">
+       inkscape:label="Glow"
+       style="color-interpolation-filters:sRGB">
       <feGaussianBlur
          id="feGaussianBlur4800"
          result="result91"
@@ -479,10 +479,10 @@
     </filter>
     <filter
        id="filter4689"
-       color-interpolation-filters="sRGB"
        inkscape:menu-tooltip="Scattered cubes; adjust the Morphology primitive to vary size"
        inkscape:menu="Scatter"
-       inkscape:label="Cubes">
+       inkscape:label="Cubes"
+       style="color-interpolation-filters:sRGB">
       <feTurbulence
          id="feTurbulence4691"
          type="fractalNoise"
@@ -537,10 +537,10 @@
     </filter>
     <filter
        id="filter4671"
-       color-interpolation-filters="sRGB"
        inkscape:menu-tooltip="Scattered cubes; adjust the Morphology primitive to vary size"
        inkscape:menu="Scatter"
-       inkscape:label="Cubes">
+       inkscape:label="Cubes"
+       style="color-interpolation-filters:sRGB">
       <feTurbulence
          id="feTurbulence4673"
          type="fractalNoise"
@@ -595,10 +595,10 @@
     </filter>
     <filter
        id="filter4653"
-       color-interpolation-filters="sRGB"
        inkscape:menu-tooltip="Scattered cubes; adjust the Morphology primitive to vary size"
        inkscape:menu="Scatter"
-       inkscape:label="Cubes">
+       inkscape:label="Cubes"
+       style="color-interpolation-filters:sRGB">
       <feTurbulence
          id="feTurbulence4655"
          type="fractalNoise"
@@ -653,10 +653,10 @@
     </filter>
     <filter
        id="filter3209"
-       color-interpolation-filters="sRGB"
        inkscape:menu-tooltip="Shadowy outer bevel"
        inkscape:menu="Shadows and Glows"
-       inkscape:label="Inset">
+       inkscape:label="Inset"
+       style="color-interpolation-filters:sRGB">
       <feMorphology
          id="feMorphology3211"
          radius="3.6"
@@ -688,14 +688,14 @@
     </filter>
     <filter
        id="filter5302"
-       color-interpolation-filters="sRGB"
        x="-0.2"
        y="-0.2"
        width="1.4"
        height="1.4"
        inkscape:menu-tooltip="Gel effect with light refraction"
        inkscape:menu="Ridges"
-       inkscape:label="Refractive gel A">
+       inkscape:label="Refractive gel A"
+       style="color-interpolation-filters:sRGB">
       <feOffset
          id="feOffset5304"
          result="result3"
@@ -765,10 +765,10 @@
     </filter>
     <filter
        id="filter4454"
-       color-interpolation-filters="sRGB"
        inkscape:menu-tooltip="Low, sharp bevel"
        inkscape:menu="Bevels"
-       inkscape:label="Jigsaw piece">
+       inkscape:label="Jigsaw piece"
+       style="color-interpolation-filters:sRGB">
       <feSpecularLighting
          id="feSpecularLighting4456"
          specularExponent="18.5"
@@ -798,10 +798,10 @@
     </filter>
     <filter
        id="filter4442"
-       color-interpolation-filters="sRGB"
        inkscape:menu-tooltip="Low, sharp bevel"
        inkscape:menu="Bevels"
-       inkscape:label="Jigsaw piece">
+       inkscape:label="Jigsaw piece"
+       style="color-interpolation-filters:sRGB">
       <feSpecularLighting
          id="feSpecularLighting4444"
          specularExponent="18.5"
@@ -831,10 +831,10 @@
     </filter>
     <filter
        id="filter4430"
-       color-interpolation-filters="sRGB"
        inkscape:menu-tooltip="Low, sharp bevel"
        inkscape:menu="Bevels"
-       inkscape:label="Jigsaw piece">
+       inkscape:label="Jigsaw piece"
+       style="color-interpolation-filters:sRGB">
       <feSpecularLighting
          id="feSpecularLighting4432"
          specularExponent="18.5"
@@ -864,10 +864,10 @@
     </filter>
     <filter
        id="filter4228"
-       color-interpolation-filters="sRGB"
        inkscape:label="Bright metal"
        inkscape:menu="Bevels"
-       inkscape:menu-tooltip="Bright metallic effect for any color">
+       inkscape:menu-tooltip="Bright metallic effect for any color"
+       style="color-interpolation-filters:sRGB">
       <feGaussianBlur
          id="feGaussianBlur4230"
          in="SourceGraphic"
@@ -930,10 +930,10 @@
     </filter>
     <filter
        id="filter4206"
-       color-interpolation-filters="sRGB"
        inkscape:label="Bright metal"
        inkscape:menu="Bevels"
-       inkscape:menu-tooltip="Bright metallic effect for any color">
+       inkscape:menu-tooltip="Bright metallic effect for any color"
+       style="color-interpolation-filters:sRGB">
       <feGaussianBlur
          id="feGaussianBlur4208"
          in="SourceGraphic"
@@ -996,10 +996,10 @@
     </filter>
     <filter
        id="filter4184"
-       color-interpolation-filters="sRGB"
        inkscape:label="Bright metal"
        inkscape:menu="Bevels"
-       inkscape:menu-tooltip="Bright metallic effect for any color">
+       inkscape:menu-tooltip="Bright metallic effect for any color"
+       style="color-interpolation-filters:sRGB">
       <feGaussianBlur
          id="feGaussianBlur4186"
          in="SourceGraphic"
@@ -1062,10 +1062,10 @@
     </filter>
     <filter
        id="filter3548"
-       color-interpolation-filters="sRGB"
        inkscape:label="Pressed steel"
        inkscape:menu="Bevels"
-       inkscape:menu-tooltip="Pressed metal with a rolled edge">
+       inkscape:menu-tooltip="Pressed metal with a rolled edge"
+       style="color-interpolation-filters:sRGB">
       <feGaussianBlur
          id="feGaussianBlur3550"
          stdDeviation="3"
@@ -1135,14 +1135,14 @@
     </filter>
     <filter
        id="filter3450"
-       color-interpolation-filters="sRGB"
        height="1"
        width="1"
        y="0"
        x="0"
        inkscape:menu-tooltip="Same as Matte jelly but with more controls"
        inkscape:menu="Bevels"
-       inkscape:label="Smart jelly">
+       inkscape:label="Smart jelly"
+       style="color-interpolation-filters:sRGB">
       <feGaussianBlur
          id="feGaussianBlur3452"
          result="result1"
@@ -1271,14 +1271,14 @@
     </filter>
     <filter
        id="filter3426"
-       color-interpolation-filters="sRGB"
        height="1"
        width="1"
        y="0"
        x="0"
        inkscape:menu-tooltip="Same as Matte jelly but with more controls"
        inkscape:menu="Bevels"
-       inkscape:label="Smart jelly">
+       inkscape:label="Smart jelly"
+       style="color-interpolation-filters:sRGB">
       <feGaussianBlur
          id="feGaussianBlur3428"
          result="result1"
@@ -1407,14 +1407,14 @@
     </filter>
     <filter
        id="filter3296"
-       color-interpolation-filters="sRGB"
        height="1"
        width="1"
        y="0"
        x="0"
        inkscape:menu-tooltip="Same as Matte jelly but with more controls"
        inkscape:menu="Bevels"
-       inkscape:label="Smart jelly">
+       inkscape:label="Smart jelly"
+       style="color-interpolation-filters:sRGB">
       <feGaussianBlur
          id="feGaussianBlur3298"
          result="result1"
@@ -1543,14 +1543,14 @@
     </filter>
     <filter
        id="filter3127"
-       color-interpolation-filters="sRGB"
        inkscape:menu-tooltip="Neon light effect"
        inkscape:menu="Bevels"
        height="1.5"
        width="1.5"
        y="-0.25"
        x="-0.25"
-       inkscape:label="Neon">
+       inkscape:label="Neon"
+       style="color-interpolation-filters:sRGB">
       <feConvolveMatrix
          bias="0"
          preserveAlpha="false"
@@ -1642,10 +1642,10 @@
        y="0"
        x="0"
        id="filter3003"
-       color-interpolation-filters="sRGB"
        inkscape:label="Blur content"
        inkscape:menu="Blurs"
-       inkscape:menu-tooltip="Blur the contents of objects, preserving the outline">
+       inkscape:menu-tooltip="Blur the contents of objects, preserving the outline"
+       style="color-interpolation-filters:sRGB">
       <feGaussianBlur
          id="feGaussianBlur3005"
          in="SourceGraphic"
@@ -1791,7 +1791,7 @@
        inkscape:menu="Distort"
        inkscape:label="Pixel Smear"
        id="filter3737"
-       color-interpolation-filters="sRGB">
+       style="color-interpolation-filters:sRGB">
       <feTurbulence
          type="fractalNoise"
          numOctaves="3"
@@ -1851,7 +1851,7 @@
        inkscape:menu="Scatter"
        inkscape:menu-tooltip="Scattered cubes; adjust the Morphology primitive to vary size"
        id="filter3941"
-       color-interpolation-filters="sRGB">
+       style="color-interpolation-filters:sRGB">
       <feTurbulence
          baseFrequency="0.14"
          numOctaves="1"
@@ -1909,7 +1909,7 @@
        inkscape:menu="Scatter"
        inkscape:menu-tooltip="Leaves on the ground in Fall, or living foliage"
        id="filter3973"
-       color-interpolation-filters="sRGB">
+       style="color-interpolation-filters:sRGB">
       <feTurbulence
          baseFrequency="0.09"
          numOctaves="5"
@@ -1969,7 +1969,7 @@
        inkscape:menu="Scatter"
        inkscape:menu-tooltip="Scattered cubes; adjust the Morphology primitive to vary size"
        id="filter3991"
-       color-interpolation-filters="sRGB">
+       style="color-interpolation-filters:sRGB">
       <feTurbulence
          baseFrequency="0.09"
          numOctaves="5"
@@ -2086,7 +2086,7 @@
        inkscape:menu="Shadows and Glows"
        inkscape:menu-tooltip="Inner colorized shadow, outer black shadow"
        id="filter4573"
-       color-interpolation-filters="sRGB">
+       style="color-interpolation-filters:sRGB">
       <feGaussianBlur
          result="result0"
          in="SourceAlpha"
@@ -2118,7 +2118,7 @@
        inkscape:menu="Scatter"
        inkscape:menu-tooltip="Scattered cubes; adjust the Morphology primitive to vary size"
        id="filter3774"
-       color-interpolation-filters="sRGB">
+       style="color-interpolation-filters:sRGB">
       <feTurbulence
          baseFrequency="0.14"
          numOctaves="1"
@@ -2176,7 +2176,7 @@
        inkscape:menu="Scatter"
        inkscape:menu-tooltip="Scattered cubes; adjust the Morphology primitive to vary size"
        id="filter4455"
-       color-interpolation-filters="sRGB">
+       style="color-interpolation-filters:sRGB">
       <feGaussianBlur
          in="SourceGraphic"
          result="blur1"
@@ -2352,7 +2352,7 @@
     <filter
        inkscape:label="Drawing"
        id="filter8231"
-       color-interpolation-filters="sRGB">
+       style="color-interpolation-filters:sRGB">
       <feGaussianBlur
          in="SourceGraphic"
          stdDeviation="2.04"
@@ -2626,6 +2626,20 @@
          offset="1"
          id="stop3456-3" />
     </linearGradient>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-5"
+       style="overflow:visible">
+      <path
+         id="path4299-2"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -2634,17 +2648,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="296.59382"
-     inkscape:cy="236.43067"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="342.36946"
+     inkscape:cy="275.4082"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      width="2550px"
-     inkscape:window-width="1366"
-     inkscape:window-height="705"
-     inkscape:window-x="-4"
-     inkscape:window-y="-4"
+     inkscape:window-width="1280"
+     inkscape:window-height="962"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -2665,11 +2679,11 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-702.36183)">
+     transform="translate(0,-452.36183)">
     <flowRoot
        xml:space="preserve"
        id="flowRoot3693"
-       style="font-size:68.75px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans-serif"><flowRegion
+       style="font-style:normal;font-weight:normal;font-size:68.75px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"><flowRegion
          id="flowRegion3695"><rect
            id="rect3697"
            width="11.428572"
@@ -2677,7 +2691,7 @@
            x="1771.4286"
            y="562.85712" /></flowRegion><flowPara
          id="flowPara3699" /></flowRoot>    <rect
-       style="opacity:0.98999999;fill:url(#linearGradient3458);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       style="opacity:0.98999999;fill:url(#linearGradient3458);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3413"
        width="240.73041"
        height="57.543118"
@@ -2686,7 +2700,7 @@
        ry="7.4828587" />
     <text
        xml:space="preserve"
-       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:justify;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
        x="-251.52798"
        y="32.304474"
        id="text4212"
@@ -2699,7 +2713,7 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot4216"
-       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:justify;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
        transform="translate(0,652.3622)"><flowRegion
          id="flowRegion4218"><rect
            id="rect4220"
@@ -2710,7 +2724,7 @@
          id="flowPara4222" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot3422"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"><flowRegion
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:justify;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"><flowRegion
          id="flowRegion3424"><rect
            id="rect3426"
            width="242.85715"
@@ -2720,7 +2734,7 @@
          id="flowPara3428" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot3430"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:justify;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
        transform="translate(0,552.3622)"><flowRegion
          id="flowRegion3432"><rect
            id="rect3434"
@@ -2731,7 +2745,7 @@
          id="flowPara3436" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot3438"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"><flowRegion
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:justify;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"><flowRegion
          id="flowRegion3440"><rect
            id="rect3442"
            width="224.28572"
@@ -2740,7 +2754,7 @@
            y="100" /></flowRegion><flowPara
          id="flowPara3444" /></flowRoot>    <text
        xml:space="preserve"
-       style="font-size:18.17883492px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#0000ff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.17883492px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:justify;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#0000ff;fill-opacity:1;stroke:none"
        x="-215.27197"
        y="451.66217"
        id="text3446"
@@ -2750,9 +2764,9 @@
          id="tspan3448"
          x="-215.27197"
          y="451.66217"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#0000ff;font-family:Top Secret;-inkscape-font-specification:Top Secret">Borrador</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Top Secret';-inkscape-font-specification:'Top Secret';fill:#0000ff">Borrador</tspan></text>
     <rect
-       style="opacity:0.98999999;fill:url(#linearGradient5295);fill-opacity:1;fill-rule:nonzero;stroke:#db2c31;stroke-width:0.75;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:0.75, 2.25;stroke-dashoffset:0"
+       style="opacity:0.98999999;fill:url(#linearGradient5295);fill-opacity:1;fill-rule:nonzero;stroke:#db2c31;stroke-width:0.75;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:0.75, 2.25;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3460"
        width="207.14285"
        height="53.107143"
@@ -2761,7 +2775,7 @@
        ry="6.1816726" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:justify;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
        x="315.71429"
        y="205.71429"
        id="text4230"
@@ -2771,141 +2785,177 @@
          id="tspan4232"
          x="315.71429"
          y="205.71429" /></text>
+    <rect
+       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3413-1"
+       width="240.73041"
+       height="57.543118"
+       x="78.586876"
+       y="658.56219"
+       ry="7.4828587" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4224"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       transform="translate(368.65716,513.70772)"><flowRegion
+         id="flowRegion4226"><rect
+           id="rect4228"
+           width="221.22342"
+           height="56.568542"
+           x="-280.82242"
+           y="150.49232"
+           style="font-size:20px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara4230"
+         style="font-size:20px;text-align:center;text-anchor:middle">Consulta de fuentes de información</flowPara></flowRoot>    <rect
+       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.19004786;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3413-5"
+       width="241.59247"
+       height="81.202583"
+       x="361.01297"
+       y="646.73242"
+       ry="10.559515" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4224-3"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       transform="translate(651.35317,501.23352)"><flowRegion
+         id="flowRegion4226-1"><rect
+           id="rect4228-6"
+           width="221.2234"
+           height="80.854256"
+           x="-280.82242"
+           y="150.49232"
+           style="font-size:20px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara4230-8"
+         style="font-size:20px;text-align:center;text-anchor:middle">Caracterización de las propiedades mecánicas de la materia prima</flowPara></flowRoot>    <rect
+       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.13685215;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3413-2"
+       width="206.98003"
+       height="86.497551"
+       x="378.31918"
+       y="752.92889"
+       ry="11.24807" />
     <g
-       id="g3523">
-      <rect
-         ry="7.4828587"
-         y="729.27289"
-         x="77.576721"
-         height="57.543118"
-         width="240.73041"
-         id="rect3413-1"
-         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+       id="g3486"
+       transform="translate(198.3992,44.551002)">
       <flowRoot
-         transform="translate(367.64701,584.4184)"
-         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-         id="flowRoot4224"
+         transform="translate(450.14924,565.08986)"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+         id="flowRoot4224-3-1"
          xml:space="preserve"><flowRegion
-           id="flowRegion4226"><rect
+           id="flowRegion4226-1-7"><rect
+             style="font-size:20px;text-align:center;text-anchor:middle"
+             y="150.49232"
+             x="-280.82242"
+             height="85.139969"
+             width="226.93768"
+             id="rect4228-6-4" /></flowRegion><flowPara
+           style="font-size:20px;text-align:center;text-anchor:middle"
+           id="flowPara4230-8-0">Simulación por elementos finitos del proceso de formado</flowPara></flowRoot>    </g>
+    <rect
+       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.23358905;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3413-54"
+       width="266.43195"
+       height="79.118683"
+       x="67.260902"
+       y="756.61835"
+       ry="10.288527" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4224-3-1-9"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       transform="translate(343.19758,611.33102)"><flowRegion
+         id="flowRegion4226-1-7-4"><rect
+           id="rect4228-6-4-8"
+           width="275.50912"
+           height="90.854256"
+           x="-280.82242"
+           y="150.49232"
+           style="font-size:20px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara4230-8-0-8"
+         style="font-size:20px;text-align:center;text-anchor:middle">Análisis experimental de deformaciones y esfuerzos utilizando extensometría.</flowPara></flowRoot>    <rect
+       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.26531661;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3413-6"
+       width="255.35651"
+       height="86.851189"
+       x="72.798622"
+       y="868.59961"
+       ry="11.294055" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4224-3-1-9-2"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       transform="translate(349.31184,725.02343)"><flowRegion
+         id="flowRegion4226-1-7-4-4"><rect
+           id="rect4228-6-4-8-5"
+           width="262.65201"
+           height="93.711403"
+           x="-280.82242"
+           y="150.49232"
+           style="font-size:20px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara4230-8-0-8-5"
+         style="font-size:20px;text-align:center;text-anchor:middle">Comparación de los resultados de la simulación con los experimentales</flowPara></flowRoot>    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       d="m 319.31729,687.33375 41.6957,0"
+       id="path3510"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       d="m 481.80922,727.93504 0,24.99389"
+       id="path3512"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       d="m 378.31921,796.17771 -44.62636,0"
+       id="path3514"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       d="m 200.47688,835.73705 0,32.86256"
+       id="path3516"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0" />
+    <g
+       id="g3907"
+       transform="translate(6.7244383,-57.853535)">
+      <rect
+         ry="7.4887199"
+         y="617.85339"
+         x="78.183678"
+         height="57.588188"
+         width="219.34691"
+         id="rect3413-1-6"
+         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.95492727;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <flowRoot
+         transform="translate(356.84795,471.02154)"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+         id="flowRoot4224-4"
+         xml:space="preserve"><flowRegion
+           id="flowRegion4226-5"><rect
              style="font-size:20px;text-align:center;text-anchor:middle"
              y="150.49232"
              x="-280.82242"
              height="56.568542"
              width="221.22342"
-             id="rect4228" /></flowRegion><flowPara
+             id="rect4228-9" /></flowRegion><flowPara
            style="font-size:20px;text-align:center;text-anchor:middle"
-           id="flowPara4230">Consulta de fuentes de información</flowPara></flowRoot>      <rect
-         ry="10.559515"
-         y="717.44312"
-         x="360.00284"
-         height="81.202583"
-         width="241.59247"
-         id="rect3413-5"
-         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.19004786;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-      <flowRoot
-         transform="translate(650.34302,571.9442)"
-         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-         id="flowRoot4224-3"
-         xml:space="preserve"><flowRegion
-           id="flowRegion4226-1"><rect
-             style="font-size:20px;text-align:center;text-anchor:middle"
-             y="150.49232"
-             x="-280.82242"
-             height="80.854256"
-             width="221.2234"
-             id="rect4228-6" /></flowRegion><flowPara
-           style="font-size:20px;text-align:center;text-anchor:middle"
-           id="flowPara4230-8">Caracterización de las propiedades mecánicas de la materia prima</flowPara></flowRoot>      <rect
-         ry="11.24807"
-         y="823.63959"
-         x="377.30905"
-         height="86.497551"
-         width="206.98003"
-         id="rect3413-2"
-         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.13685215;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-      <g
-         transform="translate(197.38905,115.26168)"
-         id="g3486">
-        <flowRoot
-           xml:space="preserve"
-           id="flowRoot4224-3-1"
-           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-           transform="translate(450.14924,565.08986)"><flowRegion
-             id="flowRegion4226-1-7"><rect
-               id="rect4228-6-4"
-               width="226.93768"
-               height="85.139969"
-               x="-280.82242"
-               y="150.49232"
-               style="font-size:20px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
-             id="flowPara4230-8-0"
-             style="font-size:20px;text-align:center;text-anchor:middle">Simulación por elementos finitos del proceso de formado</flowPara></flowRoot>      </g>
-      <rect
-         ry="10.288527"
-         y="827.32904"
-         x="66.250748"
-         height="79.118683"
-         width="266.43195"
-         id="rect3413-54"
-         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.23358905;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-      <flowRoot
-         transform="translate(342.18743,682.0417)"
-         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-         id="flowRoot4224-3-1-9"
-         xml:space="preserve"><flowRegion
-           id="flowRegion4226-1-7-4"><rect
-             style="font-size:20px;text-align:center;text-anchor:middle"
-             y="150.49232"
-             x="-280.82242"
-             height="90.854256"
-             width="275.50912"
-             id="rect4228-6-4-8" /></flowRegion><flowPara
-           style="font-size:20px;text-align:center;text-anchor:middle"
-           id="flowPara4230-8-0-8">Análisis experimental de deformaciones y esfuerzos utilizando extensometría.</flowPara></flowRoot>      <rect
-         ry="11.294055"
-         y="939.3103"
-         x="71.788467"
-         height="86.851189"
-         width="255.35651"
-         id="rect3413-6"
-         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.26531661;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-      <flowRoot
-         transform="translate(348.30169,795.73411)"
-         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-         id="flowRoot4224-3-1-9-2"
-         xml:space="preserve"><flowRegion
-           id="flowRegion4226-1-7-4-4"><rect
-             style="font-size:20px;text-align:center;text-anchor:middle"
-             y="150.49232"
-             x="-280.82242"
-             height="93.711403"
-             width="262.65201"
-             id="rect4228-6-4-8-5" /></flowRegion><flowPara
-           style="font-size:20px;text-align:center;text-anchor:middle"
-           id="flowPara4230-8-0-8-5">Comparación de los resultados de la simulación con los experimentales</flowPara></flowRoot>      <path
-         inkscape:connector-curvature="0"
-         inkscape:connector-type="polyline"
-         id="path3510"
-         d="m 318.30714,758.04443 41.6957,0"
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
-      <path
-         inkscape:connector-curvature="0"
-         inkscape:connector-type="polyline"
-         id="path3512"
-         d="m 480.79907,798.64572 0,24.99389"
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
-      <path
-         inkscape:connector-curvature="0"
-         inkscape:connector-type="polyline"
-         id="path3514"
-         d="m 377.30906,866.88839 -44.62636,0"
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
-      <path
-         inkscape:connector-curvature="0"
-         inkscape:connector-type="polyline"
-         id="path3516"
-         d="m 199.46673,906.44773 0,32.86256"
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
-    </g>
+           id="flowPara4230-6">Identificación del problema o proyecto</flowPara></flowRoot>    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-5)"
+       d="m 199.00443,616.81046 0,41.69566"
+       id="path3510-4"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.60000002;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3914"
+       width="597.00018"
+       height="565.68542"
+       x="32.324883"
+       y="463.4429"
+       ry="7.4887199" />
   </g>
 </svg>

@@ -7,7 +7,7 @@
 % Teoría de contactos
 % 
 
-\chapter{Marco teórico}
+\chapter{MARCO TEÓRICO}
 
 En este capítulo se presenta información referente al fundamento teórico necesario para el 
 desarrollo del proyecto. El contenido está divido en cuatro secciones. La primera referente 
@@ -132,9 +132,9 @@ durante el doblado. Es importante poder estimar la magnitud del estirado que ocu
 que la longitud de la pieza final pueda coincidir con la dimensión especificada. El problema 
 es determinar la longitud del eje neutral antes del doblado, para tomar en cuenta el estirado 
 de la sección doblada final. Esta longitud se llama \textit{tolerancia de doblado} y se puede 
-estimar como sigue: ~\cite{groover2007}
+estimar mediante la ecuación \ref{eq:tol_dob}.
 
-\begin{equation}
+\begin{equation}\label{eq:tol_dob}
 A_b = 2\pi \frac{\alpha}{360} \left( R + K_{ba} t \right)
 \end{equation}
 
@@ -157,7 +157,8 @@ es más pequeño en relación con el espesor de la lámina.
 
 La fuerza requerida para llevar a cabo un proceso de doblado depende de la configuración del 
 herramental, así como de las propiedades mecánicas y geométricas de la pieza de trabajo. 
-Con la ecuación \ref{eq:fuerza_doblado} se puede estimar la fuerza máxima de doblado.
+Con la ecuación \ref{eq:fuerza_doblado} se puede estimar la fuerza máxima de doblado, para 
+la configuración mostrada en la figura \ref{fig:fuerza_doblado}.
 
 \begin{equation}\label{eq:fuerza_doblado}
 F = \frac{K S_{t} w t^2}{D}
@@ -166,8 +167,8 @@ F = \frac{K S_{t} w t^2}{D}
 Donde $F$ es la fuerza de doblado, $S_t$ la resistencia a la tensión del material, $w$ y $t$ el 
 ancho y espesor de la pieza de trabajo, respectivamente, $D$ es la longitud de la parte abierta 
 de la matriz, tal como se esquematiza en la figura \ref{fig:fuerza_doblado}. $K$ es una constante 
-cuyo valor depende del tipo de doblado, normalmente 1.33 para doblado en V y 0.33 para doblado 
-de bordes. ~\cite{groover2007}
+cuyo valor depende del tipo de doblado, normalmente 1.33 para doblado en V, 0.7 para doblado en 
+U y 0.33 para doblado de bordes. ~\cite{groover2007} ~\cite{kalpakjian2008}
 
 \begin{center}
 \includegraphics[scale=0.4]{src/ch2/fuerza_doblado}
@@ -178,7 +179,7 @@ de bordes. ~\cite{groover2007}
 
 \subsubsection{Recuperación elástica}
 
-Cuando se diseña un troquel, es necesario considerar la recuperación elástica o \textit{springback} 
+Cuando se diseña un troquel, es necesario considerar la recuperación elástica 
 que ocurre después de la descarga, debido a que el material tiende a recuperar su forma 
 inicial e implica que el ángulo de doblado en el herramental $\alpha_i$ no corresponda exactamente con el 
 ángulo deseado $\alpha_f$. La recuperación elástica ocurre en todos los tipos de formado 
@@ -190,7 +191,7 @@ que implican un tipo de doblado.\\
 \label{fig:springback}
 \end{center}
 
-La relación dada entre los ángulos $\alpha_i$ y $\alpha_f$ se conoce como factor de \textit{springback} $k_R$, 
+La relación dada entre los ángulos $\alpha_i$ y $\alpha_f$ se conoce como factor de recuperación elástica $k_R$, 
 y depende de las características del material y la relación entre el radio de doblez y el espesor de la 
 pieza de trabajo. La relación se puede expresar como sigue: ~\cite{schuler1998}
 
@@ -231,9 +232,9 @@ Donde $C$ es una constante dada por:
 C = \frac{S_y}{Es}
 \end{equation}
 
-Siendo $S_y$ la esfuerzo de fluencia del material. Esta ecuación nos permite observar 
-que la recuperación elástica aumenta cuando lo hacen la relación $r/s$ y el 
-esfuerzo de fluencia $S_y$, así como al disminuir el módulo elástico.
+Siendo $S_y$ la resistencia de fluencia del material. Esta ecuación nos permite observar 
+que la recuperación elástica aumenta cuando lo hacen la relación $r/s$ y la 
+resistencia de fluencia $S_y$, así como al disminuir el módulo elástico.
 
 
 \subsection{Herramentales (troqueles)}
@@ -277,7 +278,7 @@ en el proceso de formado.\\
 
 \begin{center}
 \includegraphics[scale=0.3]{src/ch2/componentes_troquel.png}
-\captionof{figure}{Componentes de un troquel. \textit{Fuente:} ~\cite{wikiTroquel2008}}
+\captionof{figure}{Componentes de un troquel. ~\cite{wikiTroquel2008}}
 \label{fig:componentes_troquel}
 \end{center}
 
@@ -409,7 +410,7 @@ de referencia y se expresa como:
 \frac{\partial (x-X)}{\partial X} = \frac{l-l_0}{l_0} = e
 \end{equation}
 
-Esto es el esfuerzo ingenieril o de ingeniería. \\
+Esto es la deformación ingenieril. \\
 
 La componente de deformación lagrangiana $E_{11}$ está definida por:
 
@@ -449,8 +450,8 @@ y los componentes del tensor están definidos por:
 
 \begin{eqnarray} \label{eq:strain_rate_tensor}
 \dot{\varepsilon_x} = \frac{\partial u_x}{\partial x} \,\,\,\,\, ;
-\dot{\varepsilon_x} = \frac{\partial u_x}{\partial x}  \,\,\,\,\, ;
-\dot{\varepsilon_x} = \frac{\partial u_x}{\partial x} \\
+\dot{\varepsilon_y} = \frac{\partial u_x}{\partial x}  \,\,\,\,\, ;
+\dot{\varepsilon_z} = \frac{\partial u_x}{\partial x} \\
 \dot{\varepsilon_{xy}} = \frac{1}{2} \left( \frac{\partial u_x}{\partial y} + \frac{\partial u_y}{\partial x} \right) = \frac{\dot{\gamma_{xy}}}{2} \\
 \dot{\varepsilon_{yz}} = \frac{1}{2} \left( \frac{\partial u_y}{\partial z} + \frac{\partial u_z}{\partial y} \right) = \frac{\dot{\gamma_{yz}}}{2} \\
 \dot{\varepsilon_{zx}} = \frac{1}{2} \left( \frac{\partial u_z}{\partial x} + \frac{\partial u_x}{\partial z} \right) = \frac{\dot{\gamma_{zx}}}{2}
@@ -669,10 +670,10 @@ $ k = Y/2 $ en la ecuación \ref{eq:ec2}, entonces:
 \sigma_1 - \sigma_3 = 2k = C
 \end{equation}
 
-\subsubsection{Criterio de Von Mises}
+\subsubsection{Criterio de von Mises}
 
 El efecto del esfuerzo principal medio puede ser incluido asumiendo que la fluencia depende de la raíz cuadrada 
-del promedio de los diámetros de los tres círculos de Mohr. Este es el criterio de Von Mises, el cual puede ser 
+del promedio de los diámetros de los tres círculos de Mohr. Este es el criterio de von Mises, el cual puede ser 
 expresado como:
 
 \begin{equation} \label{eq:ec3}
@@ -710,7 +711,7 @@ consiguiente sustitución de $\alpha = \sigma_2/\sigma_1$,
 \sigma_1 = \frac{y}{(1-\alpha+\alpha^2)^{1/2}}
 \end{equation}
 
-El criterio de fluencia de Von Mises puede ser expresado en términos de los esfuerzos que no son principales. 
+El criterio de fluencia de von Mises puede ser expresado en términos de los esfuerzos que no son principales. 
 En este caso es necesario incluir los términos de cortante:
 
 \begin{equation}
@@ -732,7 +733,7 @@ d\varepsilon_{ij} = d\lambda (\partial f / \partial \sigma_{ij})
 
 Donde $f$ es la función de $\sigma_{ij}$ que describe la fluencia. Esto está relacionado 
 con el por qué ha sido llamado el \textit{potencial plástico}. Para el criterio de 
-Von Mises, la diferenciación resulta en: ~\cite{hosford2007}
+von Mises, la diferenciación resulta en: ~\cite{hosford2007}
 
 \begin{align}
 d\varepsilon_1 = d\lambda \left[ \sigma_1 - (1/2) (\sigma_2 + \sigma_3) \right] \\
@@ -1439,7 +1440,7 @@ $\varepsilon_{B}$ y $\varepsilon_{C}$ de las galgas respectivas:
 \end{equation}
 
 \begin{equation}
-\varepsilon_A = \varepsilon_{xx} \cos^2\gamma + \varepsilon_{yy} \sin^2\gamma + \gamma_{xy} \cos\gamma \sin\gamma
+\varepsilon_C = \varepsilon_{xx} \cos^2\gamma + \varepsilon_{yy} \sin^2\gamma + \gamma_{xy} \cos\gamma \sin\gamma
 \end{equation}
 
 Los componentes cartesianos de la deformación $\varepsilon_{xx}$, $\varepsilon_{yy}$ y $\gamma_{xy}$ pueden 

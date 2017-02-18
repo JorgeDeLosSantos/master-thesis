@@ -1,4 +1,4 @@
-\chapter{Metodología aplicada}
+\chapter{METODOLOGÍA APLICADA}
 
 En este capítulo se describe la metodología seguida para el desarrollo del proyecto, 
 desde la documentación del proyecto, la caracterización del material, el análisis por 
@@ -6,6 +6,8 @@ elemento finito, el análisis experimental, y cada una de las etapas necesarias 
 la conclusión y consecución de los objetivos planteados. En la figura \ref{fig:diagrama_metodologia} 
 se muestra un esquema de las etapas del desarrollo del proyecto y en las secciones 
 subsiguientes se describen de manera más amplia las actividades que implica cada una de ellas.
+
+\section{Metodología aplicada}
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch3/diagrama_metodologia.pdf}
@@ -32,11 +34,11 @@ cantidad considerable de trabajos de tesis, además de una revisión general en
 Google Scholar, que refiere e indexa la mayor parte del contenido de carácter científico 
 y/o académico.
 
-\section{Caracterización del material}
+\section{Ensayo de tensión uniaxial}
 
-La caracterización del material es una cuestión importante, puesto que permitió conocer 
-las propiedades mecánicas de interés, que sirvieron posteriormente para definir los 
-modelos de los materiales asignados en el software de simulación.\\
+% La caracterización del material es una cuestión importante, puesto que permitió conocer 
+% las propiedades mecánicas de interés, que sirvieron posteriormente para definir los 
+% modelos de los materiales asignados en el software de simulación.\\
 
 El material utilizado como materia prima para el proceso de formado es un acero AISI 1018, 
 muy común en la industria del troquelado, y cuyas propiedades mecánicas elementales están 
@@ -45,8 +47,6 @@ es conveniente tomar en cuenta que no todos los materiales son sometidos al mism
 de fabricación y/o tratamientos, de modo que la caracterización en este caso servirá 
 para validar esas propiedades, y además, obtener una curva de esfuerzo-deformación en la 
 zona plástica.
-
-\subsection{Ensayo de tensión uniaxial}
 
 Cuando se requiere conocer las propiedades mecánicas de un material en ingeniería, se utilizan ensayos 
 normalizados. En este caso se hace necesario obtener la curva esfuerzo-deformación del 
@@ -65,7 +65,7 @@ cada una de las probetas.\\
 \end{center}
 
 Con los datos de las curvas de \ref{fig:tensile_test_all} se calculó un promedio de la relación esfuerzo-deformación, 
-y se obtuvo una curva de esfuerzo-deformación promedio mostrada en la figura \ref{fig:material_curve}, 
+y se obtuvo una curva de esfuerzo-deformación ingenieril promedio mostrada en la figura \ref{fig:material_curve}, 
 en la cual se muestra, además, la curva esfuerzo-deformación verdadera calculada mediante las ecuaciones 
 \ref{eq:true_stress} y \ref{eq:true_strain}.
 
@@ -131,7 +131,7 @@ Para fabricar el tubo interior \ref{fig:ti_rb131} se utiliza un troquel compuest
 de dos etapas, a saber: un doblado en U y un cerrado o doblado en O, mismo cuyo modelo CAD se muestra 
 en la figura \ref{fig:troquel}. El troquel tiene como materia de entrada una placa metálica 
 (\textit{blank}) rectangular de acero AISI 1018, con un largo de 3 in y un acho de 2.125 in, 
-con un espesor de 0.12 in (ver figura \ref{fig:blank_inicial}). El \textif{blank} tiene además 
+con un espesor de 0.12 in (ver figura \ref{fig:blank_inicial}). La placa metálica tiene además 
 dos chaflanes en la dirección axial, sobre una de las caras, mismos que sirven para permitir un 
 cierre de tubo adecuado.
 
@@ -184,7 +184,7 @@ el cerrado del tubo. Esto permite realizar dos análisis de menor costo computac
 además de evitar las complicaciones inherentes al tiempo de vida de los contactos y el correcto 
 posicionamiento de los formadores para cada caso.\\
 
-Para lo anterior se tuvieron dos ensambles correspondientes al primer (ver figura \ref{fig:assembly_01}) y 
+Para lo anterior se tuvieron dos ensambles correspondientes al primer paso (ver figura \ref{fig:assembly_01}) y 
 segundo paso (ver figura \ref{fig:assembly_02}) del troquel. En el primer paso se realizó 
 un análisis dinámico-explícito ordinario, definiendo los modelos de material, la discretización y 
 la definición de contactos. En el segundo paso se realizó un análisis de tipo \textit{full restart} o 
@@ -229,13 +229,17 @@ relación de Cowper-Symonds mostrada en la ecuación \ref{eq:cowper_symonds}.\\
 {{\sigma }_{y}}\left( \varepsilon _{eff}^{P} \right)\left[ 1+{{\left( \frac{\dot{\varepsilon }_{eff}^{P}}{C} \right)}^{\frac{1}{P}}} \right]
 \end{equation}
 
+Donde $\varepsilon _{eff}^{P}$ es la tasa de deformación plástica efectiva, C y P son parámetros 
+de la tasa de deformación, y $\sigma_y(\varepsilon_{eff}^P)$ es el esfuerzo de fluencia sin la 
+consideración de la tasa de deformación.\\
+
 La curva esfuerzo-deformación ingresada en el software de simulación fue la obtenida 
 de forma experimental, con algunas modificaciones a saber: se tomaron solamente 7 puntos 
 de la curva original linealmente equiespaciados, se calculó el esfuerzo y deformación verdadera 
 mediante las ecuaciones descritas en la sección \ref{subsec:true_strain_stress}, posteriormente 
 a partir de la deformación verdadera se obtuvo la deformación plástica mediante la 
 ecuación \ref{eq:plastic_strain}, mismas que se agrupan en la tabla \ref{tab:strain_stress_conversion}.
-La curva resultante y que se ingresó en el softaware se muestra en la figura \ref{fig:ls_dyna_material_curve}. \\
+La curva resultante y que se ingresó en el software se muestra en la figura \ref{fig:ls_dyna_material_curve}. \\
 
 Para definir completamente el modelo es necesario asignar las propiedades mecánicas elementales 
 como el módulo elástico, la relación de Poisson y la densidad. Además, se debe asignar 
@@ -295,7 +299,7 @@ cual se anexa en \ref{sec:definicion-materiales}
 
 \begin{center}
 \includegraphics[scale=0.6]{src/ch3/ls_dyna_material_curve.pdf}
-\captionof{figure}{Curva esfuerzo-deformación ingresada en ANSYS/LS-DYNA}
+\captionof{figure}{Curva esfuerzo-deformación ingresada en ANSYS/LS-DYNA\CR}
 \label{fig:ls_dyna_material_curve}
 \end{center}
 
@@ -313,7 +317,7 @@ Así, en este caso, fue necesario escalar el modelo importado para convertir los
 y trabajar en el sistema inglés, esto mediante las herramientas de modelado proporcionadas por 
 ANSYS\CR. \\
 
-Del modelo CAD importado el softaware de simulación crea entidades geométricas de volumen, áreas, 
+Del modelo CAD importado el software de simulación crea entidades geométricas de volumen, áreas, 
 líneas y \textit{keypoints}. Pero para el análisis bidimensional sólo se necesitaron las áreas 
 correspondientes a la vista frontal del modelo, por tanto se procedió a eliminar las todas las entidades 
 de volumen y área, para poder borrar las lineas correspondientes a la dirección axial del modelo.
@@ -347,10 +351,10 @@ deforman la malla en forma de zig zag e inducen esfuerzos elevados en las zonas 
 \label{fig:plane162}
 \end{center}
 
-El \textit{blank} se malló con elementos cuyo tamaño global fue de 0.03 in. Debido a los chaflanes del blank 
-un mallado mapeado produce una malla bastante irregular, por ello se dividió el blank en 5 áreas, resultando 
-en áreas correspondientes a polígonos regulares, que pudieron mallarse de forma más refinada, quedando una malla 
-bastante regular y con elementos proporcionados como se observa en la figura \ref{fig:mesh_blank_2d}
+La pieza de trabajo se malló con elementos cuyo tamaño global fue de 0.03 in. Debido a los chaflanes 
+un mallado mapeado produce una malla bastante irregular, por ello se dividió la placa en 5 áreas, resultando 
+en secciones correspondientes a polígonos regulares, que pudieron mallarse de forma más refinada, 
+quedando una malla bastante regular y con elementos proporcionados como se observa en la figura \ref{fig:mesh_blank_2d}
 
 \begin{center}
 \includegraphics[width=0.55\textwidth]{src/ch3/mesh_blank_2d.png}
@@ -358,9 +362,10 @@ bastante regular y con elementos proporcionados como se observa en la figura \re
 \label{fig:mesh_blank_2d}
 \end{center}
 
-Para el mallado de los formadores, cada uno se dividió en dos regiones, una de las cuales está en contacto directo 
-con el blank durante el proceso de formado. Así, para la región que está en contacto para cada caso, se asignó 
-a las líneas un tamaño de elemento de 0.025 in, con la finalidad de tener regiones con una densidad de malla mayor 
+Para el mallado de los formadores, cada uno se dividió en dos regiones, una de las cuales 
+está en contacto directo con la pieza de trabajo durante el proceso de formado. Así, para 
+la región que está en contacto para cada caso, se asignó  a las líneas un tamaño de elemento 
+de 0.025 in, con la finalidad de tener regiones con una densidad de malla mayor 
 que permitiese un adecuado comportamiento de los formadores. \\
 
 Una densidad de malla mayor es importante y necesaria sobre todo en las partes agudas de las levas mostradas en 
@@ -414,21 +419,24 @@ El resultado del mallado para los elementos formadores se puede observar en las 
 \caption{Mallado de a) leva izquierdo b) leva derecha}
 \end{figure}
 
-Para la simulación de la segunda etapa del troquel la malla del \textit{blank} se modificó a su forma deformada 
-utilizando el comando \texttt{UPGEOM} de ANSYS\faCopyright, como se describe en la sección \ref{sec:initial-stress}. 
-Debido a lo anterior es evidente que el mallado del blank no se realizó de manera explícita para la segunda etapa 
-y solamente se mallaron los componentes formadores del troquel. La forma deformada importada del primer paso 
+Para la simulación de la segunda etapa del troquel la malla de la pieza de trabajo se modificó 
+a su forma deformada utilizando el comando \texttt{UPGEOM} de ANSYS\faCopyright, como se 
+describe en la sección \ref{sec:initial-stress}.
+
+Debido a lo anterior es evidente que el mallado de la pieza de trabajo no se realizó de 
+manera explícita para la segunda etapa y solamente se mallaron los componentes formadores 
+del troquel. La forma deformada importada del primer paso 
 se puede observar en la figura \ref{fig:mesh_deformed_blank_2d}.  \\
 
 \begin{center}
 \includegraphics[width=0.5\textwidth]{src/ch3/mesh_deformed_blank_2d.png}
-\captionof{figure}{Geometría deformada importada del primer paso}
+\captionof{figure}{Geometría deformada exportada del primer paso}
 \label{fig:mesh_deformed_blank_2d}
 \end{center}
 
 Como en el primer paso, los formadores de la segunda etapa del formado se mallaron con un tamaño global de 0.035 in, 
-modificando el tamaño de elemento unicamente en las lineas que entran en contacto directo con el \textit{blank}.
-Las figuras \ref{fig:mesh_ffi_2d}, \ref{fig:mesh_ffs_2d} y \ref{fig:mesh_perno} muestran las geometrías malladas 
+modificando el tamaño de elemento unicamente en las lineas que entran en contacto directo con la pieza de trabajo.
+Las figuras \ref{fig:mesh_ffi_2d}, \ref{fig:mesh_ffs_2d} y \ref{fig:mesh_perno_2d} muestran las geometrías malladas 
 para el formador final inferior, superior y el perno formador, respectivamente.
 
 \begin{center}
@@ -446,21 +454,20 @@ para el formador final inferior, superior y el perno formador, respectivamente.
 \begin{center}
 \includegraphics[width=0.35\textwidth]{src/ch3/mesh_perno_2d.png}
 \captionof{figure}{Mallado del perno}
-\label{fig:mesh_perno}
+\label{fig:mesh_perno_2d}
 \end{center}
 
 
 \subsubsection{Modificación de la geometría y pre-esfuerzo en la segunda etapa}\label{sec:initial-stress}
 
 En la sección \label{sec:consideraciones-generales} se mencionó que para la segunda etapa del troquel se realizó 
-una simulación de tipo \textit{restart analysis} o castellanizado literalmente: un análisis de reinicio, el cual 
+una simulación de tipo \textit{restart analysis} (análisis de reinicio), el cual 
 básicamente es un análisis realizado como una continuación de otro, por razones que pueden ser diversas: 
 análisis muy grandes que requieran subdivisiones, análisis que requieren un monitoreo o extracción de resultados 
 en ciertas etapas o bien para análisis en los cuales se cambian o modifican una o más geometrías para luego 
 continuarlo. Este último caso es en el cual se encuentra el proceso de formado objeto de esta tesis, dado 
 que primeramente se realiza un análisis para la primera etapa y enseguida se realiza otra simulación para 
-la segunda etapa del formado, misma que depende de la anterior, puesto que la geometría deformada del \textit{blank} 
-es un componente de entrada.\\
+la segunda etapa del formado, misma que depende de la anterior, puesto que la geometría deformada de la pieza de trabajo es un componente de entrada.\\
 
 El software de simulación utilizado proporciona tres tipos de \textit{restart analysis}: \textit{simple restart}, 
 \textit{small restart} y \textit{full restart}. El \textit{simple restart} se utiliza cuando un análisis ha sido 
@@ -497,7 +504,7 @@ los mismos y finalmente se borraron las geometrías correspondientes. Enseguida 
 correspondiente a los formadores del segundo paso, se mallaron y se definieron los nuevos modelos 
 de material para cada uno de los componentes.\\
 
-Con las geometrías de formadores malladas se procedió a modificar la geometría del \textit{blank} a su 
+Con las geometrías de formadores malladas se procedió a modificar la geometría de la pieza de trabajo a su 
 forma deformada, esto utilizando el comando \texttt{UPGEOM} de ANSYS\CR, cuya sintaxis es:  ~\cite{ansys-command}
 
 \begin{verbatim}
@@ -527,7 +534,7 @@ de parte de donde provienen los esfuerzos y a la cual se aplicarán, de manera r
 la pieza de trabajo se identifica con el número de parte 1 en ambos análisis. \\
 
 En la figura \ref{fig:initial_stress} se puede observar el ensamble del segundo paso, con los formadores 
-mallados y la geometría deformada del \textit{blank}, además del pre-esfuerzo importado desde el resultado 
+mallados y la geometría deformada de la pieza de trabajo, además del pre-esfuerzo importado desde el resultado 
 obtenido en el primer paso, cuyo máximo valor de esfuerzo de von Mises es de alrededor de 38,000 psi.
 
 \begin{center}
@@ -692,7 +699,7 @@ El paso de tiempo mínimo viene dado por la relación:
 \Delta t_{min} = \frac{l_{min}}{c} 
 \end{equation}
 
-donde la constante $c$ correspondiente a la velocidad del sonido, viene dada por:
+donde la constante $c$ correspondiente a la velocidad del sonido en el material, viene dada por:
 
 \begin{equation}
 c = \sqrt{\frac{E}{(1-\nu^2)\rho}}
@@ -947,7 +954,7 @@ que viene dado por la ecuación :
 
 Donde $DC$ es el coeficiente de decaimiento exponencial y $v_{rel}$ la velocidad relativa
 entre las superficies en contacto ~\cite{lsdyna-manual}. Los valores del coeficiente de 
-fricción estáticoy dinámico se establecieron en 0.2 y 0.1, respectivamente. ~\cite{carvill1993} \\
+fricción estático y dinámico se establecieron en 0.2 y 0.1, respectivamente. ~\cite{carvill1993} \\
 
 En la simulación del segundo paso se utilizó el contacto de tipo Single Surface (SS) para 
 tomar en cuenta el contacto del blank con él mismo (cerrado del tubo) ~\cite{lsdyna-manual}, 
@@ -1147,6 +1154,3 @@ Para esto se aplicaron cargas en un intervalo de 100 a 1600 kg con incrementos d
 las lecturas correspondientes a las deformaciones en cada caso. Se tuvo 1600 kg como la carga máxima 
 aplicada debido a que en cargas superiores las galgas dejaron de leer de manera adecuada, debido a las 
 limitaciones inherentes a la instrumentación.
-
-
-

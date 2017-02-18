@@ -1,25 +1,25 @@
-\chapter{Análisis de resultados}
+\chapter{ANÁLISIS DE RESULTADOS}
 
 En este capítulo se presenta el análisis y discusión de los principales resultados 
 obtenidos en el desarrollo de este proyecto. Del análisis por elementos finitos 
 se presentan los resultados del caso bidimensional y del modelo tridimensional, comparando 
 ambos casos, con la finalidad de discutir la viabilidad de utilizar un análisis de tipo 
-deformación plana en una simulación de formado como esta. Además los resultados del 
+deformación plana en una simulación de formado como esta. Además, los resultados del 
 análisis numérico se comparan con lo obtenido mediante el análisis experimental.\\
 
-Además, con la finalidad de determinar algunas condiciones o parámetros que faciliten 
-el análisis de procesos de formado de este tipo, se presenta una sección destinada 
-a evaluar la influencia del escalamiento de masa selectivo cuya utilidad va en 
-dirección de disminuir el tiempo de cómputo requerido. Asimismo se expone una sección 
-referente al uso de algunos modelos de material como el bilineal isotrópico y cinemático, 
-la plasticidad cinemática y curvas multilineales, para determinar si las variaciones 
-en el comportamiento del material son significativas.
+% Además, con la finalidad de determinar algunas condiciones o parámetros que faciliten 
+% el análisis de procesos de formado de este tipo, se presenta una sección destinada 
+% a evaluar la influencia del escalamiento de masa selectivo cuya utilidad va en 
+% dirección de disminuir el tiempo de cómputo requerido. Asimismo se expone una sección 
+% referente al uso de algunos modelos de material como el bilineal isotrópico y cinemático, 
+% la plasticidad cinemática y curvas multilineales, para determinar si las variaciones 
+% en el comportamiento del material son significativas.
 
-\section{Del análisis de elementos finitos}
+\section{Análisis por el método de elementos finitos}
 
 \subsection{Análisis 2D}
 
-\subsubsection{Estatus global}
+% \subsubsection{Estatus global}
 
 Normalmente en un análisis de tipo dinámico explícito, el balance de energía juega 
 un papel importante e incluso puede utilizarse como criterio de \textit{terminación}. 
@@ -112,12 +112,12 @@ del formado, respectivamente.
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/von_mises_01.png}
-\captionof{figure}{Distribución de esfuerzos de von Mises, final del primer paso}
+\captionof{figure}{Distribución de esfuerzos de von Mises, final del primer paso, psi}
 \label{fig:von_mises_01}
 \end{center}
 
 La figura \ref{fig:von_mises_stress_01} muestra la variación del esfuerzo máximo 
-de von Mises, cuyo máximo valor es de alrededor de 87,000 psi.
+de von Mises para el primer paso de carga, cuyo valor máximo es de alrededor de 87,000 psi.
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/von_mises_stress_01.pdf}
@@ -139,7 +139,7 @@ el caso de un acero. \\
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/von_mises_02.png}
-\captionof{figure}{Distribución de esfuerzos de von Mises, final del segundo paso}
+\captionof{figure}{Distribución de esfuerzos de von Mises, final del segundo paso, psi}
 \label{fig:von_mises_02}
 \end{center}
 
@@ -187,7 +187,7 @@ requerida para completar el primer paso es de 2500 lbf, de donde se debe conside
 que el análisis de deformación plana se realiza en base a una pieza de trabajo de 
 ancho unitario. Este resultado se puede extrapolar a la pieza real si multiplicamos el 
 resultado por un factor de 3 que es lo correspondiente a la longitud del \textit{blank}, 
-por tanto la fuerza requerida correspondería a 7500 lbf.\\s
+por tanto la fuerza requerida correspondería a 7500 lbf.\\
 
 De la gráfica de \ref{fig:nodal_force_01} se puede observar también que existen dos máximos 
 locales correspondientes a la fuerza requerida para la operación de los formadores superiores y 
@@ -212,7 +212,7 @@ el análisis numérico.
 \end{center}
 
 En la figura \ref{fig:nodal_force_02} se muestra la fuerza de formado requerida para completar el 
-segundo paso del formado, misma que se calculó en alrededor de 90,000 lbf (45 ton). En este punto 
+segundo paso del formado, misma que se calculó en alrededor de 90,000 lbf (40.8 ton). En este punto 
 hay que considerar que la fuerza requerida varía considerablemente dependiendo del desplazamiento 
 del formador superior, y de esto depende, la forma final del tubo obtenido, con lo aquí descrito se 
 obtuvo una geometría como la mostrada en \ref{fig:geometry_02}.
@@ -230,7 +230,7 @@ selectivo en un análisis de tipo dinámico explícito, cuyo objetivo es reducir
 solución de una simulación mediante la introducción controlada de \textit{masa artificial} que implica 
 un aumento en la densidad del material y esto a su vez la reducción de los intervalos de tiempo.\\
 
-En lo subsiguiente se presenta el análisis de cinco simulaciones realizadas con escalamientos de 
+Para evidenciar lo comentado en el párrafo anterior, en lo subsiguiente se presenta el análisis de cinco simulaciones realizadas con escalamientos de 
 masa selectivo, en donde el tamaño mínimo del paso de tiempo se varía desde $1x10^{-7}$ hasta 
 $5x10^{-7}$.\\
 
@@ -245,7 +245,7 @@ de solución hasta un 30\% respecto al tiempo de solución sin escalamiento de m
 \label{fig:ms_sol_time}
 \end{center}
 
-En \ref{fig:ms_von_mises} se muestra la variación del esfuerzo equivalente máximo de von Mises, cuando 
+En la figura \ref{fig:ms_von_mises} se muestra la variación del esfuerzo equivalente máximo de von Mises, cuando 
 se aplica el escalamiento de masa. Se puede observar que la variación entre cada uno de los casos 
 es mínima en todo el historial de tiempo, habiendo una diferencia significativa en el tiempo 
 correspondiente a cuando los formadores superiores dejan de actuar y las levas aún no interactúan 
@@ -276,7 +276,7 @@ Un escalamiento de masa excesivo normalmente conlleva a un resultado alejado de 
 geométricas deformadas tienden a no corresponder con lo esperado, debido a que los efectos de la inercia 
 inducida por la introducción de masa artificial son muy exagerados. Por ejemplo, en la figura 
 \ref{fig:ms_excessive} se muestra una simulación que resulta de utilizar un escalamiento de masa bastante 
-exagerado (un ratio mayor a 400 de \textit{masa agregada}); se puede observar claramente que la geometría 
+exagerado (un proporción mayor a 400 de \textit{masa agregada}); se puede observar claramente que la geometría 
 de la pieza de trabajo se deforma hasta una configuración improbable para un material rígido como el acero, 
 aún cuando los formadores superiores no están en contacto directo en ese instante, esto debido a que la 
 energía cinética (que aumenta con la masa) del modelo representa una fracción superior al 10\% de la 
@@ -302,13 +302,13 @@ respecto al bilineal cinemático.
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/mdm_von_mises.pdf}
-\captionof{figure}{Variación de la fuerza de formado usando escalamiento de masa}
+\captionof{figure}{Variación del esfuerzo de von Mises para diversos modelos constitutivos}
 \label{fig:mdm_von_mises}
 \end{center}
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/mdm_force.pdf}
-\captionof{figure}{Variación de la fuerza de formado usando escalamiento de masa}
+\captionof{figure}{Variación de la fuerza de formado para diversos modelos constitutivos}
 \label{fig:mdm_force}
 \end{center}
 
@@ -419,7 +419,7 @@ es bastante más oscilatoria que su equivalente bidimensional.\\
 Se puede asumir que la consideración de deformación plana aproxima de manera aceptable 
 los resultados obtenidos mediante el modelo tridimensional completo.
 
-\section{Del análisis experimental}
+\section{Análisis de resultados experimentales }
 
 En la sección \ref{sec:analisis-experimental} se describió el proceso de análisis experimental 
 realizado con el auxilio de un prototipo. Los resultados obtenidos de las cuatro probetas 

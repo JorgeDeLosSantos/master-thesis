@@ -1,4 +1,4 @@
-\chapter{Marco de referencia}\label{ch:marco_de_referencia}
+\chapter{MARCO DE REFERENCIA}\label{ch:marco_de_referencia}
 
 \section{Antecedentes}
 
@@ -9,7 +9,7 @@ o el mecanizado. Es empleado en gran variedad de sectores: electrodomésticos ,
 automotriz, aeronáutico, naval, electrónico e informático y su objetivo es aprovechar al máximo 
 el material para elaborar la mayor cantidad de piezas con el menor tiempo y costo posible. \\
 
-El proceso de estampado, vital dentro del sector automotriz en México, genera una demanda 
+El proceso de estampado, es vital dentro del sector automotriz en México, genera una demanda 
 de mercado con un valor de unos \$17,000 millones de dólares. Este monto es conformado por la 
 suma de la proveeduría nacional, que aporta \$6,000 millones de dólares y las importaciones de 
 piezas y componentes que utilizan este proceso de manufactura, valuadas en poco más de 
@@ -47,10 +47,10 @@ establecer una metodología ágil para el desarrollo de nuevos productos o de lo
 
 La empresa Bypasa S.A. de C.V. diseña y fabrica componentes utilizados en partes antivibratorias, 
 para el sector automotriz, específicamente bujes y abrazaderas utilizadas en las suspensiones, 
-partiendo desde la creación de los materiales poliméricos requeridos, la selección de la geometría 
+partiendo desde la formulación de los materiales poliméricos requeridos, la selección de la geometría 
 y la validación del diseño. Sin embargo los herramentales: moldes y troqueles, que utiliza en sus 
 procesos de producción son diseñados y fabricados por empresas extranjeras y/o nacionales. Por esto 
-se está desarrollando un proyecto cuyo objetivo es poner en operación un centro de diseño, fabricación 
+se desarrolló un proyecto cuyo objetivo fue poner en operación un centro de diseño, fabricación 
 y validación de moldes y troqueles.\\
 
 El modelado y simulación, por medio de métodos numéricos computacionales, de los procesos de fabricación 
@@ -58,11 +58,12 @@ involucrados en el desarrollo de los herramentales es una parte importante del p
 permitirá tomar decisiones respecto a los diseños en etapas tempranas, minimizando los costos derivados de 
 los ajustes realizados después de ejecutar \textit{corridas} de prueba.\\
 
-Se requiere simular el proceso de formado de un tubo de acero AISI 1018 que será fabricado con 
-un herramental diseñado en el nuevo centro de desarrollo, con la finalidad de determinar 
-la forma de la geometría final del producto, comparar con las especificaciones, determinar 
-si es necesario un rediseño, además de obtener algunos datos como la fuerza de formado 
-requerida para el proceso. 
+Por lo tanto el problema que tiene la empresa es que no cuenta con la implementación de herramientas 
+CAD/CAE para el diseño de herramentales y por ello se requiere simular el proceso de formado de un 
+tubo de acero AISI 1018 que será fabricado con un herramental diseñado en el nuevo centro de desarrollo, 
+con la finalidad de determinar la forma de la geometría final del producto, comparar con las especificaciones, 
+precisar si es necesario un rediseño, además de obtener algunos datos de interés como la fuerza de formado 
+requerida para completar el proceso.
 
 \section{Justificación}
 
@@ -78,14 +79,15 @@ de un componente.
 
 \section{Objetivo general}
 
-Simular y validar el proceso de formado de un tubo de acero AISI 1018.
+Simular el proceso de formado de un tubo de acero AISI 1018 utilizando el método de los elementos finitos, 
+y validar los resultados obtenidos mediante la técnica de extensometría.
 
 \section{Objetivos particulares}
 \begin{itemize}
-\item Simular utilizando elementos finitos el proceso de formado del tubo.
-\item Identificar fallas potenciales o características no deseables en el tubo.
+\item Simular utilizando el método de los elementos finitos el proceso de formado del tubo.
+% \item Identificar fallas potenciales o características no deseables en el tubo.
 \item Comparar resultados obtenidos de simulaciones utilizando una condición de deformación plana y un análisis tridimensional.
-\item Validar los resultados de la simulación.
+\item Validar los resultados de la simulación mediante la técnica de extensometría.
 % \item Verificar las características geométricas y dimensionales del tubo.
 %%% \item Caracterizar de forma experimental y por elemento finito el comportamiento elástico de la materia prima utilizada.
 \end{itemize}
@@ -137,7 +139,7 @@ manera somera algunos trabajos realizados sobre simulación de estampados.\\
 
 Jorge Olivera en ~\cite{olivera2014} describe una metodología analítica y la simulación numérica de un doblado en U 
 utilizando un software comercial de elementos finitos. De la simulación numérica obtuvo las variaciones de espesor 
-y el estado de esfuerzos (ver figura \ref{fig:olivera}) de la pieza conformada.
+y el estado de esfuerzos (figura \ref{fig:olivera}) de la pieza conformada.
 
 \begin{center}
 \includegraphics[width=0.6\textwidth]{src/ch1/olivera.png}

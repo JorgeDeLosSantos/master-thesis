@@ -4,10 +4,17 @@
 
 \usepackage[bitstream-charter]{mathdesign} 
 \usepackage[T1]{fontenc}
-\newcommand{\selectSans}{\usefont{T1}{qhv}{m}{n}\selectfont} % sans-serif TeX Gyre Heros font
+% \newcommand{\selectSans}{\usefont{T1}{qhv}{m}{n}\selectfont} % sans-serif TeX Gyre Heros font
 % \newcommand{\selectSans}{\usefont{T1}{cmr}{m}{n}\selectfont} % sans-serif TeX Gyre Heros font
 % \usepackage{charter}
 % \usepackage{mathpazo}
+
+% Interlineado de 1.5
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.15}
+
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
 
 \decimalpoint
 \let\cleardoublepage\clearpage
@@ -148,6 +155,21 @@ boxsep=0pt,left=6pt,right=6pt,top=2pt,bottom=2pt}
 \renewcommand{\footrulewidth}{0.2pt}
 \pagestyle{fancy}
 
+\addto\captionsspanish{% Replace "english" with the language you use
+  \renewcommand{\contentsname}%
+    {ÍNDICE GENERAL}%
+}
+
+\addto\captionsspanish{% Replace "english" with the language you use
+  \renewcommand{\listfigurename}%
+    {ÍNDICE DE FIGURAS}%
+}
+
+\addto\captionsspanish{% Replace "english" with the language you use
+  \renewcommand{\listtablename}%
+    {ÍNDICE DE TABLAS}%
+}
+
 
 \author{}
 \date{}
@@ -191,6 +213,7 @@ boxsep=0pt,left=6pt,right=6pt,top=2pt,bottom=2pt}
 % ==================================================== Referencias ====================================================
 \bibliographystyle{unsrt}
 \bibliography{bibs}
+\addcontentsline{toc}{chapter}{REFERENCIAS}
 
 % ==================================================== Anexos =========================================================
 \appendix
