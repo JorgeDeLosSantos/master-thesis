@@ -1,16 +1,32 @@
 \chapter{METODOLOGÍA APLICADA}
 
 En este capítulo se describe la metodología seguida para el desarrollo del proyecto, 
-desde la documentación del proyecto, la caracterización del material, el análisis por 
-elemento finito, el análisis experimental, y cada una de las etapas necesarias para 
-la conclusión y consecución de los objetivos planteados. En la figura \ref{fig:diagrama_metodologia} 
-se muestra un esquema de las etapas del desarrollo del proyecto y en las secciones 
-subsiguientes se describen de manera más amplia las actividades que implica cada una de ellas.
+desde la documentación del proyecto, la caracterización de propiedades elastoplásticas 
+del material mediante un ensayo de tensión, el análisis por elementos finitos, 
+el análisis experimental usando galgas extensométricas, y cada una de las etapas 
+necesarias para la conclusión y consecución de los objetivos planteados. 
 
 \section{Metodología aplicada}
 
+En la figura \ref{fig:diagrama_metodologia} se muestra un esquema de las etapas necesarias 
+para el desarrollo del proyecto, y su distribución cronológica.\\
+
+La primera etapa del proyecto implicó la identificación del proyecto, incluyendo la 
+inducción a los procesos productivos de la empresa, los objetivos a alcanzar, de manera general, 
+con la inclusión de software de CAD/CAE en los procesos de fabricación de herramentales, 
+así como el proceso de formado realizado para obtener el tubo de acero a manufacturar 
+y el funcionamiento del troquel prototipo.\\
+
+La simulación por elementos finitos y el análisis experimental, así como la 
+comparación de estos resultados, fueron actividades interdependientes, puesto que la 
+última sirvió para constatar que los parámetros utilizados en la simulación se 
+ajustaban al proceso de formado en cuestión y por ello se muestra en el diagrama 
+una estructura cíclica con estas actividades. En las secciones \ref{sec:fea} y \ref{sec:analisis-experimental} 
+se muestran diagramas metodológicos para el proceso de simulación por elementos finitos y análisis experimental, 
+respectivamente, y en los cuales se desglosan actividades más específicas para esas etapas.
+
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch3/diagrama_metodologia.pdf}
+\includegraphics[width=0.55\textwidth]{src/ch3/diagrama_metodologia.pdf}
 \captionof{figure}{Metodología del proyecto}
 \label{fig:diagrama_metodologia}
 \end{center}
@@ -75,7 +91,7 @@ en la cual se muestra, además, la curva esfuerzo-deformación verdadera calcula
 \label{fig:material_curve}
 \end{center}
 
-\section{Análisis por elementos finitos}
+\section{Análisis por elementos finitos}\label{sec:fea}
 
 Como se describió en la sección \ref{subsec:implementacion-fem}, el análisis por elementos 
 finitos en problemas de ingeniería es un proceso iterativo, en el que normalmente hay que ajustar 
@@ -1025,7 +1041,7 @@ principal de uno de los elementos sobre el eje de doblado en la figura \ref{fig:
 
 \begin{center}
 \includegraphics[width=0.65\textwidth]{src/ch3/diagrama_conexion.pdf}
-\captionof{figure}{Esquema de la conexión de medio puente realizada}
+\captionof{figure}{Esquema de la conexión de medio puente realizada (vista superior del \textit{blank})}
 \label{fig:diagrama_conexion}
 \end{center}
 
@@ -1129,9 +1145,21 @@ figura \ref{fig:probetas_instrumentadas}.
 
 \subsection{Realización de las pruebas}
 
-Para llevar a cabo la realización de las pruebas se fabricó un prototipo que pudiera montarse en 
-la máquina universal del laboratorio del Departamento de Ingeniería Mecánica, y que permitiera 
-el doblado del blank en el primer paso.\\
+% Para llevar a cabo la realización de las pruebas se fabricó un prototipo que pudiera montarse en 
+% la máquina universal del laboratorio del Departamento de Ingeniería Mecánica, y que permitiera 
+% el doblado del blank en el primer paso.\\
+Debido a dificultades presentadas para realizar las pruebas en planta, utilizando el troquel de producción, 
+se optó por realizar las pruebas con el auxilio de la máquina de tensión universal del Laboratorio de 
+Ingeniería Mecánica del ITC y un prototipo que permitió ejecutar las pruebas para el primer paso del troquel, 
+exceptuando el sobredoblado que hacen las levas formadoras. Las pruebas se hicieron para un 
+un nivel de carga reducido, dadas las limitaciones de la instrumentación, que para deformaciones mayores 
+las galgas extensométricas comenzaron a perder adherencia y consecuentemente a mostrar lecturas incorrectas.\\
+
+Los formadores superior e inferior para el prototipo mostrado en la figura \ref{fig:prototipo} se fabricaron 
+con las especificaciones dimensionales para los componentes del troquel de producción, tanto para el radio 
+de doblado como para la distancia entre formadores, medidas que son críticas para tener un doblado comparable. 
+Estos formadores se añadieron a una base ya existente en el Laboratorio de Mecánica mediante uniones 
+atornilladas.\\
 
 En la figura \ref{fig:prototipo} se puede observar el prototipo montado en la máquina universal, con 
 el blank en posición de ensayo. La diferencia principal de este respecto al herramental de producción 

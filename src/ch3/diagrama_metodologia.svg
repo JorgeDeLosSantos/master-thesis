@@ -17,10 +17,40 @@
    inkscape:version="0.91 r13725"
    version="1.1"
    id="svg2"
-   height="600"
+   height="650"
    width="660">
   <defs
      id="defs4">
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Mend"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path4807"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6,-0.6)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Send"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path4813"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
     <marker
        inkscape:stockid="Arrow1Mend"
        orient="auto"
@@ -2649,8 +2679,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="342.36946"
-     inkscape:cy="275.4082"
+     inkscape:cx="461.76474"
+     inkscape:cy="355.21025"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -2679,7 +2709,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-452.36183)">
+     transform="translate(0,-402.36183)">
     <flowRoot
        xml:space="preserve"
        id="flowRoot3693"
@@ -2785,142 +2815,142 @@
          id="tspan4232"
          x="315.71429"
          y="205.71429" /></text>
-    <rect
-       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect3413-1"
-       width="240.73041"
-       height="57.543118"
-       x="78.586876"
-       y="658.56219"
-       ry="7.4828587" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot4224"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
-       transform="translate(368.65716,513.70772)"><flowRegion
-         id="flowRegion4226"><rect
-           id="rect4228"
-           width="221.22342"
-           height="56.568542"
-           x="-280.82242"
-           y="150.49232"
-           style="font-size:20px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
-         id="flowPara4230"
-         style="font-size:20px;text-align:center;text-anchor:middle">Consulta de fuentes de información</flowPara></flowRoot>    <rect
-       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.19004786;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect3413-5"
-       width="241.59247"
-       height="81.202583"
-       x="361.01297"
-       y="646.73242"
-       ry="10.559515" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot4224-3"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
-       transform="translate(651.35317,501.23352)"><flowRegion
-         id="flowRegion4226-1"><rect
-           id="rect4228-6"
-           width="221.2234"
-           height="80.854256"
-           x="-280.82242"
-           y="150.49232"
-           style="font-size:20px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
-         id="flowPara4230-8"
-         style="font-size:20px;text-align:center;text-anchor:middle">Caracterización de las propiedades mecánicas de la materia prima</flowPara></flowRoot>    <rect
-       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.13685215;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect3413-2"
-       width="206.98003"
-       height="86.497551"
-       x="378.31918"
-       y="752.92889"
-       ry="11.24807" />
     <g
-       id="g3486"
-       transform="translate(198.3992,44.551002)">
+       id="g4650"
+       transform="translate(133.38589,-146.5049)">
+      <rect
+         ry="7.4828587"
+         y="658.56219"
+         x="78.586876"
+         height="57.543118"
+         width="240.73041"
+         id="rect3413-1"
+         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <flowRoot
-         transform="translate(450.14924,565.08986)"
+         transform="translate(368.65716,513.70772)"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
-         id="flowRoot4224-3-1"
+         id="flowRoot4224"
          xml:space="preserve"><flowRegion
-           id="flowRegion4226-1-7"><rect
+           id="flowRegion4226"><rect
              style="font-size:20px;text-align:center;text-anchor:middle"
              y="150.49232"
              x="-280.82242"
-             height="85.139969"
-             width="226.93768"
-             id="rect4228-6-4" /></flowRegion><flowPara
+             height="56.568542"
+             width="221.22342"
+             id="rect4228" /></flowRegion><flowPara
            style="font-size:20px;text-align:center;text-anchor:middle"
-           id="flowPara4230-8-0">Simulación por elementos finitos del proceso de formado</flowPara></flowRoot>    </g>
-    <rect
-       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.23358905;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect3413-54"
-       width="266.43195"
-       height="79.118683"
-       x="67.260902"
-       y="756.61835"
-       ry="10.288527" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot4224-3-1-9"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
-       transform="translate(343.19758,611.33102)"><flowRegion
-         id="flowRegion4226-1-7-4"><rect
-           id="rect4228-6-4-8"
-           width="275.50912"
-           height="90.854256"
-           x="-280.82242"
-           y="150.49232"
-           style="font-size:20px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
-         id="flowPara4230-8-0-8"
-         style="font-size:20px;text-align:center;text-anchor:middle">Análisis experimental de deformaciones y esfuerzos utilizando extensometría.</flowPara></flowRoot>    <rect
-       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.26531661;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect3413-6"
-       width="255.35651"
-       height="86.851189"
-       x="72.798622"
-       y="868.59961"
-       ry="11.294055" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot4224-3-1-9-2"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
-       transform="translate(349.31184,725.02343)"><flowRegion
-         id="flowRegion4226-1-7-4-4"><rect
-           id="rect4228-6-4-8-5"
-           width="262.65201"
-           height="93.711403"
-           x="-280.82242"
-           y="150.49232"
-           style="font-size:20px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
-         id="flowPara4230-8-0-8-5"
-         style="font-size:20px;text-align:center;text-anchor:middle">Comparación de los resultados de la simulación con los experimentales</flowPara></flowRoot>    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
-       d="m 319.31729,687.33375 41.6957,0"
-       id="path3510"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
-       d="m 481.80922,727.93504 0,24.99389"
-       id="path3512"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
-       d="m 378.31921,796.17771 -44.62636,0"
-       id="path3514"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
-       d="m 200.47688,835.73705 0,32.86256"
-       id="path3516"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0" />
+           id="flowPara4230">Consulta de fuentes de información</flowPara></flowRoot>    </g>
+    <g
+       id="g4668"
+       transform="translate(14.678557,-49.7483)">
+      <rect
+         ry="5.2154679"
+         y="642.55182"
+         x="187.10643"
+         height="40.106907"
+         width="261.10596"
+         id="rect3413-5"
+         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86947232;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <flowRoot
+         transform="translate(447.30235,498.20306)"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+         id="flowRoot4224-3"
+         xml:space="preserve"><flowRegion
+           id="flowRegion4226-1"><rect
+             style="font-size:20px;text-align:center;text-anchor:middle"
+             y="150.49232"
+             x="-280.82242"
+             height="104.08777"
+             width="306.07623"
+             id="rect4228-6" /></flowRegion><flowPara
+           id="flowPara4664"
+           style="font-size:20px;text-align:center;text-anchor:middle">Ensayo de tensión uniaxial</flowPara></flowRoot>    </g>
+    <g
+       id="g4675"
+       transform="translate(-149.47123,-96.74694)">
+      <rect
+         ry="11.24807"
+         y="752.92889"
+         x="378.31918"
+         height="86.497551"
+         width="206.98003"
+         id="rect3413-2"
+         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.13685215;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <g
+         transform="translate(198.3992,44.551002)"
+         id="g3486">
+        <flowRoot
+           xml:space="preserve"
+           id="flowRoot4224-3-1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+           transform="translate(450.14924,565.08986)"><flowRegion
+             id="flowRegion4226-1-7"><rect
+               id="rect4228-6-4"
+               width="226.93768"
+               height="85.139969"
+               x="-280.82242"
+               y="150.49232"
+               style="font-size:20px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
+             id="flowPara4230-8-0"
+             style="font-size:20px;text-align:center;text-anchor:middle">Simulación por elementos finitos del proceso de formado</flowPara></flowRoot>      </g>
+    </g>
+    <g
+       id="g4683"
+       transform="translate(131.86109,9.51475)">
+      <g
+         id="g4751"
+         transform="translate(0,9.3656349e-6)">
+        <rect
+           style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.23358905;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect3413-54"
+           width="266.43195"
+           height="79.118683"
+           x="67.260902"
+           y="756.61835"
+           ry="10.288527" />
+        <flowRoot
+           xml:space="preserve"
+           id="flowRoot4224-3-1-9"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+           transform="translate(343.19758,607.33102)"><flowRegion
+             id="flowRegion4226-1-7-4"><rect
+               id="rect4228-6-4-8"
+               width="275.50912"
+               height="90.854256"
+               x="-280.82242"
+               y="150.49232"
+               style="font-size:20px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
+             id="flowPara4230-8-0-8"
+             style="font-size:20px;text-align:center;text-anchor:middle">Análisis experimental de deformaciones utilizando extensometría.</flowPara></flowRoot>      </g>
+    </g>
+    <g
+       id="g4690"
+       transform="translate(131.86109,0.170015)">
+      <rect
+         ry="11.294055"
+         y="868.59961"
+         x="72.798622"
+         height="86.851189"
+         width="255.35651"
+         id="rect3413-6"
+         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.26531661;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <flowRoot
+         transform="translate(349.31184,725.02343)"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+         id="flowRoot4224-3-1-9-2"
+         xml:space="preserve"><flowRegion
+           id="flowRegion4226-1-7-4-4"><rect
+             style="font-size:20px;text-align:center;text-anchor:middle"
+             y="150.49232"
+             x="-280.82242"
+             height="93.711403"
+             width="262.65201"
+             id="rect4228-6-4-8-5" /></flowRegion><flowPara
+           style="font-size:20px;text-align:center;text-anchor:middle"
+           id="flowPara4230-8-0-8-5">Comparación de los resultados de la simulación con los experimentales</flowPara></flowRoot>    </g>
     <g
        id="g3907"
-       transform="translate(6.7244383,-57.853535)">
+       transform="translate(144.48083,-186.63016)">
       <rect
          ry="7.4887199"
          y="617.85339"
@@ -2943,19 +2973,83 @@
              id="rect4228-9" /></flowRegion><flowPara
            style="font-size:20px;text-align:center;text-anchor:middle"
            id="flowPara4230-6">Identificación del problema o proyecto</flowPara></flowRoot>    </g>
+    <g
+       id="g4744"
+       transform="translate(-1.6137695e-6,47.999997)">
+      <rect
+         ry="5.5616493"
+         y="930.97223"
+         x="200.94191"
+         height="42.769035"
+         width="262.79211"
+         id="rect3413-6-5"
+         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.90075928;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <flowRoot
+         transform="translate(481.75105,787.57831)"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+         id="flowRoot4224-3-1-9-2-2"
+         xml:space="preserve"><flowRegion
+           id="flowRegion4226-1-7-4-4-5"><rect
+             style="font-size:20px;text-align:center;text-anchor:middle"
+             y="150.49232"
+             x="-280.82242"
+             height="93.711403"
+             width="262.65201"
+             id="rect4228-6-4-8-5-1" /></flowRegion><flowPara
+           style="font-size:20px;text-align:center;text-anchor:middle"
+           id="flowPara4230-8-0-8-5-7">Elaboración de reporte final</flowPara></flowRoot>    </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-5)"
-       d="m 199.00443,616.81046 0,41.69566"
-       id="path3510-4"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 332.33796,488.81142 10e-6,23.24587"
+       id="path4758"
        inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g3907"
+       inkscape:connection-end="#g4650" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 332.33797,569.60041 0,23.20311"
+       id="path4760"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g4650"
+       inkscape:connection-end="#g4668" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 332.33797,632.91043 0,23.27152"
+       id="path4762"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g4668"
+       inkscape:connection-end="#g4675" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 332.33797,742.67951 0,23.4536"
+       id="path4764"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g4675"
+       inkscape:connection-end="#g4683" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 332.33797,845.25179 0,23.51783"
+       id="path4766"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g4683"
+       inkscape:connection-end="#g4690" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 332.33797,955.62081 0,23.35142"
+       id="path4768"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g4690"
+       inkscape:connection-end="#g4744" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
+       d="m 204.05081,913.48361 -80.8122,0 0,-214.15234 104.04571,0"
+       id="path5198"
        inkscape:connector-curvature="0" />
-    <rect
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.60000002;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect3914"
-       width="597.00018"
-       height="565.68542"
-       x="32.324883"
-       y="463.4429"
-       ry="7.4887199" />
   </g>
 </svg>

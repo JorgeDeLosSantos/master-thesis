@@ -15,17 +15,20 @@ de forma adecuada, para lo cual hace falta caracterizar de manera correcta el fe
 que se está simulando, tomando en cuenta todas las cuestiones que puedan influir 
 en el proceso. Del análisis por elementos finitos realizado durante este proyecto 
 se pudieron extraer algunas consideraciones y/o conclusiones que resultan válidas 
-para la mayoría de lso procesos de doblado mediante un análisis de tipo dinámico explícito, mismas 
+para la mayoría de los procesos de doblado mediante un análisis de tipo dinámico explícito, mismas 
 que se describen enseguida.\\
 
 Es importante identificar cuándo se tienen análisis que pueden tratarse como casos simplificados 
 de esfuerzo plano o deformación plana, ya que esto puede representar una reducción significativa 
 de tiempo y recursos computacionales. En el caso del modelo analizado en este proyecto, asumir 
 una condición de deformación plana ha generado resultados bastante similares a los obtenidos 
-mediante la simulación del modelo tridimensional. Cuando se hace un análisis de tipo 
-deformación plana es importante tomar en cuenta que este se realiza considerando un especimen 
-de espesor unitario, y por tanto hay que hacer los ajustes o correcciones necesarias en 
-caso de que el modelo completo difiera de esta característica. \\
+mediante la simulación del modelo tridimensional, con un error relativo de 4\% para la fuerza 
+de formado máxima en el cerrado del tubo, y menor al 1\% en la etapa del doblado en U. 
+Respecto al tiempo de cómputo requerido, se pudo observar que un análisis bidimensional 
+permite reducirlo hasta en un 97\% respecto a un modelo tridimensional.
+Cuando se hace un análisis de tipo deformación plana es importante tomar en cuenta que este 
+se realiza considerando un especimen de espesor unitario, y por tanto hay que hacer los ajustes 
+o correcciones necesarias en caso de que el modelo completo difiera de esta característica. \\
 
 El fenómeno de la fricción en un proceso de doblado no es tan significativo, puesto que no 
 es necesario realizar una lubricación adicional o especial, como puede ocurrir en casos 
@@ -44,9 +47,10 @@ de \textit{masa artificial} que se adiciona. De acuerdo al manual teórico del s
 utilizado, es posible, en la mayoría de los casos, disminuir en un 50\% el tiempo de CPU 
 empleado agregando una cantidad alrededor de 0.001\% de masa adicional.\\
 
-Comparando los resultados obtenidos de forma experimental con los de la simulación se observó un 
-comportamiento bastante similar en la curva de la relación carga-deformación, con un error 
-relativo máximo del 9\% en una de las secciones, pero con una correlación bastante aceptable en 
-la mayoría de los puntos o intervalos en cuestión, lo cual implica que el modelo del material 
-utilizado y las propiedades establecidas en el análisis por elementos 
-finitos proporcionan resultados adecuados para procesos de este tipo.
+Para el análisis experimental se utilizaron galgas extensométricas, cuya lectura se redujo  
+al doblado en U del primer paso, debido a las limitaciones inherentes a la instrumentación y las 
+grandes deformaciones presentes en el proceso de formado. Comparando los resultados obtenidos 
+de forma experimental con los de la simulación del modelo bidimensional, se observó un comportamiento 
+bastante similar en la curva de la relación fuerza-deformación, con una correlación del 98\% , 
+lo cual implica que el modelo del material utilizado y las propiedades establecidas en el análisis 
+por elementos finitos proporcionan resultados adecuados para procesos de este tipo. 

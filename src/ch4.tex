@@ -362,13 +362,13 @@ correspondiente a la fuerza de formado requerida en cada una de las etapas del t
 fuerza máxima de 15,800 lbf para el primer paso, y alrededor de 94,000 lbf para el cerrado en O.\\
 
 \begin{center}
-\includegraphics[width=0.8\textwidth]{src/ch4/fuerza_formado_3d_01.pdf}
-\captionof{figure}{Fuerza de formado, segundo paso}
+\includegraphics[width=0.75\textwidth]{src/ch4/fuerza_formado_3d_01.pdf}
+\captionof{figure}{Fuerza de formado, primer paso}
 \label{fig:fuerza_formado_3d_01}
 \end{center}
 
 \begin{center}
-\includegraphics[width=0.8\textwidth]{src/ch4/fuerza_formado_3d_02.pdf}
+\includegraphics[width=0.75\textwidth]{src/ch4/fuerza_formado_3d_02.pdf}
 \captionof{figure}{Fuerza de formado, segundo paso}
 \label{fig:fuerza_formado_3d_02}
 \end{center}
@@ -432,13 +432,17 @@ paso (doblado U), pero nos sirve para comparar con los resultados arrojados por 
 La relación carga-deformación obtenida mediante el análisis por elementos finitos se estableció 
 exportando los datos de tiempo-fuerza y tiempo-deformación, para posteriormente unir estos datos 
 y graficarlos acorde a la relación tiempo-fuerza-desplazamiento, para evitar \textit{desfases} en 
-los datos generados, tomando además solamente los datos dentro del rango de comparación.\\
+los datos generados, tomando además solamente los datos dentro del rango de comparación. 
+Los datos de la simulación se tomaron de un análisis bidimensional, con el modelo constitutivo 
+de curva multilineal y sin escalamiento de masa.\\
 
 En la figura \ref{fig:experimental_vs_simulacion} se muestran las curvas de carga-deformación 
 correspondientes a la simulación por elementos finitos y la curva experimental obtenida del 
 promedio de las cuatro probetas ensayadas. En general, se observa una tendencia/comportamiento 
 similar en ambos casos, con un error relativo máximo de 9\% en la sección donde la diferencia 
-entre ambas curvas es notoria.
+entre ambas curvas es notoria. Se calculó el coeficiente de correlación de Pearson para ambos conjuntos de datos, 
+homogeneizando primero mediante interpolación la cantidad de datos disponibles, resultando 
+un coeficiente de correlación 98\%.
 
 \begin{center}
 \includegraphics[width=0.85\textwidth]{src/ch4/experimental_probetas.pdf}

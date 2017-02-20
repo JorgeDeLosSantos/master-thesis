@@ -1,4 +1,4 @@
-\documentclass[12pt,letterpaper,twoside]{book}
+\documentclass[12pt,letterpaper,oneside]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish,es-tabla]{babel}
 
@@ -28,7 +28,7 @@
 \usepackage{color}
 \usepackage{graphicx}
 \usepackage{subcaption}
-\usepackage{anysize}
+% \usepackage{anysize}
 \usepackage{anyfontsize}
 \usepackage{pdfpages}
 \usepackage{makeidx}
@@ -179,7 +179,8 @@ boxsep=0pt,left=6pt,right=6pt,top=2pt,bottom=2pt}
 % ======================================================================================================
 \begin{document}
 \thispagestyle{empty}
-\input{src/titlepage.tex}
+% \input{src/titlepage.tex}
+\includepdf{src/portada.pdf}
 
 \frontmatter
 \setcounter{page}{1}
