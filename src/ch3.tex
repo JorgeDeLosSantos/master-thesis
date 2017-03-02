@@ -26,7 +26,7 @@ se muestran diagramas metodológicos para el proceso de simulación por elemento
 respectivamente, y en los cuales se desglosan actividades más específicas para esas etapas.
 
 \begin{center}
-\includegraphics[width=0.55\textwidth]{src/ch3/diagrama_metodologia.pdf}
+\includegraphics[width=0.65\textwidth]{src/ch3/diagrama_metodologia.pdf}
 \captionof{figure}{Metodología del proyecto}
 \label{fig:diagrama_metodologia}
 \end{center}
@@ -72,10 +72,10 @@ de un metal se utiliza un ensayo de tensión uniaxial descrito en la norma ASTM-
 
 Se ensayaron cinco probetas planas, con las dimensiones descritas en la norma ATSM-E8, en una 
 máquina de tensión MTS, obteniéndose los datos agrupados en la figura \ref{fig:tensile_test_all} para 
-cada una de las probetas.\\
+cada una de las probetas.
 
 \begin{center}
-\includegraphics[width=0.7\textwidth]{src/ch3/tensile_test_all.pdf}
+\includegraphics[width=0.8\textwidth]{src/ch3/tensile_test_all.pdf}
 \captionof{figure}{Curvas de esfuerzo-deformación de las probetas ensayadas}
 \label{fig:tensile_test_all}
 \end{center}
@@ -86,7 +86,7 @@ en la cual se muestra, además, la curva esfuerzo-deformación verdadera calcula
 \ref{eq:true_stress} y \ref{eq:true_strain}.
 
 \begin{center}
-\includegraphics[width=0.7\textwidth]{src/ch3/material_curve.pdf}
+\includegraphics[width=0.8\textwidth]{src/ch3/material_curve.pdf}
 \captionof{figure}{Curvas de esfuerzo-deformación, ingenieril y verdadera, del acero AISI 1018}
 \label{fig:material_curve}
 \end{center}
@@ -109,7 +109,7 @@ la figura \ref{fig:metodologia_analisis_fem}, el cual sería más acorde con
 el proceso de análisis realizado en este caso.
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch3/metodologia_analisis_fem.pdf}
+\includegraphics[width=0.65\textwidth]{src/ch3/metodologia_analisis_fem.pdf}
 \captionof{figure}{Metodología para el análisis por elemento finito}
 \label{fig:metodologia_analisis_fem}
 \end{center}
@@ -122,7 +122,15 @@ relativas al proceso, materiales utilizados y condiciones de operación que infl
 
 El tubo interior mostrado en la figura \ref{fig:ti_rb131} se utiliza en un buje como 
 el mostrado en la figura \ref{fig:buje_rb131}, el cual forma parte de un sistema de muelles 
-parabólicas.
+parabólicas.\\
+
+Para fabricar el tubo interior \ref{fig:ti_rb131} se utiliza un troquel compuesto o semiprogresivo 
+de dos etapas, a saber: un doblado en U y un cerrado o doblado en O, mismo cuyo modelo CAD se muestra 
+en la figura \ref{fig:troquel}. El troquel tiene como materia de entrada una placa metálica 
+(\textit{blank}) rectangular de acero AISI 1018, con un largo de 3 in y un acho de 2.125 in, 
+con un espesor de 0.12 in (ver figura \ref{fig:blank_inicial}). La placa metálica tiene además 
+dos chaflanes en la dirección axial, sobre una de las caras, mismos que sirven para permitir un 
+cierre de tubo adecuado.
 
 \begin{figure}[H]
 \centering
@@ -142,14 +150,6 @@ parabólicas.
 \caption{a) Modelo CAD del tubo interior manufacturado por estampado b) Modelo CAD del buje RB-131}
 \end{figure}
 
-Para fabricar el tubo interior \ref{fig:ti_rb131} se utiliza un troquel compuesto o semiprogresivo 
-de dos etapas, a saber: un doblado en U y un cerrado o doblado en O, mismo cuyo modelo CAD se muestra 
-en la figura \ref{fig:troquel}. El troquel tiene como materia de entrada una placa metálica 
-(\textit{blank}) rectangular de acero AISI 1018, con un largo de 3 in y un acho de 2.125 in, 
-con un espesor de 0.12 in (ver figura \ref{fig:blank_inicial}). La placa metálica tiene además 
-dos chaflanes en la dirección axial, sobre una de las caras, mismos que sirven para permitir un 
-cierre de tubo adecuado.
-
 % \begin{center}
 % \includegraphics[scale=0.65]{src/ch3/muelle_parabolica.jpg}
 % \captionof{figure}{Muelle parabólica}
@@ -158,7 +158,7 @@ cierre de tubo adecuado.
 
 
 \begin{center}
-\includegraphics[scale=0.4]{src/ch3/troquel.pdf}
+\includegraphics[scale=0.35]{src/ch3/troquel.pdf}
 \captionof{figure}{Vista completa del troquel}
 \label{fig:troquel}
 \end{center}
@@ -353,18 +353,18 @@ análisis de deformación y esfuerzo plano y para análisis axisimétricos. El e
 cuatro nodos teniendo seis grados de libertad en cada uno de ellos: traslaciones, velocidades y 
 aceleraciones en las direcciones \texttt{x} e \texttt{y}. Este elemento soporta la mayoría de los modelos 
 de materiales utilizados en el formado de metales, tales como bilineal isotrópico y cinemático, plasticidad 
-cinemática, Johnson-Cook, curva multilineal, entre otros. \\
-
-El elemento \texttt{PLANE162} se usó con la opción de deformación plana y formulación lagrangiana, esto controlado 
-desde los \textit{keyoption} al definir el tipo de elemento, seleccionando además la opción de \textit{full integration} 
-para evitar los efectos de los modos de deformación derivados de la energía de Hourglass o de energía cero, los cuales 
-deforman la malla en forma de zig zag e inducen esfuerzos elevados en las zonas deformadas.\\
+cinemática, Johnson-Cook, curva multilineal, entre otros.
 
 \begin{center}
 \includegraphics[width=0.65\textwidth]{src/ch3/plane162.png}
 \captionof{figure}{Elemento \texttt{PLANE162}}
 \label{fig:plane162}
 \end{center}
+
+El elemento \texttt{PLANE162} se usó con la opción de deformación plana y formulación lagrangiana, esto controlado 
+desde los \textit{keyoption} al definir el tipo de elemento, seleccionando además la opción de \textit{full integration} 
+para evitar los efectos de los modos de deformación derivados de la energía de Hourglass o de energía cero, los cuales 
+deforman la malla en forma de zig zag e inducen esfuerzos elevados en las zonas deformadas.\\
 
 La pieza de trabajo se malló con elementos cuyo tamaño global fue de 0.03 in. Debido a los chaflanes 
 un mallado mapeado produce una malla bastante irregular, por ello se dividió la placa en 5 áreas, resultando 
@@ -578,7 +578,7 @@ formulación del coeficiente friccional ($\mu_c$), que viene dado por la ecuaci�
 
 Donde $DC$ es el coeficiente de decaimiento exponencial y $v_{rel}$ la velocidad relativa
 entre las superficies en contacto ~\cite{lsdyna-ansys-manual}. Los valores del coeficiente de 
-fricción estáticoy dinámico se establecieron en 0.2 y 0.1, respectivamente. ~\cite{carvill1993} \\
+fricción estáticoy dinámico se establecieron en 0.2 y 0.1, respectivamente. ~\cite{carvill1993}
 
 \subsubsection{Condiciones de frontera}\label{sec:condiciones-fronteras}
 
@@ -599,6 +599,16 @@ incluido en el anexo \ref{sec:definicion-materiales} se muestra la definición d
 de tipo rígido para cada uno de los componentes, incluyendo las opciones de restricción como 
 se indican en ~\cite{lsdyna-ansys-manual}. \\
 
+Las condiciones de desplazamiento de cuerpo rígido para los formadores superiores y levas 
+se establecieron utilizando arreglos unidimensionales tanto para el historial de tiempo 
+como para el de desplazamientos. Se optó por utilizar una curva de carga de tipo 
+\textit{smooth-step} ~\cite{smooth-step-wiki} tal como se recomienda para análisis 
+de tipo dinámico-explícito en simulaciones de estampado ~\cite{input-param-lsdyna}, 
+este tipo de curva se caracteriza por tener un crecimiento lento al principio y 
+final de su intervalo,  implicando una velocidad \textit{reducida} de los formadores al principio y final 
+del recorrido, con la finalidad de que esto facilite la estabilización y convergencia
+del análisis.
+
 \begin{table}[H]
 \centering
 \caption{Condiciones de frontera, paso 1}
@@ -617,15 +627,6 @@ Blank                    & Ninguna restricción aplicada. \\
 \label{tab:bound_conds_01}
 \end{table}
 
-Las condiciones de desplazamiento de cuerpo rígido para los formadores superiores y levas 
-se establecieron utilizando arreglos unidimensionales tanto para el historial de tiempo 
-como para el de desplazamientos. Se optó por utilizar una curva de carga de tipo 
-\textit{smooth-step} ~\cite{smooth-step-wiki} tal como se recomienda para análisis 
-de tipo dinámico-explícito en simulaciones de estampado ~\cite{input-param-lsdyna}, 
-este tipo de curva se caracteriza por tener un crecimiento lento al principio y 
-final de su intervalo,  implicando una velocidad \textit{reducida} de los formadores al principio y final 
-del recorrido, con la finalidad de que esto facilite la estabilización y convergencia
-del análisis. \\
 
 La función de tipo \textit{smooth-step} utilizada tiene la forma general $f(t) = A(Bt^2 - Ct^3)$, 
 donde $A$, $B$ y $C$ son constantes a ajustar para el requerimiento de desplazamiento total y el 
@@ -662,7 +663,7 @@ C & $3.8\text{x}10^{-7}$ & $3.8\text{x}10^{-7}$ \\
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\textwidth]{src/ch3/smooth_displacement_01.pdf}
+\includegraphics[width=0.8\textwidth]{src/ch3/smooth_displacement_01.pdf}
 \captionof{figure}{Vector de tiempo desplazamiento, paso 1}
 \label{fig:smooth_displacement_01}
 \end{figure}
@@ -671,6 +672,13 @@ En la tabla \ref{tab:bound_conds_02} se resumen las condiciones de carga y restr
 al ensamble del segundo paso. La imposición de esas condiciones se hicieron de igual manera que para 
 lo descrito en el primer ensamble, variando evidentemente la relación tiempo-desplazamiento de los 
 formadores, misma que ya se ha descrito.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{src/ch3/smooth_displacement_02.pdf}
+\captionof{figure}{Vector de tiempo desplazamiento, paso 2}
+\label{fig:smooth_displacement_02}
+\end{figure}
 
 \begin{table}[H]
 \centering
@@ -688,12 +696,6 @@ Blank                    & Ninguna restricción aplicada. \\
 \label{tab:bound_conds_02}
 \end{table}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{src/ch3/smooth_displacement_02.pdf}
-\captionof{figure}{Vector de tiempo desplazamiento, paso 2}
-\label{fig:smooth_displacement_02}
-\end{figure}
 
 \subsubsection{Escalamiento de masa}\label{sec:mass-scaling}
 
@@ -752,7 +754,7 @@ la desventaja de propiciar la inclusión de los modos de Hourglass en la soluci�
 se obtenga una malla deformada con apariencia corrugada.
 
 \begin{center}
-\includegraphics[scale=0.65]{src/ch3/solid164.png}
+\includegraphics[scale=0.55]{src/ch3/solid164.png}
 \captionof{figure}{Elemento \texttt{SOLID164}}
 \label{fig:solid164}
 \end{center}
@@ -760,14 +762,18 @@ se obtenga una malla deformada con apariencia corrugada.
 En los componentes del troquel se mallaron solamente las áreas que están en contacto directo con el 
 \textit{blank} durante el proceso de formado, con la finalidad de reducir el número de elementos del modelo. 
 Se utilizaron elementos \texttt{SHELL163} para realizar el mallado. Los parámetros requeridos para 
-este elemento se indican en la tabla \ref{tab:shell_param}.
+este elemento se indican en la tabla \ref{tab:shell_param}. \\
+
+En el \textit{blank} se utilizó un tamaño global de elemento de 0.03 in, y 0.035 in en el caso de las partes 
+rígidas, exceptuando las áreas que están directamente en contacto con el \textit{blank}, en cuyo caso se hizo 
+un refinamiento, dejando el tamaño global en 0.02 in. En el \textit{blank} fue necesario segmentar en cuatro 
+volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_seg} ).
 
 \begin{center}
-\includegraphics[scale=0.65]{src/ch3/shell163.png}
+\includegraphics[scale=0.55]{src/ch3/shell163.png}
 \captionof{figure}{Elemento SHELL163}
 \label{fig:shell163}
 \end{center}
-
 
 % Tabla de propiedades para elemento SHELL163
 \begin{table}[h]
@@ -806,12 +812,6 @@ Espesor en nodo 4 (T4) & 0.2 \\
 \end{table}
 
 
-En el \textit{blank} se utilizó un tamaño global de elemento de 0.03 in, y 0.035 in en el caso de las partes 
-rígidas, exceptuando las áreas que están directamente en contacto con el \textit{blank}, en cuyo caso se hizo 
-un refinamiento, dejando el tamaño global en 0.02 in. En el \textit{blank} fue necesario segmentar en cuatro 
-volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_seg} ).
-
-
 % Partición del blank
 \begin{center}
 \includegraphics[width=0.5\textwidth]{src/ch3/blank_segmentado.pdf}
@@ -825,7 +825,7 @@ volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_se
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{src/ch3/mesh_blank.png}
+\includegraphics[width=0.45\textwidth]{src/ch3/mesh_blank.png}
 \label{fig:mesh_blank}
 \caption{Mallado del blank}
 \end{figure}
@@ -833,21 +833,21 @@ volúmenes, para permitir un mallado más uniforme (ver figura \ref{fig:blank_se
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{src/ch3/mesh_fi.png}
+\includegraphics[width=0.45\textwidth]{src/ch3/mesh_fi.png}
 \caption{Mallado del formador inferior}
 \label{fig:mesh_fi}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{src/ch3/mesh_fs.png}
+\includegraphics[width=0.45\textwidth]{src/ch3/mesh_fs.png}
 \caption{Mallado del formador superior}
 \label{fig:mesh_fi}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{src/ch3/mesh_leva.png}
+\includegraphics[width=0.45\textwidth]{src/ch3/mesh_leva.png}
 \caption{Mallado de la leva}
 \label{fig:mesh_fi}
 \end{figure}
@@ -928,21 +928,21 @@ se puede observar en las figuras \ref{fig:mesh_ffi}, \ref{fig:mesh_ffs} y \ref{f
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{src/ch3/mesh_ffi.png}
+\includegraphics[width=0.47\textwidth]{src/ch3/mesh_ffi.png}
 \caption{Mallado del formador final inferior}
 \label{fig:mesh_ffi}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{src/ch3/mesh_ffs.png}
+\includegraphics[width=0.47\textwidth]{src/ch3/mesh_ffs.png}
 \caption{Mallado del formador final superior}
 \label{fig:mesh_ffs}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{src/ch3/mesh_perno.png}
+\includegraphics[width=0.45\textwidth]{src/ch3/mesh_perno.png}
 \caption{Mallado del perno formador}
 \label{fig:mesh_perno}
 \end{figure}
@@ -969,11 +969,10 @@ que viene dado por la ecuación :
 
 Donde $DC$ es el coeficiente de decaimiento exponencial y $v_{rel}$ la velocidad relativa
 entre las superficies en contacto ~\cite{lsdyna-manual}. Los valores del coeficiente de 
-fricción estático y dinámico se establecieron en 0.2 y 0.1, respectivamente. ~\cite{carvill1993} \\
-
+fricción estático y dinámico se establecieron en 0.2 y 0.1, respectivamente. ~\cite{carvill1993}
 En la simulación del segundo paso se utilizó el contacto de tipo Single Surface (SS) para 
 tomar en cuenta el contacto del blank con él mismo (cerrado del tubo) ~\cite{lsdyna-manual}, 
-utilizandotambién los parámetros de fricción indicados anteriormente.
+utilizando también los parámetros de fricción indicados anteriormente.
 
 \section{Análisis experimental}\label{sec:analisis-experimental}
 
@@ -1034,7 +1033,7 @@ principal de uno de los elementos sobre el eje de doblado en la figura \ref{fig:
 
 
 \begin{center}
-\includegraphics[width=0.65\textwidth]{src/ch3/circuito_conexion.pdf}
+\includegraphics[width=0.55\textwidth]{src/ch3/circuito_conexion.pdf}
 \captionof{figure}{Circuito eléctrico de la configuración de medio puente}
 \label{fig:circuito_conexion}
 \end{center}

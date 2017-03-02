@@ -4,8 +4,14 @@ En este capítulo se presenta el análisis y discusión de los principales resul
 obtenidos en el desarrollo de este proyecto. Del análisis por elementos finitos 
 se presentan los resultados del caso bidimensional y del modelo tridimensional, comparando 
 ambos casos, con la finalidad de discutir la viabilidad de utilizar un análisis de tipo 
-deformación plana en una simulación de formado como esta. Además, los resultados del 
-análisis numérico se comparan con lo obtenido mediante el análisis experimental.\\
+deformación plana en una simulación de formado como esta. 
+Se presenta una sección destinada 
+a evaluar la influencia del escalamiento de masa selectivo. Asimismo se expone una sección 
+referente al uso de algunos modelos de material como el bilineal isotrópico y cinemático, 
+la plasticidad cinemática y curvas multilineales, para determinar si las variaciones 
+en el comportamiento del material son significativas.
+Además, los resultados del 
+análisis por elementos finitos se comparan con lo obtenido mediante el análisis experimental.
 
 % Además, con la finalidad de determinar algunas condiciones o parámetros que faciliten 
 % el análisis de procesos de formado de este tipo, se presenta una sección destinada 
@@ -30,29 +36,33 @@ resultante como los datos de salida. En la figura \ref{fig:energy_status_01} se 
 que la energía cinética representa un porcentaje menor al 1\% de la energía interna, lo 
 cual implica que el análisis está dentro del rango aceptable. \\
 
-\begin{center}
-\includegraphics[width=0.8\textwidth]{src/ch4/energy_status_01.pdf}
-\captionof{figure}{Variación de la energía total, interna y cinemática, primer paso}
-\label{fig:energy_status_01}
-\end{center}
-
 El elemento \texttt{PLANE162}, utilizado en el mallado para el análisis bidimensional, 
 tiene sólo un punto de integración, lo cual le hace robusto para grandes deformaciones 
 y permite un ahorro significativo de tiempo computacional, pero esto mismo les hace 
 propensos a presentar modos de energía cero. Estos modos, comúnmente referidos como 
 modos de Hourglass, son de naturaleza oscilatoria y tienen periodos mucho más pequeños 
 que la respuesta estructural de un sistema, resultando en estados matemáticos que físicamente 
-no son posibles y que normalmente tienden a deformar la malla en forma de zigzag.
+no son posibles y que normalmente tienden a deformar la malla en forma de zigzag.\\
+
+
 Para verificar que la deformación de Hourglass no ha influido de manera considerable 
 en un análisis se debe comparar la energía interna del modelo con la energía de Hourglass, 
 esta última no debe ser mayor al 10\% de la primera para considerar aceptable los 
-resultados de la simulación ~\cite{lsdyna-ansys-manual}. En la gráfica de la figura \ref{fig:hourglass_internal_01} 
+resultados de la simulación ~\cite{lsdyna-ansys-manual}. \\
+
+En la gráfica de la figura \ref{fig:hourglass_internal_01} 
 se muestra la energía interna vs la energía de Hourglass y se aprecia que la proporción 
 varía en un rango del 1.5 a 2\%, lo cual indica que la deformación de Hourglass se encuentra 
 dentro de los límites aceptables.
 
 \begin{center}
-\includegraphics[width=0.8\textwidth]{src/ch4/hourglass_internal_01.pdf}
+\includegraphics[width=0.88\textwidth]{src/ch4/energy_status_01.pdf}
+\captionof{figure}{Variación de la energía total, interna y cinemática, primer paso}
+\label{fig:energy_status_01}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.88\textwidth]{src/ch4/hourglass_internal_01.pdf}
 \captionof{figure}{Comparación energía interna vs energía de Hourglass}
 \label{fig:hourglass_internal_01}
 \end{center}
@@ -76,13 +86,13 @@ obtenidas corresponden a lo esperado cuando se diseñó el herramental, y no se 
 algún tipo de anormalidad en las formas obtenidas.
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch4/geometry_01.png}
+\includegraphics[width=0.7\textwidth]{src/ch4/geometry_01.png}
 \captionof{figure}{Geometría resultante, primer paso}
 \label{fig:geometry_01}
 \end{center}
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch4/geometry_02.png}
+\includegraphics[width=0.7\textwidth]{src/ch4/geometry_02.png}
 \captionof{figure}{Geometría resultante, segundo paso}
 \label{fig:geometry_02}
 \end{center}
@@ -91,12 +101,20 @@ La figura \ref{fig:thickness_variation} muestra una gráfica con las variaciones
 final obtenida, las líneas punteadas corresponden a las tolerancias mínima y máxima del espesor. Para 
 efectuar tal medición se tomaron como referencia nodos interiores y exteriores en la geometría final, 
 posicionados sobre la misma vertical en la geometría inicial, y enseguida, basándose en las coordenadas 
-iniciales y los desplazamientos, se obtuvo la distancia.
+iniciales y los desplazamientos, se obtuvo la distancia. Estas mediciones realizadas corresponden a segmentos 
+como los de las líneas amarillas indicadas en la figura \ref{fig:numerate} y cuya numeración se hizo 
+comenzando del extremo izquierdo y aumentando progresivamente en sentido antihorario como se muestra.
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch4/thickness_variation.png}
+\includegraphics[width=0.65\textwidth]{src/ch4/thickness_variation.pdf}
 \captionof{figure}{Variación del espesor de la geometría resultante}
 \label{fig:thickness_variation}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.55\textwidth]{src/ch4/numerate.pdf}
+\captionof{figure}{Numeración de las mediciones realizadas}
+\label{fig:numerate}
 \end{center}
 
 \subsubsection{Esfuerzos}
@@ -120,7 +138,7 @@ La figura \ref{fig:von_mises_stress_01} muestra la variación del esfuerzo máxi
 de von Mises para el primer paso de carga, cuyo valor máximo es de alrededor de 87,000 psi.
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch4/von_mises_stress_01.pdf}
+\includegraphics[width=0.85\textwidth]{src/ch4/von_mises_stress_01.pdf}
 \captionof{figure}{Variación del esfuerzo máximo de von Mises}
 \label{fig:von_mises_stress_01}
 \end{center}
@@ -129,10 +147,10 @@ En \ref{fig:xyz_stress_01} se muestra el historial de esfuerzos en las direccion
 X, Y, Z. Es evidente que el esfuerzo en dirección $Z$ es en general el menor de 
 los tres, dado que este es calculado a partir de la ecuación de deformación plana 
 que lo considera alrededor de una tercera parte de la suma de $\sigma_x$ y $\sigma_y$ para 
-el caso de un acero. \\
+el caso de un acero.
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch4/xyz_stress_01.pdf}
+\includegraphics[width=0.85\textwidth]{src/ch4/xyz_stress_01.pdf}
 \captionof{figure}{Variación de los esfuerzos máximos en dirección X,Y,Z}
 \label{fig:xyz_stress_01}
 \end{center}
@@ -249,7 +267,9 @@ En la figura \ref{fig:ms_von_mises} se muestra la variación del esfuerzo equiva
 se aplica el escalamiento de masa. Se puede observar que la variación entre cada uno de los casos 
 es mínima en todo el historial de tiempo, habiendo una diferencia significativa en el tiempo 
 correspondiente a cuando los formadores superiores dejan de actuar y las levas aún no interactúan 
-con la pieza de trabajo.
+con la pieza de trabajo, siendo que la mayor diferencia se observa para cuando se agrega un 12\% de masa adicional.
+No obstante, después de completar el paso de formado y durante el retiro de los formadores, los esfuerzos residuales 
+obtenidos para todos los casos son bastante similares, con diferencias menores a 1\%.
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/ms_von_mises.pdf}
@@ -283,7 +303,7 @@ energía cinética (que aumenta con la masa) del modelo representa una fracción
 energía interna.\\
 
 \begin{center}
-\includegraphics[width=0.85\textwidth]{src/ch4/ms_excessive.png}
+\includegraphics[width=0.95\textwidth]{src/ch4/ms_excessive.png}
 \captionof{figure}{Algunos efectos del escalamiento excesivo de masa}
 \label{fig:ms_excessive}
 \end{center}
@@ -301,13 +321,13 @@ de formado, en donde se observa una diferencia de alrededor de un 20\% del model
 respecto al bilineal cinemático.
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch4/mdm_von_mises.pdf}
+\includegraphics[width=0.85\textwidth]{src/ch4/mdm_von_mises.pdf}
 \captionof{figure}{Variación del esfuerzo de von Mises para diversos modelos constitutivos}
 \label{fig:mdm_von_mises}
 \end{center}
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch4/mdm_force.pdf}
+\includegraphics[width=0.85\textwidth]{src/ch4/mdm_force.pdf}
 \captionof{figure}{Variación de la fuerza de formado para diversos modelos constitutivos}
 \label{fig:mdm_force}
 \end{center}
@@ -327,22 +347,24 @@ de esfuerzos al final del primer y segundo paso del formado, además de las geom
 resultantes en ambos casos.\\
 
 En \ref{fig:von_mises_3d_all} se muestra la variación del esfuerzo de von Mises máximo en 
-el historial de tiempo, para ambas etapas del formado.
+el historial de tiempo, para ambas etapas del formado. \\
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch4/von_mises_3D_01.png}
+\includegraphics[width=0.8\textwidth]{src/ch4/von_mises_3D_01.png}
 \captionof{figure}{Distribución del esfuerzo de von Mises}
 \label{fig:von_mises_3D_01}
 \end{center}
 
+\hfill \\ [-2mm]
+
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch4/von_mises_3D_02.png}
+\includegraphics[width=0.8\textwidth]{src/ch4/von_mises_3D_02.png}
 \captionof{figure}{Distribución del esfuerzo de von Mises, segundo paso}
 \label{fig:von_mises_3D_02}
 \end{center}
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{src/ch4/von_mises_3d_all.pdf}
+\includegraphics[width=0.8\textwidth]{src/ch4/von_mises_3d_all.pdf}
 \captionof{figure}{Variación del esfuerzo máximo de von Mises}
 \label{fig:von_mises_3d_all}
 \end{center}
@@ -359,7 +381,7 @@ el historial de tiempo, para ambas etapas del formado.
 
 En las figuras \ref{fig:fuerza_formado_3d_01} y \ref{fig:fuerza_formado_3d_02} se muestran las gráficas 
 correspondiente a la fuerza de formado requerida en cada una de las etapas del troquel. Se observa una 
-fuerza máxima de 15,800 lbf para el primer paso, y alrededor de 94,000 lbf para el cerrado en O.\\
+fuerza máxima de 15,800 lbf para el primer paso, y alrededor de 94,000 lbf para el cerrado en O.
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{src/ch4/fuerza_formado_3d_01.pdf}
@@ -377,9 +399,7 @@ fuerza máxima de 15,800 lbf para el primer paso, y alrededor de 94,000 lbf para
 
 En esta sección se presenta un análisis comparativo entre los análisis bidimensional 
 y el tridimensional realizados, con el objetivo de describir particularidades respecto 
-a cada enfoque y hacer énfasis en las ventajas y limitaciones de cada uno.\\
-
-\subsubsection{Notas generales}
+a cada enfoque y hacer énfasis en las ventajas y limitaciones de cada uno.  \\
 
 Es preciso hacer mención respecto a las dificultades que implica trabajar con uno u 
 otro enfoque. De manera general, el modelo tridimensional representó mayores dificultades 
@@ -396,15 +416,14 @@ En la sección \ref{sec:contactos} se describió que para definir los contactos 
 análisis bidimensional se utiliza un contacto automático, esto implica un inconveniente 
 al momento de postprocesar los resultados referentes a las fuerzas de formado, puesto 
 que se tiene que hacer la lectura nodo a nodo y posteriormente sumar los resultados 
-obtenidos en el historial de tiempo.\\
+obtenidos en el historial de tiempo.
 
 \subsubsection{Tiempo de cómputo}
 
 Con tiempo de cómputo se hace referencia al tiempo transcurrido desde el inicio hasta el 
 término del análisis, mismo del cual el software utilizado hace un registro. 
 Es evidente que el tiempo de cómputo requerido es mayor para un modelo tridimensional, dado 
-que la cantidad de ecuaciones a resolver aumenta de manera considerable.\\
-
+que la cantidad de ecuaciones a resolver aumenta de manera considerable.
 Un análisis de deformación plana sin escalamiento de masa selectivo se completó en 24 minutos 
 aproximadamente (0.4 horas), el mismo caso para el modelo tridimensional representó 
 un costo de tiempo computacional poco mayor a 16 horas, lo cual implica una reducción de tiempo 
@@ -414,8 +433,7 @@ del 97.5\% cuando se utiliza un análisis bidimensional simplificado.
 
 La fuerza de formado requerida calculada para ambos casos es muy similar. Se observa también 
 que la gráfica de la fuerza de formado requerida en la primera etapa para el caso tridimensional 
-es bastante más oscilatoria que su equivalente bidimensional.\\
-
+es bastante más oscilatoria que su equivalente bidimensional. 
 Se puede asumir que la consideración de deformación plana aproxima de manera aceptable 
 los resultados obtenidos mediante el modelo tridimensional completo.
 
@@ -445,13 +463,13 @@ homogeneizando primero mediante interpolación la cantidad de datos disponibles,
 un coeficiente de correlación 98\%.
 
 \begin{center}
-\includegraphics[width=0.85\textwidth]{src/ch4/experimental_probetas.pdf}
+\includegraphics[width=0.75\textwidth]{src/ch4/experimental_probetas.pdf}
 \captionof{figure}{Resultados experimentales de las probetas ensayadas}
 \label{fig:experimental_probetas}
 \end{center}
 
 \begin{center}
-\includegraphics[width=0.85\textwidth]{src/ch4/experimental_vs_simulacion.pdf}
+\includegraphics[width=0.75\textwidth]{src/ch4/experimental_vs_simulacion.pdf}
 \captionof{figure}{Resultados experimentales vs simulación}
 \label{fig:experimental_vs_simulacion}
 \end{center}
