@@ -199,7 +199,7 @@ k_R = \frac{\alpha_f}{\alpha_i} = \frac{r_{i} + 0.5 s}{r_{f} + 0.5 s}
 \end{equation}
 
 Donde, usando como referencia gráfica la figura \ref{fig:springback}, $\alpha_i$ es el ángulo por el 
-herramental, $\alpha_f$ el ángulo deseado en la pieza de trabajo (o después del springback), 
+herramental, $\alpha_f$ el ángulo deseado en la pieza de trabajo (después de la recuperación elástica), 
 $s$ es el espesor de la pieza de trabajo, $r_{i}$ el radio interno en el herramental y $r_{f}$ el 
 radio interno en la pieza de trabajo.\\
 
@@ -738,7 +738,7 @@ d\varepsilon_{ij} = d\lambda (\partial f / \partial \sigma_{ij})
 
 Donde $f$ es la función de $\sigma_{ij}$ que describe la fluencia. Esto está relacionado 
 con el por qué ha sido llamado el \textit{potencial plástico}. Para el criterio de 
-von Mises, la diferenciación resulta en: ~\cite{hosford2007}
+von Mises, la diferenciación resulta en:
 
 \begin{align}
 d\varepsilon_1 = d\lambda \left[ \sigma_1 - (1/2) (\sigma_2 + \sigma_3) \right] \\
@@ -748,7 +748,7 @@ d\varepsilon_3 = d\lambda \left[ \sigma_3 - (1/2) (\sigma_1 + \sigma_2) \right]
 
 En estas expresiones $d\lambda = d \overline{\varepsilon} / \overline{\sigma} $, el cual varía 
 con la posición en la curva $ \overline{\sigma} - \overline{\varepsilon} $. Sin embargo, la 
-relación de las deformaciones plásticas permanece constante: ~\cite{hosford2007} \\
+relación de las deformaciones plásticas permanece constante:\\
 
 % \begin{equation}
 % d\varepsilon_1 : d\varepsilon_2 : d\varepsilon_3  = 
@@ -1111,7 +1111,7 @@ estas definiciones de la ley de Coulomb se tienen las siguientes condiciones:
 \begin{matrix}
 |\tau| \le 1 \\
 |\tau| < 1 \,\,\, \text{implica que} \,\,\, \dot{u} = 0 \\
-|\tau| = 1 \,\,\, \text{implica que} \,\,\, sign(\dot{u}) = sign(\tau)
+|\tau| = 1 \,\,\, \text{implica que} \,\,\, \text{sgn}(\dot{u}) = \text{sgn}(\tau)
 \end{matrix}
 \right.
 \end{equation}
@@ -1399,80 +1399,80 @@ determinada por la siguiente expresión:
 \label{fig:isotropic_state}
 \end{center}
 
-\subsubsection*{Estado de esfuerzo biaxial}
+% \subsubsection*{Estado de esfuerzo biaxial}
 
-\textbf{Caso 1.} Si se desconoce el estado de esfuerzo, pero las direcciones de los 
-esfuerzos principales son conocidas, entonces se puede utilizar una roseta rectangular 
-de dos elementos, donde estas coincidan con las direccioness principales, tal 
-como se muestra en el esquema de la figura \ref{fig:biaxial_state}. Se obtienen las 
-deformaciones principales $\varepsilon_1$ y $\varepsilon_2$ y los esfuerzos correspondientes 
-se calculan usando las ecuaciones \ref{eq:principal_stress_1} y \ref{eq:principal_stress_2}  ~\cite{metu2011}
+% \textbf{Caso 1.} Si se desconoce el estado de esfuerzo, pero las direcciones de los 
+% esfuerzos principales son conocidas, entonces se puede utilizar una roseta rectangular 
+% de dos elementos, donde estas coincidan con las direccioness principales, tal 
+% como se muestra en el esquema de la figura \ref{fig:biaxial_state}. Se obtienen las 
+% deformaciones principales $\varepsilon_1$ y $\varepsilon_2$ y los esfuerzos correspondientes 
+% se calculan usando las ecuaciones \ref{eq:principal_stress_1} y \ref{eq:principal_stress_2}  ~\cite{metu2011}
 
-\begin{equation}\label{eq:principal_stress_1}
-\sigma_1 = \frac{E}{1-\nu^2} \left( \varepsilon_1 + \nu\varepsilon_2 \right)
-\end{equation}
+% \begin{equation}\label{eq:principal_stress_1}
+% \sigma_1 = \frac{E}{1-\nu^2} \left( \varepsilon_1 + \nu\varepsilon_2 \right)
+% \end{equation}
 
-\begin{equation}\label{eq:principal_stress_2}
-\sigma_2 = \frac{E}{1-\nu^2} \left( \varepsilon_2 + \nu\varepsilon_1 \right)
-\end{equation}
+% \begin{equation}\label{eq:principal_stress_2}
+% \sigma_2 = \frac{E}{1-\nu^2} \left( \varepsilon_2 + \nu\varepsilon_1 \right)
+% \end{equation}
 
-Estas relaciones proporcionan el estado de esfuerzo, si se conocen, a priori, las direcciones 
-principales. \\
+% Estas relaciones proporcionan el estado de esfuerzo, si se conocen, a priori, las direcciones 
+% principales. \\
 
-\textbf{Caso 2.} Si se desconocen las direcciones principales, entonces es necesario utilizar 
-una roseta de tres elementos. Para mostrar que tres elementos son suficientes, considere las 
-tres galgas colocadas a lo largo de los ejes A, B y C, como se muestra en la figura 
-\ref{fig:biaxial_state_three}.
+% \textbf{Caso 2.} Si se desconocen las direcciones principales, entonces es necesario utilizar 
+% una roseta de tres elementos. Para mostrar que tres elementos son suficientes, considere las 
+% tres galgas colocadas a lo largo de los ejes A, B y C, como se muestra en la figura 
+% \ref{fig:biaxial_state_three}.
 
-\begin{center}
-\includegraphics[width=0.45\textwidth]{src/ch2/biaxial_state.pdf}
-\captionof{figure}{Estado de esfuerzo biaxial, direcciones principales conocidas}
-\label{fig:biaxial_state}
-\end{center}
+% \begin{center}
+% \includegraphics[width=0.45\textwidth]{src/ch2/biaxial_state.pdf}
+% \captionof{figure}{Estado de esfuerzo biaxial, direcciones principales conocidas}
+% \label{fig:biaxial_state}
+% \end{center}
 
-\begin{center}
-\includegraphics[width=0.45\textwidth]{src/ch2/biaxial_state_three.pdf}
-\captionof{figure}{Estado de esfuerzo biaxial}
-\label{fig:biaxial_state_three}
-\end{center}
+% \begin{center}
+% \includegraphics[width=0.45\textwidth]{src/ch2/biaxial_state_three.pdf}
+% \captionof{figure}{Estado de esfuerzo biaxial}
+% \label{fig:biaxial_state_three}
+% \end{center}
 
-Entonces la siguientes ecuaciones de transformación son válidas para las lecturas $\varepsilon_{A}$, 
-$\varepsilon_{B}$ y $\varepsilon_{C}$ de las galgas respectivas:
+% Entonces la siguientes ecuaciones de transformación son válidas para las lecturas $\varepsilon_{A}$, 
+% $\varepsilon_{B}$ y $\varepsilon_{C}$ de las galgas respectivas:
 
-\begin{equation}
-\varepsilon_A = \varepsilon_{xx} \cos^2\alpha + \varepsilon_{yy} \sin^2\alpha + \gamma_{xy} \cos\alpha \sin\alpha
-\end{equation}
+% \begin{equation}
+% \varepsilon_A = \varepsilon_{xx} \cos^2\alpha + \varepsilon_{yy} \sin^2\alpha + \gamma_{xy} \cos\alpha \sin\alpha
+% \end{equation}
 
-\begin{equation}
-\varepsilon_B = \varepsilon_{xx} \cos^2\beta + \varepsilon_{yy} \sin^2\beta + \gamma_{xy} \cos\beta \sin\beta
-\end{equation}
+% \begin{equation}
+% \varepsilon_B = \varepsilon_{xx} \cos^2\beta + \varepsilon_{yy} \sin^2\beta + \gamma_{xy} \cos\beta \sin\beta
+% \end{equation}
 
-\begin{equation}
-\varepsilon_C = \varepsilon_{xx} \cos^2\gamma + \varepsilon_{yy} \sin^2\gamma + \gamma_{xy} \cos\gamma \sin\gamma
-\end{equation}
+% \begin{equation}
+% \varepsilon_C = \varepsilon_{xx} \cos^2\gamma + \varepsilon_{yy} \sin^2\gamma + \gamma_{xy} \cos\gamma \sin\gamma
+% \end{equation}
 
-Los componentes cartesianos de la deformación $\varepsilon_{xx}$, $\varepsilon_{yy}$ y $\gamma_{xy}$ pueden 
-ser determinados resolviendo el sistemas de ecuaciones simultáneas resultante. Las deformaciones 
-y direcciones principales pueden ser calculadas utilizando 
+% Los componentes cartesianos de la deformación $\varepsilon_{xx}$, $\varepsilon_{yy}$ y $\gamma_{xy}$ pueden 
+% ser determinados resolviendo el sistemas de ecuaciones simultáneas resultante. Las deformaciones 
+% y direcciones principales pueden ser calculadas utilizando 
 
-\begin{equation}\label{eq:principal_strain_1}
-\varepsilon_1 = \frac{1}{2} \left( \varepsilon_{xx} + \varepsilon_{yy} \right) + 
-\frac{1}{2} \sqrt{\left( \varepsilon_{xx} - \varepsilon_{yy} \right)^2 + \gamma_{xy}^2 }
-\end{equation}
+% \begin{equation}\label{eq:principal_strain_1}
+% \varepsilon_1 = \frac{1}{2} \left( \varepsilon_{xx} + \varepsilon_{yy} \right) + 
+% \frac{1}{2} \sqrt{\left( \varepsilon_{xx} - \varepsilon_{yy} \right)^2 + \gamma_{xy}^2 }
+% \end{equation}
 
-\begin{equation}\label{eq:principal_strain_2}
-\varepsilon_2 = \frac{1}{2} \left( \varepsilon_{xx} + \varepsilon_{yy} \right) - 
-\frac{1}{2} \sqrt{\left( \varepsilon_{xx} - \varepsilon_{yy} \right)^2 + \gamma_{xy}^2 }
-\end{equation}
+% \begin{equation}\label{eq:principal_strain_2}
+% \varepsilon_2 = \frac{1}{2} \left( \varepsilon_{xx} + \varepsilon_{yy} \right) - 
+% \frac{1}{2} \sqrt{\left( \varepsilon_{xx} - \varepsilon_{yy} \right)^2 + \gamma_{xy}^2 }
+% \end{equation}
 
-\begin{equation}\label{eq:principal_plane}
-\tan 2\theta = \frac{\gamma_{xy}}{\varepsilon_{xx} - \varepsilon_{yy}}
-\end{equation}
+% \begin{equation}\label{eq:principal_plane}
+% \tan 2\theta = \frac{\gamma_{xy}}{\varepsilon_{xx} - \varepsilon_{yy}}
+% \end{equation}
 
-La solución de la ecuación \ref{eq:principal_plane} proporciona dos valores para el ángulo $\theta$. Estos son 
-$\theta_1$ y $\theta_2$, que corresponden al ángulo medido del eje x a los ejes correspondientes de las 
-deformaciones principales $\varepsilon_1$ y $\varepsilon_2$ respectivamente.\\
+% La solución de la ecuación \ref{eq:principal_plane} proporciona dos valores para el ángulo $\theta$. Estos son 
+% $\theta_1$ y $\theta_2$, que corresponden al ángulo medido del eje x a los ejes correspondientes de las 
+% deformaciones principales $\varepsilon_1$ y $\varepsilon_2$ respectivamente.\\
 
-Los esfuerzos principales pueden ser calculados a partir de las ecuaciones \ref{eq:principal_stress_1} y 
-\ref{eq:principal_stress_2}. En la práctica, una roseta de tres elementos con ángulos específicos son 
-utilizadas para realizar lecturas que definen de manera completa el estado de esfuerzo y deformaciones.
+% Los esfuerzos principales pueden ser calculados a partir de las ecuaciones \ref{eq:principal_stress_1} y 
+% \ref{eq:principal_stress_2}. En la práctica, una roseta de tres elementos con ángulos específicos son 
+% utilizadas para realizar lecturas que definen de manera completa el estado de esfuerzo y deformaciones.
